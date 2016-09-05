@@ -1,0 +1,1037 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TecniPartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aplicaciones">
+          <Key>
+            <PropertyRef Name="IdAplicaciones" />
+          </Key>
+          <Property Name="IdAplicaciones" Type="int" Nullable="false" />
+          <Property Name="IdVehiculos" Type="int" Nullable="false" />
+          <Property Name="CodigoOem" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatalogoDetalles">
+          <Key>
+            <PropertyRef Name="IdCatalogoDetalle" />
+          </Key>
+          <Property Name="IdCatalogoDetalle" Type="int" Nullable="false" />
+          <Property Name="IdItem" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="AplicaKit" Type="bit" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="IdCatalogos" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Catalogos">
+          <Key>
+            <PropertyRef Name="IdCatalogos" />
+          </Key>
+          <Property Name="IdCatalogos" Type="bigint" Nullable="false" />
+          <Property Name="IdVehiculos" Type="int" Nullable="false" />
+          <Property Name="IdSistemas" Type="int" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="int" Nullable="false" />
+          <Property Name="ImagenCatalogo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="EstadoMaestras">
+          <Key>
+            <PropertyRef Name="IdEstadoMaestras" />
+          </Key>
+          <Property Name="IdEstadoMaestras" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Desripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fabricantes">
+          <Key>
+            <PropertyRef Name="IdFabricantes" />
+          </Key>
+          <Property Name="IdFabricantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImagenFabricante" Type="varbinary(max)" />
+          <Property Name="IdEstadoMaestras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marcas">
+          <Key>
+            <PropertyRef Name="IdMarcas" />
+          </Key>
+          <Property Name="IdMarcas" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sigla" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdDane" Type="int" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Referencias">
+          <Key>
+            <PropertyRef Name="CodigoOem" />
+          </Key>
+          <Property Name="CodigoOem" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kit" Type="bit" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DescripcionTecnica" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdFabricante" Type="int" Nullable="false" />
+          <Property Name="IdSistemas" Type="int" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="int" Nullable="false" />
+          <Property Name="CodigoOemPadre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdMarcas" Type="int" />
+        </EntityType>
+        <EntityType Name="Sistemas">
+          <Key>
+            <PropertyRef Name="IdSistemas" />
+          </Key>
+          <Property Name="IdSistemas" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Posicion" Type="int" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubSistemas">
+          <Key>
+            <PropertyRef Name="IdSubSistemas" />
+          </Key>
+          <Property Name="IdSubSistemas" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdSistemas" Type="int" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculos">
+          <Key>
+            <PropertyRef Name="IdVehiculos" />
+          </Key>
+          <Property Name="IdVehiculos" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImagenVehiculo" Type="varbinary(max)" />
+          <Property Name="IdFabricantes" Type="int" Nullable="false" />
+          <Property Name="IdMarca" Type="int" Nullable="false" />
+          <Property Name="Ango" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="VehiculoSistemas">
+          <Key>
+            <PropertyRef Name="IdVehiculoSistemas" />
+          </Key>
+          <Property Name="IdVehiculoSistemas" Type="int" Nullable="false" />
+          <Property Name="IdVehiculos" Type="int" Nullable="false" />
+          <Property Name="IdSistemas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VehiculoSubSistemas">
+          <Key>
+            <PropertyRef Name="IdVehiculoSubSistemas" />
+          </Key>
+          <Property Name="IdVehiculoSubSistemas" Type="int" Nullable="false" />
+          <Property Name="IdVehiculoSistemas" Type="int" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Aplicaciones_CodigoOem_Referencias_CodigoOem">
+          <End Role="Referencias" Type="Self.Referencias" Multiplicity="1" />
+          <End Role="Aplicaciones" Type="Self.Aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referencias">
+              <PropertyRef Name="CodigoOem" />
+            </Principal>
+            <Dependent Role="Aplicaciones">
+              <PropertyRef Name="CodigoOem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos">
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
+          <End Role="Aplicaciones" Type="Self.Aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="IdVehiculos" />
+            </Principal>
+            <Dependent Role="Aplicaciones">
+              <PropertyRef Name="IdVehiculos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos">
+          <End Role="Catalogos" Type="Self.Catalogos" Multiplicity="1" />
+          <End Role="CatalogoDetalles" Type="Self.CatalogoDetalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalogos">
+              <PropertyRef Name="IdCatalogos" />
+            </Principal>
+            <Dependent Role="CatalogoDetalles">
+              <PropertyRef Name="IdCatalogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdSistemas_Sistemas_IdSistemas">
+          <End Role="Sistemas" Type="Self.Sistemas" Multiplicity="1" />
+          <End Role="Catalogos" Type="Self.Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas">
+          <End Role="SubSistemas" Type="Self.SubSistemas" Multiplicity="1" />
+          <End Role="Catalogos" Type="Self.Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdSubSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos">
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
+          <End Role="Catalogos" Type="Self.Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="IdVehiculos" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdVehiculos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Role="EstadoMaestras" Type="Self.EstadoMaestras" Multiplicity="1" />
+          <End Role="Fabricantes" Type="Self.Fabricantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Fabricantes">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fabricantes_IdPais_Pais_IdPais">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Fabricantes" Type="Self.Fabricantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="IdPais" />
+            </Principal>
+            <Dependent Role="Fabricantes">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Role="EstadoMaestras" Type="Self.EstadoMaestras" Multiplicity="1" />
+          <End Role="Marcas" Type="Self.Marcas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Marcas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Role="EstadoMaestras" Type="Self.EstadoMaestras" Multiplicity="1" />
+          <End Role="Pais" Type="Self.Pais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Role="EstadoMaestras" Type="Self.EstadoMaestras" Multiplicity="1" />
+          <End Role="Sistemas" Type="Self.Sistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Sistemas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Role="EstadoMaestras" Type="Self.EstadoMaestras" Multiplicity="1" />
+          <End Role="SubSistemas" Type="Self.SubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="SubSistemas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSistemas_IdSistemas_Sistema_IdSistemas">
+          <End Role="Sistemas" Type="Self.Sistemas" Multiplicity="1" />
+          <End Role="SubSistemas" Type="Self.SubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Principal>
+            <Dependent Role="SubSistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes">
+          <End Role="Fabricantes" Type="Self.Fabricantes" Multiplicity="1" />
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricantes">
+              <PropertyRef Name="IdFabricantes" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="IdFabricantes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_IdMarca_Marcas_IdMarca">
+          <End Role="Marcas" Type="Self.Marcas" Multiplicity="1" />
+          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="IdMarcas" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas">
+          <End Role="SubSistemas" Type="Self.SubSistemas" Multiplicity="1" />
+          <End Role="VehiculoSubSistemas" Type="Self.VehiculoSubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Principal>
+            <Dependent Role="VehiculoSubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas">
+          <End Role="VehiculoSistemas" Type="Self.VehiculoSistemas" Multiplicity="1" />
+          <End Role="VehiculoSubSistemas" Type="Self.VehiculoSubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehiculoSistemas">
+              <PropertyRef Name="IdVehiculoSistemas" />
+            </Principal>
+            <Dependent Role="VehiculoSubSistemas">
+              <PropertyRef Name="IdVehiculoSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TecniPartModelStoreContainer">
+          <EntitySet Name="Aplicaciones" EntityType="Self.Aplicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatalogoDetalles" EntityType="Self.CatalogoDetalles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catalogos" EntityType="Self.Catalogos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstadoMaestras" EntityType="Self.EstadoMaestras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fabricantes" EntityType="Self.Fabricantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Referencias" EntityType="Self.Referencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sistemas" EntityType="Self.Sistemas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubSistemas" EntityType="Self.SubSistemas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehiculoSistemas" EntityType="Self.VehiculoSistemas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VehiculoSubSistemas" EntityType="Self.VehiculoSubSistemas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Aplicaciones_CodigoOem_Referencias_CodigoOem" Association="Self.FK_Aplicaciones_CodigoOem_Referencias_CodigoOem">
+            <End Role="Referencias" EntitySet="Referencias" />
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos" Association="Self.FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos" Association="Self.FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos">
+            <End Role="Catalogos" EntitySet="Catalogos" />
+            <End Role="CatalogoDetalles" EntitySet="CatalogoDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdSistemas_Sistemas_IdSistemas" Association="Self.FK_Catalogos_IdSistemas_Sistemas_IdSistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" Association="Self.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas">
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" Association="Self.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="Self.FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fabricantes_IdPais_Pais_IdPais" Association="Self.FK_Fabricantes_IdPais_Pais_IdPais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="Self.FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Marcas" EntitySet="Marcas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="Self.FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="Self.FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Sistemas" EntitySet="Sistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="Self.FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSistemas_IdSistemas_Sistema_IdSistemas" Association="Self.FK_SubSistemas_IdSistemas_Sistema_IdSistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" Association="Self.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes">
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_IdMarca_Marcas_IdMarca" Association="Self.FK_Vehiculos_IdMarca_Marcas_IdMarca">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas" Association="Self.FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas">
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+            <End Role="VehiculoSubSistemas" EntitySet="VehiculoSubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" Association="Self.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas">
+            <End Role="VehiculoSistemas" EntitySet="VehiculoSistemas" />
+            <End Role="VehiculoSubSistemas" EntitySet="VehiculoSubSistemas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TecniPartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TecniPartEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aplicaciones" EntityType="TecniPartModel.AplicacionesData" />
+          <EntitySet Name="CatalogoDetalles" EntityType="TecniPartModel.CatalogoDetallesData" />
+          <EntitySet Name="Catalogos" EntityType="TecniPartModel.CatalogosData" />
+          <EntitySet Name="EstadoMaestras" EntityType="TecniPartModel.EstadoMaestrasData" />
+          <EntitySet Name="Fabricantes" EntityType="TecniPartModel.FabricantesData" />
+          <EntitySet Name="Marcas" EntityType="TecniPartModel.MarcasData" />
+          <EntitySet Name="Pais" EntityType="TecniPartModel.PaisData" />
+          <EntitySet Name="Referencias" EntityType="TecniPartModel.ReferenciasData" />
+          <EntitySet Name="Sistemas" EntityType="TecniPartModel.SistemasData" />
+          <EntitySet Name="SubSistemas" EntityType="TecniPartModel.SubSistemasData" />
+          <EntitySet Name="Vehiculos" EntityType="TecniPartModel.VehiculosData" />
+          <EntitySet Name="VehiculoSistemas" EntityType="TecniPartModel.VehiculoSistemasData" />
+          <EntitySet Name="VehiculoSubSistemas" EntityType="TecniPartModel.VehiculoSubSistemasData" />
+          <AssociationSet Name="FK_Aplicaciones_CodigoOem_Referencias_CodigoOem" Association="TecniPartModel.FK_Aplicaciones_CodigoOem_Referencias_CodigoOem">
+            <End Role="Referencias" EntitySet="Referencias" />
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos" Association="TecniPartModel.FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Aplicaciones" EntitySet="Aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos" Association="TecniPartModel.FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos">
+            <End Role="Catalogos" EntitySet="Catalogos" />
+            <End Role="CatalogoDetalles" EntitySet="CatalogoDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdSistemas_Sistemas_IdSistemas" Association="TecniPartModel.FK_Catalogos_IdSistemas_Sistemas_IdSistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" Association="TecniPartModel.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas">
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" Association="TecniPartModel.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Catalogos" EntitySet="Catalogos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="TecniPartModel.FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="TecniPartModel.FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Marcas" EntitySet="Marcas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="TecniPartModel.FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Pais" EntitySet="Pais" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="TecniPartModel.FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="Sistemas" EntitySet="Sistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" Association="TecniPartModel.FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+            <End Role="EstadoMaestras" EntitySet="EstadoMaestras" />
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fabricantes_IdPais_Pais_IdPais" Association="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" Association="TecniPartModel.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes">
+            <End Role="Fabricantes" EntitySet="Fabricantes" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_IdMarca_Marcas_IdMarca" Association="TecniPartModel.FK_Vehiculos_IdMarca_Marcas_IdMarca">
+            <End Role="Marcas" EntitySet="Marcas" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubSistemas_IdSistemas_Sistema_IdSistemas" Association="TecniPartModel.FK_SubSistemas_IdSistemas_Sistema_IdSistemas">
+            <End Role="Sistemas" EntitySet="Sistemas" />
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas" Association="TecniPartModel.FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas">
+            <End Role="SubSistemas" EntitySet="SubSistemas" />
+            <End Role="VehiculoSubSistemas" EntitySet="VehiculoSubSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" Association="TecniPartModel.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas">
+            <End Role="VehiculoSistemas" EntitySet="VehiculoSistemas" />
+            <End Role="VehiculoSubSistemas" EntitySet="VehiculoSubSistemas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AplicacionesData">
+          <Key>
+            <PropertyRef Name="IdAplicaciones" />
+          </Key>
+          <Property Name="IdAplicaciones" Type="Int32" Nullable="false" />
+          <Property Name="IdVehiculos" Type="Int32" Nullable="false" />
+          <Property Name="CodigoOem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Referencias" Relationship="TecniPartModel.FK_Aplicaciones_CodigoOem_Referencias_CodigoOem" FromRole="Aplicaciones" ToRole="Referencias" />
+          <NavigationProperty Name="Vehiculos" Relationship="TecniPartModel.FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos" FromRole="Aplicaciones" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="CatalogoDetallesData">
+          <Key>
+            <PropertyRef Name="IdCatalogoDetalle" />
+          </Key>
+          <Property Name="IdCatalogoDetalle" Type="Int32" Nullable="false" />
+          <Property Name="IdItem" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="AplicaKit" Type="Boolean" Nullable="false" />
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="IdCatalogos" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Catalogos" Relationship="TecniPartModel.FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos" FromRole="CatalogoDetalles" ToRole="Catalogos" />
+        </EntityType>
+        <EntityType Name="CatalogosData">
+          <Key>
+            <PropertyRef Name="IdCatalogos" />
+          </Key>
+          <Property Name="IdCatalogos" Type="Int64" Nullable="false" />
+          <Property Name="IdVehiculos" Type="Int32" Nullable="false" />
+          <Property Name="IdSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="Int32" Nullable="false" />
+          <Property Name="ImagenCatalogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CatalogoDetalles" Relationship="TecniPartModel.FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos" FromRole="Catalogos" ToRole="CatalogoDetalles" />
+          <NavigationProperty Name="Sistemas" Relationship="TecniPartModel.FK_Catalogos_IdSistemas_Sistemas_IdSistemas" FromRole="Catalogos" ToRole="Sistemas" />
+          <NavigationProperty Name="SubSistemas" Relationship="TecniPartModel.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" FromRole="Catalogos" ToRole="SubSistemas" />
+          <NavigationProperty Name="Vehiculos" Relationship="TecniPartModel.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" FromRole="Catalogos" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="EstadoMaestrasData">
+          <Key>
+            <PropertyRef Name="IdEstadoMaestras" />
+          </Key>
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Desripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Fabricantes" Relationship="TecniPartModel.FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="EstadoMaestras" ToRole="Fabricantes" />
+          <NavigationProperty Name="Marcas" Relationship="TecniPartModel.FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="EstadoMaestras" ToRole="Marcas" />
+          <NavigationProperty Name="Pais" Relationship="TecniPartModel.FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="EstadoMaestras" ToRole="Pais" />
+          <NavigationProperty Name="Sistemas" Relationship="TecniPartModel.FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="EstadoMaestras" ToRole="Sistemas" />
+          <NavigationProperty Name="SubSistemas" Relationship="TecniPartModel.FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="EstadoMaestras" ToRole="SubSistemas" />
+        </EntityType>
+        <EntityType Name="FabricantesData">
+          <Key>
+            <PropertyRef Name="IdFabricantes" />
+          </Key>
+          <Property Name="IdFabricantes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ImagenFabricante" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EstadoMaestras" Relationship="TecniPartModel.FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="Fabricantes" ToRole="EstadoMaestras" />
+          <NavigationProperty Name="Pais" Relationship="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais" FromRole="Fabricantes" ToRole="Pais" />
+          <NavigationProperty Name="Vehiculos" Relationship="TecniPartModel.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" FromRole="Fabricantes" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="MarcasData">
+          <Key>
+            <PropertyRef Name="IdMarcas" />
+          </Key>
+          <Property Name="IdMarcas" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sigla" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EstadoMaestras" Relationship="TecniPartModel.FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="Marcas" ToRole="EstadoMaestras" />
+          <NavigationProperty Name="Vehiculos" Relationship="TecniPartModel.FK_Vehiculos_IdMarca_Marcas_IdMarca" FromRole="Marcas" ToRole="Vehiculos" />
+        </EntityType>
+        <EntityType Name="PaisData">
+          <Key>
+            <PropertyRef Name="IdPais" />
+          </Key>
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdDane" Type="Int32" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EstadoMaestras" Relationship="TecniPartModel.FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="Pais" ToRole="EstadoMaestras" />
+          <NavigationProperty Name="Fabricantes" Relationship="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais" FromRole="Pais" ToRole="Fabricantes" />
+        </EntityType>
+        <EntityType Name="ReferenciasData">
+          <Key>
+            <PropertyRef Name="CodigoOem" />
+          </Key>
+          <Property Name="CodigoOem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kit" Type="Boolean" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DescripcionTecnica" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdFabricante" Type="Int32" Nullable="false" />
+          <Property Name="IdSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="Int32" Nullable="false" />
+          <Property Name="CodigoOemPadre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdMarcas" Type="Int32" />
+          <NavigationProperty Name="Aplicaciones" Relationship="TecniPartModel.FK_Aplicaciones_CodigoOem_Referencias_CodigoOem" FromRole="Referencias" ToRole="Aplicaciones" />
+        </EntityType>
+        <EntityType Name="SistemasData">
+          <Key>
+            <PropertyRef Name="IdSistemas" />
+          </Key>
+          <Property Name="IdSistemas" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Posicion" Type="Int32" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogos" Relationship="TecniPartModel.FK_Catalogos_IdSistemas_Sistemas_IdSistemas" FromRole="Sistemas" ToRole="Catalogos" />
+          <NavigationProperty Name="EstadoMaestras" Relationship="TecniPartModel.FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="Sistemas" ToRole="EstadoMaestras" />
+          <NavigationProperty Name="SubSistemas" Relationship="TecniPartModel.FK_SubSistemas_IdSistemas_Sistema_IdSistemas" FromRole="Sistemas" ToRole="SubSistemas" />
+        </EntityType>
+        <EntityType Name="SubSistemasData">
+          <Key>
+            <PropertyRef Name="IdSubSistemas" />
+          </Key>
+          <Property Name="IdSubSistemas" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdEstadoMaestras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catalogos" Relationship="TecniPartModel.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" FromRole="SubSistemas" ToRole="Catalogos" />
+          <NavigationProperty Name="EstadoMaestras" Relationship="TecniPartModel.FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" FromRole="SubSistemas" ToRole="EstadoMaestras" />
+          <NavigationProperty Name="Sistemas" Relationship="TecniPartModel.FK_SubSistemas_IdSistemas_Sistema_IdSistemas" FromRole="SubSistemas" ToRole="Sistemas" />
+          <NavigationProperty Name="VehiculoSubSistemas" Relationship="TecniPartModel.FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas" FromRole="SubSistemas" ToRole="VehiculoSubSistemas" />
+        </EntityType>
+        <EntityType Name="VehiculosData">
+          <Key>
+            <PropertyRef Name="IdVehiculos" />
+          </Key>
+          <Property Name="IdVehiculos" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ImagenVehiculo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdFabricantes" Type="Int32" Nullable="false" />
+          <Property Name="IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="Ango" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aplicaciones" Relationship="TecniPartModel.FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos" FromRole="Vehiculos" ToRole="Aplicaciones" />
+          <NavigationProperty Name="Catalogos" Relationship="TecniPartModel.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" FromRole="Vehiculos" ToRole="Catalogos" />
+          <NavigationProperty Name="Fabricantes" Relationship="TecniPartModel.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" FromRole="Vehiculos" ToRole="Fabricantes" />
+          <NavigationProperty Name="Marcas" Relationship="TecniPartModel.FK_Vehiculos_IdMarca_Marcas_IdMarca" FromRole="Vehiculos" ToRole="Marcas" />
+        </EntityType>
+        <EntityType Name="VehiculoSistemasData">
+          <Key>
+            <PropertyRef Name="IdVehiculoSistemas" />
+          </Key>
+          <Property Name="IdVehiculoSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdVehiculos" Type="Int32" Nullable="false" />
+          <Property Name="IdSistemas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VehiculoSubSistemas" Relationship="TecniPartModel.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" FromRole="VehiculoSistemas" ToRole="VehiculoSubSistemas" />
+        </EntityType>
+        <EntityType Name="VehiculoSubSistemasData">
+          <Key>
+            <PropertyRef Name="IdVehiculoSubSistemas" />
+          </Key>
+          <Property Name="IdVehiculoSubSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdVehiculoSistemas" Type="Int32" Nullable="false" />
+          <Property Name="IdSubSistemas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SubSistemas" Relationship="TecniPartModel.FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas" FromRole="VehiculoSubSistemas" ToRole="SubSistemas" />
+          <NavigationProperty Name="VehiculoSistemas" Relationship="TecniPartModel.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" FromRole="VehiculoSubSistemas" ToRole="VehiculoSistemas" />
+        </EntityType>
+        <Association Name="FK_Aplicaciones_CodigoOem_Referencias_CodigoOem">
+          <End Type="TecniPartModel.ReferenciasData" Role="Referencias" Multiplicity="1" />
+          <End Type="TecniPartModel.AplicacionesData" Role="Aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Referencias">
+              <PropertyRef Name="CodigoOem" />
+            </Principal>
+            <Dependent Role="Aplicaciones">
+              <PropertyRef Name="CodigoOem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos">
+          <End Type="TecniPartModel.VehiculosData" Role="Vehiculos" Multiplicity="1" />
+          <End Type="TecniPartModel.AplicacionesData" Role="Aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="IdVehiculos" />
+            </Principal>
+            <Dependent Role="Aplicaciones">
+              <PropertyRef Name="IdVehiculos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos">
+          <End Type="TecniPartModel.CatalogosData" Role="Catalogos" Multiplicity="1" />
+          <End Type="TecniPartModel.CatalogoDetallesData" Role="CatalogoDetalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catalogos">
+              <PropertyRef Name="IdCatalogos" />
+            </Principal>
+            <Dependent Role="CatalogoDetalles">
+              <PropertyRef Name="IdCatalogos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdSistemas_Sistemas_IdSistemas">
+          <End Type="TecniPartModel.SistemasData" Role="Sistemas" Multiplicity="1" />
+          <End Type="TecniPartModel.CatalogosData" Role="Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas">
+          <End Type="TecniPartModel.SubSistemasData" Role="SubSistemas" Multiplicity="1" />
+          <End Type="TecniPartModel.CatalogosData" Role="Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdSubSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos">
+          <End Type="TecniPartModel.VehiculosData" Role="Vehiculos" Multiplicity="1" />
+          <End Type="TecniPartModel.CatalogosData" Role="Catalogos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="IdVehiculos" />
+            </Principal>
+            <Dependent Role="Catalogos">
+              <PropertyRef Name="IdVehiculos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Type="TecniPartModel.EstadoMaestrasData" Role="EstadoMaestras" Multiplicity="1" />
+          <End Type="TecniPartModel.FabricantesData" Role="Fabricantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Fabricantes">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Type="TecniPartModel.EstadoMaestrasData" Role="EstadoMaestras" Multiplicity="1" />
+          <End Type="TecniPartModel.MarcasData" Role="Marcas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Marcas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Type="TecniPartModel.EstadoMaestrasData" Role="EstadoMaestras" Multiplicity="1" />
+          <End Type="TecniPartModel.PaisData" Role="Pais" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Pais">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Type="TecniPartModel.EstadoMaestrasData" Role="EstadoMaestras" Multiplicity="1" />
+          <End Type="TecniPartModel.SistemasData" Role="Sistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="Sistemas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras">
+          <End Type="TecniPartModel.EstadoMaestrasData" Role="EstadoMaestras" Multiplicity="1" />
+          <End Type="TecniPartModel.SubSistemasData" Role="SubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EstadoMaestras">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Principal>
+            <Dependent Role="SubSistemas">
+              <PropertyRef Name="IdEstadoMaestras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fabricantes_IdPais_Pais_IdPais">
+          <End Type="TecniPartModel.PaisData" Role="Pais" Multiplicity="1" />
+          <End Type="TecniPartModel.FabricantesData" Role="Fabricantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="IdPais" />
+            </Principal>
+            <Dependent Role="Fabricantes">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes">
+          <End Type="TecniPartModel.FabricantesData" Role="Fabricantes" Multiplicity="1" />
+          <End Type="TecniPartModel.VehiculosData" Role="Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricantes">
+              <PropertyRef Name="IdFabricantes" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="IdFabricantes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_IdMarca_Marcas_IdMarca">
+          <End Type="TecniPartModel.MarcasData" Role="Marcas" Multiplicity="1" />
+          <End Type="TecniPartModel.VehiculosData" Role="Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marcas">
+              <PropertyRef Name="IdMarcas" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubSistemas_IdSistemas_Sistema_IdSistemas">
+          <End Type="TecniPartModel.SistemasData" Role="Sistemas" Multiplicity="1" />
+          <End Type="TecniPartModel.SubSistemasData" Role="SubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Principal>
+            <Dependent Role="SubSistemas">
+              <PropertyRef Name="IdSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas">
+          <End Type="TecniPartModel.SubSistemasData" Role="SubSistemas" Multiplicity="1" />
+          <End Type="TecniPartModel.VehiculoSubSistemasData" Role="VehiculoSubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Principal>
+            <Dependent Role="VehiculoSubSistemas">
+              <PropertyRef Name="IdSubSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas">
+          <End Type="TecniPartModel.VehiculoSistemasData" Role="VehiculoSistemas" Multiplicity="1" />
+          <End Type="TecniPartModel.VehiculoSubSistemasData" Role="VehiculoSubSistemas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VehiculoSistemas">
+              <PropertyRef Name="IdVehiculoSistemas" />
+            </Principal>
+            <Dependent Role="VehiculoSubSistemas">
+              <PropertyRef Name="IdVehiculoSistemas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TecniPartModelStoreContainer" CdmEntityContainer="TecniPartEntities">
+          <EntitySetMapping Name="Aplicaciones">
+            <EntityTypeMapping TypeName="TecniPartModel.AplicacionesData">
+              <MappingFragment StoreEntitySet="Aplicaciones">
+                <ScalarProperty Name="CodigoOem" ColumnName="CodigoOem" />
+                <ScalarProperty Name="IdVehiculos" ColumnName="IdVehiculos" />
+                <ScalarProperty Name="IdAplicaciones" ColumnName="IdAplicaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatalogoDetalles">
+            <EntityTypeMapping TypeName="TecniPartModel.CatalogoDetallesData">
+              <MappingFragment StoreEntitySet="CatalogoDetalles">
+                <ScalarProperty Name="IdCatalogos" ColumnName="IdCatalogos" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="AplicaKit" ColumnName="AplicaKit" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="IdCatalogoDetalle" ColumnName="IdCatalogoDetalle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catalogos">
+            <EntityTypeMapping TypeName="TecniPartModel.CatalogosData">
+              <MappingFragment StoreEntitySet="Catalogos">
+                <ScalarProperty Name="ImagenCatalogo" ColumnName="ImagenCatalogo" />
+                <ScalarProperty Name="IdSubSistemas" ColumnName="IdSubSistemas" />
+                <ScalarProperty Name="IdSistemas" ColumnName="IdSistemas" />
+                <ScalarProperty Name="IdVehiculos" ColumnName="IdVehiculos" />
+                <ScalarProperty Name="IdCatalogos" ColumnName="IdCatalogos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstadoMaestras">
+            <EntityTypeMapping TypeName="TecniPartModel.EstadoMaestrasData">
+              <MappingFragment StoreEntitySet="EstadoMaestras">
+                <ScalarProperty Name="Desripcion" ColumnName="Desripcion" />
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fabricantes">
+            <EntityTypeMapping TypeName="TecniPartModel.FabricantesData">
+              <MappingFragment StoreEntitySet="Fabricantes">
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+                <ScalarProperty Name="ImagenFabricante" ColumnName="ImagenFabricante" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="IdFabricantes" ColumnName="IdFabricantes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marcas">
+            <EntityTypeMapping TypeName="TecniPartModel.MarcasData">
+              <MappingFragment StoreEntitySet="Marcas">
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+                <ScalarProperty Name="Sigla" ColumnName="Sigla" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdMarcas" ColumnName="IdMarcas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="TecniPartModel.PaisData">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+                <ScalarProperty Name="IdDane" ColumnName="IdDane" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Referencias">
+            <EntityTypeMapping TypeName="TecniPartModel.ReferenciasData">
+              <MappingFragment StoreEntitySet="Referencias">
+                <ScalarProperty Name="IdMarcas" ColumnName="IdMarcas" />
+                <ScalarProperty Name="CodigoOemPadre" ColumnName="CodigoOemPadre" />
+                <ScalarProperty Name="IdSubSistemas" ColumnName="IdSubSistemas" />
+                <ScalarProperty Name="IdSistemas" ColumnName="IdSistemas" />
+                <ScalarProperty Name="IdFabricante" ColumnName="IdFabricante" />
+                <ScalarProperty Name="DescripcionTecnica" ColumnName="DescripcionTecnica" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Kit" ColumnName="Kit" />
+                <ScalarProperty Name="CodigoOem" ColumnName="CodigoOem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sistemas">
+            <EntityTypeMapping TypeName="TecniPartModel.SistemasData">
+              <MappingFragment StoreEntitySet="Sistemas">
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdSistemas" ColumnName="IdSistemas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubSistemas">
+            <EntityTypeMapping TypeName="TecniPartModel.SubSistemasData">
+              <MappingFragment StoreEntitySet="SubSistemas">
+                <ScalarProperty Name="IdEstadoMaestras" ColumnName="IdEstadoMaestras" />
+                <ScalarProperty Name="IdSistemas" ColumnName="IdSistemas" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdSubSistemas" ColumnName="IdSubSistemas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculos">
+            <EntityTypeMapping TypeName="TecniPartModel.VehiculosData">
+              <MappingFragment StoreEntitySet="Vehiculos">
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Ango" ColumnName="Ango" />
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="IdFabricantes" ColumnName="IdFabricantes" />
+                <ScalarProperty Name="ImagenVehiculo" ColumnName="ImagenVehiculo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdVehiculos" ColumnName="IdVehiculos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehiculoSistemas">
+            <EntityTypeMapping TypeName="TecniPartModel.VehiculoSistemasData">
+              <MappingFragment StoreEntitySet="VehiculoSistemas">
+                <ScalarProperty Name="IdSistemas" ColumnName="IdSistemas" />
+                <ScalarProperty Name="IdVehiculos" ColumnName="IdVehiculos" />
+                <ScalarProperty Name="IdVehiculoSistemas" ColumnName="IdVehiculoSistemas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VehiculoSubSistemas">
+            <EntityTypeMapping TypeName="TecniPartModel.VehiculoSubSistemasData">
+              <MappingFragment StoreEntitySet="VehiculoSubSistemas">
+                <ScalarProperty Name="IdSubSistemas" ColumnName="IdSubSistemas" />
+                <ScalarProperty Name="IdVehiculoSistemas" ColumnName="IdVehiculoSistemas" />
+                <ScalarProperty Name="IdVehiculoSubSistemas" ColumnName="IdVehiculoSubSistemas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

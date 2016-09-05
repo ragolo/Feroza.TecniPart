@@ -3,8 +3,79 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Dominio", "1. Dominio", "{5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Servicios", "2. Servicios", "{B13EE309-9B46-46B1-B9D5-289788A28241}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infraestructura", "3. Infraestructura", "{A916AE03-4542-4B0E-8358-A8D11D23E446}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Web", "4. Web", "{2C41EDB1-FA38-431E-8F7C-4DF3A862C56B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Test", "5. Test", "{4D35A76D-A93E-41E1-B4E6-106955E19490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Dominio.Interfaces", "1. Dominio\Feroza.TecniPart.Dominio.Interfaces\Feroza.TecniPart.Dominio.Interfaces.csproj", "{7BBE9098-B7A5-4984-A9F6-660B700548C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Dominio.Entidades", "1. Dominio\Feroza.TecniPart.Dominio.Entidades\Feroza.TecniPart.Dominio.Entidades.csproj", "{0FFD62FE-487E-404A-9CE9-ED8777269D4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Core", "1. Core", "{28E0A5FA-DEF3-4820-96A0-FD5F95C3925D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Servicios.Interfaces", "2. Servicios\Feroza.TecniPart.Servicios.Interfaces\Feroza.TecniPart.Servicios.Interfaces.csproj", "{1AB91710-8192-4E73-BA3F-60F7E4413254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Infraestructura.Data", "3. Infraestructura\Feroza.TecniPart.Infraestructura.Data\Feroza.TecniPart.Infraestructura.Data.csproj", "{0A4D2752-5163-49E0-A93D-189E17AED94F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Infraestructura.ResolucionDepencias", "3. Infraestructura\Feroza.TecniPart.Infraestructura.ResolucionDepencias\Feroza.TecniPart.Infraestructura.ResolucionDepencias.csproj", "{E4E1C22B-55A3-445B-801C-D3991797519E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Tests.Core", "5. Tests\Feroza.TecniPart.Tests.Core\Feroza.TecniPart.Tests.Core.csproj", "{0B5917F1-5600-4E67-A0BC-F32798ADE76E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.TecniPart.Web.UI", "4. Web\Feroza.TecniPart.Web.UI\Feroza.TecniPart.Web.UI.csproj", "{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BBE9098-B7A5-4984-A9F6-660B700548C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBE9098-B7A5-4984-A9F6-660B700548C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBE9098-B7A5-4984-A9F6-660B700548C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBE9098-B7A5-4984-A9F6-660B700548C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FFD62FE-487E-404A-9CE9-ED8777269D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FFD62FE-487E-404A-9CE9-ED8777269D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FFD62FE-487E-404A-9CE9-ED8777269D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FFD62FE-487E-404A-9CE9-ED8777269D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB91710-8192-4E73-BA3F-60F7E4413254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB91710-8192-4E73-BA3F-60F7E4413254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB91710-8192-4E73-BA3F-60F7E4413254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB91710-8192-4E73-BA3F-60F7E4413254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4D2752-5163-49E0-A93D-189E17AED94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4D2752-5163-49E0-A93D-189E17AED94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4D2752-5163-49E0-A93D-189E17AED94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4D2752-5163-49E0-A93D-189E17AED94F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E1C22B-55A3-445B-801C-D3991797519E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E1C22B-55A3-445B-801C-D3991797519E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E1C22B-55A3-445B-801C-D3991797519E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E1C22B-55A3-445B-801C-D3991797519E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B5917F1-5600-4E67-A0BC-F32798ADE76E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B5917F1-5600-4E67-A0BC-F32798ADE76E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B5917F1-5600-4E67-A0BC-F32798ADE76E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B5917F1-5600-4E67-A0BC-F32798ADE76E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A} = {28E0A5FA-DEF3-4820-96A0-FD5F95C3925D}
+		{B13EE309-9B46-46B1-B9D5-289788A28241} = {28E0A5FA-DEF3-4820-96A0-FD5F95C3925D}
+		{7BBE9098-B7A5-4984-A9F6-660B700548C8} = {5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A}
+		{0FFD62FE-487E-404A-9CE9-ED8777269D4D} = {5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A}
+		{1AB91710-8192-4E73-BA3F-60F7E4413254} = {B13EE309-9B46-46B1-B9D5-289788A28241}
+		{0A4D2752-5163-49E0-A93D-189E17AED94F} = {A916AE03-4542-4B0E-8358-A8D11D23E446}
+		{E4E1C22B-55A3-445B-801C-D3991797519E} = {A916AE03-4542-4B0E-8358-A8D11D23E446}
+		{0B5917F1-5600-4E67-A0BC-F32798ADE76E} = {4D35A76D-A93E-41E1-B4E6-106955E19490}
+		{E7D7AD06-24B3-4CC5-A855-DF02869DFE7D} = {2C41EDB1-FA38-431E-8F7C-4DF3A862C56B}
 	EndGlobalSection
 EndGlobal
