@@ -17,7 +17,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
-    public class EstadoMaestrasServicios : IEstadoMaestrasServicio
+    public class EstadoMaestrasServicios : IEstadoMaestrasServicios
     {
         /// <summary>
         /// The estado maestras repositorio.

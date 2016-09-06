@@ -1,4 +1,4 @@
-namespace Feroza.TecniPart.Web.UI.Areas.HelpPage
+namespace Feroza.TecniPart.Web.UI.Areas.HelpPage.SampleGeneration
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

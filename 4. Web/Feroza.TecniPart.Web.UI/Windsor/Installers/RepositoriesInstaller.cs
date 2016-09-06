@@ -1,26 +1,26 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ModuloRepositorios.cs" company="Feroza">
+// <copyright file="RepositoriesInstaller.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   The modulo repositorios.
+//   Defines the RepositoriesInstaller type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Feroza.TecniPart.Infraestructura.ResolucionDepencias
+namespace Feroza.TecniPart.Web.UI.Windsor.Installers
 {
     using Castle.MicroKernel.Registration;
     using Castle.MicroKernel.SubSystems.Configuration;
     using Castle.Windsor;
 
-    using Data.Repositorios.Administracion;
-
     using Dominio.Interfaces.Administracion;
 
+    using Feroza.TecniPart.Servicios.Interfaces.Administracion;
+
     /// <summary>
-    /// The modulo repositorios.
+    /// The repositories installer.
     /// </summary>
-    public class ModuloRepositorios : IWindsorInstaller
+    public class RepositoriesInstaller : IWindsorInstaller
     {
         /// <summary>
         /// The install.
@@ -34,9 +34,7 @@ namespace Feroza.TecniPart.Infraestructura.ResolucionDepencias
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                Component.For<IEstadoMaestrasRespositorio>()
-                    .ImplementedBy<EfEstadoMaestrasRepositorio>()
-                    .LifestyleTransient());
+            Component.For<IEstadoMaestrasServicios>().ImplementedBy<EstadoMaestrasServicios>().LifestyleTransient());
         }
     }
 }

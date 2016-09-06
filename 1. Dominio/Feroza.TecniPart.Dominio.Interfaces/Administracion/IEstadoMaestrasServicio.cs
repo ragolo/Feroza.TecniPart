@@ -16,7 +16,7 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     /// <summary>
     /// The EstadoMaestrasServicio interface.
     /// </summary>
-    public interface IEstadoMaestrasServicio
+    public interface IEstadoMaestrasServicios
     {
         /// <summary>
         /// Adds the estado maestras.

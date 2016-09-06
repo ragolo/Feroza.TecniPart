@@ -3,6 +3,8 @@ using System.Web.Mvc;
 
 namespace Feroza.TecniPart.Web.UI.Areas.HelpPage
 {
+    using Feroza.TecniPart.Web.UI.Areas.HelpPage.App_Start;
+
     public class HelpPageAreaRegistration : AreaRegistration
     {
         public override string AreaName

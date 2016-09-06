@@ -16,6 +16,8 @@ using Feroza.TecniPart.Web.UI.Areas.HelpPage.Models;
 
 namespace Feroza.TecniPart.Web.UI.Areas.HelpPage
 {
+    using Feroza.TecniPart.Web.UI.Areas.HelpPage.SampleGeneration;
+
     public static class HelpPageConfigurationExtensions
     {
         private const string ApiModelPrefix = "MS_HelpPageApiModel_";
