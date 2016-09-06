@@ -17,7 +17,7 @@
     <AssemblyName>Feroza.TecniPart.Web.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -98,50 +98,17 @@
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
       <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Owin">
-      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -174,10 +141,6 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -219,52 +182,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
-    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
-    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
-    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
-    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
-    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
-    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
-    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="Startup.cs" />
     <Compile Include="Windsor\Installers\ApiControllersInstaller.cs" />
     <Compile Include="Windsor\Installers\RepositoriesInstaller.cs" />
     <Compile Include="Windsor\WindsorCompositionRoot.cs" />
@@ -272,8 +195,186 @@
     <Compile Include="Windsor\WindsorDependencyScope.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\HelpPage\HelpPage.css" />
-    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="app\css\app-rtl.css" />
+    <Content Include="app\css\app.css" />
+    <Content Include="app\css\bootstrap-rtl.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\theme-a.css" />
+    <Content Include="app\css\theme-b.css" />
+    <Content Include="app\css\theme-c.css" />
+    <Content Include="app\css\theme-d.css" />
+    <Content Include="app\css\theme-e.css" />
+    <Content Include="app\css\theme-f.css" />
+    <Content Include="app\css\theme-g.css" />
+    <Content Include="app\css\theme-h.css" />
+    <Content Include="app\img\bg1.jpg" />
+    <Content Include="app\img\bg10.jpg" />
+    <Content Include="app\img\bg2.jpg" />
+    <Content Include="app\img\bg3.jpg" />
+    <Content Include="app\img\bg4.jpg" />
+    <Content Include="app\img\bg5.jpg" />
+    <Content Include="app\img\bg6.jpg" />
+    <Content Include="app\img\bg7.jpg" />
+    <Content Include="app\img\bg8.jpg" />
+    <Content Include="app\img\bg9.jpg" />
+    <Content Include="app\img\dummy.png" />
+    <Content Include="app\img\icons\copy.svg" />
+    <Content Include="app\img\icons\copy2.svg" />
+    <Content Include="app\img\icons\facebook.svg" />
+    <Content Include="app\img\icons\hangout.svg" />
+    <Content Include="app\img\icons\ic_close_24px.svg" />
+    <Content Include="app\img\icons\ic_refresh_24px.svg" />
+    <Content Include="app\img\icons\mail.svg" />
+    <Content Include="app\img\icons\message.svg" />
+    <Content Include="app\img\icons\print.svg" />
+    <Content Include="app\img\icons\share-arrow.svg" />
+    <Content Include="app\img\icons\twitter.svg" />
+    <Content Include="app\img\icons\upload.svg" />
+    <Content Include="app\img\lock-bg.jpg" />
+    <Content Include="app\img\logo-single.png" />
+    <Content Include="app\img\logo.png" />
+    <Content Include="app\img\mangues.jpg" />
+    <Content Include="app\img\mb-sample.jpg" />
+    <Content Include="app\img\mockup.png" />
+    <Content Include="app\img\preloader\preloader.empty.png" />
+    <Content Include="app\img\preloader\preloader.full.png" />
+    <Content Include="app\img\profile-bg.jpg" />
+    <Content Include="app\img\user-bg.jpg" />
+    <Content Include="app\img\user\01.jpg" />
+    <Content Include="app\img\user\02.jpg" />
+    <Content Include="app\img\user\03.jpg" />
+    <Content Include="app\img\user\04.jpg" />
+    <Content Include="app\img\user\05.jpg" />
+    <Content Include="app\img\user\06.jpg" />
+    <Content Include="app\img\user\07.jpg" />
+    <Content Include="app\img\user\08.jpg" />
+    <Content Include="app\img\user\09.jpg" />
+    <Content Include="app\img\user\10.jpg" />
+    <Content Include="app\img\user\11.jpg" />
+    <Content Include="app\img\user\12.jpg" />
+    <Content Include="app\img\user\13.jpg" />
+    <Content Include="app\img\welcome.jpg" />
+    <Content Include="app\img\welcome.showcase.png" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\base.js" />
+    <Content Include="app\pages\404.html" />
+    <Content Include="app\pages\500.html" />
+    <Content Include="app\pages\lock.html" />
+    <Content Include="app\pages\login.html" />
+    <Content Include="app\pages\maintenance.html" />
+    <Content Include="app\pages\page.html" />
+    <Content Include="app\pages\recover.html" />
+    <Content Include="app\pages\register.html" />
+    <Content Include="app\vendor\fastclick\lib\fastclick.js" />
+    <Content Include="app\views\app-h.html" />
+    <Content Include="app\views\app.html" />
+    <Content Include="app\views\blog-article-view.html" />
+    <Content Include="app\views\blog-articles.html" />
+    <Content Include="app\views\blog-post.html" />
+    <Content Include="app\views\blog.html" />
+    <Content Include="app\views\bug-tracker.html" />
+    <Content Include="app\views\buttons.html" />
+    <Content Include="app\views\calendar.html" />
+    <Content Include="app\views\carousel.html" />
+    <Content Include="app\views\chart-chartist.html" />
+    <Content Include="app\views\chart-flot.html" />
+    <Content Include="app\views\chart-js.html" />
+    <Content Include="app\views\chart-morris.html" />
+    <Content Include="app\views\chart-radial.html" />
+    <Content Include="app\views\chart-rickshaw.html" />
+    <Content Include="app\views\code-editor.html" />
+    <Content Include="app\views\colors.html" />
+    <Content Include="app\views\contact-details.html" />
+    <Content Include="app\views\contacts.html" />
+    <Content Include="app\views\dashboard.html" />
+    <Content Include="app\views\dashboard_v2.html" />
+    <Content Include="app\views\dashboard_v3.html" />
+    <Content Include="app\views\documentation.html" />
+    <Content Include="app\views\dropdown-animations.html" />
+    <Content Include="app\views\ecommerce-checkout.html" />
+    <Content Include="app\views\ecommerce-order-view.html" />
+    <Content Include="app\views\ecommerce-orders.html" />
+    <Content Include="app\views\ecommerce-product-view.html" />
+    <Content Include="app\views\ecommerce-products.html" />
+    <Content Include="app\views\faq.html" />
+    <Content Include="app\views\file-manager.html" />
+    <Content Include="app\views\followers.html" />
+    <Content Include="app\views\form-extended.html" />
+    <Content Include="app\views\form-imagecrop.html" />
+    <Content Include="app\views\form-standard.html" />
+    <Content Include="app\views\form-uiselect.html" />
+    <Content Include="app\views\form-upload.html" />
+    <Content Include="app\views\form-validation.html" />
+    <Content Include="app\views\form-wizard.html" />
+    <Content Include="app\views\form-xeditable.html" />
+    <Content Include="app\views\forum-discussion.html" />
+    <Content Include="app\views\forum-topics.html" />
+    <Content Include="app\views\forum.html" />
+    <Content Include="app\views\grid-masonry-deck-card.html" />
+    <Content Include="app\views\grid-masonry-deck.html" />
+    <Content Include="app\views\grid-masonry.html" />
+    <Content Include="app\views\grid.html" />
+    <Content Include="app\views\help-center.html" />
+    <Content Include="app\views\icons-font.html" />
+    <Content Include="app\views\icons-weather.html" />
+    <Content Include="app\views\infinite-scroll.html" />
+    <Content Include="app\views\interaction.html" />
+    <Content Include="app\views\invoice.html" />
+    <Content Include="app\views\localization.html" />
+    <Content Include="app\views\mailbox-compose.html" />
+    <Content Include="app\views\mailbox-inbox.html" />
+    <Content Include="app\views\mailbox-view.html" />
+    <Content Include="app\views\mailbox.html" />
+    <Content Include="app\views\maps-google.html" />
+    <Content Include="app\views\maps-vector.html" />
+    <Content Include="app\views\material.cards.html" />
+    <Content Include="app\views\material.colors.html" />
+    <Content Include="app\views\material.forms.html" />
+    <Content Include="app\views\material.inputs.html" />
+    <Content Include="app\views\material.lists.html" />
+    <Content Include="app\views\material.ngmaterial.html" />
+    <Content Include="app\views\material.whiteframe.html" />
+    <Content Include="app\views\material.widgets.html" />
+    <Content Include="app\views\nav-tree.html" />
+    <Content Include="app\views\nestable.html" />
+    <Content Include="app\views\ngdialog-template.html" />
+    <Content Include="app\views\ngdialog.html" />
+    <Content Include="app\views\notifications.html" />
+    <Content Include="app\views\panels.html" />
+    <Content Include="app\views\partials\chat.html" />
+    <Content Include="app\views\partials\footer.html" />
+    <Content Include="app\views\partials\offsidebar.html" />
+    <Content Include="app\views\partials\settings.html" />
+    <Content Include="app\views\partials\sidebar.html" />
+    <Content Include="app\views\partials\top-navbar-h.html" />
+    <Content Include="app\views\partials\top-navbar.html" />
+    <Content Include="app\views\plans.html" />
+    <Content Include="app\views\portlets.html" />
+    <Content Include="app\views\profile.html" />
+    <Content Include="app\views\project-details.html" />
+    <Content Include="app\views\projects.html" />
+    <Content Include="app\views\search.html" />
+    <Content Include="app\views\settings.html" />
+    <Content Include="app\views\social-board.html" />
+    <Content Include="app\views\sortable.html" />
+    <Content Include="app\views\spinners.html" />
+    <Content Include="app\views\sweetalert.html" />
+    <Content Include="app\views\table-angulargrid.html" />
+    <Content Include="app\views\table-datatable.html" />
+    <Content Include="app\views\table-extended.html" />
+    <Content Include="app\views\table-ngtable.html" />
+    <Content Include="app\views\table-standard.html" />
+    <Content Include="app\views\table-uigrid.html" />
+    <Content Include="app\views\table-xeditable.html" />
+    <Content Include="app\views\team-viewer.html" />
+    <Content Include="app\views\template.html" />
+    <Content Include="app\views\timeline.html" />
+    <Content Include="app\views\todo.html" />
+    <Content Include="app\views\tour.html" />
+    <Content Include="app\views\typo.html" />
+    <Content Include="app\views\vote-links.html" />
+    <Content Include="app\views\welcome.html" />
+    <Content Include="app\views\widgets.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -284,67 +385,46 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\HelpPage\Views\Web.config" />
-    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="app\i18n\en.json" />
+    <Content Include="app\i18n\es_AR.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\knockout-2.3.0.debug.js" />
-    <Content Include="Scripts\knockout-2.3.0.js" />
-    <Content Include="Scripts\knockout.validation.debug.js" />
-    <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\sammy-0.7.4.js" />
-    <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Scripts\vendor\angular-material\angular-material.css" />
+    <Content Include="Scripts\vendor\angular-material\angular-material.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
     <Content Include="Scripts\app\common.js" />
     <Content Include="Scripts\app\home.viewmodel.js" />
+    <Content Include="server\editor\source\another.html" />
+    <Content Include="server\editor\source\css\style.css" />
+    <Content Include="server\editor\source\index.html" />
+    <Content Include="server\editor\source\js\script.js" />
+    <Content Include="vendor\angularjs-toaster\toaster.css" />
+    <Content Include="vendor\angularjs-toaster\toaster.js" />
+    <Content Include="vendor\animo.js\animo.js" />
+    <Content Include="vendor\fastclick\lib\fastclick.js" />
+    <Content Include="vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\jquery-classyloader\js\jquery.classyloader.min.js" />
+    <Content Include="vendor\modernizr\modernizr.custom.js" />
+    <Content Include="vendor\screenfull\dist\screenfull.js" />
+    <Content Include="vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="vendor\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="vendor\sparkline\index.js" />
+    <Content Include="vendor\whirl\dist\whirl.css" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Home\_Home.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -361,10 +441,45 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="server\ag-owinners.json" />
+    <Content Include="server\chart\area.json" />
+    <Content Include="server\chart\bar.json" />
+    <Content Include="server\chart\barstacked.json" />
+    <Content Include="server\chart\barstackedv2.json" />
+    <Content Include="server\chart\donut.json" />
+    <Content Include="server\chart\line.json" />
+    <Content Include="server\chart\pie.json" />
+    <Content Include="server\chart\realtime.json" />
+    <Content Include="server\chart\spline.json" />
+    <Content Include="server\chart\splinev2.json" />
+    <Content Include="server\chart\splinev3.json" />
+    <Content Include="server\chosen-states.json" />
+    <Content Include="server\cities.json" />
+    <Content Include="server\datatable.json" />
+    <Content Include="server\editor\filetree.json" />
+    <Content Include="server\mails.json" />
+    <Content Include="server\ng-grid-data.json" />
+    <Content Include="server\sidebar-menu.json" />
+    <Content Include="server\table-data.json" />
+    <Content Include="server\treedata.json" />
+    <Content Include="server\uigrid-100.json" />
+    <Content Include="server\uigrid-complex.json" />
+    <Content Include="server\upload.php" />
+    <Content Include="server\xeditable-groups.json" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Installer\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -410,7 +525,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63877</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63877/</IISUrl>
+          <IISUrl>http://localhost/TecniPart</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
