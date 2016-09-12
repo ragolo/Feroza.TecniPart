@@ -42,7 +42,7 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// <value>
         /// The desripcion.
         /// </value>
-        public string Desripcion { get; set; }
+        public string Descripcion { get; set; }
 
 
         /// <summary>

@@ -10,6 +10,7 @@
 namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
 {
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
 
     using Data;
@@ -41,11 +42,12 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         public EstadoMaestras Crear(string descripcion)
         {
             var estadoMaestrasData = this.context.EstadoMaestras.Create();
-            estadoMaestrasData.Desripcion = descripcion;
+            estadoMaestrasData.Descripcion = descripcion;
+            this.context.Entry(estadoMaestrasData).State = EntityState.Added; 
             this.context.SaveChanges();
             var estadoMaestras = new EstadoMaestras
                                      {
-                                         Desripcion = estadoMaestrasData.Desripcion,
+                                         Descripcion = estadoMaestrasData.Descripcion,
                                          IdEstadoMaestras = estadoMaestrasData.IdEstadoMaestras
                                      };
             return estadoMaestras;
@@ -77,7 +79,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         {
             return this.context.EstadoMaestras.Where(r => r.IdEstadoMaestras == idEstadoMaestras).Select(s => new EstadoMaestras
             {
-                Desripcion = s.Desripcion,
+                Descripcion = s.Descripcion,
                 IdEstadoMaestras = s.IdEstadoMaestras
             });
         }
@@ -91,7 +93,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         {
             return this.context.EstadoMaestras.Select(s => new EstadoMaestras
             {
-                Desripcion = s.Desripcion,
+                Descripcion = s.Descripcion,
                 IdEstadoMaestras = s.IdEstadoMaestras
             });
         }

@@ -68,20 +68,14 @@ namespace Feroza.TecniPart.Web.Api.Administracion
             return this.estadoMaestrasServicios.ListEstadoMaestras();
         }
 
-        /// <summary>The post.</summary>
-        /// <param name="descripcion">The descripcion.</param>
-        /// <returns>The <see cref="HttpResponseMessage"/>.</returns>
+        /// <summary>The post estado maestras.</summary>
+        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
         public IHttpActionResult PostEstadoMaestras(EstadoMaestras estadoMaestra)
         {
-            //if (this.ModelState.IsValid)
-            //{
-                var estadoMaestras = this.estadoMaestrasServicios.AddEstadoMaestras(estadoMaestra);
- 
-                return this.Ok(estadoMaestras);
-            //}
-
-            return this.BadRequest(this.ModelState);
+            var estadoMaestras = this.estadoMaestrasServicios.AddEstadoMaestras(estadoMaestra);
+            return this.Ok(estadoMaestras);
         }
 
         /// <summary>

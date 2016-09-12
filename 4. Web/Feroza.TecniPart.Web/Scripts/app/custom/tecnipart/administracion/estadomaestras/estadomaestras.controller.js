@@ -6,7 +6,7 @@
 
     function estadoMaestrasController(estadoMaestrasDataService) {
         var vm = this;
-
+        vm.estadoMaestra = { Descripcion: "", IdEstadoMaestras: 0 };
         init();
 
         vm.saveEstadoMaestras = saveEstadoMaestras;
@@ -18,7 +18,8 @@
         }
         
         function saveEstadoMaestras() {
-            estadoMaestrasDataService.save(vm.estadomaestras).then(function() {
+            console.log(vm.estadoMaestra);
+            estadoMaestrasDataService.save(vm.estadoMaestra).then(function () {
                 init();
             });
         }

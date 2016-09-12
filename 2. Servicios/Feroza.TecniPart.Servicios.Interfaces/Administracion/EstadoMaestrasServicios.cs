@@ -43,7 +43,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// </param>
         public EstadoMaestras AddEstadoMaestras(EstadoMaestras estadoMaestras)
         {
-            return this.estadoMaestrasRepositorio.Crear(estadoMaestras.Desripcion);
+            return this.estadoMaestrasRepositorio.Crear(estadoMaestras.Descripcion);
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-xs-11">
-                <input type="text" ng-model="vm.Desripcion" value="" class="form-control" />
+                <input type="text" ng-model="vm.estadoMaestra.Descripcion" value="" class="form-control" />
             </div>
             <div class="col-xs-1">
                 <a class="btn btn-primary" data-toggle="modal" ng-click="vm.saveEstadoMaestras()">Agregar</a>
@@ -20,13 +20,13 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th st-sort="Desripcion">Descripcion</th>
+                        <th st-sort="Descripcion">Descripcion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="estadomaestra in vm.estadomaestras">
                         <td>{{estadomaestra.IdEstadoMaestras}}</td>
-                        <td>{{estadomaestra.Desripcion}}</td>
+                        <td>{{estadomaestra.Descripcion}}</td>
                     </tr>
                 </tbody>
             </table>

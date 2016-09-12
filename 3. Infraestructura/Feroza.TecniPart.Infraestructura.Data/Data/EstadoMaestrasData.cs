@@ -25,7 +25,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         }
     
         public int IdEstadoMaestras { get; set; }
-        public string Desripcion { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FabricantesData> Fabricantes { get; set; }

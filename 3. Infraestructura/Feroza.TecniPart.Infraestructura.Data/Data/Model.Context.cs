@@ -28,7 +28,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public virtual DbSet<AplicacionesData> Aplicaciones { get; set; }
         public virtual DbSet<CatalogoDetallesData> CatalogoDetalles { get; set; }
         public virtual DbSet<CatalogosData> Catalogos { get; set; }
-        public virtual DbSet<EstadoMaestrasData> EstadoMaestras { get; set; }
         public virtual DbSet<FabricantesData> Fabricantes { get; set; }
         public virtual DbSet<MarcasData> Marcas { get; set; }
         public virtual DbSet<PaisData> Pais { get; set; }
@@ -38,5 +37,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public virtual DbSet<VehiculosData> Vehiculos { get; set; }
         public virtual DbSet<VehiculoSistemasData> VehiculoSistemas { get; set; }
         public virtual DbSet<VehiculoSubSistemasData> VehiculoSubSistemas { get; set; }
+        public virtual DbSet<EstadoMaestrasData> EstadoMaestras { get; set; }
     }
 }
