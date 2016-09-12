@@ -1,0 +1,31 @@
+[
+  {
+    "text": "Menu Heading",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Busqueda",
+    "sref": "app.singleview",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.menu.BUSQUEDA"
+  },
+  {
+    "text": "Administracion",
+    "sref": "#",
+    "icon": "icon-folder",
+    "submenu": [
+      {
+        "text": "",
+        "sref": "app.administracionPais",
+        "translate": "sidebar.nav.menu.administracion.PAIS"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionEstadomaestras",
+        "translate": "sidebar.nav.menu.administracion.ESTADOMAESTRAS"
+      }    
+    ],
+    "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"
+  }
+]

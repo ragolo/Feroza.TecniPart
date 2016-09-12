@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-11">
+                <input type="text" ng-model="vm.Desripcion" value="" class="form-control" />
+            </div>
+            <div class="col-xs-1">
+                <a class="btn btn-primary" data-toggle="modal" ng-click="vm.saveEstadoMaestras()">Agregar</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table st-table="vm.estadomaestras" class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th st-sort="Desripcion">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="estadomaestra in vm.estadomaestras">
+                        <td>{{estadomaestra.IdEstadoMaestras}}</td>
+                        <td>{{estadomaestra.Desripcion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

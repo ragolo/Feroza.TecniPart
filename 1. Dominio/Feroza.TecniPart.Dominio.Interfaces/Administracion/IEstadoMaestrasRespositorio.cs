@@ -18,11 +18,10 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     /// </summary>
     public interface IEstadoMaestrasRespositorio
     {
-        /// <summary>
-        /// Crears the specified descripcion.
-        /// </summary>
+        /// <summary>The crear.</summary>
         /// <param name="descripcion">The descripcion.</param>
-        void Crear(string descripcion);
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        EstadoMaestras Crear(string descripcion);
 
         /// <summary>
         /// Eliminars the specified identifier estado maestras.
@@ -30,11 +29,19 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
         /// <param name="idEstadoMaestras">The identifier estado maestras.</param>
         void Eliminar(int idEstadoMaestras);
 
-        /// <summary>
-        /// Listars the estado maestras.
-        /// </summary>
-        /// <param name="idEstadoMaestras">The identifier estado maestras.</param>
-        /// <returns></returns>
+        /// <summary>The listar estado maestras.</summary>
+        /// <param name="idEstadoMaestras">The id estado maestras.</param>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable<EstadoMaestras/></cref>
+        ///     </see>
+        /// .</returns>
         IEnumerable<EstadoMaestras> ListarEstadoMaestras(int idEstadoMaestras);
+
+        /// <summary>The listar estado maestras.</summary>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable<EstadoMaestras/></cref>
+        ///     </see>
+        /// .</returns>
+        IEnumerable<EstadoMaestras> ListarEstadoMaestras();
     }
 }

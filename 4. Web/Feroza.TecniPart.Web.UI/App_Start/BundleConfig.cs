@@ -1,13 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Optimization;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BundleConfig.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   Defines the BundleConfig type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Feroza.TecniPart.Web.UI
 {
+    using System.Web.Optimization;
+
+    /// <summary>The bundle config.</summary>
     public class BundleConfig
     {
         // Para obtener más información sobre Bundles, visite http://go.microsoft.com/fwlink/?LinkId=301862
+
+        /// <summary>The register bundles.</summary>
+        /// <param name="bundles">The bundles.</param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -17,30 +27,35 @@ namespace Feroza.TecniPart.Web.UI
                 "~/Scripts/jquery.unobtrusive*",
                 "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
-                "~/Scripts/knockout-{version}.js",
-                "~/Scripts/knockout.validation.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
-                "~/Scripts/sammy-{version}.js",
-                "~/Scripts/app/common.js",
-                "~/Scripts/app/app.datamodel.js",
-                "~/Scripts/app/app.viewmodel.js",
-                "~/Scripts/app/home.viewmodel.js",
-                "~/Scripts/app/_run.js"));
-
-            // Utilice la versión de desarrollo de Modernizr para desarrollar y obtener información sobre los formularios.  De esta manera estará
-            // preparado para la producción y podrá utilizar la herramienta de compilación disponible en http://modernizr.com para seleccionar solo las pruebas que necesite.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                 "~/Content/bootstrap.css",
-                 "~/Content/Site.css"));
+                "~/app/app.module.js")
+                .Include(
+                "~/app/blocks/logger/logger.module.js",
+                    "~/app/blocks/logger/logger.js")
+                .Include(
+                "~/app/lazyload/lazyload.module.js",
+                "~/app/lazyload/constants.js",
+                "~/app/lazyload/config.js")
+                .Include(
+                "~/app/routes/routes.module.js",
+                "~/app/routes/config.js",
+                "~/app/routes/provider.js",
+                "~/app/routes/routes.run.js")
+                    .Include(
+                "~/app/colors/colors.module.js",
+                    "~/app/colors/constants.js",
+                    "~/app/colors/service.js")
+                .Include(
+                    "~/app/core/core.module.js",
+                    "~/app/core/constants.js",
+                    "~/app/core/config.js",
+                    "~/app/core/core.run.js")
+                .Include(
+                "~/app/layout/sidebar/sidebar.module.js",
+                "~/app/layout/sidebar/sidebar.module.js",
+                "~/app/layout/sidebar/sidebarController.js",
+                "~/app/layout/sidebar/userBlockController.js",
+                    "~/app/layout/sidebar/sidebarDirective.js"));
         }
     }
 }

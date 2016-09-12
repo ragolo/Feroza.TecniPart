@@ -1,15 +1,19 @@
-﻿using Feroza.TecniPart.Dominio.Interfaces.Administracion;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="EstadoMaestrasController.cs" company="Feroza">
+//   The Feroza 2016
+// </copyright>
+// <summary>
+//   The estado maestras controller.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Feroza.TecniPart.Web.UI.Api
 {
-    using Feroza.TecniPart.Dominio.Entidades.Modelos;
-    using Servicios.Interfaces.Administracion;
+    using System.Collections.Generic;
+    using System.Web.Http;
+
+    using Dominio.Entidades.Modelos;
+    using Dominio.Interfaces.Administracion;
 
     /// <summary>
     /// The estado maestras controller.
@@ -39,7 +43,10 @@ namespace Feroza.TecniPart.Web.UI.Api
         /// The id estado maestras.
         /// </param>
         /// <returns>
-        /// The <see cref="IEnumerable"/>.
+        /// The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        ///     .
         /// </returns>
         [HttpGet]
         public IEnumerable<EstadoMaestras> Get(int idEstadoMaestras)

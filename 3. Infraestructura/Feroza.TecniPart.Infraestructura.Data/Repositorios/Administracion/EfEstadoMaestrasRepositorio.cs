@@ -35,17 +35,20 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             this.context = new TecniPartEntities();
         }
 
-        /// <summary>
-        /// The crear.
-        /// </summary>
-        /// <param name="descripcion">
-        /// The descripcion.
-        /// </param>
-        public void Crear(string descripcion)
+        /// <summary>The crear.</summary>
+        /// <param name="descripcion">The descripcion.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        public EstadoMaestras Crear(string descripcion)
         {
-            var estadoMaestras = this.context.EstadoMaestras.Create();
-            estadoMaestras.Desripcion = descripcion;
+            var estadoMaestrasData = this.context.EstadoMaestras.Create();
+            estadoMaestrasData.Desripcion = descripcion;
             this.context.SaveChanges();
+            var estadoMaestras = new EstadoMaestras
+                                     {
+                                         Desripcion = estadoMaestrasData.Desripcion,
+                                         IdEstadoMaestras = estadoMaestrasData.IdEstadoMaestras
+                                     };
+            return estadoMaestras;
         }
 
         /// <summary>
@@ -73,6 +76,20 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         public IEnumerable<EstadoMaestras> ListarEstadoMaestras(int idEstadoMaestras)
         {
             return this.context.EstadoMaestras.Where(r => r.IdEstadoMaestras == idEstadoMaestras).Select(s => new EstadoMaestras
+            {
+                Desripcion = s.Desripcion,
+                IdEstadoMaestras = s.IdEstadoMaestras
+            });
+        }
+
+        /// <summary>The listar estado maestras.</summary>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable<EstadoMaestras/></cref>
+        ///     </see>
+        /// .</returns>
+        public IEnumerable<EstadoMaestras> ListarEstadoMaestras()
+        {
+            return this.context.EstadoMaestras.Select(s => new EstadoMaestras
             {
                 Desripcion = s.Desripcion,
                 IdEstadoMaestras = s.IdEstadoMaestras

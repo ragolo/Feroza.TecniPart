@@ -16,13 +16,12 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     /// <summary>
     /// The EstadoMaestrasServicio interface.
     /// </summary>
-    public interface IEstadoMaestrasServicios
+    public interface IEstadoMaestrasServicio
     {
-        /// <summary>
-        /// Adds the estado maestras.
-        /// </summary>
+        /// <summary>The add estado maestras.</summary>
         /// <param name="estadoMaestras">The estado maestras.</param>
-        void AddEstadoMaestras(EstadoMaestras estadoMaestras);
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        EstadoMaestras AddEstadoMaestras(EstadoMaestras estadoMaestras);
 
         /// <summary>
         /// Deletes the estado maestras.
@@ -36,5 +35,12 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
         /// <param name="idEstadoMaestras">The identifier estado maestras.</param>
         /// <returns>list of the EstadoMaestras</returns>
         IEnumerable<EstadoMaestras> ListEstadoMaestras(int idEstadoMaestras);
+
+        /// <summary>The list estado maestras.</summary>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable<EstadoMaestras/></cref>
+        ///     </see>
+        /// .</returns>
+        IEnumerable<EstadoMaestras> ListEstadoMaestras();
     }
 }

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="EstadoMaestrasServicios.cs" company="">
-//   
+// <copyright file="EstadoMaestrasServicios.cs" company="Feroza">
+//   Derechos de autor Feroza
 // </copyright>
 // <summary>
 //   Defines the EstadoMaestrasServicios type.
@@ -17,7 +17,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
-    public class EstadoMaestrasServicios : IEstadoMaestrasServicios
+    public class EstadoMaestrasServicios : IEstadoMaestrasServicio
     {
         /// <summary>
         /// The estado maestras repositorio.
@@ -41,9 +41,9 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// <param name="estadoMaestras">
         /// The estado maestras.
         /// </param>
-        public void AddEstadoMaestras(EstadoMaestras estadoMaestras)
+        public EstadoMaestras AddEstadoMaestras(EstadoMaestras estadoMaestras)
         {
-            this.estadoMaestrasRepositorio.Crear(estadoMaestras.Desripcion);
+            return this.estadoMaestrasRepositorio.Crear(estadoMaestras.Desripcion);
         }
 
         /// <summary>
@@ -64,11 +64,24 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// The id estado maestras.
         /// </param>
         /// <returns>
-        /// The <see cref="IEnumerable"/>.
+        /// The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        ///     .
         /// </returns>
         public IEnumerable<EstadoMaestras> ListEstadoMaestras(int idEstadoMaestras)
         {
             return this.estadoMaestrasRepositorio.ListarEstadoMaestras(idEstadoMaestras);
+        }
+
+        /// <summary>The list estado maestras.</summary>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        /// .</returns>
+        public IEnumerable<EstadoMaestras> ListEstadoMaestras()
+        {
+            return this.estadoMaestrasRepositorio.ListarEstadoMaestras();
         }
     }
 }

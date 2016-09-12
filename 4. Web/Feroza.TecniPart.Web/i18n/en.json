@@ -1,0 +1,26 @@
+{
+  "dashboard": {
+    "WELCOME": "EN:Bienvenido a {{appName}}"
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "EN:Navegacion principal"
+    },
+    "nav": {
+      "menu": {
+        "administracion": {
+          "ADMINISTRACION": "EN:Administracion",
+          "PAIS": "EN:Pais",
+          "ESTADOMAESTRAS":  "EN:Estado maestras" 
+        },
+        "BUSQUEDA": "EN:Busqueda"
+      }
+    },
+    "WELCOME": "EN:Bienvenido"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "EN:Tipea y pulsa enter.."
+    }
+  }
+}
