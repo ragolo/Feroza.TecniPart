@@ -23,6 +23,11 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
         /// <returns>The <see cref="EstadoMaestras"/>.</returns>
         EstadoMaestras AddEstadoMaestras(EstadoMaestras estadoMaestras);
 
+        /// <summary>The edit estado maestras.</summary>
+        /// <param name="estadoMaestras">The estado maestras.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        EstadoMaestras EditEstadoMaestras(EstadoMaestras estadoMaestras);
+
         /// <summary>
         /// Deletes the estado maestras.
         /// </summary>

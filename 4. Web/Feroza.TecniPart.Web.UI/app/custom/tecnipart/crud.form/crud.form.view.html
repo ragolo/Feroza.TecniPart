@@ -1,0 +1,14 @@
+﻿<fieldset>
+    <legend>{{vm.titleForm}}</legend>
+    <form class="form-horizontal">
+        <div ng-repeat="column in vm.columnsDefinition track by $index" ng-hide="column.hidden">
+            <div control-editor item="vm.newItem" column="column"> </div>
+        </div>
+
+
+        <!--<div class="col-xs-12">
+            <input type="button" value="aceptar" class="btn btn-primary" ng-click="vm.createItem(vm.newItem)" />
+        </div>-->
+
+    </form>
+</fieldset>

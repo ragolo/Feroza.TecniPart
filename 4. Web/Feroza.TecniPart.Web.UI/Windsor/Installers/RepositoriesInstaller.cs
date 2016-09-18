@@ -14,8 +14,7 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
     using Castle.Windsor;
 
     using Dominio.Interfaces.Administracion;
-
-    using Feroza.TecniPart.Servicios.Interfaces.Administracion;
+    using Servicios.Interfaces.Administracion;
 
     /// <summary>
     /// The repositories installer.
@@ -34,7 +33,8 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-            Component.For<IEstadoMaestrasServicios>().ImplementedBy<EstadoMaestrasServicios>().LifestyleTransient());
+            Component.For<IEstadoMaestrasServicio>().ImplementedBy<EstadoMaestrasServicios>().LifestyleSingleton(),
+                Component.For<IPaisServicio>().ImplementedBy<PaisServicios>().LifestyleSingleton());
         }
     }
 }

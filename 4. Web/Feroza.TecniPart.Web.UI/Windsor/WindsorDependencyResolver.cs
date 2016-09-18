@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WindsorDependencyResolver.cs" company="">
-//   
+// <copyright file="WindsorDependencyResolver.cs" company="Feroza">
+//   Derechos de autor Feroza
 // </copyright>
 // <summary>
 //   The windsor dependency resolver.
@@ -33,13 +33,15 @@ namespace Feroza.TecniPart.Web.UI.Windsor
         /// The container.
         /// </param>
         /// <exception cref="ArgumentNullException">
+        /// The exception
         /// </exception>
         public WindsorDependencyResolver(IWindsorContainer container)
         {
             if (container == null)
             {
-                throw new ArgumentNullException("container");
+                throw new ArgumentNullException(nameof(container));
             }
+
             this.container = container;
         }
 
@@ -75,7 +77,10 @@ namespace Feroza.TecniPart.Web.UI.Windsor
         /// The service type.
         /// </param>
         /// <returns>
-        /// The <see cref="IEnumerable"/>.
+        /// The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        ///     .
         /// </returns>
         public IEnumerable<object> GetServices(Type serviceType)
         {

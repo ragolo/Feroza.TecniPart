@@ -33,9 +33,14 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 
         /// <summary>The add pais.</summary>
         /// <param name="pais">The pais.</param>
-        public void AddPais(Pais pais)
+        public Pais AddPais(Pais pais)
         {
-            this.paisRepositorio.Crear(pais.Descripcion);
+            return this.paisRepositorio.Crear(pais);
+        }
+
+        public Pais EditPais(Pais pais)
+        {
+            return this.paisRepositorio.Editar(pais);
         }
 
         /// <summary>The delete pais.</summary>
@@ -53,7 +58,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Pais> ListPais(int idPais)
         {
-            return this.paisRepositorio.Listar(idPais);
+            return this.paisRepositorio.ListarPais(idPais);
         }
 
         /// <summary>The list pais.</summary>
@@ -63,7 +68,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Pais> ListPais()
         {
-            return this.paisRepositorio.Listar();
+            return this.paisRepositorio.ListarPaises();
         }
     }
 }

@@ -1,0 +1,75 @@
+﻿/**
+    Override Angle default styles
+    Brings clarity by adding independent styles required for MVC projects
+*/
+
+.preloader-progress {
+    background-image: url(img/preloader/preloader.empty.png);
+}
+
+.preloader-progress-bar {
+    background-image: url(img/preloader/preloader.full.png);
+}
+
+
+/*.modal-backdrop.am-fade {
+    -ms-opacity: .5;
+    opacity: .5;
+    -ms-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    -webkit-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.modal-backdrop.am-fade.ng-enter {
+    -ms-opacity: 0;
+    opacity: 0;
+}
+
+.modal-backdrop.am-fade.ng-enter.ng-enter-active {
+    -ms-opacity: .5;
+    opacity: .5;
+}
+
+.modal-backdrop.am-fade.ng-leave {
+    -ms-opacity: .5;
+    opacity: .5;
+}
+
+.modal-backdrop.am-fade.ng-leave.ng-leave-active {
+    -ms-opacity: 0;
+    opacity: 0;
+}*/
+
+
+
+
+/*.dialogdemoBasicUsage #popupContainer {
+  position: relative; }
+
+.dialogdemoBasicUsage .footer {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px; }
+
+.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
+  font-size: 0.8em;
+  margin-top: 50px; }
+
+.dialogdemoBasicUsage button {
+  width: 200px; }
+
+.dialogdemoBasicUsage div#status {
+  color: #c60008; }
+
+.dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
+  margin-bottom: 0; }*/
+
+md-dialog md-dialog-content {
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+md-dialog {
+    min-width: 80% !important;
+}

@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="WebApiConfig.cs" company="Feroza">
-//   
+//   Derechos de autor Feroza
 // </copyright>
 // <summary>
-//   Defines the WebApiConfig type.
+//   The web api config.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ namespace Feroza.TecniPart.Web.UI
 
     using Castle.Windsor;
 
-    using Windsor;
+    using Feroza.TecniPart.Web.UI.Windsor;
 
     /// <summary>
     /// The web api config.
@@ -49,7 +49,7 @@ namespace Feroza.TecniPart.Web.UI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{idEstadoMaestras}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
         }
 

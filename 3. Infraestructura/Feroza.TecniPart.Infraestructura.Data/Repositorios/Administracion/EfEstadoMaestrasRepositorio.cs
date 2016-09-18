@@ -9,6 +9,7 @@
 
 namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
@@ -37,20 +38,49 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         }
 
         /// <summary>The crear.</summary>
-        /// <param name="descripcion">The descripcion.</param>
+        /// <param name="estadoMaestras">The estado Maestras.</param>
         /// <returns>The <see cref="EstadoMaestras"/>.</returns>
-        public EstadoMaestras Crear(string descripcion)
+        public EstadoMaestras Crear(EstadoMaestras estadoMaestras)
         {
-            var estadoMaestrasData = this.context.EstadoMaestras.Create();
-            estadoMaestrasData.Descripcion = descripcion;
-            this.context.Entry(estadoMaestrasData).State = EntityState.Added; 
-            this.context.SaveChanges();
-            var estadoMaestras = new EstadoMaestras
-                                     {
-                                         Descripcion = estadoMaestrasData.Descripcion,
-                                         IdEstadoMaestras = estadoMaestrasData.IdEstadoMaestras
-                                     };
-            return estadoMaestras;
+            var estadoMaestrasDataOriginal = this.context.EstadoMaestras.FirstOrDefault(r => r.IdEstadoMaestras == estadoMaestras.IdEstadoMaestras);
+
+            if (estadoMaestrasDataOriginal == null)
+            {
+                estadoMaestrasDataOriginal = this.context.EstadoMaestras.Create();
+                estadoMaestrasDataOriginal.Descripcion = estadoMaestras.Descripcion;
+                this.context.EstadoMaestras.Add(estadoMaestrasDataOriginal);
+                this.context.SaveChanges();
+                estadoMaestras.IdEstadoMaestras = estadoMaestrasDataOriginal.IdEstadoMaestras;
+                return estadoMaestras;
+            }
+
+            throw new Exception($"El estado maestra ya existe {estadoMaestras.IdEstadoMaestras}");
+        }
+
+        /// <summary>The editar.</summary>
+        /// <param name="estadoMaestras">The estado maestras.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        /// <exception cref="Exception"></exception>
+        public EstadoMaestras Editar(EstadoMaestras estadoMaestras)
+        {
+            var estadoMaestrasDataOriginal = this.context.EstadoMaestras.FirstOrDefault(r => r.IdEstadoMaestras == estadoMaestras.IdEstadoMaestras);
+
+
+            if (estadoMaestrasDataOriginal != null)
+            {
+                //TODO: Implementar auto mapper
+                var estadoMaestrasDataMap = new EstadoMaestrasData
+                                                {
+                                                    IdEstadoMaestras = estadoMaestras.IdEstadoMaestras,
+                                                    Descripcion = estadoMaestras.Descripcion
+                                                };
+                estadoMaestrasDataMap.IdEstadoMaestras = estadoMaestrasDataOriginal.IdEstadoMaestras;
+                this.context.Entry(estadoMaestrasDataOriginal).CurrentValues.SetValues(estadoMaestrasDataMap);
+                this.context.SaveChanges();
+                return estadoMaestras;
+            }
+            //TODO: Falta implementar Manejador de excepciones
+            throw new Exception($"El estado maestra no existe {estadoMaestras.IdEstadoMaestras}");
         }
 
         /// <summary>

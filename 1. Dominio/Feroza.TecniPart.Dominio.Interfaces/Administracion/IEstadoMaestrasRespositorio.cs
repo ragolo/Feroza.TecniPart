@@ -21,7 +21,12 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
         /// <summary>The crear.</summary>
         /// <param name="descripcion">The descripcion.</param>
         /// <returns>The <see cref="EstadoMaestras"/>.</returns>
-        EstadoMaestras Crear(string descripcion);
+        EstadoMaestras Crear(EstadoMaestras descripcion);
+
+        /// <summary>The editar.</summary>
+        /// <param name="estadoMaestras">The estado maestras.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        EstadoMaestras Editar(EstadoMaestras estadoMaestras);
 
         /// <summary>
         /// Eliminars the specified identifier estado maestras.

@@ -35,15 +35,21 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
             this.estadoMaestrasRepositorio = estadoMaestrasRepository;
         }
 
-        /// <summary>
-        /// The add estado maestras.
-        /// </summary>
-        /// <param name="estadoMaestras">
-        /// The estado maestras.
-        /// </param>
+        /// <summary>The add estado maestras.</summary>
+        /// <param name="estadoMaestras">The estado maestras.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
         public EstadoMaestras AddEstadoMaestras(EstadoMaestras estadoMaestras)
         {
-            return this.estadoMaestrasRepositorio.Crear(estadoMaestras.Descripcion);
+            return this.estadoMaestrasRepositorio.Crear(estadoMaestras);
+        }
+
+        /// <summary>The edit estado maestras.</summary>
+        /// <param name="estadoMaestras">The estado maestras.</param>
+        /// <returns>The <see cref="EstadoMaestras"/>.</returns>
+        public EstadoMaestras EditEstadoMaestras(EstadoMaestras estadoMaestras)
+        {
+            return this.estadoMaestrasRepositorio.Editar(estadoMaestras);
+
         }
 
         /// <summary>

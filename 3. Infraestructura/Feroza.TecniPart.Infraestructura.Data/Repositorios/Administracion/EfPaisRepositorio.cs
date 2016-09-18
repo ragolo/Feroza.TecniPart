@@ -9,6 +9,7 @@
 
 namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -33,17 +34,51 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             this.context = new TecniPartEntities();
         }
 
-        /// <summary>
-        /// The crear.
-        /// </summary>
-        /// <param name="descripcion">
-        /// The descripcion.
-        /// </param>
-        public void Crear(string descripcion)
+        /// <summary>The crear.</summary>
+        /// <param name="pais">The estado Maestras.</param>
+        /// <returns>The <see cref="Pais"/>.</returns>
+        public Pais Crear(Pais pais)
         {
-            var pais = this.context.Pais.Create();
-            pais.Descripcion = descripcion;
-            this.context.SaveChanges();
+            var paisDataOriginal = this.context.Pais.FirstOrDefault(r => r.IdPais == pais.IdPais);
+
+            if (paisDataOriginal == null)
+            {
+                paisDataOriginal = this.context.Pais.Create();
+                paisDataOriginal.Descripcion = pais.Descripcion;
+                this.context.Pais.Add(paisDataOriginal);
+                this.context.SaveChanges();
+                pais.IdPais = paisDataOriginal.IdPais;
+                return pais;
+            }
+
+            throw new Exception($"El estado maestra ya existe {pais.IdPais}");
+        }
+
+        /// <summary>The editar.</summary>
+        /// <param name="pais">The estado maestras.</param>
+        /// <returns>The <see cref="Pais"/>.</returns>
+        /// <exception cref="Exception"></exception>
+        public Pais Editar(Pais pais)
+        {
+            var paisDataOriginal = this.context.Pais.FirstOrDefault(r => r.IdPais == pais.IdPais);
+
+
+            if (paisDataOriginal != null)
+            {
+                //TODO: Implementar auto mapper
+                var paisDataMap = new PaisData
+                {
+                    IdEstadoMaestras = pais.IdEstadoMaestras,
+                    IdPais = pais.IdPais,
+                    Descripcion = pais.Descripcion
+                };
+                paisDataMap.IdPais = paisDataOriginal.IdPais;
+                this.context.Entry(paisDataOriginal).CurrentValues.SetValues(paisDataMap);
+                this.context.SaveChanges();
+                return pais;
+            }
+            //TODO: Falta implementar Manejador de excepciones
+            throw new Exception($"El estado maestra no existe {pais.IdPais}");
         }
 
         /// <summary>
@@ -54,8 +89,8 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         /// </param>
         public void Eliminar(int idPais)
         {
-            var estadoMaestraToDelete = this.context.Pais.FirstOrDefault(r => r.IdPais.Equals(idPais));
-            this.context.Pais.Remove(estadoMaestraToDelete);
+            var paisToDelete = this.context.Pais.FirstOrDefault(r => r.IdPais.Equals(idPais));
+            this.context.Pais.Remove(paisToDelete);
             this.context.SaveChanges();
         }
 
@@ -66,12 +101,9 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         /// The id estado maestras.
         /// </param>
         /// <returns>
-        /// The <see>
-        ///         <cref>IEnumerable</cref>
-        ///     </see>
-        ///     .
+        /// The <see cref="IEnumerable"/>.
         /// </returns>
-        public IEnumerable<Pais> Listar(int idPais)
+        public IEnumerable<Pais> ListarPais(int idPais)
         {
             return this.context.Pais.Where(r => r.IdPais == idPais).Select(s => new Pais
             {
@@ -85,7 +117,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         ///         <cref>IEnumerable<Pais/></cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Pais> Listar()
+        public IEnumerable<Pais> ListarPaises()
         {
             return this.context.Pais.Select(s => new Pais
             {

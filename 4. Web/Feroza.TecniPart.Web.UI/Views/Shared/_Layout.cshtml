@@ -1,36 +1,28 @@
 ﻿<!DOCTYPE html>
-<html lang="es" data-ng-app="app">
+<html lang="es" ng-app="angle">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <title data-ng-bind="::pageTitle()">TecniPart - Feroza</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="{{app.description}}">
-    <!-- Bootstrap styles-->
-    <link rel="stylesheet" href="~/Content/css/bootstrap.css" data-ng-if="!app.layout.isRTL">
-    <link rel="stylesheet" href="~/Content/css/bootstrap-rtl.css" data-ng-if="app.layout.isRTL">
-    <!-- ngMaterial styles-->
-    <link rel="stylesheet" href="~/Scripts/vendor/angular-material/angular-material.css">
-    <!-- Application styles-->
-    <link rel="stylesheet" href="~/Content/css/app.css" data-ng-if="!app.layout.isRTL">
-    <link rel="stylesheet" href="~/Content/css/app-rtl.css" data-ng-if="app.layout.isRTL">
-    <!-- Themes-->
-    <link rel="stylesheet" ng-href="{{app.layout.theme}}" data-ng-if="app.layout.theme">
+    <meta name="keywords" content="Motores, motos, carros, TecniPart">
+    <title data-ng-bind="pageTitle()">TecniPart</title>
+    @Styles.Render("~/bundles/bootstrapStyles")
+    @Styles.Render("~/bundles/materialStyles")
+    @Styles.Render("~/bundles/appStyles")
 </head>
+
 <body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled, 'aside-collapsed-text': app.layout.isCollapsedText}">
-    
-    <!-- top navbar-->
-    @*<header ng-include="'app/views/partials/top-navbar.html'" class="topnavbar-wrapper"></header>*@
-    <!-- sidebar-->
-    <aside ng-include="'app/views/partials/sidebar.html'" ng-controller="SidebarController" class="aside"></aside>
-    <!-- offsidebar-->
-    @*<aside ng-include="'app/views/partials/offsidebar.html'" class="offsidebar"></aside>*@
-  
+
+    <!-- Preloader -->
+    <div data-preloader></div>
+    <!-- App Content -->
+    <div data-ui-view="main" data-autoscroll="false" class="wrapper">
         @RenderBody()
-        @RenderSection("SPAViews", required: false)
-    <!-- Page footer-->
-    <footer ng-include="'app/views/partials/footer.html'"></footer>
-    @RenderSection("Scripts", required: false)
+    </div>
+    @Scripts.Render("~/bundles/baseScripts")
+    @Scripts.Render("~/bundles/materialScripts")
+    @Scripts.Render("~/bundles/appScripts")
+
 </body>
 </html>

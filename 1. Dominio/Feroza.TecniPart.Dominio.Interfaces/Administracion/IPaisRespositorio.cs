@@ -18,11 +18,15 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     /// </summary>
     public interface IPaisRespositorio
     {
-        /// <summary>
-        /// Crears the specified descripcion.
-        /// </summary>
-        /// <param name="descripcion">The descripcion.</param>
-        void Crear(string descripcion);
+        /// <summary>Crears the specified descripcion.</summary>
+        /// <param name="pais"></param>
+        /// <returns>The <see cref="Pais"/>.</returns>
+        Pais Crear(Pais pais);
+
+        /// <summary>The editar.</summary>
+        /// <param name="pais"></param>
+        /// <returns>The <see cref="Pais"/>.</returns>
+        Pais Editar(Pais pais);
 
         /// <summary>
         /// Eliminars the specified identifier estado maestras.
@@ -36,13 +40,13 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
         ///         <cref>IEnumerable<Pais/></cref>
         ///     </see>
         /// .</returns>
-        IEnumerable<Pais> Listar(int idPais);
+        IEnumerable<Pais> ListarPais(int idPais);
 
         /// <summary>The listar estado maestras.</summary>
         /// <returns>The <see>
         ///         <cref>IEnumerable<Pais/></cref>
         ///     </see>
         /// .</returns>
-        IEnumerable<Pais> Listar();
+        IEnumerable<Pais> ListarPaises();
     }
 }

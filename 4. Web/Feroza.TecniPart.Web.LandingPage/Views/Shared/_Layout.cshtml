@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Landing Page Template">
+    <meta name="keywords" content="bootstrap, app, theme">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Angle - Landing Page</title>
+    <!-- PREALOADER (loads asap)-->
+    <link rel="stylesheet" href="../../Scripts/Vendor/nprogress/nprogress.css">
+    <script src="../../Scripts/vendor/nprogress/nprogress.js"></script>
+    <!-- FAVICON-->
+    <link rel="icon" href="../../img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="../../img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144-precomposed.png">
+    <!-- FONT-->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic" rel="stylesheet" type="text/css">
+    <!-- ICONS-->
+    <link rel="stylesheet" href="../../Scripts/vendor/font-awesome/css/font-awesome.min.css">
+    <script src="../../Scripts/vendor/jquery.browser/dist/jquery.browser.js"></script>
+    <script>
+      if ( window.jQBrowser.mobile && top.location != location) top.location.href = document.location.href;
+    </script>
+    <!-- VENDOR CSS-->
+    <link rel="stylesheet" href="../../Scripts/vendor/owl.carousel/dist/assets/owl.carousel.css">
+    <link rel="stylesheet" href="../../Scripts/vendor/owl.carousel/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="../../Scripts/vendor/Nivo-Lightbox/nivo-lightbox.css">
+    <link rel="stylesheet" href="../../Scripts/vendor/Nivo-Lightbox/themes/default/default.css">
+    <link rel="stylesheet" href="../../Scripts/vendor/animate.css/animate.css">
+    <!-- SITE CSS-->
+    <link rel="stylesheet" href="../../Content/css/styles.css" id="stylescss">
+    <link rel="stylesheet" href="../../Content/css/theme-a.css">
+    <!--[if lt IE 9]><script src="../../Scripts/Vendor/bootstrap/dist/js/html5shiv.js"></script><script src="js/respond.min.js"></script><![endif]-->
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <!-- WEBSITE PRELOADER-->
+<div class="preloader">
+    <div class="loading">Loading ...</div>
+</div>
+    <!-- START HEADER-->
+    <header id="header" class="header novideo">
+        <div class="full-screen">
+            <!-- START STICKY NAVBAR-->
+            <div class="navbar navbar-default navbar-fixed-top navbar-sticky">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" data-toggle="collapse" data-target="#navbar-main" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">
+                            <img src="../../img/logo-dark.png" alt="">
+                        </a>
+                    </div>
+                    <!-- MENU-->
+                    <div id="navbar-main" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right main-navbar">
+                            <li>
+                                <a href="#header">Home</a>
+                            </li>
+                            <li>
+                                <a href="#features">Features</a>
+                            </li>
+                            <li>
+                                <a href="#shots">Shots</a>
+                            </li>
+                            <li>
+                                <a href="#plans">Plans</a>
+                            </li>
+                            <li>
+                                <a href="#download">
+                                    <strong>Download</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END STICKY NAVBAR-->
+            <div class="container">
+                <!-- MAIN LOGO-->
+                <div class="top-logo">
+                    <img src="../../img/logo.png" alt="">
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <!-- INTRO MESSAGE-->
+                        <div class="intro-section">
+                            <h1 class="intro">Responsive Bootstrap Admin Template</h1>
+                            <h5>
+                                Available on <a href="https://wrapbootstrap.com/theme/angle-bootstrap-admin-app-angularjs-WB04HF123" class="buy-link">WrapBootstrap</a>
+                            </h5>
+                            <!-- DEMO BUTTON-->
+                            <div class="text-center">
+                                <a href="#versions" class="btn btn-lg btn-theme scrollto"><i class="icon-app-download"></i><span>Watch all demos</span></a>
+                            </div>
+                        </div>
+                        <div class="intro-shot">
+                            <img src="../../img/header.shot.png" alt="Header shot" data-no-retina="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER-->
+ 
+        @RenderBody()
+ 
+    <!-- START FOOTER-->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="footer-nav">
+                        <li>
+                            <a href="#header" class="scrollto">Home</a>
+                        </li>
+                        <li>
+                            <a href="#features" class="scrollto">Features</a>
+                        </li>
+                        <li>
+                            <a href="#plans" class="scrollto">Plans</a>
+                        </li>
+                        <li>
+                            <a href="#download" class="scrollto">Download</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <!-- COPYRIGHT-->
+                    <p class="copyright">Angle &copy; 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER-->
+    <!-- START SETTINGS-->
+    <div class="settings">
+        <div class="settings-inner">
+            <div class="settings-ctrl">
+                <em class="fa fa-cogs"></em>
+            </div>
+            <div class="settings-content">
+                <p>Themes</p>
+                <div class="setting-colors">
+                    <div data-load-css="Content/css/theme-a.css" class="setting-color bg-info checked">
+                        <em class="fa fa-check"></em>
+                    </div>
+                    <div data-load-css="Content/css/theme-b.css" class="setting-color bg-success">
+                        <em class="fa fa-check"></em>
+                    </div>
+                    <div data-load-css="Content/css/theme-c.css" class="setting-color bg-purple">
+                        <em class="fa fa-check"></em>
+                    </div>
+                    <div data-load-css="Content/css/theme-d.css" class="setting-color bg-primary">
+                        <em class="fa fa-check"></em>
+                    </div>
+                </div>
+                <p>Layout</p>
+                <div class="clearfix">
+                    <p class="pull-left">RTL</p>
+                    <div class="pull-right">
+                        <label for="rtlswitch" class="switch">
+                            <input type="checkbox" id="rtlswitch">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SETTINGS-->
+    <!-- VENDOR SCRIPTS-->
+    <script src="../../Scripts/Vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../Scripts/Vendor/jquery.browser/dist/jquery.browser.js"></script>
+    <script src="../../Scripts/Vendor/jquery.easing/js/jquery.easing.js"></script>
+    <script src="../../Scripts/Vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../Scripts/Vendor/waitForImages/dist/jquery.waitforimages.min.js"></script>
+    <script src="../../Scripts/Vendor/smoothscroll/smoothscroll.js"></script>
+    <script src="../../Scripts/Vendor/owl.carousel/dist/owl.carousel.js"></script>
+    <script src="../../Scripts/Vendor/Nivo-Lightbox/nivo-lightbox.js"></script>
+    <script src="../../Scripts/Vendor/html5shiv/dist/html5shiv.js"></script>
+    <script src="../../Scripts/Vendor/respond/src/respond.js"></script>
+    <script src="../../Scripts/Vendor/retina.js/dist/retina.js"></script>
+    <script src="../../Scripts/Vendor/jquery.scrollTo/jquery.scrollTo.js"></script>
+    <script src="../../Scripts/Vendor/wow/dist/wow.js"></script>
+    <script src="../../Scripts/Vendor/matchMedia/matchMedia.js"></script>
+    <script src="../../Scripts/Vendor/background-video/jquery.backgroundvideo.js"></script>
+    <script src="../../Scripts/Vendor/jQuery-One-Page-Nav/jquery.nav.js"></script>
+    <script src="../../Scripts/Vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <!-- SITE SCRIPTS-->
+    <script src="../../Scripts/scripts.js"></script>
+
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)*@
+</body>
+</html>

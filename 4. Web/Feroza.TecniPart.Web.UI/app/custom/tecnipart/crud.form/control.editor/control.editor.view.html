@@ -1,0 +1,55 @@
+﻿<div ng-switch="vm.column.type">
+    <!--Text required-->
+
+    <div class="form-group" ng-switch-default ng-if="vm.column.required != 'false'" >
+        <label class="col-sm-2 control-label">{{vm.column.label}}</label>
+        <div class="col-sm-10">
+            <input  type="text" required 
+                    ng-model="vm.item[vm.column.binding]"
+                    ng-keyup="vm.fireKeyUpEvent($event, vm.item)" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group" ng-switch-default ng-if="vm.column.required != 'true'">
+        <label class="col-sm-2 control-label">{{vm.column.label}}</label>
+        <div class="col-sm-10">
+            <input type="text" ng-model="vm.item[vm.column.binding]"
+                   ng-keyup="vm.fireKeyUpEvent($event, vm.item)" class="form-control" />
+        </div>
+    </div>
+    <!--Date required-->
+    <span class="input-group" ng-switch-when="date" ng-if="vm.column.required == 'false'">
+        <input type="text"
+               class="form-control"
+               datepicker-popup="fullDate"
+               min-date="vm.today"
+               ng-model="vm.item[vm.column.binding]"
+               is-open="vm.datePickerOpen"
+               ng-keyup="vm.fireKeyUpEvent($event, vm.item)" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="vm.openDatePicker($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+        </span>
+    </span>
+    <!--Date not required-->
+    <span class="input-group" ng-switch-when="date" ng-if="vm.column.required == 'true'">
+        <input type="text"
+               class="form-control"
+               datepicker-popup="fullDate"
+               min-date="vm.today"
+               ng-model="vm.item[vm.column.binding]"
+               is-open="vm.datePickerOpen"
+               ng-keyup="vm.fireKeyUpEvent($event, vm.item)" />
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="vm.openDatePicker($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+        </span>
+    </span>
+
+    <!--Button-->
+    <span ng-switch-when="button">
+        <!--Empty-->
+    </span>
+
+</div>

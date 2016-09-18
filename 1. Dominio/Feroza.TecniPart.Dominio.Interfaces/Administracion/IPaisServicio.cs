@@ -18,11 +18,15 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     /// </summary>
     public interface IPaisServicio
     {
-        /// <summary>
-        /// Adds the estado maestras.
-        /// </summary>
+        /// <summary>Adds the estado maestras.</summary>
         /// <param name="pais">The pais.</param>
-        void AddPais(Pais pais);
+        /// <returns>The <see cref="Pais"/>.</returns>
+        Pais AddPais(Pais pais);
+
+        /// <summary>The edit pais.</summary>
+        /// <param name="pais">The pais.</param>
+        /// <returns>The <see cref="Pais"/>.</returns>
+        Pais EditPais(Pais pais);
 
         /// <summary>
         /// Deletes the estado maestras.

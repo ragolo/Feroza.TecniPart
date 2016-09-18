@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Global.asax.cs" company="Feroza">
+// <copyright file="Global.asax.cs" company="">
 //   
 // </copyright>
 // <summary>
-//   Defines the MvcApplication type.
+//   Defines the WebApiApplication type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -20,13 +20,10 @@ namespace Feroza.TecniPart.Web.UI
     using Castle.Windsor.Installer;
 
     using Infraestructura.ResolucionDepencias;
-
     using Windsor;
 
-    /// <summary>
-    /// The mvc application.
-    /// </summary>
-    public class WebApiApplication : HttpApplication
+    /// <summary>The web api application.</summary>
+    public class Global : HttpApplication
     {
         /// <summary>
         /// The container.
