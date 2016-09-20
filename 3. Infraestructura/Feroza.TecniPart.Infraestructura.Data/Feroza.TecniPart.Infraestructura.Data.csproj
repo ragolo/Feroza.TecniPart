@@ -111,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Mapping\" />
     <Folder Include="Servicios\" />
   </ItemGroup>
   <ItemGroup>
