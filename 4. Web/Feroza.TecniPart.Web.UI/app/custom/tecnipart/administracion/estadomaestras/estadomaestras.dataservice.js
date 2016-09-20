@@ -12,7 +12,7 @@
         service.get = get;
         service.save = save;
         service.put = put;
-        service.remove = remove;
+        service.removeEstadoMaestras = removeEstadoMaestras;
         service.query = query;
         service.getEstadoMaestrasModel = getEstadoMaestrasModel;
         return service;
@@ -61,10 +61,13 @@
                 });
         }
 
-        function remove(id) {
-            return appService.delete("api/EstadoMaestras", id)
+        function removeEstadoMaestras(id) {
+            logger.info("[estadomaestasDataServices] Eliminando -> ", id);
+            return appService.delete("api/EstadoMaestras/",id)
                 .then(function (data) {
                     service.estadoMaestras = data;
+                }, function(reason) {
+                    logger.error(reason);
                 });
         }
 

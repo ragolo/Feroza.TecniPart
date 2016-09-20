@@ -9,6 +9,7 @@
 
 namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Http;
@@ -76,6 +77,9 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.Ok(estadoMaestras);
         }
 
+        /// <summary>The put estado maestras.</summary>
+        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPut]
         public IHttpActionResult PutEstadoMaestras(EstadoMaestras estadoMaestra)
         {
@@ -83,16 +87,20 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.Ok(estadoMaestras);
         }
 
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
-        [HttpDelete]
-        public void Delete(int id)
+        /// <summary>The delete.</summary>
+        /// <param name="id">The id.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
+        public IHttpActionResult DeleteEstadoMaestras(int id)
         {
-            this.estadoMaestrasServicios.DeleteEstadoMaestras(id);
+            try
+            {
+                this.estadoMaestrasServicios.DeleteEstadoMaestras(id);
+                return this.Ok(id);
+            }
+            catch (Exception exception)
+            {
+                return this.BadRequest(exception.Message);
+            }
         }
     }
 }

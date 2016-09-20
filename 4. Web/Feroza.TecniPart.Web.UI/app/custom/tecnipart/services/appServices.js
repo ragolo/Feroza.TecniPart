@@ -85,10 +85,10 @@
             var defered = $q.defer();
             var promise = defered.promise;
             $http({
-                url: url,
+                url: url + requestData,
                 method: "DELETE",
                 headers: { 'Content-Type': "application/json" },
-                data: requestData
+                //data: requestData
             })
                 .success(function (response) {
                     defered.resolve(response);

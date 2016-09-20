@@ -70,10 +70,10 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             {
                 //TODO: Implementar auto mapper
                 var estadoMaestrasDataMap = new EstadoMaestrasData
-                                                {
-                                                    IdEstadoMaestras = estadoMaestras.IdEstadoMaestras,
-                                                    Descripcion = estadoMaestras.Descripcion
-                                                };
+                {
+                    IdEstadoMaestras = estadoMaestras.IdEstadoMaestras,
+                    Descripcion = estadoMaestras.Descripcion
+                };
                 estadoMaestrasDataMap.IdEstadoMaestras = estadoMaestrasDataOriginal.IdEstadoMaestras;
                 this.context.Entry(estadoMaestrasDataOriginal).CurrentValues.SetValues(estadoMaestrasDataMap);
                 this.context.SaveChanges();
@@ -92,8 +92,15 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         public void Eliminar(int idEstadoMaestras)
         {
             var estadoMaestraToDelete = this.context.EstadoMaestras.FirstOrDefault(r => r.IdEstadoMaestras.Equals(idEstadoMaestras));
-            this.context.EstadoMaestras.Remove(estadoMaestraToDelete);
-            this.context.SaveChanges();
+            if (estadoMaestraToDelete != null)
+            {
+                this.context.EstadoMaestras.Remove(estadoMaestraToDelete);
+                this.context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception($"El registro [{idEstadoMaestras}] que intenta eliminar, no fue encontrado.");
+            }
         }
 
         /// <summary>

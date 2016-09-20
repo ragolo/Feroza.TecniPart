@@ -65,11 +65,11 @@
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
   margin-bottom: 0; }*/
 
-md-dialog md-dialog-content {
+md-dialog.modal-formulario md-dialog-content {
     padding: 0 !important;
     overflow-x: hidden !important;
 }
 
-md-dialog {
+md-dialog.modal-formulario {
     min-width: 80% !important;
 }

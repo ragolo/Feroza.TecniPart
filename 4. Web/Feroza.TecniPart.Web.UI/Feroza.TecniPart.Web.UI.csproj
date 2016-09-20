@@ -752,6 +752,7 @@
     <Content Include="Views\Administracion\Pais\PaisComponent.cshtml" />
     <Content Include="Views\Administracion\Pais\PaisEditView.cshtml" />
     <Content Include="Views\Administracion\Pais\PaisListComponent.cshtml" />
+    <Content Include="Views\Partials\ModalConfirm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -798,7 +799,6 @@
     <Folder Include="Scripts\Vendor\jquery\src\sizzle\dist\" />
     <Folder Include="Scripts\Vendor\jquery\src\traversing\var\" />
     <Folder Include="Scripts\Vendor\jquery\src\var\" />
-    <Folder Include="Scripts\Vendor\NewFolder1\" />
     <Folder Include="Scripts\Vendor\oclazyload\dist\modules\" />
     <Folder Include="Views\EstadoMaestras\" />
   </ItemGroup>
