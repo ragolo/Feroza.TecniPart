@@ -171,6 +171,16 @@
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\estadomaestras.dataservice.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\components\estadomaestras-list.component.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\marcas.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\marcas.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-list.component.js" />
@@ -472,6 +482,7 @@
   <ItemGroup>
     <Compile Include="Api\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Api\Administracion\FabricantesController.cs" />
+    <Compile Include="Api\Administracion\MarcasController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -479,6 +490,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\MarcasController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\BusquedaViewController.cs" />
@@ -774,6 +786,11 @@
     <Content Include="Views\Administracion\Fabricantes\FabricantesEditView.cshtml" />
     <Content Include="Views\Administracion\Fabricantes\FabricantesListComponent.cshtml" />
     <Content Include="Views\Administracion\Fabricantes\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasAddView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasComponent.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasEditView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasListComponent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -821,7 +838,6 @@
     <Folder Include="Scripts\Vendor\jquery\src\traversing\var\" />
     <Folder Include="Scripts\Vendor\jquery\src\var\" />
     <Folder Include="Scripts\Vendor\oclazyload\dist\modules\" />
-    <Folder Include="Views\EstadoMaestras\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\1. Dominio\Feroza.TecniPart.Dominio.Entidades\Feroza.TecniPart.Dominio.Entidades.csproj">

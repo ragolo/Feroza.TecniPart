@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\Administracion\EfFabricantesRepositorio.cs" />
+    <Compile Include="Repositorios\Administracion\EfMarcasRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfPaisRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfEstadoMaestrasRepositorio.cs" />
   </ItemGroup>
