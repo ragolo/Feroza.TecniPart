@@ -12,16 +12,16 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class VehiculosData
+    public partial class ProductosData
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VehiculosData()
+        public ProductosData()
         {
             this.Aplicaciones = new HashSet<AplicacionesData>();
             this.Catalogos = new HashSet<CatalogosData>();
         }
     
-        public int IdVehiculos { get; set; }
+        public int IdProductos { get; set; }
         public string Descripcion { get; set; }
         public byte[] ImagenVehiculo { get; set; }
         public int IdFabricantes { get; set; }

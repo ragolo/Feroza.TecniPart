@@ -50,7 +50,7 @@
     <Compile Include="Modelos\Referencias.cs" />
     <Compile Include="Modelos\Sistemas.cs" />
     <Compile Include="Modelos\SubSistemas.cs" />
-    <Compile Include="Modelos\Vehiculos.cs" />
+    <Compile Include="Modelos\Productos.cs" />
     <Compile Include="Modelos\VehiculoSistemas.cs" />
     <Compile Include="Modelos\VehiculoSubSistemas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

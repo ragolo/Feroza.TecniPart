@@ -15,11 +15,7 @@
     "sref": "#",
     "icon": "icon-settings",
     "submenu": [
-      {
-        "text": "",
-        "sref": "app.administracionEstadomaestras",
-        "translate": "sidebar.nav.menu.administracion.ESTADOMAESTRAS"
-      },
+
       {
         "text": "",
         "sref": "app.administracionPais",
@@ -41,12 +37,12 @@
         "submenu": [
           {
             "text": "",
-            "sref": "app.administracionFabricantes",
+            "sref": "app.administracionProductos",
             "translate": "sidebar.nav.menu.administracion.productos.PRODUCTOSADM"
           },
           {
             "text": "",
-            "sref": "app.administracionMarcas",
+            "sref": "app.administracionProductos",
             "translate": "sidebar.nav.menu.administracion.productos.GETPRODUCTOS"
           }
         ],

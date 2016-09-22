@@ -19,6 +19,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public string CodigoOem { get; set; }
     
         public virtual ReferenciasData Referencias { get; set; }
-        public virtual VehiculosData Vehiculos { get; set; }
+        public virtual ProductosData Productos { get; set; }
     }
 }

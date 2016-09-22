@@ -88,6 +88,13 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("Marcas/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
+    .state("app.administracionProductos",
+      {
+          url: "/Productos/IndexView",
+          title: "Productos",
+          templateUrl: helper.basepath("Productos/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      })
     ;
 
     $stateProvider.state("state-estadomaestras-EstadoMaestrasAddView",
@@ -189,6 +196,33 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
             modalCore: {
                 templateUrl: helper.basepath("Marcas/MarcasEditView"),
                 controller: "marcasEditViewController",
+                controllerAs: "vm"
+            }
+        }
+    });
+
+    $stateProvider.state("state-productos-ProductosEditView",
+    {
+        url: "/Productos/ProductosEditView",
+        abstract: false,
+        views: {
+            modalCore: {
+                templateUrl: helper.basepath("Productos/ProductosEditView"),
+                controller: "productosEditViewController",
+                controllerAs: "vm"
+            }
+        }
+    });
+
+
+    $stateProvider.state("state-productos-ProductosAddView",
+    {
+        url: "/Productos/ProductosAddView",
+        abstract: false,
+        views: {
+            modalCore: {
+                templateUrl: helper.basepath("Productos/ProductosAddView"),
+                controller: "productosAddViewController",
                 controllerAs: "vm"
             }
         }

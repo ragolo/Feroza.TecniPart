@@ -95,6 +95,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// <value>
         /// The vehiculos.
         /// </value>
-        public virtual Vehiculos Vehiculos { get; set; }
+        public virtual Productos Vehiculos { get; set; }
     }
 }

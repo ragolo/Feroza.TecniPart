@@ -10,8 +10,15 @@
       "menu": {
         "administracion": {
           "ADMINISTRACION": "EN:Administracion",
+          "ESTADOMAESTRAS": "EN:Estado maestras",
           "PAIS": "EN:Pais",
-          "ESTADOMAESTRAS":  "EN:Estado maestras" 
+          "FABRICANTES": "EN:Fabricantes",
+          "MARCAS": "EN:Marcas",
+          "productos": {
+            "PRODUCTOS": "EN:Productos",
+            "PRODUCTOSADM": "EN:Productos",
+            "GETPRODUCTOS": "EN:Adquirir productos"   
+          } 
         },
         "BUSQUEDA": "EN:Busqueda"
       }

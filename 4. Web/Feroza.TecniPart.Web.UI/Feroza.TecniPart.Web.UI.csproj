@@ -171,6 +171,16 @@
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\estadomaestras.dataservice.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\components\estadomaestras-list.component.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-list.component.js" />
@@ -482,6 +492,7 @@
   <ItemGroup>
     <Compile Include="Api\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Api\Administracion\FabricantesController.cs" />
+    <Compile Include="Api\Administracion\ProductosController.cs" />
     <Compile Include="Api\Administracion\MarcasController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -490,6 +501,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\ProductosController.cs" />
     <Compile Include="Controllers\Administracion\MarcasController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
     <Compile Include="Controllers\AppController.cs" />
@@ -791,6 +803,11 @@
     <Content Include="Views\Administracion\Marcas\MarcasComponent.cshtml" />
     <Content Include="Views\Administracion\Marcas\MarcasEditView.cshtml" />
     <Content Include="Views\Administracion\Marcas\MarcasListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\ProductosAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\ProductosComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\ProductosEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\ProductosListComponent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -30,6 +30,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public virtual ICollection<CatalogoDetallesData> CatalogoDetalles { get; set; }
         public virtual SistemasData Sistemas { get; set; }
         public virtual SubSistemasData SubSistemas { get; set; }
-        public virtual VehiculosData Vehiculos { get; set; }
+        public virtual ProductosData Productos { get; set; }
     }
 }

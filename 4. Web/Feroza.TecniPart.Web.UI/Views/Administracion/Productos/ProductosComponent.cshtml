@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+<div class="card">
+    <div class="card-heading bg-primary">
+        <div class="pull-right">
+            <em class="icon-layers fa-2x"></em>
+        </div>
+        <div class="card-title">Crear</div>
+    </div>
+    <div class="card-body">
+        <form class="form-validate">
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" readonly="" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.productos.IdProductos" required="" tabindex="0" />
+                <label>ID</label>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.productos.IdFabricantes" ng-required="true" tabindex="0" />
+                <label>Fabricantes</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.productos.IdMarca" ng-required="true" tabindex="0" />
+                <label>Marcas</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.productos.Descripcion" ng-required="true" tabindex="0" />
+                <label>Descripción</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.productos.Ango" ng-required="true" tabindex="0" />
+                <label>Año</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" class="mda-form-control" ng-model="vm.productos.ImagenVehiculo" tabindex="0" />
+                <label>Imagen</label>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" class="mda-form-control" ng-model="vm.productos.Comentario"  tabindex="0" />
+                <label>Comentario</label>
+            </div>
+        </form>
+    </div>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button aria-label="Guardar" ng-click="vm.save()"> Guardar </md-button>
+        <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+    </md-card-actions>
+</div>
