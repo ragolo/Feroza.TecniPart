@@ -28,8 +28,8 @@ function paisStateProvider($state, $timeoute, logger, paisDataServices, modalWin
     }
 
     function goToPaisComponentEdit(id) {
-        logger.info("Comienza la consulta del estado maestra model -> ", id);
-        return paisDataServices.getPaisModel(id)
+        logger.info("Comienza la consulta del estado pais model -> ", id);
+        return paisDataServices.get(id)
             .then(function () {
                 return $state.transitionTo("state-pais-PaisEditView",
                         {},

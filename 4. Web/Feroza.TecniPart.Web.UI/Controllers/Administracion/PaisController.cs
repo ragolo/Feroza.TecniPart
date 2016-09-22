@@ -74,7 +74,6 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         /// <summary>The get estado maestras model.</summary>
         /// <param name="id">The id.</param>
         /// <returns>The <see cref="ContentResult"/>.</returns>
-        [HttpPost]
         public ContentResult GetPaisModel(int? id)
         {
             var success = false;

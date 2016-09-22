@@ -49,6 +49,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 estadoMaestrasDataOriginal = this.context.EstadoMaestras.Create();
                 estadoMaestrasDataOriginal.Descripcion = estadoMaestras.Descripcion;
                 this.context.EstadoMaestras.Add(estadoMaestrasDataOriginal);
+                this.context.Entry(estadoMaestrasDataOriginal).State = EntityState.Added;
                 this.context.SaveChanges();
                 estadoMaestras.IdEstadoMaestras = estadoMaestrasDataOriginal.IdEstadoMaestras;
                 return estadoMaestras;

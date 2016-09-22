@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administracion\EstadoMaestrasServicios.cs" />
+    <Compile Include="Administracion\FabricantesServicios.cs" />
     <Compile Include="Administracion\PaisServicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

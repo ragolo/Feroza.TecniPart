@@ -7,31 +7,31 @@
     </div>
     <div class="panel-body">
         <div class="smart-table-container">
-            <table st-safe-src="vm.paises" st-table="paisesTable" class="smart-table table">
+            <table st-safe-src="vm.pais.paisListar" st-table="paisTable" class="smart-table table">
                 <thead>
                 <tr>
+                    <th>ID</th>
+                    <th>Descripcion</th>
                     <th style="text-align: center">
                         <md-button class="md-icon-button" ng-click="vm.add()">
                             <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
                         </md-button>
                     </th>
-                    <th>ID</th>
-                    <th>Descripcion</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="pais in paisesTable">
+                <tr ng-repeat="pais in paisTable">
+                    <td>{{pais.IdPais}}</td>
+                    <td>{{pais.Descripcion}}</td>
                     <td style="width: 20%; text-align: center">
                         
                             <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(pais)">
                                 <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
                             </md-button>
-                            <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.edit(pais)">
+                            <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(pais)">
                                 <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
                             </md-button>
                     </td>
-                    <td>{{pais.IdPais}}</td>
-                    <td>{{pais.Descripcion}}</td>
                 </tr>
                 </tbody>
                 <tfoot>

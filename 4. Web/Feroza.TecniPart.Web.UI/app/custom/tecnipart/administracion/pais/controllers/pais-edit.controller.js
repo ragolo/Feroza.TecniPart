@@ -12,17 +12,19 @@
         vm.save = save;
         vm.cancel = cancel;
         init();
-  
+
         function init() {
         }
 
         function save() {
             logger.info("[paisEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
             paisDataServices.put(vm.pais).then(function () {
-                paisDataServices.query();
+                paisDataServices.query().then(function (data) {
+                    vm.pais = vm.pais.get();
+                });
                 modalWindowFactory.hide();
-            }, function(reason) {
-                
+            }, function (reason) {
+                logger.error(reason);
             });
         }
 

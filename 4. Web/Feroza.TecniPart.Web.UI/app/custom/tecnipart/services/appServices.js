@@ -14,12 +14,18 @@
 
         return service;
 
-        function fetch(url, requestData) {
+        function fetch(url, requestData, method) {
             var defered = $q.defer();
             var promise = defered.promise;
+            var httpMethod = method;
+
+            if (typeof (httpMethod) === "undefined") {
+                httpMethod = "POST";
+            }
+
             $http({
                 url: url,
-                method: "POST",
+                method: httpMethod,
                 headers: { 'Content-Type': "application/json" },
                 data: requestData
             })

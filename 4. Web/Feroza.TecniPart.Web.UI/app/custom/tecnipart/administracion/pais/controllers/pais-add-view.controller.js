@@ -8,10 +8,9 @@
         var vm = this;
         init();
         function init() {
-            paisDataServices.getPaisModel()
-                .then(function (data) {
-                    vm.paises = data;
-                });
+            paisDataServices.getPaisModel().then(function (resposeData) {
+                vm.pais = resposeData;
+            });
         }
     }
 })();

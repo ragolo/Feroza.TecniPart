@@ -9,7 +9,7 @@ function paisAddComponent() {
         controllerAs: "vm",
         templateUrl: "/Pais/PaisComponent",
         scope: {
-            paises: "="
+            pais: "="
         },
         bindToController: true
 };

@@ -28,6 +28,7 @@
             //'app.maps',
             'app.utils',
             'app.material',
+            "restangular",
             "tecnipart"
         ]);
 })();

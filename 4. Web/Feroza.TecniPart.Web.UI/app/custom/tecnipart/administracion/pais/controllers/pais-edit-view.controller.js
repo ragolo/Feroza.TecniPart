@@ -8,7 +8,9 @@
         var vm = this;
         init();
         function init() {
-            vm.paises = paisDataServices.pais;
+
+            vm.pais = paisDataServices.pais;
+
         }
     }
 })();

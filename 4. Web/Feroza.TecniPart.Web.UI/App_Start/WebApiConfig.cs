@@ -9,12 +9,13 @@
 
 namespace Feroza.TecniPart.Web.UI
 {
+    using System.Linq;
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
 
     using Castle.Windsor;
 
-    using Feroza.TecniPart.Web.UI.Windsor;
+    using Windsor;
 
     /// <summary>
     /// The web api config.
@@ -51,6 +52,8 @@ namespace Feroza.TecniPart.Web.UI
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
 
         /// <summary>

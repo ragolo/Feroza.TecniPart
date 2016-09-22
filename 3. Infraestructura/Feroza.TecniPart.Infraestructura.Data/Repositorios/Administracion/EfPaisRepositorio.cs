@@ -41,7 +41,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         {
             var paisDataOriginal = this.context.Pais.FirstOrDefault(r => r.IdPais == pais.IdPais);
 
-            if (paisDataOriginal == null)
+            if (paisDataOriginal == null || pais.IdPais == 0)
             {
                 paisDataOriginal = this.context.Pais.Create();
                 paisDataOriginal.Descripcion = pais.Descripcion;

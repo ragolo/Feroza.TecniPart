@@ -66,6 +66,8 @@ namespace Feroza.TecniPart.Web.UI
               "~/Scripts/Vendor/angular-cookies/angular-cookies.js",
               "~/Scripts/Vendor/angular-animate/angular-animate.js",
               "~/Scripts/Vendor/angular-touch/angular-touch.js",
+              "~/Scripts/Vendor/restangular/lodash.min.js",
+              "~/Scripts/Vendor/restangular/restangular.min.js",
               "~/Scripts/Vendor/angular-ui-router/release/angular-ui-router.js",
               "~/Scripts/Vendor/ngstorage/ngStorage.js",
               "~/Scripts/Vendor/angular-ui-utils/ui-utils.js",

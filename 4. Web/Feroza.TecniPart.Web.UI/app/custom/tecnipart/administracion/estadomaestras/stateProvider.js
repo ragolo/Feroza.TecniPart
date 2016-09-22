@@ -29,7 +29,7 @@ function estadomaestrasStateProvider($state, $timeoute, logger, estadomaestasDat
 
     function goToEstadoMaestrasComponentEdit(id) {
         logger.info("Comienza la consulta del estado maestra model -> ", id);
-        return estadomaestasDataServices.getEstadoMaestrasModel(id)
+        return estadomaestasDataServices.get(id)
             .then(function () {
                 return $state.transitionTo("state-estadomaestras-EstadoMaestrasEditView",
                         {},

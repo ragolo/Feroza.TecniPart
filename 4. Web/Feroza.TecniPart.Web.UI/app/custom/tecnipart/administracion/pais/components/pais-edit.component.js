@@ -7,11 +7,11 @@ function paisEditComponent() {
         restrict: "E",
         controller: "paisEditController",
         controllerAs: "vm",
+        bindToController: true,
         templateUrl: "/Pais/PaisComponent",
         scope: {
-            paises: "="
-        },
-        bindToController: true
+            pais: "="
+        }
 };
     return directive;
 }

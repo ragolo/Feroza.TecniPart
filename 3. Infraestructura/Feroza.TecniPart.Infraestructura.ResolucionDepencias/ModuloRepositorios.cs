@@ -35,6 +35,7 @@ namespace Feroza.TecniPart.Infraestructura.ResolucionDepencias
         {
             container.Register(
                 Component.For<IEstadoMaestrasRespositorio>().ImplementedBy<EfEstadoMaestrasRepositorio>().LifestyleTransient(),
+                Component.For<IFabricantesRespositorio>().ImplementedBy<EfFabricantesRepositorio>().LifestyleTransient(),
                 Component.For<IPaisRespositorio>().ImplementedBy<EfPaisRepositorio>().LifestyleTransient());
         }
     }

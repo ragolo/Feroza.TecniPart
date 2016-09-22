@@ -33,8 +33,9 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-            Component.For<IEstadoMaestrasServicio>().ImplementedBy<EstadoMaestrasServicios>().LifestyleSingleton(),
-                Component.For<IPaisServicio>().ImplementedBy<PaisServicios>().LifestyleSingleton());
+            Component.For<IEstadoMaestrasServicio>().ImplementedBy<EstadoMaestrasServicios>().LifestylePerWebRequest(),
+            Component.For<IFabricantesServicio>().ImplementedBy<FabricantesServicios>().LifestylePerWebRequest(),
+                Component.For<IPaisServicio>().ImplementedBy<PaisServicios>().LifestylePerWebRequest());
         }
     }
 }

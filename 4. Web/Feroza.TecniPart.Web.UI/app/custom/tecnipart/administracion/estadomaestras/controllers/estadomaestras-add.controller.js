@@ -18,10 +18,10 @@
 
         function save() {
             logger.info("[estadomaestrasAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            estadomaestasDataServices.save(vm.estadomaestras).then(function () {
+            estadomaestasDataServices.save(vm.estadomaestras).then(function (data) {
                 modalWindowFactory.hide();
             }, function(reason) {
-                
+                logger.error(reason);
             });
         }
 

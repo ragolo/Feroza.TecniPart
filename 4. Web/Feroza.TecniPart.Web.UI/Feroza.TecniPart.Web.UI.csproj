@@ -171,6 +171,16 @@
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\estadomaestras.dataservice.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\components\estadomaestras-list.component.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\fabricantes.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\fabricantes.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\pais\components\pais-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\pais\components\pais-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\pais\components\pais-list.component.js" />
@@ -395,6 +405,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\Vendor\restangular\lodash.js" />
+    <Content Include="Scripts\Vendor\restangular\lodash.min.js" />
+    <Content Include="Scripts\Vendor\restangular\restangular.js" />
+    <Content Include="Scripts\Vendor\restangular\restangular.min.js" />
     <Content Include="Scripts\Vendor\smart-table\smart-table.js" />
     <Content Include="Scripts\Vendor\smart-table\smart-table.min.js" />
     <Content Include="Scripts\Vendor\angular-animate\angular-animate.js" />
@@ -457,12 +471,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Administracion\EstadoMaestrasController.cs" />
+    <Compile Include="Api\Administracion\FabricantesController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\EstadoMaestrasController.cs" />
+    <Compile Include="Controllers\Administracion\FabricantesController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\BusquedaViewController.cs" />
@@ -753,6 +769,11 @@
     <Content Include="Views\Administracion\Pais\PaisEditView.cshtml" />
     <Content Include="Views\Administracion\Pais\PaisListComponent.cshtml" />
     <Content Include="Views\Partials\ModalConfirm.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesAddView.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesComponent.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesEditView.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesListComponent.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\IndexView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

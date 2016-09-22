@@ -73,7 +73,15 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           title: "Estado Maestras",
           templateUrl: helper.basepath("EstadoMaestras/IndexView"),
           resolve: helper.resolveFor("smart-table")
-      });
+      })
+     .state("app.administracionFabricantes",
+      {
+          url: "/Fabricantes/IndexView",
+          title: "Fabricantes",
+          templateUrl: helper.basepath("Fabricantes/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      })
+    ;
 
     $stateProvider.state("state-estadomaestras-EstadoMaestrasAddView",
     {
@@ -84,8 +92,8 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
                 templateUrl: helper.basepath("EstadoMaestras/EstadoMaestrasAddView"),
                 controller: "estadomaestrasAddViewController",
                 controllerAs: "vm"
-                        }
-                }
+            }
+        }
     });
 
     $stateProvider.state("state-estadomaestras-EstadoMaestrasEditView",
@@ -122,6 +130,32 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
             modalCore: {
                 templateUrl: helper.basepath("Pais/PaisEditView"),
                 controller: "paisEditViewController",
+                controllerAs: "vm"
+            }
+        }
+    });
+
+    $stateProvider.state("state-fabricantes-FabricantesAddView",
+ {
+     url: "/Fabricantes/FabricantesFabricantesAddView",
+     abstract: false,
+     views: {
+         modalCore: {
+             templateUrl: helper.basepath("Fabricantes/FabricantesAddView"),
+             controller: "fabricantesAddViewController",
+             controllerAs: "vm"
+         }
+     }
+ });
+
+    $stateProvider.state("state-fabricantes-FabricantesEditView",
+    {
+        url: "/Fabricantes/FabricantesEditView",
+        abstract: false,
+        views: {
+            modalCore: {
+                templateUrl: helper.basepath("Fabricantes/FabricantesEditView"),
+                controller: "fabricantesEditViewController",
                 controllerAs: "vm"
             }
         }

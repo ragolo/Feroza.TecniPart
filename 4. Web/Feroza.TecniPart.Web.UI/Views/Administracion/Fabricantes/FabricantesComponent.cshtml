@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<div class="card">
+    <div class="card-heading bg-primary">
+        <div class="pull-right">
+            <em class="icon-layers fa-2x"></em>
+        </div>
+        <div class="card-title">Guardar</div>
+    </div>
+    <div class="card-body">
+        <form class="form-validate">
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.fabricantes.IdFabricantes" required="" tabindex="0" />
+                <label>ID</label>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.fabricantes.Descripcion" ng-required="true" tabindex="0" />
+                <label>Descripción</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.fabricantes.IdPais" ng-required="true" tabindex="0" />
+                <label>Pais</label>
+                <span class="mda-form-msg">Este campo es requerido</span>
+            </div>
+            <div class="mda-form-group float-label mb">
+                <input class="mda-form-control" ng-model="vm.fabricantes.ImagenFabricante" tabindex="0" />
+                <label>Foto</label>
+            </div>
+
+        </form>
+    </div>
+    <md-card-actions layout="row" layout-align="end center">
+        <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+        <md-button aria-label="Guardar" ng-click="vm.save()"> Guardar </md-button>
+    </md-card-actions>
+</div>

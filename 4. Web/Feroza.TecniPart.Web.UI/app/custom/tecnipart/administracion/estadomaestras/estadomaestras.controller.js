@@ -14,12 +14,14 @@
 
         function init() {
             estadomaestasDataServices.query().then(function (data) {
-                vm.estadomaestras = estadomaestasDataServices.estadoMaestrasListar;
+                vm.estadomaestras = estadomaestasDataServices;
             });
         }
 
         function add() {
-            estadomaestrasStateProvider.goToEstadoMaestrasComponentAdd();
+            estadomaestrasStateProvider.goToEstadoMaestrasComponentAdd().then(function() {
+                //init();
+            });
         }
 
         function edit(estadomaestras) {
@@ -28,7 +30,6 @@
         }
 
         function del(estadomaestras) {
-            // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
                   .title("Eliminar: " + estadomaestras.Descripcion)
                   .textContent("Esta seguro que desea eliminar este registro?")
@@ -37,11 +38,11 @@
                   .cancel("Cancelar");
 
             $mdDialog.show(confirm).then(function () {
-
                 logger.info("Eliminara el registro", estadomaestras);
-                estadomaestasDataServices.removeEstadoMaestras(estadomaestras.IdEstadoMaestras);
-            }, function () {
-                $scope.status = 'You decided to keep your debt.';
+                estadomaestasDataServices.removeEstadoMaestras(estadomaestras)
+                .then(function () {
+                    //init();
+                });
             });
         }
     }

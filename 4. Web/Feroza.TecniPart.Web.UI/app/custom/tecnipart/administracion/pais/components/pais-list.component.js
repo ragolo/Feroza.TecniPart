@@ -11,7 +11,7 @@
             bindToController: true,
             templateUrl: "/Pais/PaisListComponent",
             scope: {
-                paises: "="
+                pais: "="
             }
 		};
 		return directive;

@@ -12,17 +12,19 @@
         vm.save = save;
         vm.cancel = cancel;
         init();
-  
+
         function init() {
         }
 
         function save() {
             logger.info("[estadomaestrasEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
             estadomaestasDataServices.put(vm.estadomaestras).then(function () {
-                estadomaestasDataServices.query();
+                estadomaestasDataServices.query().then(function (data) {
+                    vm.estadomaestras = vm.estadomaestras.get();
+                });
                 modalWindowFactory.hide();
-            }, function(reason) {
-                
+            }, function (reason) {
+                logger.error(reason);
             });
         }
 

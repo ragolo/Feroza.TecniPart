@@ -38,22 +38,16 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             this.estadoMaestrasServicios = estadoMaestrasServicios;
         }
 
-        /// <summary>
-        /// The get.
-        /// </summary>
-        /// <param name="idEstadoMaestras">
-        /// The id estado maestras.
-        /// </param>
-        /// <returns>
-        /// The <see>
+        /// <summary>The get.</summary>
+        /// <param name="id">The id.</param>
+        /// <returns>The <see>
         ///         <cref>IEnumerable</cref>
         ///     </see>
-        ///     .
-        /// </returns>
+        /// .</returns>
         [HttpGet]
-        public EstadoMaestras Get(int idEstadoMaestras)
+        public EstadoMaestras Get(int id)
         {
-            return this.estadoMaestrasServicios.ListEstadoMaestras(idEstadoMaestras).FirstOrDefault();
+            return this.estadoMaestrasServicios.ListEstadoMaestras(id).FirstOrDefault();
         }
 
         /// <summary>The get.</summary>
@@ -71,7 +65,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// <param name="estadoMaestra">The estado maestra.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
-        public IHttpActionResult PostEstadoMaestras(EstadoMaestras estadoMaestra)
+        public IHttpActionResult Post(EstadoMaestras estadoMaestra)
         {
             var estadoMaestras = this.estadoMaestrasServicios.AddEstadoMaestras(estadoMaestra);
             return this.Ok(estadoMaestras);
@@ -81,7 +75,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// <param name="estadoMaestra">The estado maestra.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPut]
-        public IHttpActionResult PutEstadoMaestras(EstadoMaestras estadoMaestra)
+        public IHttpActionResult Put(EstadoMaestras estadoMaestra)
         {
             var estadoMaestras = this.estadoMaestrasServicios.EditEstadoMaestras(estadoMaestra);
             return this.Ok(estadoMaestras);
@@ -90,7 +84,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// <summary>The delete.</summary>
         /// <param name="id">The id.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
-        public IHttpActionResult DeleteEstadoMaestras(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
             try
             {

@@ -13,8 +13,13 @@
   {
     "text": "Administracion",
     "sref": "#",
-    "icon": "icon-folder",
+    "icon": "icon-settings",
     "submenu": [
+      {
+        "text": "",
+        "sref": "app.administracionEstadomaestras",
+        "translate": "sidebar.nav.menu.administracion.ESTADOMAESTRAS"
+      },
       {
         "text": "",
         "sref": "app.administracionPais",
@@ -22,9 +27,31 @@
       },
       {
         "text": "",
-        "sref": "app.administracionEstadomaestras",
-        "translate": "sidebar.nav.menu.administracion.ESTADOMAESTRAS"
-      }    
+        "sref": "app.administracionFabricantes",
+        "translate": "sidebar.nav.menu.administracion.FABRICANTES"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionMarcas",
+        "translate": "sidebar.nav.menu.administracion.MARCAS"
+      },
+      {
+        "sref": "#",
+        "icon": "icon-folder",
+        "submenu": [
+          {
+            "text": "",
+            "sref": "app.administracionFabricantes",
+            "translate": "sidebar.nav.menu.administracion.productos.PRODUCTOSADM"
+          },
+          {
+            "text": "",
+            "sref": "app.administracionMarcas",
+            "translate": "sidebar.nav.menu.administracion.productos.GETPRODUCTOS"
+          }
+        ],
+        "translate": "sidebar.nav.menu.administracion.productos.PRODUCTOS"
+      }
     ],
     "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"
   }

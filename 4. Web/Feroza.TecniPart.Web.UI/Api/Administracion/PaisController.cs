@@ -40,9 +40,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// <summary>
         /// The get.
         /// </summary>
-        /// <param name="idPais">
-        /// The id estado maestras.
-        /// </param>
+        /// <param name="id"></param>
         /// <returns>
         /// The <see>
         ///         <cref>IEnumerable</cref>
@@ -50,9 +48,9 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         ///     .
         /// </returns>
         [HttpGet]
-        public Pais Get(int idPais)
+        public Pais Get(int id)
         {
-            return this.paisServicios.ListPais(idPais).FirstOrDefault();
+            return this.paisServicios.ListPais(id).FirstOrDefault();
         }
 
         /// <summary>The get.</summary>

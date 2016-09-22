@@ -2,85 +2,90 @@
     "use strict";
     angular.module("tecnipart")
         .service("paisDataServices", dataservice);
-    dataservice.$inject = ["appService", "logger"];
+    dataservice.$inject = ["appService", "logger", "Restangular"];
 
-    function dataservice(appService, logger) {
+    function dataservice(appService, logger, restAngular) {
         var service = {};
+        var entityName = "Pais";
+        var restService = restAngular.service("Pais");
+
         service.paisListar = [];
         service.pais = {};
 
         service.get = get;
         service.save = save;
         service.put = put;
-        service.remove = remove;
+        service.removePais = removePais;
         service.query = query;
         service.getPaisModel = getPaisModel;
         return service;
 
         function get(id) {
-            return appService.get("api/Pais", id)
-                .then(function (data) {
-                    service.pais = data;
-                }, function (reason) {
-                    logger.error("[paisDataServices] error al intentar obtener estado maestra por " + id, reason);
-                });
+            logger.info("[paisDataServices] informacion", id);
+            return service.paisListar.get(id).then(function (data) {
+                logger.info("[paisDataServices] informacion recibida desde el servidor ", data);
+
+                service.pais = data;
+            }, function (reason) {
+                logger.error("[paisDataServices] error obteniendo el modelo de las pais", reason);
+            });
         }
 
-        function save(estadoMaestra) {
-            logger.info("[paisDataServices] Guardando", estadoMaestra);
-            return appService.post("api/Pais", estadoMaestra)
+        function save(pais) {
+            logger.info("[paisDataServices] Guardando", pais);
+            return appService.post("api/Pais", pais, "POST")
                 .then(function (data) {
                     service.pais = data;
                     service.paisListar.push(data);
                     logger.success("[paisDataServices] Guardo exitosamente", data);
                 },
                 function (reason) {
-                    logger.error("Error intentanto guardar pais", reason);
+                    logger.error("Error intentanto guardar estadopais", reason);
                 });
         }
 
-        function put(estadoMaestra) {
-            logger.info("[paisDataServices] Guardando", estadoMaestra);
-            return appService.put("api/Pais", estadoMaestra)
-                .then(function (data) {
-                    service.pais = data;
-                    service.paisListar.push(data);
-                    logger.success("[paisDataServices] Guardo exitosamente", data);
-                },
-                function (reason) {
-                    logger.error("Error intentanto guardar pais", reason);
-                });
+        function put(pais) {
+            logger.info("[paisDataServices] Guardando", pais);
+            return pais.put();
         }
 
         function query() {
-            return appService.get("api/Pais", "")
+            return restAngular.all(entityName).getList()
                 .then(function (data) {
                     logger.info("[paisDataServices] datos obtenidos ", data);
-                    service.paisListar = [];
                     service.paisListar = data;
+                    return data;
                 });
         }
 
-        function remove(id) {
-            return appService.delete("api/Pais", id)
-                .then(function (data) {
-                    service.pais = data;
+        function removePais(pais) {
+            logger.info("[paisDataServices] Eliminando -> ", pais);
+
+            return appService.fetch("API/Pais/" + pais.IdPais, "", "DELETE")
+                .then(function (response) {
+                    logger.info("Modelo pais obtenido -> ", response);
+                    //TODO: hay que cambiar la clave primaria de las tablas y la gestion es mas sencillas
+                    query();
+                }, function (reason) {
+                    logger.error("[paisDataServices] error obteniendo el modelo pais", reason);
                 });
+
         }
 
         function getPaisModel(id) {
-            logger.info("[paisDataServices] Obteniendo el modelo para -> ", id);
-            return appService.fetch("Pais/GetPaisModel", { id: id })
+            logger.info("Obteniendo el modelo para -> ", id);
+            var param = typeof (id) === "undefined" ? null : id;
+            return appService.fetch("Pais/GetPaisModel", { id: param })
                 .then(function (response) {
                     if (response.success) {
-                        logger.info("[paisDataServices] Modelo Pais obtenido -> ", response);
+                        logger.info("Modelo pais obtenido -> ", response);
                         service.pais = response.result;
                     } else {
                         logger.error(response.error);
                     }
                     return response.result;
                 }, function (reason) {
-                    logger.error("[paisDataServices] error obteniendo el modelo Pais", reason);
+                    logger.error("[paisDataServices] error obteniendo el modelo de las pais", reason);
                 });
         }
     }
