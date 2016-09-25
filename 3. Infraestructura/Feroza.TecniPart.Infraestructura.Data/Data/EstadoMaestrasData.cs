@@ -20,7 +20,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
             this.Fabricantes = new HashSet<FabricantesData>();
             this.Sistemas = new HashSet<SistemasData>();
             this.SubSistemas = new HashSet<SubSistemasData>();
-            this.Pais = new HashSet<PaisData>();
             this.Marcas = new HashSet<MarcasData>();
         }
     
@@ -33,8 +32,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public virtual ICollection<SistemasData> Sistemas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubSistemasData> SubSistemas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PaisData> Pais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MarcasData> Marcas { get; set; }
     }

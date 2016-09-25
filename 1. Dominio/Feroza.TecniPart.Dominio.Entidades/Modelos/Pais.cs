@@ -47,22 +47,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// The identifier dane.
         /// </value>
         public int IdDane { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identifier estado maestras.
-        /// </summary>
-        /// <value>
-        /// The identifier estado maestras.
-        /// </value>
-        public int IdEstadoMaestras { get; set; }
-
-        /// <summary>
-        /// Gets or sets the estado maestras.
-        /// </summary>
-        /// <value>
-        /// The estado maestras.
-        /// </value>
-        public virtual EstadoMaestras EstadoMaestras { get; set; }
         
         /// <summary>
         /// Gets or sets the fabricantes.

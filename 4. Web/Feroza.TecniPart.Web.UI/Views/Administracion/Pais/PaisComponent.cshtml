@@ -1,28 +1,51 @@
 ﻿@{
     Layout = null;
 }
-<div class="card">
-    <div class="card-heading bg-primary">
-        <div class="pull-right">
-            <em class="icon-layers fa-2x"></em>
+<form name="paisComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
         </div>
-        <div class="card-title">Crear</div>
-    </div>
-    <div class="card-body">
-        <form class="form-validate">
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.pais.IdPais" readonly tabindex="0" />
-                <label>ID</label>
+        <div class="card-body">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <input aria-invalid="true" aria-required="true" md-maxlength="9" name="IdPais" ng-model="vm.pais.IdPais" ng-pattern="/^[0-9]+$/" ng-required="true" tabindex="0" />
+                    <label>Codigo pais</label>
+                    <div multiple ng-messages="paisComponentForm.IdPais.$error" role="alert">
+                        <div ng-message="pattern">Por favo, solo ingrese números</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Descripcion" ng-model="vm.pais.Descripcion" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="0" />
+                    <label>Descripción</label>
+                    <div multiple ng-messages="paisComponentForm.Descripcion.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
             </div>
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.pais.Descripcion" ng-required="true" tabindex="0" />
-                <label>Descripción</label>
-                <span class="mda-form-msg">Este campo es requerido</span>
+
+            <div layout-gt-sm="row">
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Código Dane</label>
+                    <input aria-invalid="true" aria-required="true" md-maxlength="9" name="IdDane" ng-model="vm.pais.IdDane" ng-pattern="/^[0-9]+$/" ng-required="true" tabindex="0" />
+                    <div multiple ng-messages="paisComponentForm.IdDane.$error" role="alert">
+                        <div ng-message="pattern">Por favo, solo ingrese números</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
             </div>
-        </form>
+
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="paisComponentForm.$invalid || paisComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
     </div>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button aria-label="Guardar" ng-click="vm.save()"> Guardar </md-button>
-        <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
-    </md-card-actions>
-</div>
+</form>

@@ -45,6 +45,8 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             {
                 paisDataOriginal = this.context.Pais.Create();
                 paisDataOriginal.Descripcion = pais.Descripcion;
+                paisDataOriginal.IdPais = pais.IdPais;
+                paisDataOriginal.IdDane = pais.IdDane;
                 this.context.Pais.Add(paisDataOriginal);
                 this.context.SaveChanges();
                 pais.IdPais = paisDataOriginal.IdPais;
@@ -68,9 +70,9 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 //TODO: Implementar auto mapper
                 var paisDataMap = new PaisData
                 {
-                    IdEstadoMaestras = pais.IdEstadoMaestras,
                     IdPais = pais.IdPais,
-                    Descripcion = pais.Descripcion
+                    Descripcion = pais.Descripcion,
+                    IdDane = pais.IdDane
                 };
                 paisDataMap.IdPais = paisDataOriginal.IdPais;
                 this.context.Entry(paisDataOriginal).CurrentValues.SetValues(paisDataMap);
@@ -108,7 +110,8 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             return this.context.Pais.Where(r => r.IdPais == idPais).Select(s => new Pais
             {
                 Descripcion = s.Descripcion,
-                IdPais = s.IdPais
+                IdPais = s.IdPais,
+                IdDane = s.IdDane
             });
         }
 
@@ -122,7 +125,8 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             return this.context.Pais.Select(s => new Pais
             {
                 Descripcion = s.Descripcion,
-                IdPais = s.IdPais
+                IdPais = s.IdPais,
+                IdDane = s.IdDane
             });
         }
     }

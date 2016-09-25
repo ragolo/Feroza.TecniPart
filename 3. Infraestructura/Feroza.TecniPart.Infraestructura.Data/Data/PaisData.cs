@@ -23,9 +23,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public int IdPais { get; set; }
         public string Descripcion { get; set; }
         public int IdDane { get; set; }
-        public int IdEstadoMaestras { get; set; }
     
-        public virtual EstadoMaestrasData EstadoMaestras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FabricantesData> Fabricantes { get; set; }
     }

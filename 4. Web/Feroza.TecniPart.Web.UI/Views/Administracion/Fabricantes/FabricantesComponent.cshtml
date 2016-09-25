@@ -20,9 +20,8 @@
                     <label>Fabricante</label>
                     <input md-maxlength="100" name="fabricantesDescripcion" ng-model="vm.fabricantes.Descripcion" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
                     <div multiple ng-messages="fabricantesComponentForm.fabricantesDescripcion.$error" role="alert">
-                        <div ng-message="required">Este campo es requerido</div>
-                        <div ng-message="pattern">Por favor solo use números y letras</div>
-                        <div ng-message="md-maxlength">El campo es demasiado largo</div>
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
                     </div>
                 </md-input-container>
 
@@ -36,7 +35,7 @@
                         </md-option>
                     </md-select>
                     <div multiple ng-messages="fabricantesComponentForm.fabricantesIdPais.$error" role="alert">
-                        <div ng-message="required" class="my-message">Este campo es requerido</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
                     </div>
                 </md-input-container>
             </div>

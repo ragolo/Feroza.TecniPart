@@ -10,6 +10,8 @@
         function init() {
             paisDataServices.getPaisModel().then(function (resposeData) {
                 vm.pais = resposeData;
+                vm.pais.IdPais = "";
+                vm.pais.IdDane = "";
             });
         }
     }

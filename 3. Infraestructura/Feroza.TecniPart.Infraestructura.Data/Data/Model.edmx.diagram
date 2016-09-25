@@ -25,9 +25,6 @@
         <AssociationConnector Association="TecniPartModel.FK_Fabricantes_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" />
         <AssociationConnector Association="TecniPartModel.FK_Sistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" />
         <AssociationConnector Association="TecniPartModel.FK_SubSistemas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" />
-        <EntityTypeShape EntityType="TecniPartModel.PaisData" Width="1.5" PointX="3" PointY="14.5" />
-        <AssociationConnector Association="TecniPartModel.FK_Pais_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" />
-        <AssociationConnector Association="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais" />
         <EntityTypeShape EntityType="TecniPartModel.MarcasData" Width="1.5" PointX="2.5" PointY="12.75" />
         <AssociationConnector Association="TecniPartModel.FK_Marcas_IdEstadoMaestras_EstadoMaestras_IdEstadoMaestras" />
         <EntityTypeShape EntityType="TecniPartModel.ProductosData" Width="1.5" PointX="7.5" PointY="10.25" />
@@ -35,6 +32,8 @@
         <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" />
         <AssociationConnector Association="TecniPartModel.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" />
         <AssociationConnector Association="TecniPartModel.FK_Vehiculos_IdMarca_Marcas_IdMarca" />
+        <EntityTypeShape EntityType="TecniPartModel.PaisData" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

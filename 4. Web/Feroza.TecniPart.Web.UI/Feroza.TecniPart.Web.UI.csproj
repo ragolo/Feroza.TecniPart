@@ -232,6 +232,7 @@
     <Content Include="app\custom\tecnipart\crud.form\crud.form.factory.js" />
     <Content Include="app\custom\tecnipart\crud.form\crud.form.view.html" />
     <Content Include="app\custom\tecnipart\partials\edit-button.html" />
+    <Content Include="app\custom\tecnipart\partials\messages.html" />
     <Content Include="app\custom\tecnipart\services\appServices.js" />
     <Content Include="app\custom\tecnipart\tecnipart.module.js" />
     <Content Include="app\custom\tecnipart\tecnipart.run.js" />
@@ -912,7 +913,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63776</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:90/</IISUrl>
+          <IISUrl>http://localhost:89/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
