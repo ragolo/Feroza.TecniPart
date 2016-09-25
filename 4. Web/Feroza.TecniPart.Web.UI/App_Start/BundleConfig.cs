@@ -53,6 +53,8 @@ namespace Feroza.TecniPart.Web.UI
                 // Custom scripts
                 .Include("~/app/custom/tecnipart/tecnipart.module.js")
                 .Include("~/app/custom/tecnipart/tecnipart.run.js")
+                .Include("~/app/custom/tecnipart/utils/utils.module.js")
+                .IncludeDirectory("~/app/custom/tecnipart/utils", "*.js", true)
                 .IncludeDirectory("~/app/custom/tecnipart/blocks", "*.module.js", true)
                 .IncludeDirectory("~/app/custom/tecnipart/blocks", "*.js", true)
                 .IncludeDirectory("~/app/custom/tecnipart", "*.js", true));
@@ -93,7 +95,10 @@ namespace Feroza.TecniPart.Web.UI
               "~/Scripts/Vendor/angular-strap/angular-strap.tpl.min.js",
               "~/Scripts/Vendor/angular-loading-bar/build/loading-bar.js",
                 "~/Scripts/Vendor/jquery.browser/dist/jquery.browser.js",
-                   "~/Scripts/Vendor/angular-material/angular-aria.js"));
+                   "~/Scripts/Vendor/angular-material/angular-aria.js",
+                   "~/Scripts/Vendor/angular-messages/angular-messages.min.js"
+
+                   ));
 
             bundles.Add(
                 new ScriptBundle("~/bundles/materialScripts").Include(

@@ -50,10 +50,11 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 this.context.Fabricantes.Add(fabricantesDataOriginal);
                 this.context.SaveChanges();
                 fabricantes.IdFabricantes = fabricantesDataOriginal.IdFabricantes;
+                fabricantes.Pais = new Pais { Descripcion = fabricantesDataOriginal.Pais.Descripcion, IdPais = fabricantesDataOriginal.Pais.IdPais };
                 return fabricantes;
             }
 
-            throw new Exception($"El estado maestra ya existe {fabricantes.IdFabricantes}");
+            throw new Exception($"El fabricante ya existe {fabricantes.IdFabricantes}");
         }
 
         /// <summary>The editar.</summary>
@@ -103,7 +104,12 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 Descripcion = s.Descripcion,
                 IdFabricantes = s.IdFabricantes,
                 IdPais = s.IdPais,
-                ImagenFabricante = s.ImagenFabricante
+                ImagenFabricante = s.ImagenFabricante,
+                Pais = new Pais
+                {
+                    Descripcion = s.Descripcion,
+                    IdPais = s.IdPais
+                }
             });
         }
 
@@ -114,12 +120,18 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         /// .</returns>
         public IEnumerable<Fabricantes> ListarFabricanteses()
         {
-            return this.context.Fabricantes.Select(s => new Fabricantes
-            {
-                Descripcion = s.Descripcion,
-                IdFabricantes = s.IdFabricantes,
-                IdPais = s.IdPais
-            });
+            return this.context.Fabricantes
+                .Select(s => new Fabricantes
+                {
+                    Descripcion = s.Descripcion,
+                    IdFabricantes = s.IdFabricantes,
+                    IdPais = s.IdPais,
+                    Pais = new Pais()
+                    {
+                        Descripcion = s.Pais.Descripcion,
+                        IdPais = s.IdPais
+                    }
+                });
         }
     }
 }

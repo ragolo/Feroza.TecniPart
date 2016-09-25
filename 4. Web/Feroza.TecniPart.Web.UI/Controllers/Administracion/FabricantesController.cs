@@ -18,7 +18,11 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
     using Infraestructura.Data.Repositorios.Administracion;
 
+    using Models;
+
     using Newtonsoft.Json;
+
+    using Ragolo.Core.Mapper;
 
     using Servicios.Interfaces.Administracion;
 
@@ -28,10 +32,14 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         /// <summary>The estado maestras servicios.</summary>
         private readonly IFabricantesServicio fabricantesServicios;
 
+        private readonly IPaisServicio paisServicios;
+
+
         public FabricantesController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
             this.fabricantesServicios = new FabricantesServicios(new EfFabricantesRepositorio());
+            this.paisServicios = new PaisServicios(new EfPaisRepositorio());
         }
 
         // GET: Fabricantes
@@ -78,14 +86,19 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         {
             var success = false;
             var error = string.Empty;
-            var response = new Fabricantes();
+            var response = new FabricantesViewModel();
             try
             {
+                var fabricantes = new Fabricantes();
+
                 if (id.HasValue && id.Value > 0)
                 {
-                    response = this.fabricantesServicios.ListFabricantes(id.Value).FirstOrDefault();
+                    fabricantes = this.fabricantesServicios.ListFabricantes(id.Value).FirstOrDefault();
                 }
 
+                response = BaseEntityMapperViewModel<FabricantesViewModel, Fabricantes>.MapFromEntity(fabricantes);
+
+                response.PaisList = this.paisServicios.ListPais();
                 success = true;
             }
             catch (Exception ex)

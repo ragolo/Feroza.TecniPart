@@ -16,7 +16,7 @@
             "ngResource",
             "ui.utils",
             "ngAria",
-             "mgcrea.ngStrap"
-            //'ngMessages'
+             "mgcrea.ngStrap",
+            "ngMessages"
         ]);
 })();

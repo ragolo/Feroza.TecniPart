@@ -14,14 +14,13 @@
         init();
 
         function init() {
+            logger.info("[fabricantesEditController] inicializa controlador", vm);
         }
 
         function save() {
             logger.info("[fabricantesEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
             fabricantesDataServices.put(vm.fabricantes).then(function () {
-                fabricantesDataServices.query().then(function (data) {
-                    vm.fabricantes = vm.fabricantes.get();
-                });
+                fabricantesDataServices.query();
                 modalWindowFactory.hide();
             }, function (reason) {
                 logger.error(reason);

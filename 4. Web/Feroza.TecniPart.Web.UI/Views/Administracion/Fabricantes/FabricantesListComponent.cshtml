@@ -10,8 +10,7 @@
             <table st-safe-src="vm.fabricantes.fabricantesListar" st-table="fabricantesTable" class="smart-table table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Descripcion</th>
+                        <th>Fabricante</th>
                         <th>Pais</th>
                         <th>Foto</th>
                         <th style="text-align: center">
@@ -23,9 +22,8 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="fabricante in fabricantesTable">
-                        <td>{{fabricante.IdFabricantes}}</td>
                         <td>{{fabricante.Descripcion}}</td>
-                        <td>{{fabricante.IdPais}}</td>
+                        <td>{{fabricante.Pais.Descripcion}}</td>
                         <td>{{fabricante.ImagenFabricante}}</td>
 
                         <td style="width: 20%; text-align: center">

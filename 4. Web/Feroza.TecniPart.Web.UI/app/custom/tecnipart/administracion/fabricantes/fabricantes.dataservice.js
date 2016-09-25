@@ -22,18 +22,18 @@
 
         function get(id) {
             logger.info("[fabricantesDataServices] informacion", id);
-            return service.fabricantesListar.get(id).then(function (data) {
-                logger.info("[fabricantesDataServices] informacion recibida desde el servidor ", data);
-
-                service.fabricantes = data;
-            }, function (reason) {
-                logger.error("[fabricantesDataServices] error obteniendo el modelo de las fabricantes", reason);
-            });
+            return appService.fetch(entityName + "/GetFabricantesModel", { id : id })
+                .then(function (data) {
+                    logger.info("[fabricantesDataServices] informacion recibida desde el servidor ", data);
+                    service.fabricantes = data.result;
+                }, function (reason) {
+                    logger.error("[fabricantesDataServices] error obteniendo el modelo de las fabricantes", reason);
+                });
         }
 
         function save(fabricantes) {
             logger.info("[fabricantesDataServices] Guardando", fabricantes);
-            return appService.post("api/Fabricantes", fabricantes, "POST")
+            return appService.post("api/Fabricantes", fabricantes)
                 .then(function (data) {
                     service.fabricantes = data;
                     service.fabricantesListar.push(data);
@@ -46,7 +46,15 @@
 
         function put(fabricantes) {
             logger.info("[fabricantesDataServices] Guardando", fabricantes);
-            return fabricantes.put();
+            return appService.put("api/Fabricantes", fabricantes)
+               .then(function (data) {
+                   service.fabricantes = data;
+                   service.fabricantesListar.push(data);
+                   logger.success("[fabricantesDataServices] Guardo exitosamente", data);
+               },
+               function (reason) {
+                   logger.error("Error intentanto guardar estadofabricantes", reason);
+               });
         }
 
         function query() {

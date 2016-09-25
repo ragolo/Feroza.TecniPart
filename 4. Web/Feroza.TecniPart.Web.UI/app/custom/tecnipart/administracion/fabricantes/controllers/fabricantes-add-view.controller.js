@@ -9,6 +9,7 @@
         init();
         function init() {
             fabricantesDataServices.getFabricantesModel().then(function (resposeData) {
+                resposeData.IdPais = "";
                 vm.fabricantes = resposeData;
             });
         }

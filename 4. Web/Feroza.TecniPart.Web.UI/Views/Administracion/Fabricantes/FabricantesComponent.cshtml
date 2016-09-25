@@ -1,38 +1,54 @@
 ﻿@{
     Layout = null;
 }
-<div class="card">
-    <div class="card-heading bg-primary">
-        <div class="pull-right">
-            <em class="icon-layers fa-2x"></em>
+<form name="fabricantesComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
         </div>
-        <div class="card-title">Guardar</div>
-    </div>
-    <div class="card-body">
-        <form class="form-validate">
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.fabricantes.IdFabricantes" required="" tabindex="0" />
+        <div class="card-body">
+            <div class="mda-form-group float-label mb" ng-hide="true">
+                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.fabricantes.IdFabricantes" required tabindex="0" />
                 <label>ID</label>
             </div>
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.fabricantes.Descripcion" ng-required="true" tabindex="0" />
-                <label>Descripción</label>
-                <span class="mda-form-msg">Este campo es requerido</span>
-            </div>
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.fabricantes.IdPais" ng-required="true" tabindex="0" />
-                <label>Pais</label>
-                <span class="mda-form-msg">Este campo es requerido</span>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Fabricante</label>
+                    <input md-maxlength="100" name="fabricantesDescripcion" ng-model="vm.fabricantes.Descripcion" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                    <div multiple ng-messages="fabricantesComponentForm.fabricantesDescripcion.$error" role="alert">
+                        <div ng-message="required">Este campo es requerido</div>
+                        <div ng-message="pattern">Por favor solo use números y letras</div>
+                        <div ng-message="md-maxlength">El campo es demasiado largo</div>
+                    </div>
+                </md-input-container>
+
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Pais</label>
+                    <md-select aria-required="true" md-no-asterisk="false" name="fabricantesIdPais" ng-model="vm.fabricantes.IdPais" required>
+                        <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                        <md-option ng-repeat="pais in vm.fabricantes.PaisList" ng-value="pais.IdPais">
+                            {{pais.Descripcion}}
+                        </md-option>
+                    </md-select>
+                    <div multiple ng-messages="fabricantesComponentForm.fabricantesIdPais.$error" role="alert">
+                        <div ng-message="required" class="my-message">Este campo es requerido</div>
+                    </div>
+                </md-input-container>
             </div>
             <div class="mda-form-group float-label mb">
                 <input class="mda-form-control" ng-model="vm.fabricantes.ImagenFabricante" tabindex="0" />
                 <label>Foto</label>
             </div>
 
-        </form>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="fabricantesComponentForm.$invalid || fabricantesComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
     </div>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
-        <md-button aria-label="Guardar" ng-click="vm.save()"> Guardar </md-button>
-    </md-card-actions>
-</div>
+</form>

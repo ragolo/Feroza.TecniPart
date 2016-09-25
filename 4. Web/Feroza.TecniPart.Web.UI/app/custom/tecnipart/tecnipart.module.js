@@ -5,6 +5,7 @@
         "app.core",
         "app.sidebar",
         "ngResource",
-        "blocks.logger"
+        "blocks.logger",
+        "tecnipart.utils"
     ]);
 })();
