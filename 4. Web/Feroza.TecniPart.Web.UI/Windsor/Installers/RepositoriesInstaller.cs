@@ -36,7 +36,7 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
             Component.For<IEstadoMaestrasServicio>().ImplementedBy<EstadoMaestrasServicios>().LifestylePerWebRequest(),
             Component.For<IFabricantesServicio>().ImplementedBy<FabricantesServicios>().LifestylePerWebRequest(),
             Component.For<IMarcasServicio>().ImplementedBy<MarcasServicios>().LifestylePerWebRequest(),
-            Component.For<IProductosServicio>().ImplementedBy<ProductosServicios>().LifestylePerWebRequest(),
+            Component.For<IVehiculosServicio>().ImplementedBy<VehiculosServicios>().LifestylePerWebRequest(),
                 Component.For<IPaisServicio>().ImplementedBy<PaisServicios>().LifestylePerWebRequest());
         }
     }

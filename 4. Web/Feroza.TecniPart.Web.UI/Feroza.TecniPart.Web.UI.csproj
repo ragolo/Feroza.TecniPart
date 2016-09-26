@@ -181,16 +181,16 @@
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\estadomaestras.dataservice.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\components\estadomaestras-list.component.js" />
     <Content Include="app\custom\tecnipart\administracion\estadomaestras\stateProvider.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-add.component.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-edit.component.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\components\productos-list.component.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-add-view.controller.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-add.controller.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-edit-view.controller.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\controllers\productos-edit.controller.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\productos.controller.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\productos.dataservice.js" />
-    <Content Include="app\custom\tecnipart\administracion\productos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\controllers\vehiculos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\controllers\vehiculos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\controllers\vehiculos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\controllers\vehiculos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\vehiculos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\vehiculos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\vehiculos\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-list.component.js" />
@@ -507,7 +507,7 @@
   <ItemGroup>
     <Compile Include="Api\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Api\Administracion\FabricantesController.cs" />
-    <Compile Include="Api\Administracion\ProductosController.cs" />
+    <Compile Include="Api\Administracion\VehiculosController.cs" />
     <Compile Include="Api\Administracion\MarcasController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -516,7 +516,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\EstadoMaestrasController.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
-    <Compile Include="Controllers\Administracion\ProductosController.cs" />
+    <Compile Include="Controllers\Administracion\VehiculosController.cs" />
     <Compile Include="Controllers\Administracion\MarcasController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
     <Compile Include="Controllers\AppController.cs" />
@@ -525,6 +525,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\VehiculosViewModel.cs" />
     <Compile Include="Models\FabricantesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windsor\Installers\ApiControllersInstaller.cs" />
@@ -819,11 +820,11 @@
     <Content Include="Views\Administracion\Marcas\MarcasComponent.cshtml" />
     <Content Include="Views\Administracion\Marcas\MarcasEditView.cshtml" />
     <Content Include="Views\Administracion\Marcas\MarcasListComponent.cshtml" />
-    <Content Include="Views\Administracion\Productos\IndexView.cshtml" />
-    <Content Include="Views\Administracion\Productos\ProductosAddView.cshtml" />
-    <Content Include="Views\Administracion\Productos\ProductosComponent.cshtml" />
-    <Content Include="Views\Administracion\Productos\ProductosEditView.cshtml" />
-    <Content Include="Views\Administracion\Productos\ProductosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosAddView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosComponent.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosEditView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosListComponent.cshtml" />
     <Content Include="Scripts\Vendor\angular-messages\angular-messages.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

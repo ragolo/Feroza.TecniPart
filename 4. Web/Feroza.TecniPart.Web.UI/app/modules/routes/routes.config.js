@@ -88,11 +88,11 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("Marcas/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
-    .state("app.administracionProductos",
+    .state("app.administracionVehiculos",
       {
-          url: "/Productos/IndexView",
-          title: "Productos",
-          templateUrl: helper.basepath("Productos/IndexView"),
+          url: "/Vehiculos/IndexView",
+          title: "Vehiculos",
+          templateUrl: helper.basepath("Vehiculos/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
     ;
@@ -201,28 +201,28 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
         }
     });
 
-    $stateProvider.state("state-productos-ProductosEditView",
+    $stateProvider.state("state-vehiculos-VehiculosEditView",
     {
-        url: "/Productos/ProductosEditView",
+        url: "/Vehiculos/VehiculosEditView",
         abstract: false,
         views: {
             modalCore: {
-                templateUrl: helper.basepath("Productos/ProductosEditView"),
-                controller: "productosEditViewController",
+                templateUrl: helper.basepath("Vehiculos/VehiculosEditView"),
+                controller: "vehiculosEditViewController",
                 controllerAs: "vm"
             }
         }
     });
 
 
-    $stateProvider.state("state-productos-ProductosAddView",
+    $stateProvider.state("state-vehiculos-VehiculosAddView",
     {
-        url: "/Productos/ProductosAddView",
+        url: "/Vehiculos/VehiculosAddView",
         abstract: false,
         views: {
             modalCore: {
-                templateUrl: helper.basepath("Productos/ProductosAddView"),
-                controller: "productosAddViewController",
+                templateUrl: helper.basepath("Vehiculos/VehiculosAddView"),
+                controller: "vehiculosAddViewController",
                 controllerAs: "vm"
             }
         }

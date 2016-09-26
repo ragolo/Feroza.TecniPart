@@ -1,33 +1,39 @@
 ﻿@{
     Layout = null;
 }
-<div class="card">
-    <div class="card-heading bg-primary">
-        <div class="pull-right">
-            <em class="icon-layers fa-2x"></em>
+<form name="marcasComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
         </div>
-        <div class="card-title">Crear</div>
+        <div class="card-body">
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Marca</label>
+                    <input md-maxlength="100" name="Descripcion" ng-model="vm.marcas.Descripcion" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                    <div multiple ng-messages="marcasComponentForm.Descripcion.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Sigla</label>
+                    <input md-maxlength="5" name="Sigla" ng-model="vm.marcas.Sigla" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                    <div multiple ng-messages="marcasComponentForm.Sigla.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="marcasComponentForm.$invalid || marcasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
     </div>
-    <div class="card-body">
-        <form class="form-validate">
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-disabled="true" ng-model="vm.marcas.IdMarcas" required="" tabindex="0" />
-                <label>ID</label>
-            </div>
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.marcas.Descripcion" ng-required="true" tabindex="0" />
-                <label>Descripción</label>
-                <span class="mda-form-msg">Este campo es requerido</span>
-            </div>
-            <div class="mda-form-group float-label mb">
-                <input aria-invalid="true" aria-required="true" class="mda-form-control" ng-model="vm.marcas.Sigla" ng-required="true" tabindex="0" />
-                <label>Sigla</label>
-                <span class="mda-form-msg">Este campo es requerido</span>
-            </div>
-        </form>
-    </div>
-    <md-card-actions layout="row" layout-align="end center">
-        <md-button aria-label="Guardar" ng-click="vm.save()"> Guardar </md-button>
-        <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
-    </md-card-actions>
-</div>
+</form>

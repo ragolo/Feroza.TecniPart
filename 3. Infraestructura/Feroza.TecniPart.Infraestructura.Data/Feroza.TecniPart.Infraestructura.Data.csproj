@@ -87,9 +87,6 @@
     <Compile Include="Data\PaisData.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\ProductosData.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\ReferenciasData.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -97,6 +94,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\SubSistemasData.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VehiculosData.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\VehiculoSistemasData.cs">
@@ -107,7 +107,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\Administracion\EfFabricantesRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfProductosRepositorio.cs" />
+    <Compile Include="Repositorios\Administracion\EfVehiculosRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfMarcasRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfPaisRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfEstadoMaestrasRepositorio.cs" />

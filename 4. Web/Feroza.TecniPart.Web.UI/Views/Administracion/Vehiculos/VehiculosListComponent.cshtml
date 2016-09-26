@@ -7,14 +7,14 @@
     </div>
     <div class="panel-body">
         <div class="smart-table-container">
-            <table st-safe-src="vm.productos.productosListar" st-table="productosTable" class="smart-table table">
+            <table st-safe-src="vm.vehiculos.vehiculosListar" st-table="vehiculosTable" class="smart-table table">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Fabricantes</th>
+                    <th>Fabricante</th>
                     <th>Marca</th>
-                    <th>Descripcion</th>
+                    <th>Vehículo</th>
                     <th>Año</th>
+                    <th>Imagen Vehículo</th>
                     <th>Comentarios</th>
                     <th style="text-align: center">
                         <md-button class="md-icon-button" ng-click="vm.add()">
@@ -24,19 +24,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="productos in productosTable">
-                    <td>{{productos.IdProductos}}</td>
-                    <td>{{productos.IdFabricantes}}</td>
-                    <td>{{productos.IdMarca}}</td>
-                    <td>{{productos.Descripcion}}</td>
-                    <td>{{productos.Ango}}</td>
-                    <td>{{productos.Comentario}}</td>
+                <tr ng-repeat="vehiculos in vehiculosTable">
+                    <td>{{vehiculos.Fabricantes.Descripcion}}</td>
+                    <td>{{vehiculos.Marcas.Descripcion}}</td>
+                    <td>{{vehiculos.Descripcion}}</td>
+                    <td>{{vehiculos.Ango}}</td>
+                    <td>{{vehiculos.ImagenVehiculo}}</td>
+                    <td>{{vehiculos.Comentario}}</td>
                     <td style="width: 20%; text-align: center">
 
-                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(productos)">
+                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(vehiculos)">
                             <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
                         </md-button>
-                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(productos)">
+                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(vehiculos)">
                             <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
                         </md-button>
                     </td>

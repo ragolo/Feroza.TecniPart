@@ -1,19 +1,19 @@
 ﻿"use strict";
 angular.module("tecnipart")
-    .service("productosStateProvider", productosStateProvider);
+    .service("vehiculosStateProvider", vehiculosStateProvider);
 
-productosStateProvider.$inject = ["$state", "$timeout", "logger", "productosDataServices", "modalWindowFactory", "$timeout"];
+vehiculosStateProvider.$inject = ["$state", "$timeout", "logger", "vehiculosDataServices", "modalWindowFactory", "$timeout"];
 
-function productosStateProvider($state, $timeoute, logger, productosDataServices, modalWindowFactory, $timeout) {
+function vehiculosStateProvider($state, $timeoute, logger, vehiculosDataServices, modalWindowFactory, $timeout) {
     var stateProvider = {};
 
-    stateProvider.goToProductosComponentAdd = goToProductosComponentAdd;
-    stateProvider.goToProductosComponentEdit = goToProductosComponentEdit;
+    stateProvider.goToVehiculosComponentAdd = goToVehiculosComponentAdd;
+    stateProvider.goToVehiculosComponentEdit = goToVehiculosComponentEdit;
 
     return stateProvider;
 
-    function goToProductosComponentAdd() {
-        return $state.transitionTo("state-productos-ProductosAddView",
+    function goToVehiculosComponentAdd() {
+        return $state.transitionTo("state-vehiculos-VehiculosAddView",
                                      {},
                                      {
                                          reload: true,
@@ -22,16 +22,16 @@ function productosStateProvider($state, $timeoute, logger, productosDataServices
                                      })
                                      .then(function () {
                                          $timeout(function () {
-                                             modalWindowFactory.show("productosAddController");
+                                             modalWindowFactory.show("vehiculosAddController");
                                          });
                                      });
     }
 
-    function goToProductosComponentEdit(id) {
-        logger.info("Comienza la consulta del estado productos model -> ", id);
-        return productosDataServices.get(id)
+    function goToVehiculosComponentEdit(id) {
+        logger.info("Comienza la consulta del estado vehiculos model -> ", id);
+        return vehiculosDataServices.get(id)
             .then(function () {
-                return $state.transitionTo("state-productos-ProductosEditView",
+                return $state.transitionTo("state-vehiculos-VehiculosEditView",
                         {},
                         {
                             reload: true,
@@ -40,7 +40,7 @@ function productosStateProvider($state, $timeoute, logger, productosDataServices
                         })
                     .then(function () {
                         $timeout(function () {
-                            modalWindowFactory.show("ProductosEditView");
+                            modalWindowFactory.show("VehiculosEditView");
                         });
                     });
             });

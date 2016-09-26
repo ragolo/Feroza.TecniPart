@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ProductosController.cs" company="Feroza">
+// <copyright file="VehiculosController.cs" company="Feroza">
 //   Derechos de autor Feroza
 // </copyright>
 // <summary>
-//   Defines the ProductosController type.
+//   Defines the VehiculosController type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -18,73 +18,94 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
     using Infraestructura.Data.Repositorios.Administracion;
 
+    using Models;
+
     using Newtonsoft.Json;
+
+    using Ragolo.Core.Mapper;
 
     using Servicios.Interfaces.Administracion;
 
     /// <summary>The estado maestras controller.</summary>
-    public class ProductosController : Controller
+    public class VehiculosController : Controller
     {
         /// <summary>The estado maestras servicios.</summary>
-        private readonly IProductosServicio productossServicios;
+        private readonly IVehiculosServicio vehiculosServicios;
 
-        public ProductosController()
+        /// <summary>The fabricantes servicios.</summary>
+        private readonly IFabricantesServicio fabricantesServicios;
+
+        /// <summary>The marcas servicios.</summary>
+        private readonly IMarcasServicio marcasServicios;
+
+
+        public VehiculosController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.productossServicios = new ProductosServicios(new EfProductosRepositorio());
+            this.vehiculosServicios = new VehiculosServicios(new EfVehiculosRepositorio());
+            this.fabricantesServicios = new FabricantesServicios(new EfFabricantesRepositorio());
+            this.marcasServicios = new MarcasServicios(new EfMarcasRepositorio());
+
         }
 
-        // GET: Productos
+        // GET: Vehiculos
 
         /// <summary>The index view.</summary>
         /// <returns>The <see cref="ActionResult"/> IndexView.</returns>
         public ActionResult IndexView()
         {
-            return this.View("../Administracion/Productos/IndexView");
+            return this.View("../Administracion/Vehiculos/IndexView");
         }
 
         /// <summary>The estado maestras list component.</summary>
         /// <returns>The <see cref="ActionResult"/>.</returns>
-        public ActionResult ProductosListComponent()
+        public ActionResult VehiculosListComponent()
         {
-            return this.View("../Administracion/Productos/ProductosListComponent");
+            return this.View("../Administracion/Vehiculos/VehiculosListComponent");
         }
 
         /// <summary>The agregar view.</summary>
         /// <returns>The <see cref="ActionResult"/> AgregarView.</returns>
-        public ActionResult ProductosAddView()
+        public ActionResult VehiculosAddView()
         {
-            return this.View("../Administracion/Productos/ProductosAddView");
+            return this.View("../Administracion/Vehiculos/VehiculosAddView");
         }
 
         /// <summary>The estado maestras edit view.</summary>
         /// <returns>The <see cref="ActionResult"/>.</returns>
-        public ActionResult ProductosEditView()
+        public ActionResult VehiculosEditView()
         {
-            return this.View("../Administracion/Productos/ProductosEditView");
+            return this.View("../Administracion/Vehiculos/VehiculosEditView");
         }
 
         /// <summary>The estado maestras component.</summary>
-        /// <returns>The <see cref="ActionResult"/> ProductosComponent.</returns>
-        public ActionResult ProductosComponent()
+        /// <returns>The <see cref="ActionResult"/> VehiculosComponent.</returns>
+        public ActionResult VehiculosComponent()
         {
-            return this.View("../Administracion/Productos/ProductosComponent");
+            return this.View("../Administracion/Vehiculos/VehiculosComponent");
         }
 
         /// <summary>The get estado maestras model.</summary>
         /// <param name="id">The id.</param>
         /// <returns>The <see cref="ContentResult"/>.</returns>
-        public ContentResult GetProductosModel(int? id)
+        public ContentResult GetVehiculosModel(int? id)
         {
             var success = false;
             var error = string.Empty;
-            var response = new Productos();
+            var response = new VehiculosViewModel();
             try
             {
+                var vehiculos = new Vehiculos();
+
                 if (id.HasValue && id.Value > 0)
                 {
-                    response = this.productossServicios.ListProductos(id.Value).FirstOrDefault();
+                    vehiculos = this.vehiculosServicios.ListVehiculos(id.Value).FirstOrDefault();
                 }
+
+                response = BaseEntityMapperViewModel<VehiculosViewModel, Vehiculos>.MapFromEntity(vehiculos);
+
+                response.FabricantesList = this.fabricantesServicios.ListFabricantes();
+                response.MarcasList = this.marcasServicios.ListMarcas();
 
                 success = true;
             }

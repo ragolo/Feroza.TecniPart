@@ -14,10 +14,10 @@
           "PAIS": "Pais",
           "FABRICANTES": "Fabricantes",
           "MARCAS": "Marcas",
-          "productos": {
-            "PRODUCTOS": "Productos",
-            "PRODUCTOSADM": "Productos",
-            "GETPRODUCTOS": "Adquirir productos"   
+          "vehiculos": {
+            "VEHICULOS": "Vehiculos",
+            "VEHICULOSADM": "Vehiculos",
+            "GETVEHICULOS": "Adquirir vehiculos"   
           } 
         },
         "BUSQUEDA": "Busqueda"

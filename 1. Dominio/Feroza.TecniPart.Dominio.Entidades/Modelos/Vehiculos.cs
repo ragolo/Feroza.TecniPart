@@ -14,20 +14,20 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
     /// <summary>
     /// The vehiculos.
     /// </summary>
-    public class Productos
+    public class Vehiculos
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Productos"/> class.
+        /// Initializes a new instance of the <see cref="Vehiculos"/> class.
         /// </summary>
-        public Productos()
+        public Vehiculos()
         {
             this.Aplicaciones = new HashSet<Aplicaciones>();
             this.Catalogos = new HashSet<Catalogos>();
         }
-    
-        /// <summary>Gets or sets the id productos.</summary>
-        public int IdProductos { get; set; }
+
+        /// <summary>Gets or sets the id vehiculos.</summary>
+        public int IdVehiculos { get; set; }
 
         /// <summary>
         /// Gets or sets the descripcion.

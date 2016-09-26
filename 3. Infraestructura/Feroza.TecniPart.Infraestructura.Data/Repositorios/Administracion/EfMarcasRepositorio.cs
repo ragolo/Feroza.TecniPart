@@ -46,7 +46,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 marcasDataOriginal = this.context.Marcas.Create();
                 marcasDataOriginal.Descripcion = marcas.Descripcion;
                 marcasDataOriginal.Sigla = marcas.Sigla;
-                marcasDataOriginal.IdEstadoMaestras = 87;
                 this.context.Marcas.Add(marcasDataOriginal);
                 this.context.SaveChanges();
                 marcas.IdMarcas = marcasDataOriginal.IdMarcas;
@@ -70,7 +69,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 //TODO: Implementar auto mapper
                 var marcasDataMap = new MarcasData
                 {
-                    IdEstadoMaestras = 87,
                     IdMarcas = marcas.IdMarcas,
                     Descripcion = marcas.Descripcion,
                     Sigla = marcas.Sigla

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ProductosController.cs" company="Feroza">
+// <copyright file="VehiculosController.cs" company="Feroza">
 //   The Feroza 2016
 // </copyright>
 // <summary>
@@ -19,22 +19,22 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
-    public class ProductosController : ApiController
+    public class VehiculosController : ApiController
     {
         /// <summary>
         /// The estado maestras servicios.
         /// </summary>
-        private readonly IProductosServicio productosServicios;
+        private readonly IVehiculosServicio vehiculosServicios;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProductosController"/> class.
+        /// Initializes a new instance of the <see cref="VehiculosController"/> class.
         /// </summary>
-        /// <param name="productosServicios">
+        /// <param name="vehiculosServicios">
         /// The estado maestras servicios.
         /// </param>
-        public ProductosController(IProductosServicio productosServicios)
+        public VehiculosController(IVehiculosServicio vehiculosServicios)
         {
-            this.productosServicios = productosServicios;
+            this.vehiculosServicios = vehiculosServicios;
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         ///     .
         /// </returns>
         [HttpGet]
-        public Productos Get(int id)
+        public Vehiculos Get(int id)
         {
-            return this.productosServicios.ListProductos(id).FirstOrDefault();
+            return this.vehiculosServicios.ListVehiculos(id).FirstOrDefault();
         }
 
         /// <summary>The get.</summary>
@@ -59,26 +59,26 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         ///     </see>
         /// .</returns>
         [HttpGet]
-        public IEnumerable<Productos> Get()
+        public IEnumerable<Vehiculos> Get()
         {
-            return this.productosServicios.ListProductos();
+            return this.vehiculosServicios.ListVehiculos();
         }
 
         /// <summary>The post estado maestras.</summary>
         /// <param name="estadoMaestra">The estado maestra.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
-        public IHttpActionResult PostProductos(Productos productos)
+        public IHttpActionResult PostVehiculos(Vehiculos vehiculos)
         {
-            var productosResult = this.productosServicios.AddProductos(productos);
-            return this.Ok(productosResult);
+            var vehiculosResult = this.vehiculosServicios.AddVehiculos(vehiculos);
+            return this.Ok(vehiculosResult);
         }
 
         [HttpPut]
-        public IHttpActionResult PutProductos(Productos estadoMaestra)
+        public IHttpActionResult PutVehiculos(Vehiculos estadoMaestra)
         {
-            var productos = this.productosServicios.EditProductos(estadoMaestra);
-            return this.Ok(productos);
+            var vehiculos = this.vehiculosServicios.EditVehiculos(estadoMaestra);
+            return this.Ok(vehiculos);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpDelete]
         public void Delete(int id)
         {
-            this.productosServicios.DeleteProductos(id);
+            this.vehiculosServicios.DeleteVehiculos(id);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ProductosServicios.cs" company="Feroza">
+// <copyright file="VehiculosServicios.cs" company="Feroza">
 //   Derechos de autor Feroza
 // </copyright>
 // <summary>
@@ -17,58 +17,58 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
-    public class ProductosServicios : IProductosServicio
+    public class VehiculosServicios : IVehiculosServicio
     {
         /// <summary>
         /// The estado maestras repositorio.
         /// </summary>
-        private readonly IProductosRespositorio marcasRepositorio;
+        private readonly IVehiculosRespositorio vehiculosRespositorio;
 
-        /// <summary>Initializes a new instance of the <see cref="ProductosServicios"/> class.</summary>
-        /// <param name="marcasRepositorio">The marcas repositorio.</param>
-        public ProductosServicios(IProductosRespositorio marcasRepositorio)
+        /// <summary>Initializes a new instance of the <see cref="VehiculosServicios"/> class.</summary>
+        /// <param name="vehiculosRepositorio">The vehiculos repositorio.</param>
+        public VehiculosServicios(IVehiculosRespositorio vehiculosRepositorio)
         {
-            this.marcasRepositorio = marcasRepositorio;
+            this.vehiculosRespositorio = vehiculosRepositorio;
         }
 
-        /// <summary>The add marcas.</summary>
-        /// <param name="marcas">The marcas.</param>
-        public Productos AddProductos(Productos marcas)
+        /// <summary>The add vehiculos.</summary>
+        /// <param name="vehiculos">The vehiculos.</param>
+        public Vehiculos AddVehiculos(Vehiculos vehiculos)
         {
-            return this.marcasRepositorio.Crear(marcas);
+            return this.vehiculosRespositorio.Crear(vehiculos);
         }
 
-        public Productos EditProductos(Productos marcas)
+        public Vehiculos EditVehiculos(Vehiculos vehiculos)
         {
-            return this.marcasRepositorio.Editar(marcas);
+            return this.vehiculosRespositorio.Editar(vehiculos);
         }
 
-        /// <summary>The delete marcas.</summary>
-        /// <param name="idProductos">The id marcas.</param>
-        public void DeleteProductos(int idProductos)
+        /// <summary>The delete vehiculos.</summary>
+        /// <param name="idVehiculos">The id vehiculos.</param>
+        public void DeleteVehiculos(int idVehiculos)
         {
-            this.marcasRepositorio.Eliminar(idProductos);
+            this.vehiculosRespositorio.Eliminar(idVehiculos);
         }
 
-        /// <summary>The list marcas.</summary>
-        /// <param name="idProductos">The id marcas.</param>
+        /// <summary>The list vehiculos.</summary>
+        /// <param name="idVehiculos">The id vehiculos.</param>
         /// <returns>The <see>
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Productos> ListProductos(int idProductos)
+        public IEnumerable<Vehiculos> ListVehiculos(int idVehiculos)
         {
-            return this.marcasRepositorio.ListarProductos(idProductos);
+            return this.vehiculosRespositorio.ListarVehiculos(idVehiculos);
         }
 
-        /// <summary>The list marcas.</summary>
+        /// <summary>The list vehiculos.</summary>
         /// <returns>The <see>
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Productos> ListProductos()
+        public IEnumerable<Vehiculos> ListVehiculos()
         {
-            return this.marcasRepositorio.ListarProductoses();
+            return this.vehiculosRespositorio.ListarVehiculoses();
         }
     }
 }

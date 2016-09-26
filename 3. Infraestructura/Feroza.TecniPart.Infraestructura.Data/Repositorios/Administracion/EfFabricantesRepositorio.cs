@@ -45,7 +45,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
             {
                 fabricantesDataOriginal = this.context.Fabricantes.Create();
                 fabricantesDataOriginal.Descripcion = fabricantes.Descripcion;
-                fabricantesDataOriginal.IdEstadoMaestras = 87;
                 fabricantesDataOriginal.IdPais = fabricantes.IdPais;
                 this.context.Fabricantes.Add(fabricantesDataOriginal);
                 this.context.SaveChanges();
@@ -71,7 +70,6 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 //TODO: Implementar auto mapper
                 var fabricantesDataMap = new FabricantesData
                 {
-                    IdEstadoMaestras = 87,
                     IdFabricantes = fabricantes.IdFabricantes,
                     Descripcion = fabricantes.Descripcion,
                     IdPais = fabricantes.IdPais

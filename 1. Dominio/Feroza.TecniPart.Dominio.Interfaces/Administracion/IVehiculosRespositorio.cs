@@ -1,9 +1,9 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IProductosRespositorio.cs" company="Feroza">
+// <copyright file="IVehiculosRespositorio.cs" company="Feroza">
 //   
 // </copyright>
 // <summary>
-//   Defines the IProductosRespositorio type.
+//   Defines the IVehiculosRespositorio type.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,39 +14,39 @@ namespace Feroza.TecniPart.Dominio.Interfaces.Administracion
     using Entidades.Modelos;
 
     /// <summary>
-    /// The ProductosRespositorio interface.
+    /// The VehiculosRespositorio interface.
     /// </summary>
-    public interface IProductosRespositorio
+    public interface IVehiculosRespositorio
     {
         /// <summary>Crears the specified descripcion.</summary>
         /// <param name="pais"></param>
-        /// <returns>The <see cref="Productos"/>.</returns>
-        Productos Crear(Productos pais);
+        /// <returns>The <see cref="Vehiculos"/>.</returns>
+        Vehiculos Crear(Vehiculos pais);
 
         /// <summary>The editar.</summary>
         /// <param name="pais"></param>
-        /// <returns>The <see cref="Productos"/>.</returns>
-        Productos Editar(Productos pais);
+        /// <returns>The <see cref="Vehiculos"/>.</returns>
+        Vehiculos Editar(Vehiculos pais);
 
         /// <summary>
         /// Eliminars the specified identifier estado maestras.
         /// </summary>
-        /// <param name="idProductos">The identifier estado maestras.</param>
-        void Eliminar(int idProductos);
+        /// <param name="idVehiculos">The identifier estado maestras.</param>
+        void Eliminar(int idVehiculos);
 
         /// <summary>The listar estado maestras.</summary>
-        /// <param name="idProductos">The id estado maestras.</param>
+        /// <param name="idVehiculos">The id estado maestras.</param>
         /// <returns>The <see>
-        ///         <cref>IEnumerable<Productos/></cref>
+        ///         <cref>IEnumerable<Vehiculos/></cref>
         ///     </see>
         /// .</returns>
-        IEnumerable<Productos> ListarProductos(int idProductos);
+        IEnumerable<Vehiculos> ListarVehiculos(int idVehiculos);
 
         /// <summary>The listar estado maestras.</summary>
         /// <returns>The <see>
-        ///         <cref>IEnumerable<Productos/></cref>
+        ///         <cref>IEnumerable<Vehiculos/></cref>
         ///     </see>
         /// .</returns>
-        IEnumerable<Productos> ListarProductoses();
+        IEnumerable<Vehiculos> ListarVehiculoses();
     }
 }

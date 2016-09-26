@@ -21,7 +21,7 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// </summary>
         public Marcas()
         {
-            this.Vehiculos = new HashSet<Productos>();
+            this.Vehiculos = new HashSet<Vehiculos>();
         }
 
         /// <summary>
@@ -70,6 +70,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// <value>
         /// The vehiculos.
         /// </value>
-        public virtual ICollection<Productos> Vehiculos { get; set; }
+        public virtual ICollection<Vehiculos> Vehiculos { get; set; }
     }
 }

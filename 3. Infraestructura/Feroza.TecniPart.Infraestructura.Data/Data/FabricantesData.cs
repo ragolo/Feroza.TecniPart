@@ -17,18 +17,16 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public FabricantesData()
         {
-            this.Productos = new HashSet<ProductosData>();
+            this.Vehiculos = new HashSet<VehiculosData>();
         }
     
         public int IdFabricantes { get; set; }
         public int IdPais { get; set; }
         public string Descripcion { get; set; }
         public byte[] ImagenFabricante { get; set; }
-        public int IdEstadoMaestras { get; set; }
     
-        public virtual EstadoMaestrasData EstadoMaestras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductosData> Productos { get; set; }
         public virtual PaisData Pais { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VehiculosData> Vehiculos { get; set; }
     }
 }

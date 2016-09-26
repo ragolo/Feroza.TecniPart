@@ -12,16 +12,16 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductosData
+    public partial class VehiculosData
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductosData()
+        public VehiculosData()
         {
             this.Aplicaciones = new HashSet<AplicacionesData>();
             this.Catalogos = new HashSet<CatalogosData>();
         }
     
-        public int IdProductos { get; set; }
+        public int IdVehiculos { get; set; }
         public string Descripcion { get; set; }
         public byte[] ImagenVehiculo { get; set; }
         public int IdFabricantes { get; set; }
@@ -33,7 +33,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public virtual ICollection<AplicacionesData> Aplicaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CatalogosData> Catalogos { get; set; }
-        public virtual FabricantesData Fabricantes { get; set; }
         public virtual MarcasData Marcas { get; set; }
+        public virtual FabricantesData Fabricantes { get; set; }
     }
 }
