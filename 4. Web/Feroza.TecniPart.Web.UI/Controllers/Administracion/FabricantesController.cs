@@ -96,7 +96,14 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     fabricantes = this.fabricantesServicios.ListFabricantes(id.Value).FirstOrDefault();
                 }
 
-                response = BaseEntityMapperViewModel<FabricantesViewModel, Fabricantes>.MapFromEntity(fabricantes);
+                //response = BaseEntityMapperViewModel<FabricantesViewModel, Fabricantes>.MapFromEntity(fabricantes);
+                response.Descripcion = fabricantes.Descripcion;
+                response.IdFabricantes = fabricantes.IdFabricantes;
+                response.ImagenFabricante = fabricantes.ImagenFabricante;
+                if (fabricantes != null && fabricantes.ImagenFabricante != null)
+                {
+                    response.ImagenFabricanteBase64 = Convert.ToBase64String(fabricantes.ImagenFabricante);
+                }
 
                 response.PaisList = this.paisServicios.ListPais();
                 success = true;

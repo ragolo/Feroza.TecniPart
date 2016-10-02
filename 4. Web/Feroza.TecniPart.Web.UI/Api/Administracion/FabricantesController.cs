@@ -9,12 +9,18 @@
 
 namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Http;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+
+    using Facade;
+
+    using Models;
 
     /// <summary>
     /// The estado maestras controller.
@@ -26,27 +32,24 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// </summary>
         private readonly IFabricantesServicio fabricantesServicios;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="FabricantesController"/> class.
-        /// </summary>
-        /// <param name="fabricantesServicios">
-        /// The estado maestras servicios.
-        /// </param>
-        public FabricantesController(IFabricantesServicio fabricantesServicios)
+        /// <summary>The management image facade.</summary>
+        private readonly IManagementImageFacade<Fabricantes> managementImageFacade;
+
+
+        /// <summary>Initializes a new instance of the <see cref="FabricantesController"/> class.</summary>
+        /// <param name="fabricantesServicios">The estado maestras servicios.</param>
+        /// <param name="managementImageFacade">The management Image Facade.</param>
+        public FabricantesController(
+            IFabricantesServicio fabricantesServicios,
+            IManagementImageFacade<Fabricantes> managementImageFacade)
         {
             this.fabricantesServicios = fabricantesServicios;
+            this.managementImageFacade = managementImageFacade;
         }
 
-        /// <summary>
-        /// The get.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>
-        /// The <see>
-        ///         <cref>IEnumerable</cref>
-        ///     </see>
-        ///     .
-        /// </returns>
+        /// <summary>The get.</summary>
+        /// <param name="id">The id.</param>
+        /// <returns>The <see cref="Fabricantes"/>.</returns>
         [HttpGet]
         public Fabricantes Get(int id)
         {
@@ -54,36 +57,66 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         }
 
         /// <summary>The get.</summary>
-        /// <returns>The <see>
-        ///         <cref>IEnumerable</cref>
-        ///     </see>
-        /// .</returns>
+        /// <returns>The <see cref="IEnumerable"/>.</returns>
         [HttpGet]
         public IEnumerable<Fabricantes> Get()
         {
             return this.fabricantesServicios.ListFabricantes();
         }
 
-        /// <summary>The post estado maestras.</summary>
-        /// <param name="fabricantes">The fabricantes.</param>
-        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
+        /// <summary>The post fabricantes.</summary>
+        /// <returns>The <see cref="Task"/>.</returns>
         [HttpPost]
-        public IHttpActionResult PostFabricantes(Fabricantes fabricantes)
+        [RouteAttribute("Api/FabricantesImage")]
+        public async Task<IHttpActionResult> PostFabricantes()
         {
-            var fabricantesResult = this.fabricantesServicios.AddFabricantes(fabricantes);
+            var entityWithImageModel = await this.MappingImageToEntity();
+            var fabricantesResult = this.fabricantesServicios.AddFabricantes(entityWithImageModel.EntityModel);
+            return this.Ok(fabricantesResult);
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> PostFabricantes(Fabricantes id)
+        {
+            var fabricantesResult = this.fabricantesServicios.AddFabricantes(id);
             return this.Ok(fabricantesResult);
         }
 
         /// <summary>The put fabricantes.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
-        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
+        /// <returns>The <see cref="Task"/>.</returns>
         [HttpPut]
-        public IHttpActionResult PutFabricantes(Fabricantes estadoMaestra)
+        [RouteAttribute("Api/FabricantesImage")]
+        public async Task<IHttpActionResult> PutFabricantes()
         {
-            var fabricantes = this.fabricantesServicios.EditFabricantes(estadoMaestra);
-            return this.Ok(fabricantes);
+            try
+            {
+                var entityWithImageModel = await this.MappingImageToEntity();
+                var fabricanteResult = this.fabricantesServicios.EditFabricantes(entityWithImageModel.EntityModel);
+                return this.Ok(fabricanteResult);
+
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(ex.Message);
+            }
         }
 
+        /// <summary>The put fabricantes.</summary>
+        /// <param name="fabricantes">The fabricantes.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
+        [HttpPut]
+        public async Task<IHttpActionResult> PutFabricantes(Fabricantes fabricantes)
+        {
+            try
+            {
+                var fabricanteResult = this.fabricantesServicios.EditFabricantes(fabricantes);
+                return this.Ok(fabricanteResult);
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(ex.Message);
+            }
+        }
         /// <summary>
         /// The delete.
         /// </summary>
@@ -94,6 +127,15 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         public void Delete(int id)
         {
             this.fabricantesServicios.DeleteFabricantes(id);
+        }
+
+        /// <summary>The mapping image to entity.</summary>
+        /// <returns>The <see cref="Task"/>.</returns>
+        private async Task<EntityWithImageModel<Fabricantes>> MappingImageToEntity()
+        {
+            var entityWithImageModel = await this.managementImageFacade.GetEntityWithImage("~/App_Data/Temp/FileUploads", this.Request.Content);
+            entityWithImageModel.EntityModel.ImagenFabricante = entityWithImageModel.FileDescription.ImageBytes;
+            return entityWithImageModel;
         }
     }
 }

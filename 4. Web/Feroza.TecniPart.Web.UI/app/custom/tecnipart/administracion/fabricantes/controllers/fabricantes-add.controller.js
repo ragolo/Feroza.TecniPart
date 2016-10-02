@@ -2,9 +2,9 @@
     "use strict";
     angular.module("tecnipart")
         .controller("fabricantesAddController", fabricantesAddController);
-    fabricantesAddController.$inject = ["fabricantesDataServices", "logger", "modalWindowFactory"];
+    fabricantesAddController.$inject = ["fabricantesDataServices", "logger", "modalWindowFactory", "$scope", "fileReader"];
 
-    function fabricantesAddController(fabricantesDataServices, logger, modalWindowFactory) {
+    function fabricantesAddController(fabricantesDataServices, logger, modalWindowFactory, $scope, fileReader) {
         var vm = this;
 
         logger.info("Cargando por primera vez [fabricantesAddController] ->", vm);
@@ -16,13 +16,28 @@
         function init() {
         }
 
+        $scope.getFile = function () {
+            $scope.progress = 0;
+            fileReader.readAsDataUrl($scope.file, $scope)
+                          .then(function (result) {
+                              vm.fabricantes.ImagenFabricanteBase64 = result;
+                          });
+        };
+
         function save() {
-            logger.info("[fabricantesAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            fabricantesDataServices.save(vm.fabricantes).then(function (data) {
-                modalWindowFactory.hide();
-            }, function (reason) {
-                logger.error(reason);
-            });
+            if (typeof ($scope.file) !== "undefined") {
+                fabricantesDataServices.saveWithImage(vm.fabricantes, $scope.file)
+                    .then(function () {
+                        fabricantesDataServices.query();
+                        modalWindowFactory.hide();
+                    });
+            } else {
+                fabricantesDataServices.save(vm.fabricantes)
+                    .then(function () {
+                        fabricantesDataServices.query();
+                        modalWindowFactory.hide();
+                    });
+            }
         }
 
         function cancel() {

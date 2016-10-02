@@ -2,9 +2,9 @@
     "use strict";
     angular.module("tecnipart")
         .service("fabricantesDataServices", dataservice);
-    dataservice.$inject = ["appService", "logger", "Restangular"];
+    dataservice.$inject = ["appService", "logger", "Restangular", "fileReader"];
 
-    function dataservice(appService, logger, restAngular) {
+    function dataservice(appService, logger, restAngular, fileReader) {
         var service = {};
         var entityName = "Fabricantes";
         var restService = restAngular.service("Fabricantes");
@@ -18,11 +18,15 @@
         service.removeFabricantes = removeFabricantes;
         service.query = query;
         service.getFabricantesModel = getFabricantesModel;
+
+        service.saveWithImage = saveWithImage;
+        service.putWithImage = putWithImage;
+
         return service;
 
         function get(id) {
             logger.info("[fabricantesDataServices] informacion", id);
-            return appService.fetch(entityName + "/GetFabricantesModel", { id : id })
+            return appService.fetch(entityName + "/GetFabricantesModel", { id: id })
                 .then(function (data) {
                     logger.info("[fabricantesDataServices] informacion recibida desde el servidor ", data);
                     service.fabricantes = data.result;
@@ -44,7 +48,37 @@
                 });
         }
 
+        function saveWithImage(fabricantes, images) {
+            fabricantes.ImagenFabricanteBase64 = null;
+            fabricantes.ImagenFabricante = null;
+            logger.info("[fabricantesDataServices] imagen enviada al servidor", images);
+            logger.info("[fabricantesDataServices] entidad que se envuelve en el encabezado", fabricantes);
+            return appService.postImage("/Api/FabricantesImage", fabricantes, images)
+                .then(function (data) {
+                    service.fabricantes = data;
+                    service.fabricantesListar.push(data);
+                    logger.success("[fabricantesDataServices] Guardo exitosamente", data);
+                },
+                function (reason) {
+                    logger.error("Error intentanto guardar estadofabricantes", reason);
+                });
+        }
+
+        function putWithImage(fabricantes, images) {
+            fabricantes.ImagenFabricanteBase64 = null;
+            return appService.putImage("/Api/FabricantesImage", fabricantes, images)
+                .then(function (data) {
+                    service.fabricantes = data;
+                    service.fabricantesListar.push(data);
+                    logger.success("[fabricantesDataServices] Actualizo exitosamente", data);
+                },
+                function (reason) {
+                    logger.error("Error intentanto guardar estadofabricantes", reason);
+                });
+        }
+
         function put(fabricantes) {
+            fabricantes.ImagenFabricanteBase64 = null;
             logger.info("[fabricantesDataServices] Guardando", fabricantes);
             return appService.put("api/Fabricantes", fabricantes)
                .then(function (data) {
@@ -61,6 +95,9 @@
             return restAngular.all(entityName).getList()
                 .then(function (data) {
                     logger.info("[fabricantesDataServices] datos obtenidos ", data);
+                    $(data).each(function (idx, fabricante) {
+                        fabricante.ImagenFabricanteBase64 = typeof (fabricante.ImagenFabricanteBase64) === "string" ? fabricante.ImagenFabricanteBase64 : "data:image/jpeg;base64," + fabricante.ImagenFabricante;
+                    });
                     service.fabricantesListar = data;
                     return data;
                 });
@@ -82,8 +119,9 @@
 
         function getFabricantesModel(id) {
             logger.info("Obteniendo el modelo para -> ", id);
-            var param = typeof (id) === "undefined" ? null : id;
-            return appService.fetch("Fabricantes/GetFabricantesModel", { id: param })
+            var param = typeof (id) === "undefined" ? { id: "" } : { id: id };
+            console.log(param);
+            return appService.fetch("Fabricantes/GetFabricantesModel", param)
                 .then(function (response) {
                     if (response.success) {
                         logger.info("Modelo fabricantes obtenido -> ", response);

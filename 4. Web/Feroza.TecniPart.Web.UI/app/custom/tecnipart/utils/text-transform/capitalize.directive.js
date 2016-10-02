@@ -1,12 +1,12 @@
 ﻿"use strict";
 angular
-  .module('tecnipart.utils', [])
-  .directive('capitalize', function () {
+  .module("tecnipart.utils", [])
+  .directive("capitalize", function () {
       return {
-          require: 'ngModel',
+          require: "ngModel",
           link: function (scope, element, attrs, modelCtrl) {
               var capitalize = function (inputValue) {
-                  if (inputValue == undefined) inputValue = '';
+                  if (inputValue == undefined) inputValue = "";
                   var capitalized = inputValue.toUpperCase();
                   if (capitalized !== inputValue) {
                       modelCtrl.$setViewValue(capitalized);

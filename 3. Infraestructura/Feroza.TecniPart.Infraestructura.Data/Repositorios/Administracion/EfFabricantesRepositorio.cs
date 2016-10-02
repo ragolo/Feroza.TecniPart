@@ -46,6 +46,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 fabricantesDataOriginal = this.context.Fabricantes.Create();
                 fabricantesDataOriginal.Descripcion = fabricantes.Descripcion;
                 fabricantesDataOriginal.IdPais = fabricantes.IdPais;
+                fabricantesDataOriginal.ImagenFabricante = fabricantes.ImagenFabricante;
                 this.context.Fabricantes.Add(fabricantesDataOriginal);
                 this.context.SaveChanges();
                 fabricantes.IdFabricantes = fabricantesDataOriginal.IdFabricantes;
@@ -67,14 +68,13 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
 
             if (fabricantesDataOriginal != null)
             {
-                //TODO: Implementar auto mapper
-                var fabricantesDataMap = new FabricantesData
-                {
-                    IdFabricantes = fabricantes.IdFabricantes,
-                    Descripcion = fabricantes.Descripcion,
-                    IdPais = fabricantes.IdPais
-                };
-                fabricantesDataMap.IdFabricantes = fabricantesDataOriginal.IdFabricantes;
+                var fabricantesDataMap = new FabricantesData()
+                                             {
+                                                 Descripcion = fabricantes.Descripcion,
+                                                 IdFabricantes = fabricantes.IdFabricantes,
+                                                 IdPais = fabricantes.IdPais,
+                                                 ImagenFabricante = fabricantes.ImagenFabricante
+                                             };
                 this.context.Entry(fabricantesDataOriginal).CurrentValues.SetValues(fabricantesDataMap);
                 this.context.SaveChanges();
                 return fabricantes;
@@ -124,6 +124,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                     Descripcion = s.Descripcion,
                     IdFabricantes = s.IdFabricantes,
                     IdPais = s.IdPais,
+                    ImagenFabricante = s.ImagenFabricante,
                     Pais = new Pais()
                     {
                         Descripcion = s.Pais.Descripcion,

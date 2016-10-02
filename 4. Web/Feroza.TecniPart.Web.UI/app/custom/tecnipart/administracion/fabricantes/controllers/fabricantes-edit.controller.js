@@ -2,9 +2,9 @@
     "use strict";
     angular.module("tecnipart")
         .controller("fabricantesEditController", fabricantesEditController);
-    fabricantesEditController.$inject = ["fabricantesDataServices", "logger", "modalWindowFactory"];
+    fabricantesEditController.$inject = ["fabricantesDataServices", "logger", "modalWindowFactory", "fileReader", "$scope"];
 
-    function fabricantesEditController(fabricantesDataServices, logger, modalWindowFactory) {
+    function fabricantesEditController(fabricantesDataServices, logger, modalWindowFactory, fileReader, $scope) {
         var vm = this;
 
         logger.info("Cargando por primera vez [fabricantesEditController] ->", vm);
@@ -15,16 +15,38 @@
 
         function init() {
             logger.info("[fabricantesEditController] inicializa controlador", vm);
+            vm.fabricantes.ImagenFabricanteBase64 = "data:image/jpeg;base64," + vm.fabricantes.ImagenFabricante;
         }
+
+        $scope.getFile = function () {
+            $scope.progress = 0;
+            fileReader.readAsDataUrl($scope.file, $scope)
+                          .then(function (result) {
+                              vm.fabricantes.ImagenFabricanteBase64 = result;
+                          });
+        };
 
         function save() {
             logger.info("[fabricantesEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            fabricantesDataServices.put(vm.fabricantes).then(function () {
-                fabricantesDataServices.query();
-                modalWindowFactory.hide();
-            }, function (reason) {
-                logger.error(reason);
-            });
+            if (typeof ($scope.file) !== "undefined") {
+                fabricantesDataServices.putWithImage(vm.fabricantes, $scope.file)
+                    .then(function () {
+                        fabricantesDataServices.query();
+                        modalWindowFactory.hide();
+                    },
+                        function (reason) {
+                            logger.error(reason);
+                        });
+            } else {
+                fabricantesDataServices.put(vm.fabricantes)
+                    .then(function () {
+                        fabricantesDataServices.query();
+                        modalWindowFactory.hide();
+                    },
+                        function (reason) {
+                            logger.error(reason);
+                        });
+            }
         }
 
         function cancel() {

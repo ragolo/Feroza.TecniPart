@@ -56,6 +56,9 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// </value>
         public byte[] ImagenFabricante { get; set; }
 
+        /// <summary>Gets or sets the imagen fabricante base 64.</summary>
+        public string ImagenFabricanteBase64 { get; set; }
+
         /// <summary>
         /// Gets or sets the identifier estado maestras.
         /// </summary>

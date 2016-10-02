@@ -15,6 +15,7 @@
         function init() {
             fabricantesDataServices.query().then(function (data) {
                 vm.fabricantes = fabricantesDataServices;
+                logger.info("este es el modelo para ver BASE64 ->", vm.fabricantes);
             });
         }
 

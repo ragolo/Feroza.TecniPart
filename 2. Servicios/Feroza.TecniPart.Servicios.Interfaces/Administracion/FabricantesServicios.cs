@@ -10,9 +10,12 @@
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+
+    using Extensions;
 
     /// <summary>
     /// The estado maestras servicios.
@@ -62,7 +65,11 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Fabricantes> ListFabricantes(int idFabricantes)
         {
-            return this.fabricantesRepositorio.ListarFabricantes(idFabricantes);
+            var fabricantes = this.fabricantesRepositorio.ListarFabricantes(idFabricantes);
+
+            this.MapearImagenByteToImagenBase64(fabricantes);
+
+            return fabricantes;
         }
 
         /// <summary>The list fabricantes.</summary>
@@ -72,7 +79,24 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Fabricantes> ListFabricantes()
         {
-            return this.fabricantesRepositorio.ListarFabricanteses();
+            var fabricantes = this.fabricantesRepositorio.ListarFabricanteses();
+
+            this.MapearImagenByteToImagenBase64(fabricantes);
+
+            return fabricantes;
+        }
+
+        /// <summary>The mapear imagen byte to imagen base 64.</summary>
+        /// <param name="fabricantes">The fabricantes.</param>
+        private void MapearImagenByteToImagenBase64(IEnumerable<Fabricantes> fabricantes)
+        {
+            if (fabricantes != null)
+            {
+                foreach (var fabricante in fabricantes.ToArray())
+                {
+                    fabricante.ImagenFabricanteBase64 = fabricante.ImagenFabricante.GetImageBase64FromByte();
+                }
+            }
         }
     }
 }

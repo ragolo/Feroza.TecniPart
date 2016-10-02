@@ -24,7 +24,7 @@
                     <tr ng-repeat="fabricante in fabricantesTable">
                         <td>{{fabricante.Descripcion}}</td>
                         <td>{{fabricante.Pais.Descripcion}}</td>
-                        <td>{{fabricante.ImagenFabricante}}</td>
+                        <td> <img style="width: 48px; height: 48px" ng-src="{{fabricante.ImagenFabricanteBase64}}" /> </td>
 
                         <td style="width: 20%; text-align: center">
 

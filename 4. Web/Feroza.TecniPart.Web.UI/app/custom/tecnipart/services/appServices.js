@@ -11,6 +11,8 @@
         service.delete = del;
         service.put = put;
         service.fetch = fetch;
+        service.postImage = postImage;
+        service.putImage = putImage;
 
         return service;
 
@@ -127,6 +129,71 @@
                 })
                 .then(function () {
                 });
+            return promise;
+        }
+
+        function postImage(url, viewModel, files) {
+            var defered = $q.defer();
+            var promise = defered.promise;
+            $http({
+                method: 'POST',
+                url: url,
+                headers: { 'Content-Type': undefined },
+                transformRequest: function (data) {
+                    console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+                    console.log(data);
+                    var formData = new FormData();
+                    formData.append("model", angular.toJson(data.model));
+                    if (typeof (data.files) === "object") {
+                        formData.append("file", data.files);
+                    } else {
+                        for (var i = 0; i < data.files.length; i++) {
+                            formData.append("file" + i, data.files[i]);
+                        }
+                    }
+                    return formData;
+                },
+                data: { model: viewModel, files: files }
+            }).
+        success(function (data, status, headers, config) {
+            defered.resolve(data);
+        }).
+        error(function (data, status, headers, config) {
+            defered.reject(data);
+        });
+            return promise;
+        }
+
+        function putImage(url, viewModel, files) {
+            var defered = $q.defer();
+            var promise = defered.promise;
+            $http({
+                method: 'PUT',
+                url: url,
+                headers: { 'Content-Type': undefined },
+                transformRequest: function (data) {
+                    var formData = new FormData();
+                    formData.append("model", angular.toJson(data.model));
+                    if (typeof (data.files) === "object") {
+                        formData.append("file", data.files);
+                    } else {
+                        if (typeof (data.files) !== "undefined") {
+                            for (var i = 0; i < data.files.length; i++) {
+                                formData.append("file" + i, data.files[i]);
+                            }
+                        }
+                    }
+                    logger.info("[appService] data envuelta", formData);
+                    return formData;
+                },
+                data: { model: viewModel, files: files }
+            }).
+        success(function (data, status, headers, config) {
+            defered.resolve(data);
+        }).
+        error(function (data, status, headers, config) {
+            defered.reject(data);
+        });
             return promise;
         }
     };

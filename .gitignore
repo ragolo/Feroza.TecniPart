@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+4. Web/Feroza.TecniPart.Web.UI/App_Data/Temp/

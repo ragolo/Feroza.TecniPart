@@ -24,5 +24,8 @@ namespace Feroza.TecniPart.Web.UI.Models
 
         /// <summary>Gets or sets the pais list.</summary>
         public IEnumerable<Pais> PaisList { get; set; }
+
+        /// <summary>Gets or sets the imagen fabricante base 64.</summary>
+        public string ImagenFabricanteBase64 { get; set; }
     }
 }

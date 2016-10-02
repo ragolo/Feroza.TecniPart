@@ -20,6 +20,10 @@ md-dialog.modal-formulario {
     min-width: 80% !important;
 }
 
-md-dialog.modal-formulario .card {
-    margin: 0 !important;
+    md-dialog.modal-formulario .card {
+        margin: 0 !important;
+    }
+
+.card-media {
+    background-color: #999999;
 }

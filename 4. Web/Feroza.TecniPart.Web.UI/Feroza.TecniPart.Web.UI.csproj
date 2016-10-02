@@ -105,6 +105,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ragolo.Core">
       <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\Ragolo.Core.dll</HintPath>
     </Reference>
@@ -155,9 +159,6 @@
     </Reference>
     <Reference Include="System.Web.Mvc">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -237,6 +238,8 @@
     <Content Include="app\custom\tecnipart\tecnipart.module.js" />
     <Content Include="app\custom\tecnipart\tecnipart.run.js" />
     <Content Include="app\custom\tecnipart\utils\text-transform\capitalize.directive.js" />
+    <Content Include="app\custom\tecnipart\utils\upload\file-reader.factory.js" />
+    <Content Include="app\custom\tecnipart\utils\upload\file-select.directive.js" />
     <Content Include="app\custom\tecnipart\utils\utils.module.js" />
     <Content Include="app\modules\colors\colors.contant.js" />
     <Content Include="app\modules\colors\colors.module.js" />
@@ -438,6 +441,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.flash.swf" />
+    <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.min.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload-all.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload-all.min.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload-shim.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload-shim.min.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload.js" />
+    <Content Include="Scripts\Vendor\ng-file-upload\ng-file-upload.min.js" />
     <Content Include="Scripts\Vendor\angular-messages\angular-messages.js" />
     <Content Include="Scripts\Vendor\angular-messages\angular-messages.min.js" />
     <Content Include="Scripts\Vendor\restangular\lodash.js" />
@@ -510,6 +522,11 @@
     <Compile Include="Api\Administracion\VehiculosController.cs" />
     <Compile Include="Api\Administracion\MarcasController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
+    <Compile Include="Api\Facade\CustomMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Api\Facade\ManagementImageFacade.cs" />
+    <Compile Include="Api\Facade\IManagementImageFacade.cs" />
+    <Compile Include="Api\Facade\Models\EntityWithImageModel.cs" />
+    <Compile Include="Api\Facade\Models\FileDescription.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -834,7 +851,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Temp\FileUploads\" />
     <Folder Include="Scripts\Vendor\angular-loading-bar\src\" />
     <Folder Include="Scripts\Vendor\angular-ui-event\demo\" />
     <Folder Include="Scripts\Vendor\angular-ui-event\src\" />
