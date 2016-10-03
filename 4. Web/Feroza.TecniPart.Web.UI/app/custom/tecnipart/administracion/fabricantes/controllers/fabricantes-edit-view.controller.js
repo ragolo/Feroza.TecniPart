@@ -8,9 +8,7 @@
         var vm = this;
         init();
         function init() {
-
             vm.fabricantes = fabricantesDataServices.fabricantes;
-
         }
     }
 })();

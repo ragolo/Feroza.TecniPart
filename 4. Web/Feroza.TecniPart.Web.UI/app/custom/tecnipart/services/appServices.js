@@ -36,7 +36,7 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.resolve(err);
+                    defered.reject(err);
                 })
                 .then(function () {
                 });
@@ -58,7 +58,7 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.resolve(err);
+                    defered.reject(err);
                 })
                 .then(function () {
                 });
@@ -81,6 +81,7 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
+                    console.log("erorrrrrrrrr");
                     defered.reject(err);
                 })
                 .then(function () {
@@ -103,7 +104,7 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.resolve(err);
+                    defered.reject(err);
                 })
                 .then(function () {
                 });
@@ -125,7 +126,7 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.resolve(err);
+                    defered.reject(err);
                 })
                 .then(function () {
                 });
@@ -140,8 +141,6 @@
                 url: url,
                 headers: { 'Content-Type': undefined },
                 transformRequest: function (data) {
-                    console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-                    console.log(data);
                     var formData = new FormData();
                     formData.append("model", angular.toJson(data.model));
                     if (typeof (data.files) === "object") {

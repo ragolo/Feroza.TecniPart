@@ -81,7 +81,7 @@ namespace Feroza.TecniPart.Web.UI
               "~/Scripts/Vendor/angular-ui-scrollpoint/dist/scrollpoint.js",
               "~/Scripts/Vendor/angular-ui-scroll/dist/ui-scroll.js",
               "~/Scripts/Vendor/angular-ui-uploader/dist/uploader.js",
-              "~/Scripts/Vendor/angularjs-toaster/toaster.js",
+              "~/Scripts/Vendor/angularjs-toaster/angular-toastr.tpls.min.js",
               "~/Scripts/Vendor/angular-sanitize/angular-sanitize.js",
               "~/Scripts/Vendor/angular-resource/angular-resource.js",
               "~/Scripts/Vendor/angular-translate/angular-translate.js",
@@ -97,7 +97,6 @@ namespace Feroza.TecniPart.Web.UI
                 "~/Scripts/Vendor/jquery.browser/dist/jquery.browser.js",
                    "~/Scripts/Vendor/angular-material/angular-aria.js",
                    "~/Scripts/Vendor/angular-messages/angular-messages.min.js"
-
                    ));
 
             bundles.Add(

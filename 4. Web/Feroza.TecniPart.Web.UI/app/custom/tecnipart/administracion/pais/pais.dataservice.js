@@ -38,9 +38,11 @@
                     service.pais = data;
                     service.paisListar.push(data);
                     logger.success("[paisDataServices] Guardo exitosamente", data);
-                },
+                        return service.pais;
+                    },
                 function (reason) {
                     logger.error("Error intentanto guardar estadopais", reason);
+                    return reason;
                 });
         }
 

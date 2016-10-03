@@ -290,6 +290,8 @@
     <Content Include="app\modules\utils\trigger-resize.directive.js" />
     <Content Include="app\modules\utils\utils.module.js" />
     <Content Include="app\modules\utils\utils.service.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.css" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.css" />
     <Content Include="Content\app\app-rtl.css" />
     <Content Include="Content\app\app.css" />
     <Content Include="Content\app\bootstrap-rtl.css" />
@@ -441,6 +443,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.tpls.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.tpls.min.js" />
     <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.flash.swf" />
     <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.js" />
     <Content Include="Scripts\Vendor\ng-file-upload\FileAPI.min.js" />

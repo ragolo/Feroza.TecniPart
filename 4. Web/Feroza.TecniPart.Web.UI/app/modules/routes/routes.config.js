@@ -31,7 +31,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
       {
           //url: '/',
           abstract: true,
-          resolve: helper.resolveFor("modernizr", "icons", "toaster"),
+          resolve: helper.resolveFor("modernizr", "icons"),
           views: {
               'content': {
                   template:

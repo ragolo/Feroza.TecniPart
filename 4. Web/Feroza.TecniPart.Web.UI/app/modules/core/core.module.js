@@ -17,6 +17,7 @@
             "ui.utils",
             "ngAria",
              "mgcrea.ngStrap",
-            "ngMessages"
+            "ngMessages",
+            "toastr"
         ]);
 })();

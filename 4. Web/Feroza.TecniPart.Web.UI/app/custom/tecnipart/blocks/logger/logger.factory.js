@@ -5,11 +5,11 @@
         .module('blocks.logger')
         .factory('logger', logger);
 
-    logger.$inject = ['$log', 'toaster'];
+    logger.$inject = ["$log", "toastr"];
 
     function logger($log, toastr) {
         var service = {
-            showToasts: true,
+            showToasts: false,
 
             error: error,
             info: info,
@@ -24,12 +24,15 @@
         /////////////////////
 
         function error(message, data, title) {
-            toastr.error(message, title);
+            toastr.error(data.Message, title);
             $log.error('Error: ' + message, data);
         }
 
         function info(message, data, title) {
-            toastr.info(message, title);
+            if (service.showToasts) {
+                toastr.info(message, title);
+            }
+
             $log.info('Info: ' + message, data);
         }
 

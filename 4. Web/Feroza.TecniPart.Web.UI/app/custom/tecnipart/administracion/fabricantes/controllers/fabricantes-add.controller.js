@@ -36,6 +36,8 @@
                     .then(function () {
                         fabricantesDataServices.query();
                         modalWindowFactory.hide();
+                    }, function (reason) {
+                        return reason;
                     });
             }
         }

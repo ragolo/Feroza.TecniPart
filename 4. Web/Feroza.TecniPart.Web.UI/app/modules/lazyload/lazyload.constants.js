@@ -15,8 +15,7 @@
             },
             // Angular based script (use the right module name)
             modules: [
-                  { name: "smart-table", files: ["Scripts/Vendor/angular-smart-table/smart-table.min.js"] },
-                  { name: 'toaster', files: ['Scripts/Vendor/angularjs-toaster/toaster.js', 'Scripts/Vendor/angularjs-toaster/toaster.css'] }
+                  { name: "smart-table", files: ["Scripts/Vendor/angular-smart-table/smart-table.min.js"] }
             ]
         })
     ;

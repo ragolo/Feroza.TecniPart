@@ -2,9 +2,9 @@
     "use strict";
     angular.module("tecnipart")
         .service("fabricantesDataServices", dataservice);
-    dataservice.$inject = ["appService", "logger", "Restangular", "fileReader"];
+    dataservice.$inject = ["appService", "logger", "Restangular"];
 
-    function dataservice(appService, logger, restAngular, fileReader) {
+    function dataservice(appService, logger, restAngular) {
         var service = {};
         var entityName = "Fabricantes";
         var restService = restAngular.service("Fabricantes");
@@ -42,9 +42,11 @@
                     service.fabricantes = data;
                     service.fabricantesListar.push(data);
                     logger.success("[fabricantesDataServices] Guardo exitosamente", data);
+                    return service.fabricantes;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadofabricantes", reason);
+                    return reason;
                 });
         }
 
@@ -120,7 +122,6 @@
         function getFabricantesModel(id) {
             logger.info("Obteniendo el modelo para -> ", id);
             var param = typeof (id) === "undefined" ? { id: "" } : { id: id };
-            console.log(param);
             return appService.fetch("Fabricantes/GetFabricantesModel", param)
                 .then(function (response) {
                     if (response.success) {
