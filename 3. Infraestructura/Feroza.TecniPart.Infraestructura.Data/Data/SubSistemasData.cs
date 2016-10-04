@@ -24,13 +24,11 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public int IdSubSistemas { get; set; }
         public string Descripcion { get; set; }
         public int IdSistemas { get; set; }
-        public int IdEstadoMaestras { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CatalogosData> Catalogos { get; set; }
         public virtual SistemasData Sistemas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VehiculoSubSistemasData> VehiculoSubSistemas { get; set; }
-        public virtual EstadoMaestrasData EstadoMaestras { get; set; }
     }
 }

@@ -57,14 +57,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         public int IdEstadoMaestras { get; set; }
 
         /// <summary>
-        /// Gets or sets the estado maestras.
-        /// </summary>
-        /// <value>
-        /// The estado maestras.
-        /// </value>
-        public virtual EstadoMaestras EstadoMaestras { get; set; }
-
-        /// <summary>
         /// Gets or sets the vehiculos.
         /// </summary>
         /// <value>

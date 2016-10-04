@@ -43,7 +43,6 @@
     <Compile Include="Modelos\Aplicaciones.cs" />
     <Compile Include="Modelos\CatalogoDetalles.cs" />
     <Compile Include="Modelos\Catalogos.cs" />
-    <Compile Include="Modelos\EstadoMaestras.cs" />
     <Compile Include="Modelos\Fabricantes.cs" />
     <Compile Include="Modelos\Marcas.cs" />
     <Compile Include="Modelos\Pais.cs" />

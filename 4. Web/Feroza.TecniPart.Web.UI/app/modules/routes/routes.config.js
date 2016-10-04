@@ -97,32 +97,6 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
       })
     ;
 
-    $stateProvider.state("state-estadomaestras-EstadoMaestrasAddView",
-    {
-        url: "/EstadoMaestras/EstadoMaestrasAddView",
-        abstract: false,
-        views: {
-            modalCore: {
-                templateUrl: helper.basepath("EstadoMaestras/EstadoMaestrasAddView"),
-                controller: "estadomaestrasAddViewController",
-                controllerAs: "vm"
-            }
-        }
-    });
-
-    $stateProvider.state("state-estadomaestras-EstadoMaestrasEditView",
-    {
-        url: "/EstadoMaestras/EstadoMaestrasEditView",
-        abstract: false,
-        views: {
-            modalCore: {
-                templateUrl: helper.basepath("EstadoMaestras/EstadoMaestrasEditView"),
-                controller: "estadomaestrasEditViewController",
-                controllerAs: "vm"
-            }
-        }
-    });
-
     $stateProvider.state("state-pais-PaisAddView",
    {
        url: "/Pais/PaisAddView",

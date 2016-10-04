@@ -66,14 +66,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         public virtual ICollection<Catalogos> Catalogos { get; set; }
 
         /// <summary>
-        /// Gets or sets the estado maestras.
-        /// </summary>
-        /// <value>
-        /// The estado maestras.
-        /// </value>
-        public virtual EstadoMaestras EstadoMaestras { get; set; }
-
-        /// <summary>
         /// Gets or sets the sistemas.
         /// </summary>
         /// <value>

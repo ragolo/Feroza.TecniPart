@@ -34,7 +34,6 @@ namespace Feroza.TecniPart.Infraestructura.ResolucionDepencias
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
-                Component.For<IEstadoMaestrasRespositorio>().ImplementedBy<EfEstadoMaestrasRepositorio>().LifestyleTransient(),
                 Component.For<IFabricantesRespositorio>().ImplementedBy<EfFabricantesRepositorio>().LifestyleTransient(),
                 Component.For<IMarcasRespositorio>().ImplementedBy<EfMarcasRepositorio>().LifestyleTransient(),
                 Component.For<IVehiculosRespositorio>().ImplementedBy<EfVehiculosRepositorio>().LifestyleTransient(),

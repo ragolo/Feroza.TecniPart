@@ -50,28 +50,12 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         public int Posicion { get; set; }
 
         /// <summary>
-        /// Gets or sets the identifier estado maestras.
-        /// </summary>
-        /// <value>
-        /// The identifier estado maestras.
-        /// </value>
-        public int IdEstadoMaestras { get; set; }
-
-        /// <summary>
         /// Gets or sets the catalogos.
         /// </summary>
         /// <value>
         /// The catalogos.
         /// </value>
         public virtual ICollection<Catalogos> Catalogos { get; set; }
-
-        /// <summary>
-        /// Gets or sets the estado maestras.
-        /// </summary>
-        /// <value>
-        /// The estado maestras.
-        /// </value>
-        public virtual EstadoMaestras EstadoMaestras { get; set; }
 
         /// <summary>
         /// Gets or sets the sub sistemas.
