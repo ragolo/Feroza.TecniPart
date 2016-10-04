@@ -67,13 +67,6 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("Pais/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
-      .state("app.administracionEstadomaestras",
-      {
-          url: "/EstadoMaestras/IndexView",
-          title: "Estado Maestras",
-          templateUrl: helper.basepath("EstadoMaestras/IndexView"),
-          resolve: helper.resolveFor("smart-table")
-      })
      .state("app.administracionFabricantes",
       {
           url: "/Fabricantes/IndexView",
