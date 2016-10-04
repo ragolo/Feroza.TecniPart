@@ -13,8 +13,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     using System.Linq;
     using System.Web.Http;
 
-    using Feroza.TecniPart.Dominio.Entidades.Modelos;
-    using Feroza.TecniPart.Dominio.Interfaces.Administracion;
+    using Dominio.Entidades.Modelos;
+    using Dominio.Interfaces.Administracion;
 
     /// <summary>
     /// The estado maestras controller.
@@ -26,12 +26,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         /// </summary>
         private readonly IMarcasServicio marcasServicios;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MarcasController"/> class.
-        /// </summary>
-        /// <param name="marcasServicios">
-        /// The estado maestras servicios.
-        /// </param>
+        /// <summary>Initializes a new instance of the <see cref="MarcasController"/> class.</summary>
+        /// <param name="marcasServicios">The marcas servicios.</param>
         public MarcasController(IMarcasServicio marcasServicios)
         {
             this.marcasServicios = marcasServicios;
@@ -64,8 +60,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.marcasServicios.ListMarcas();
         }
 
-        /// <summary>The post estado maestras.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <summary>The post marcas.</summary>
+        /// <param name="marcas">The marcas.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
         public IHttpActionResult PostMarcas(Marcas marcas)
@@ -74,6 +70,9 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.Ok(marcasResult);
         }
 
+        /// <summary>The put marcas.</summary>
+        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPut]
         public IHttpActionResult PutMarcas(Marcas estadoMaestra)
         {

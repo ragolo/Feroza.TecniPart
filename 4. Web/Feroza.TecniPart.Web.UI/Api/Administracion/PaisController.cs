@@ -13,25 +13,17 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     using System.Linq;
     using System.Web.Http;
 
-    using Feroza.TecniPart.Dominio.Entidades.Modelos;
-    using Feroza.TecniPart.Dominio.Interfaces.Administracion;
+    using Dominio.Entidades.Modelos;
+    using Dominio.Interfaces.Administracion;
 
-    /// <summary>
-    /// The estado maestras controller.
-    /// </summary>
+    /// <summary>The pais controller.</summary>
     public class PaisController : ApiController
     {
-        /// <summary>
-        /// The estado maestras servicios.
-        /// </summary>
+        /// <summary>The pais servicios.</summary>
         private readonly IPaisServicio paisServicios;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PaisController"/> class.
-        /// </summary>
-        /// <param name="paisServicios">
-        /// The estado maestras servicios.
-        /// </param>
+        /// <summary>Initializes a new instance of the <see cref="PaisController"/> class.</summary>
+        /// <param name="paisServicios">The pais servicios.</param>
         public PaisController(IPaisServicio paisServicios)
         {
             this.paisServicios = paisServicios;
@@ -64,8 +56,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.paisServicios.ListPais();
         }
 
-        /// <summary>The post estado maestras.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <summary>The post pais.</summary>
+        /// <param name="pais">The pais.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
         public IHttpActionResult PostPais(Pais pais)
@@ -74,11 +66,14 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             return this.Ok(paisResult);
         }
 
+        /// <summary>The put pais.</summary>
+        /// <param name="pais">The pais.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPut]
-        public IHttpActionResult PutPais(Pais estadoMaestra)
+        public IHttpActionResult PutPais(Pais pais)
         {
-            var pais = this.paisServicios.EditPais(estadoMaestra);
-            return this.Ok(pais);
+            var paisResult = this.paisServicios.EditPais(pais);
+            return this.Ok(paisResult);
         }
 
         /// <summary>

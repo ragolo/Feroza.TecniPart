@@ -28,8 +28,8 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CatalogoDetallesData> CatalogoDetalles { get; set; }
+        public virtual VehiculosData Vehiculos { get; set; }
         public virtual SistemasData Sistemas { get; set; }
         public virtual SubSistemasData SubSistemas { get; set; }
-        public virtual VehiculosData Vehiculos { get; set; }
     }
 }

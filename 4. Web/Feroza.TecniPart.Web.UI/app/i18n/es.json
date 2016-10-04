@@ -16,8 +16,9 @@
           "vehiculos": {
             "VEHICULOS": "Vehiculos",
             "VEHICULOSADM": "Vehiculos",
-            "GETVEHICULOS": "Adquirir vehiculos"   
-          } 
+            "GETVEHICULOS": "Adquirir vehiculos"
+          },
+          "SISTEMAS": "Sistemas"
         },
         "BUSQUEDA": "Busqueda"
       }

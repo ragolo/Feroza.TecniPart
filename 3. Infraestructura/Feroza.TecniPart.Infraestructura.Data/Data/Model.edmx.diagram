@@ -12,23 +12,23 @@
         <EntityTypeShape EntityType="TecniPartModel.MarcasData" Width="1.5" PointX="3" PointY="1.25" />
         <EntityTypeShape EntityType="TecniPartModel.PaisData" Width="1.5" PointX="0.75" PointY="4.25" />
         <EntityTypeShape EntityType="TecniPartModel.ReferenciasData" Width="1.5" PointX="5.25" PointY="8.75" />
-        <EntityTypeShape EntityType="TecniPartModel.SistemasData" Width="1.5" PointX="8.25" PointY="7.625" />
-        <EntityTypeShape EntityType="TecniPartModel.SubSistemasData" Width="1.5" PointX="8.25" PointY="0.75" />
         <EntityTypeShape EntityType="TecniPartModel.VehiculosData" Width="1.5" PointX="5.25" PointY="3.625" />
         <EntityTypeShape EntityType="TecniPartModel.VehiculoSistemasData" Width="1.5" PointX="8.25" PointY="11.375" />
         <EntityTypeShape EntityType="TecniPartModel.VehiculoSubSistemasData" Width="1.5" PointX="10.5" PointY="0.875" />
         <AssociationConnector Association="TecniPartModel.FK_Aplicaciones_CodigoOem_Referencias_CodigoOem" />
         <AssociationConnector Association="TecniPartModel.FK_Aplicaciones_IdVehiculos_Vehiculos_IdVehiculos" />
         <AssociationConnector Association="TecniPartModel.FK_CatalogoDetalles_IdCatalogos_Catalogos_IdCatalogos" />
-        <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdSistemas_Sistemas_IdSistemas" />
-        <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" />
         <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdVehiculos_Vehiculos_IdVehiculos" />
         <AssociationConnector Association="TecniPartModel.FK_Fabricantes_IdPais_Pais_IdPais" />
         <AssociationConnector Association="TecniPartModel.FK_Vehiculos_IdFabricantes_Fabricantes_IdFabricantes" />
         <AssociationConnector Association="TecniPartModel.FK_Vehiculos_IdMarca_Marcas_IdMarca" />
+        <AssociationConnector Association="TecniPartModel.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" />
+        <EntityTypeShape EntityType="TecniPartModel.SistemasData" Width="1.5" PointX="8.25" PointY="1.375" />
+        <EntityTypeShape EntityType="TecniPartModel.SubSistemasData" Width="1.75" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdSistemas_Sistemas_IdSistemas" />
+        <AssociationConnector Association="TecniPartModel.FK_Catalogos_IdSubSistemas_SubSistemas_IdSubSistemas" />
         <AssociationConnector Association="TecniPartModel.FK_SubSistemas_IdSistemas_Sistema_IdSistemas" />
         <AssociationConnector Association="TecniPartModel.FK_VehiculoSubSistemas_IdSubSistemas_SubSistemas_IdSubSistemas" />
-        <AssociationConnector Association="TecniPartModel.FK_VehiculoSubSistemas_IdVehiculoSistemas_VehiculoSistemas_IdVehiculoSistemas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

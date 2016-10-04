@@ -170,6 +170,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\controllers\sistemas-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\controllers\sistemas-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\controllers\sistemas-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\controllers\sistemas-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\sistemas.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\sistemas.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\sistemas\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\vehiculos\components\vehiculos-list.component.js" />
@@ -503,6 +513,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Administracion\FabricantesController.cs" />
+    <Compile Include="Api\Administracion\SistemasController.cs" />
     <Compile Include="Api\Administracion\VehiculosController.cs" />
     <Compile Include="Api\Administracion\MarcasController.cs" />
     <Compile Include="Api\Administracion\PaisController.cs" />
@@ -516,6 +527,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\SistemasController.cs" />
     <Compile Include="Controllers\Administracion\VehiculosController.cs" />
     <Compile Include="Controllers\Administracion\MarcasController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
@@ -821,6 +833,11 @@
     <Content Include="Views\Administracion\Vehiculos\VehiculosEditView.cshtml" />
     <Content Include="Views\Administracion\Vehiculos\VehiculosListComponent.cshtml" />
     <Content Include="Scripts\Vendor\angular-messages\angular-messages.min.js.map" />
+    <Content Include="Views\Administracion\Sistemas\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasAddView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasComponent.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasEditView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasListComponent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

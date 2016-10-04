@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+<form name="sistemasComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
+        </div>
+        <div class="card-body">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Descripcion" ng-model="vm.sistemas.Descripcion" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="0" />
+                    <label>Sistema</label>
+                    <div multiple ng-messages="sistemasComponentForm.Descripcion.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Posicion" ng-model="vm.sistemas.Posicion" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="0" />
+                    <label>Posicion</label>
+                    <div multiple ng-messages="sistemasComponentForm.Descripcion.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="sistemasComponentForm.$invalid || sistemasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

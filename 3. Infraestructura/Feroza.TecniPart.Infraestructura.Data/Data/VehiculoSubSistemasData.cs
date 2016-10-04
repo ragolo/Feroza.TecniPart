@@ -18,7 +18,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         public int IdVehiculoSistemas { get; set; }
         public int IdSubSistemas { get; set; }
     
-        public virtual SubSistemasData SubSistemas { get; set; }
         public virtual VehiculoSistemasData VehiculoSistemas { get; set; }
+        public virtual SubSistemasData SubSistemas { get; set; }
     }
 }

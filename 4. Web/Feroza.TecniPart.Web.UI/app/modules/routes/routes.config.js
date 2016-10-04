@@ -67,6 +67,13 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("Pais/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
+          .state("app.administracionSistemas",
+      {
+          url: "/Sistemas/IndexView",
+          title: "Sistemas",
+          templateUrl: helper.basepath("Sistemas/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      })
      .state("app.administracionFabricantes",
       {
           url: "/Fabricantes/IndexView",
@@ -190,6 +197,32 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
             modalCore: {
                 templateUrl: helper.basepath("Vehiculos/VehiculosAddView"),
                 controller: "vehiculosAddViewController",
+                controllerAs: "vm"
+            }
+        }
+    });
+
+    $stateProvider.state("state-sistemas-SistemasAddView",
+{
+    url: "/Sistemas/SistemasAddView",
+    abstract: false,
+    views: {
+        modalCore: {
+            templateUrl: helper.basepath("Sistemas/SistemasAddView"),
+            controller: "sistemasAddViewController",
+            controllerAs: "vm"
+        }
+    }
+});
+
+    $stateProvider.state("state-sistemas-SistemasEditView",
+    {
+        url: "/Sistemas/SistemasEditView",
+        abstract: false,
+        views: {
+            modalCore: {
+                templateUrl: helper.basepath("Sistemas/SistemasEditView"),
+                controller: "sistemasEditViewController",
                 controllerAs: "vm"
             }
         }

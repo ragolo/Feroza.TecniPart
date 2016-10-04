@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Administracion\IFabricantesRespositorio.cs" />
     <Compile Include="Administracion\IMarcasRespositorio.cs" />
+    <Compile Include="Administracion\ISistemasServicio.cs" />
+    <Compile Include="Administracion\ISistemasRespositorio.cs" />
     <Compile Include="Administracion\IVehiculosServicio.cs" />
     <Compile Include="Administracion\IVehiculosRespositorio.cs" />
     <Compile Include="Administracion\IPaisRespositorio.cs" />
