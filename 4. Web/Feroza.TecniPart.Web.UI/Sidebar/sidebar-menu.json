@@ -39,11 +39,6 @@
             "text": "",
             "sref": "app.administracionVehiculos",
             "translate": "sidebar.nav.menu.administracion.vehiculos.VEHICULOSADM"
-          },
-          {
-            "text": "",
-            "sref": "app.administracionGetVehiculos",
-            "translate": "sidebar.nav.menu.administracion.vehiculos.GETVEHICULOS"
           }
         ],
         "translate": "sidebar.nav.menu.administracion.vehiculos.VEHICULOS"
