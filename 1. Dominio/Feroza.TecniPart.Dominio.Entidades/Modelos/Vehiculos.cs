@@ -45,6 +45,9 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// </value>
         public byte[] ImagenVehiculo { get; set; }
 
+        /// <summary>Gets or sets the imagen vehiculo base 64.</summary>
+        public string ImagenVehiculoBase64 { get; set; }
+
         /// <summary>
         /// Gets or sets the identifier fabricantes.
         /// </summary>

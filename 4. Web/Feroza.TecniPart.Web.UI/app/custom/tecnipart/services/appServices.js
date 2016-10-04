@@ -81,7 +81,6 @@
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    console.log("erorrrrrrrrr");
                     defered.reject(err);
                 })
                 .then(function () {

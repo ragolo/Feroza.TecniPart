@@ -18,6 +18,10 @@
         service.removeVehiculos = removeVehiculos;
         service.query = query;
         service.getVehiculosModel = getVehiculosModel;
+
+        service.saveWithImage = saveWithImage;
+        service.putWithImage = putWithImage;
+
         return service;
 
         function get(id) {
@@ -44,6 +48,35 @@
                 });
         }
 
+        function saveWithImage(vehiculos, images) {
+            vehiculos.ImagenVehiculoBase64 = null;
+            vehiculos.ImagenVehiculo = null;
+            logger.info("[vehiculosDataServices] imagen enviada al servidor", images);
+            logger.info("[vehiculosDataServices] entidad que se envuelve en el encabezado", vehiculos);
+            return appService.postImage("/Api/VehiculosImage", vehiculos, images)
+                .then(function (data) {
+                    service.vehiculos = data;
+                    service.vehiculosListar.push(data);
+                    logger.success("[vehiculosDataServices] Guardo exitosamente", data);
+                },
+                function (reason) {
+                    logger.error("Error intentanto guardar estadovehiculos", reason);
+                });
+        }
+
+        function putWithImage(vehiculos, images) {
+            vehiculos.ImagenVehiculoBase64 = null;
+            return appService.putImage("/Api/VehiculosImage", vehiculos, images)
+                .then(function (data) {
+                    service.vehiculos = data;
+                    service.vehiculosListar.push(data);
+                    logger.success("[vehiculosDataServices] Actualizo exitosamente", data);
+                },
+                function (reason) {
+                    logger.error("Error intentanto guardar estadovehiculos", reason);
+                });
+        }
+
         function put(vehiculos) {
             logger.info("[vehiculosDataServices] Guardando", vehiculos);
             return appService.put("api/Vehiculos", vehiculos)
@@ -61,6 +94,9 @@
             return restAngular.all(entityName).getList()
                 .then(function (data) {
                     logger.info("[vehiculosDataServices] datos obtenidos ", data);
+                    $(data).each(function (idx, vehiculo) {
+                        vehiculo.ImagenVehiculoBase64 = typeof (vehiculo.ImagenVehiculoBase64) === "string" ? vehiculo.ImagenVehiculoBase64 : "data:image/jpeg;base64," + vehiculo.ImagenVehiculo;
+                    });
                     service.vehiculosListar = data;
                     return data;
                 });

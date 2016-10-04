@@ -130,7 +130,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                         Descripcion = s.Pais.Descripcion,
                         IdPais = s.IdPais
                     }
-                });
+                }).ToList();
         }
     }
 }

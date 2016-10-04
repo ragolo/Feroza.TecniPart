@@ -174,7 +174,7 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                                  Descripcion = s.Marcas.Descripcion,
                                  IdMarcas = s.Marcas.IdMarcas
                              }
-            });
+            }).ToList();
         }
     }
 }

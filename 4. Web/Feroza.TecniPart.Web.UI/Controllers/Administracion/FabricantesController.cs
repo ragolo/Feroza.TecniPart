@@ -22,8 +22,6 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
     using Newtonsoft.Json;
 
-    using Ragolo.Core.Mapper;
-
     using Servicios.Interfaces.Administracion;
 
     /// <summary>The estado maestras controller.</summary>
@@ -32,9 +30,10 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         /// <summary>The estado maestras servicios.</summary>
         private readonly IFabricantesServicio fabricantesServicios;
 
+        /// <summary>The pais servicios.</summary>
         private readonly IPaisServicio paisServicios;
 
-
+        /// <summary>Initializes a new instance of the <see cref="FabricantesController"/> class.</summary>
         public FabricantesController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
@@ -96,13 +95,15 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     fabricantes = this.fabricantesServicios.ListFabricantes(id.Value).FirstOrDefault();
                 }
 
-                //response = BaseEntityMapperViewModel<FabricantesViewModel, Fabricantes>.MapFromEntity(fabricantes);
-                response.Descripcion = fabricantes.Descripcion;
-                response.IdFabricantes = fabricantes.IdFabricantes;
-                response.ImagenFabricante = fabricantes.ImagenFabricante;
-                if (fabricantes != null && fabricantes.ImagenFabricante != null)
+                if (fabricantes != null)
                 {
-                    response.ImagenFabricanteBase64 = Convert.ToBase64String(fabricantes.ImagenFabricante);
+                    response.Descripcion = fabricantes.Descripcion;
+                    response.IdFabricantes = fabricantes.IdFabricantes;
+                    response.ImagenFabricante = fabricantes.ImagenFabricante;
+                    if (fabricantes.ImagenFabricante != null)
+                    {
+                        response.ImagenFabricanteBase64 = Convert.ToBase64String(fabricantes.ImagenFabricante);
+                    }
                 }
 
                 response.PaisList = this.paisServicios.ListPais();

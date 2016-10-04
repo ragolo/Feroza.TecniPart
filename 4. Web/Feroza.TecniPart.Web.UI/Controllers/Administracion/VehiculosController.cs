@@ -22,8 +22,6 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
     using Newtonsoft.Json;
 
-    using Ragolo.Core.Mapper;
-
     using Servicios.Interfaces.Administracion;
 
     /// <summary>The estado maestras controller.</summary>
@@ -38,7 +36,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         /// <summary>The marcas servicios.</summary>
         private readonly IMarcasServicio marcasServicios;
 
-
+        /// <summary>Initializes a new instance of the <see cref="VehiculosController"/> class.</summary>
         public VehiculosController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
@@ -102,7 +100,21 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     vehiculos = this.vehiculosServicios.ListVehiculos(id.Value).FirstOrDefault();
                 }
 
-                response = BaseEntityMapperViewModel<VehiculosViewModel, Vehiculos>.MapFromEntity(vehiculos);
+                if (vehiculos != null)
+                {
+                    response.IdVehiculos = vehiculos.IdVehiculos;
+                    response.Descripcion = vehiculos.Descripcion;
+                    response.IdFabricantes = vehiculos.IdFabricantes;
+                    response.ImagenVehiculo = vehiculos.ImagenVehiculo;
+                    response.IdMarca = vehiculos.IdMarca;
+                    response.Ango = vehiculos.Ango;
+                    response.Comentario = vehiculos.Comentario;
+
+                    if (vehiculos.ImagenVehiculo != null)
+                    {
+                        response.ImagenVehiculoBase64 = Convert.ToBase64String(vehiculos.ImagenVehiculo);
+                    }
+                }
 
                 response.FabricantesList = this.fabricantesServicios.ListFabricantes();
                 response.MarcasList = this.marcasServicios.ListMarcas();

@@ -10,9 +10,12 @@
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+
+    using Extensions;
 
     /// <summary>
     /// The estado maestras servicios.
@@ -38,6 +41,9 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
             return this.vehiculosRespositorio.Crear(vehiculos);
         }
 
+        /// <summary>The edit vehiculos.</summary>
+        /// <param name="vehiculos">The vehiculos.</param>
+        /// <returns>The <see cref="Vehiculos"/>.</returns>
         public Vehiculos EditVehiculos(Vehiculos vehiculos)
         {
             return this.vehiculosRespositorio.Editar(vehiculos);
@@ -58,7 +64,9 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Vehiculos> ListVehiculos(int idVehiculos)
         {
-            return this.vehiculosRespositorio.ListarVehiculos(idVehiculos);
+            var vehiculos = this.vehiculosRespositorio.ListarVehiculos(idVehiculos);
+
+            return vehiculos;
         }
 
         /// <summary>The list vehiculos.</summary>
@@ -68,7 +76,9 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         /// .</returns>
         public IEnumerable<Vehiculos> ListVehiculos()
         {
-            return this.vehiculosRespositorio.ListarVehiculoses();
+            var vehiculos = this.vehiculosRespositorio.ListarVehiculoses();
+
+            return vehiculos;
         }
     }
 }
