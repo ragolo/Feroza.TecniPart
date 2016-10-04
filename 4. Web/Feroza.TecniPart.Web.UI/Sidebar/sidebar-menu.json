@@ -43,10 +43,15 @@
         ],
         "translate": "sidebar.nav.menu.administracion.vehiculos.VEHICULOS"
       },
-       {
+      {
         "text": "",
         "sref": "app.administracionSistemas",
         "translate": "sidebar.nav.menu.administracion.SISTEMAS"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionSubSistemas",
+        "translate": "sidebar.nav.menu.administracion.SUBSISTEMAS"
       }
     ],
     "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"

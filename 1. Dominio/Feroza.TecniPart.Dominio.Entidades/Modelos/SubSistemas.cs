@@ -50,14 +50,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         public int IdSistemas { get; set; }
 
         /// <summary>
-        /// Gets or sets the identifier estado maestras.
-        /// </summary>
-        /// <value>
-        /// The identifier estado maestras.
-        /// </value>
-        public int IdEstadoMaestras { get; set; }
-
-        /// <summary>
         /// Gets or sets the catalogos.
         /// </summary>
         /// <value>

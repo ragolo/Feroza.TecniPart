@@ -1,16 +1,37 @@
 ﻿(function () {
     "use strict";
     angular.module("tecnipart")
+    .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+        $scope.close = function () {
+            // Component lookup should always be available since we are not using `ng-if`
+            $mdSidenav('right').close()
+              .then(function () {
+                  $log.debug("close RIGHT is done");
+              });
+        };
+    })
         .controller("sistemasController", sistemasController);
-    sistemasController.$inject = ["$scope", "sistemasDataServices", "logger", "modalWindowFactory", "$mdDialog", "sistemasStateProvider"];
+    sistemasController.$inject = ["$scope", "sistemasDataServices", "logger", "modalWindowFactory", "$mdDialog", "sistemasStateProvider", "$mdSidenav"];
 
-    function sistemasController($scope, sistemasDataServices, logger, modalWindowFactory, $mdDialog, sistemasStateProvider) {
+    function sistemasController($scope, sistemasDataServices, logger, modalWindowFactory, $mdDialog, sistemasStateProvider, $mdSidenav) {
         var vm = this;
         init();
 
         vm.add = add;
         vm.edit = edit;
         vm.del = del;
+        vm.toggleRight = buildToggler('right');
+
+        function buildToggler(navID) {
+            return function () {
+                // Component lookup should always be available since we are not using `ng-if`
+                $mdSidenav(navID)
+                  .toggle()
+                  .then(function () {
+                      logger.info("toggle " + navID + " is done");
+                  });
+            }
+        }
 
         function init() {
             sistemasDataServices.query().then(function (data) {

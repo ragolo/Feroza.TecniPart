@@ -95,6 +95,13 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("Vehiculos/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
+     .state("app.administracionSubSistemas",
+      {
+          url: "/SubSistemas/IndexView",
+          title: "Sub Sistemas",
+          templateUrl: helper.basepath("SubSistemas/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      })
     ;
 
     $stateProvider.state("state-pais-PaisAddView",
@@ -227,6 +234,32 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
             }
         }
     });
+
+    $stateProvider.state("state-sub-sistemas-SubSistemasEditView",
+  {
+      url: "/SubSistemas/SubSistemasEditView",
+      abstract: false,
+      views: {
+          modalCore: {
+              templateUrl: helper.basepath("SubSistemas/SubSistemasEditView"),
+              controller: "subSistemasEditViewController",
+              controllerAs: "vm"
+          }
+      }
+  });
+
+    $stateProvider.state("state-sub-sistemas-SubSistemasAddView",
+  {
+      url: "/SubSistemas/SubSistemasAddView",
+      abstract: false,
+      views: {
+          modalCore: {
+              templateUrl: helper.basepath("SubSistemas/SubSistemasAddView"),
+              controller: "subSistemasAddViewController",
+              controllerAs: "vm"
+          }
+      }
+  });
 
     // 
     // CUSTOM RESOLVES

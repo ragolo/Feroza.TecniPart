@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\Administracion\EfFabricantesRepositorio.cs" />
+    <Compile Include="Repositorios\Administracion\EfSubSistemasRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfSistemasRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfVehiculosRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfMarcasRepositorio.cs" />

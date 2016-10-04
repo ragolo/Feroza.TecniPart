@@ -170,6 +170,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\controllers\sub-sistemas-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\controllers\sub-sistemas-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\controllers\sub-sistemas-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\controllers\sub-sistemas-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\sub-sistemas.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\sub-sistemas.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\sub-sistemas\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\sistemas\components\sistemas-list.component.js" />
@@ -513,6 +523,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Administracion\FabricantesController.cs" />
+    <Compile Include="Api\Administracion\SubSistemasController.cs" />
     <Compile Include="Api\Administracion\SistemasController.cs" />
     <Compile Include="Api\Administracion\VehiculosController.cs" />
     <Compile Include="Api\Administracion\MarcasController.cs" />
@@ -527,6 +538,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\SubSistemasController.cs" />
     <Compile Include="Controllers\Administracion\SistemasController.cs" />
     <Compile Include="Controllers\Administracion\VehiculosController.cs" />
     <Compile Include="Controllers\Administracion\MarcasController.cs" />
@@ -537,6 +549,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\SubSistemasViewModel.cs" />
     <Compile Include="Models\VehiculosViewModel.cs" />
     <Compile Include="Models\FabricantesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -838,6 +851,12 @@
     <Content Include="Views\Administracion\Sistemas\SistemasComponent.cshtml" />
     <Content Include="Views\Administracion\Sistemas\SistemasEditView.cshtml" />
     <Content Include="Views\Administracion\Sistemas\SistemasListComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasAddView.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasEditView.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasListComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\IndexView.cshtml" />
+    <None Include="Properties\PublishProfiles\dev-tecnipart.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

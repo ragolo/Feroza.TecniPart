@@ -6,6 +6,11 @@
     <div class="panel-heading">
     </div>
     <div class="panel-body">
+        <md-button ng-click="vm.toggleRight()"
+                   ng-hide="vm.isOpenRight()"
+                   class="md-primary">
+            Crear Sub Sistema
+        </md-button>
         <div class="smart-table-container">
             <table st-safe-src="vm.sistemas.sistemasListar" st-table="sistemasTable" class="smart-table table">
                 <thead>
@@ -27,30 +32,44 @@
                     <td>{{sistemas.Descripcion}}</td>
                     <td>{{sistemas.Posicion}}</td>
                     <td style="width: 20%; text-align: center">
-                        
-                            <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(sistemas)">
-                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
-                                <md-tooltip md-direction="top">
-                                    Editar
-                                </md-tooltip>
-                            </md-button>
-                            <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(sistemas)">
-                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
-                                <md-tooltip md-direction="top">
-                                    Eliminar
-                                </md-tooltip>
-                            </md-button>
+
+                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(sistemas)">
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                            <md-tooltip md-direction="top">
+                                Editar
+                            </md-tooltip>
+                        </md-button>
+                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(sistemas)">
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                            <md-tooltip md-direction="top">
+                                Eliminar
+                            </md-tooltip>
+                        </md-button>
                     </td>
                 </tr>
                 </tbody>
                 <tfoot>
-                    <tr>
-                        <td colspan="5" class="text-center">
-                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                    </td>
+                </tr>
                 </tfoot>
             </table>
         </div>
+    <md-sidenav class="md-sidenav-right md-whiteframe-6dp" md-component-id="right">
+
+        <md-toolbar class="md-theme-light">
+            <h1 class="md-toolbar-tools">Sub Sistemas</h1>
+        </md-toolbar>
+        <md-content ng-controller="RightCtrl" layout-padding>
+            <sub-sistemas-list-component sub-sistemas="vm.subSistemas"></sub-sistemas-list-component>
+            <md-button ng-click="close()" class="md-primary">
+                Cerrar
+            </md-button>
+        </md-content>
+
+    </md-sidenav>
     </div>
+    
 </div>

@@ -18,7 +18,8 @@
             "VEHICULOSADM": "EN:Vehiculos",
             "GETVEHICULOS": "EN:Adquirir vehiculos"
           },
-          "SISTEMAS": "EN:Sistemas"
+          "SISTEMAS": "EN:Sistemas",
+          "SUBSISTEMAS": "EN:Sub Sistemas"
         },
         "BUSQUEDA": "EN:Busqueda"
       }

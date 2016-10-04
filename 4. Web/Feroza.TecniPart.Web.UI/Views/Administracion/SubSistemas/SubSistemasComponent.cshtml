@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+<form name="subSistemasComponentForm">
+
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
+        </div>
+
+        <div class="card-body">
+            <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+                <div flex-gt-sm="100">
+ 
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Sistemas</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="subSistemasIdSistemas" ng-model="vm.subSistemas.IdSistemas" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="sistema in vm.subSistemas.SistemasList" ng-value="sistema.IdSistemas">
+                                    {{sistema.Descripcion}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="subSistemasComponentForm.subSistemasIdSubSistemas.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Sub Sistema</label>
+                            <input md-maxlength="100" name="subSistemasDescripcion" ng-model="vm.subSistemas.Descripcion" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="subSistemasComponentForm.subSistemasDescripcion.$error" role="alert">
+                                <div ng-message="pattern">Por favor solo use números o letras</div>
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="subSistemasComponentForm.$invalid || subSistemasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>
