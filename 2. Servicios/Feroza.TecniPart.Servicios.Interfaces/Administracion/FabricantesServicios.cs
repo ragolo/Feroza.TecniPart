@@ -67,8 +67,6 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         {
             var fabricantes = this.fabricantesRepositorio.ListarFabricantes(idFabricantes);
 
-            this.MapearImagenByteToImagenBase64(fabricantes);
-
             return fabricantes;
         }
 
@@ -81,22 +79,7 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         {
             var fabricantes = this.fabricantesRepositorio.ListarFabricanteses();
 
-            this.MapearImagenByteToImagenBase64(fabricantes);
-
             return fabricantes;
-        }
-
-        /// <summary>The mapear imagen byte to imagen base 64.</summary>
-        /// <param name="fabricantes">The fabricantes.</param>
-        private void MapearImagenByteToImagenBase64(IEnumerable<Fabricantes> fabricantes)
-        {
-            if (fabricantes != null)
-            {
-                foreach (var fabricante in fabricantes.ToArray())
-                {
-                    fabricante.ImagenFabricanteBase64 = fabricante.ImagenFabricante.GetImageBase64FromByte();
-                }
-            }
         }
     }
 }
