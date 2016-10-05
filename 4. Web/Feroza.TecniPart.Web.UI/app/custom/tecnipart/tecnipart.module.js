@@ -6,6 +6,7 @@
         "app.sidebar",
         "ngResource",
         "blocks.logger",
-        "tecnipart.utils"
+        "tecnipart.utils",
+        "md.data.table"
     ]);
 })();

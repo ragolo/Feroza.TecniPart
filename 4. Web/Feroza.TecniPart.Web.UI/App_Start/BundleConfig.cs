@@ -96,7 +96,8 @@ namespace Feroza.TecniPart.Web.UI
               "~/Scripts/Vendor/angular-loading-bar/build/loading-bar.js",
                 "~/Scripts/Vendor/jquery.browser/dist/jquery.browser.js",
                    "~/Scripts/Vendor/angular-material/angular-aria.js",
-                   "~/Scripts/Vendor/angular-messages/angular-messages.min.js"
+                   "~/Scripts/Vendor/angular-messages/angular-messages.min.js",
+                   "~/Scripts/Vendor/md-data-table/md-data-table.min.js"
                    ));
 
             bundles.Add(
@@ -111,7 +112,8 @@ namespace Feroza.TecniPart.Web.UI
                     .Include("~/Content/app/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/bundles/materialStyles")
-                    .Include("~/Scripts/Vendor/angular-material/angular-material.css"));
+                    .Include("~/Scripts/Vendor/angular-material/angular-material.css")
+                .Include("~/Scripts/Vendor/md-data-table/md-data-table.css"));
         }
     }
 }
