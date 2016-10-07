@@ -17,25 +17,29 @@
     "submenu": [
 
       {
-        "text": "",
+        "iconUrl": "Content/img/sidebar/pais.png",
         "sref": "app.administracionPais",
+        "text": "",
         "translate": "sidebar.nav.menu.administracion.PAIS"
       },
       {
-        "text": "",
+        "iconUrl": "Content/img/sidebar/fabricantes.png",
         "sref": "app.administracionFabricantes",
+        "text": "",
         "translate": "sidebar.nav.menu.administracion.FABRICANTES"
       },
       {
         "text": "",
         "sref": "app.administracionMarcas",
-        "translate": "sidebar.nav.menu.administracion.MARCAS"
+        "translate": "sidebar.nav.menu.administracion.MARCAS",
+        "iconUrl": "Content/img/sidebar/marcas.png"
       },
       {
         "sref": "#",
-        "icon": "icon-folder",
+        "icon": "icon-arrow-right",
         "submenu": [
           {
+            "iconUrl": "Content/img/sidebar/vehiculos.png",
             "text": "",
             "sref": "app.administracionVehiculos",
             "translate": "sidebar.nav.menu.administracion.vehiculos.VEHICULOSADM"
@@ -46,17 +50,20 @@
       {
         "text": "",
         "sref": "app.administracionSistemas",
-        "translate": "sidebar.nav.menu.administracion.SISTEMAS"
+        "translate": "sidebar.nav.menu.administracion.SISTEMAS",
+        "iconUrl": "Content/img/sidebar/sistemas.png"
       },
       {
         "text": "",
         "sref": "app.administracionSubSistemas",
-        "translate": "sidebar.nav.menu.administracion.SUBSISTEMAS"
+        "translate": "sidebar.nav.menu.administracion.SUBSISTEMAS",
+        "iconUrl": "Content/img/sidebar/subsistemas.png"
       },
       {
         "text": "",
         "sref": "app.administracionCatalogos",
-        "translate": "sidebar.nav.menu.administracion.CATALOGOS"
+        "translate": "sidebar.nav.menu.administracion.CATALOGOS",
+        "iconUrl": "Content/img/sidebar/catalogos.png"
       }
     ],
     "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"
