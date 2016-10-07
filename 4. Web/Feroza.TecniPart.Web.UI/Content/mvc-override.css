@@ -57,3 +57,7 @@ md-card:first-child {
 img[visor-imagen] {
     cursor: zoom-in;
 }
+
+table.smart-table tbody > tr > td {
+    vertical-align: middle;
+}

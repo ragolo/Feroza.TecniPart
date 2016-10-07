@@ -28,7 +28,10 @@
                         <td>{{fabricante.Descripcion}}</td>
                         <td>{{fabricante.Pais.Descripcion}}</td>
                         <td>
-                            <img alt="" visor-imagen ng-src="{{fabricante.ImagenFabricanteBase64}}" style="width: 48px; height: 48px" />
+                            <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+
+                                <img alt="" visor-imagen ng-src="{{fabricante.ImagenFabricanteBase64}}" style="width: 48px; height: 48px" />
+                            </md-whiteframe>
                         </td>
 
                         <td style="width: 20%; text-align: center">

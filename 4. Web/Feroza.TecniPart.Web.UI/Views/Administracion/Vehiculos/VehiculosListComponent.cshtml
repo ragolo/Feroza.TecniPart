@@ -1,6 +1,6 @@
 ﻿@{
-  Layout = null;
-} 
+    Layout = null;
+}
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -9,54 +9,58 @@
         <div class="smart-table-container">
             <table st-safe-src="vm.vehiculos.vehiculosListar" st-table="vehiculosTable" class="smart-table table">
                 <thead>
-                <tr>
-                    <th>Fabricante</th>
-                    <th>Marca</th>
-                    <th>Vehículo</th>
-                    <th>Año</th>
-                    <th>Imagen Vehículo</th>
-                    <th>Comentarios</th>
-                    <th style="text-align: center">
-                        <md-button class="md-icon-button" ng-click="vm.add()">
-                            <md-tooltip md-direction="bottom">
-                                Agregar
-                            </md-tooltip>
-                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
-                        </md-button>
-                    </th>
-                </tr>
+                    <tr>
+                        <th>Fabricante</th>
+                        <th>Marca</th>
+                        <th>Vehículo</th>
+                        <th>Año</th>
+                        <th>Imagen Vehículo</th>
+                        <th>Comentarios</th>
+                        <th style="text-align: center">
+                            <md-button class="md-icon-button" ng-click="vm.add()">
+                                <md-tooltip md-direction="bottom">
+                                    Agregar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                            </md-button>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="vehiculos in vehiculosTable">
-                    <td>{{vehiculos.Fabricantes.Descripcion}}</td>
-                    <td>{{vehiculos.Marcas.Descripcion}}</td>
-                    <td>{{vehiculos.Descripcion}}</td>
-                    <td>{{vehiculos.Ango}}</td>
-                    <td><img style="width: 48px; height: 48px" ng-src="{{vehiculos.ImagenVehiculoBase64}}" visor-imagen /></td>
-                    <td>{{vehiculos.Comentario}}</td>
-                    <td style="width: 20%; text-align: center">
+                    <tr ng-repeat="vehiculos in vehiculosTable">
+                        <td>{{vehiculos.Fabricantes.Descripcion}}</td>
+                        <td>{{vehiculos.Marcas.Descripcion}}</td>
+                        <td>{{vehiculos.Descripcion}}</td>
+                        <td>{{vehiculos.Ango}}</td>
+                        <td>
+                            <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                                <img style="width: 48px; height: 48px" ng-src="{{vehiculos.ImagenVehiculoBase64}}" visor-imagen />
+                            </md-whiteframe>
+                        </td>
+                        <td>{{vehiculos.Comentario}}</td>
+                        <td style="width: 20%; text-align: center">
 
-                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(vehiculos)">
-                            <md-tooltip md-direction="bottom">
-                                Editar
-                            </md-tooltip>
-                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
-                        </md-button>
-                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(vehiculos)">
-                            <md-tooltip md-direction="bottom">
-                                Eliminar
-                            </md-tooltip>
-                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
-                        </md-button>
-                    </td>
-                </tr>
+                            <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(vehiculos)">
+                                <md-tooltip md-direction="bottom">
+                                    Editar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                            </md-button>
+                            <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(vehiculos)">
+                                <md-tooltip md-direction="bottom">
+                                    Eliminar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
                 </tbody>
                 <tfoot>
-                <tr>
-                    <td colspan="7" class="text-center">
-                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                        </td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
