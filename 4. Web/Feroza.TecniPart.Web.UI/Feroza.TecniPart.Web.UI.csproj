@@ -404,7 +404,13 @@
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_24px.svg" />
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_36px.svg" />
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_48px.svg" />
+    <Content Include="Content\img\sidebar\catalogos.png" />
+    <Content Include="Content\img\sidebar\fabricantes.png" />
+    <Content Include="Content\img\sidebar\marcas.png" />
     <Content Include="Content\img\sidebar\pais.png" />
+    <Content Include="Content\img\sidebar\sistemas.png" />
+    <Content Include="Content\img\sidebar\subsistemas.png" />
+    <Content Include="Content\img\sidebar\vehiculos.png" />
     <Content Include="Scripts\Vendor\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.css" />
     <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.css" />
