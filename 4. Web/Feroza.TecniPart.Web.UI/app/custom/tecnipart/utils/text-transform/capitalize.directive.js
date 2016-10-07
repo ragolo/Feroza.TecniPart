@@ -1,6 +1,6 @@
 ﻿"use strict";
 angular
-  .module("tecnipart.utils", [])
+  .module("tecnipart.utils")
   .directive("capitalize", function () {
       return {
           require: "ngModel",

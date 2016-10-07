@@ -62,5 +62,12 @@ namespace Feroza.TecniPart.Web.UI.Controllers
         {
             return this.PartialView();
         }
+
+        /// <summary>The modal imagenes.</summary>
+        /// <returns>The <see cref="ActionResult"/>.</returns>
+        public ActionResult VisorImagen()
+        {
+            return this.PartialView();
+        }
     }
 }
