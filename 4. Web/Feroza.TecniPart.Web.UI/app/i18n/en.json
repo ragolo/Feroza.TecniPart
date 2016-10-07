@@ -19,7 +19,8 @@
             "GETVEHICULOS": "EN:Adquirir vehiculos"
           },
           "SISTEMAS": "EN:Sistemas",
-          "SUBSISTEMAS": "EN:Sub Sistemas"
+          "SUBSISTEMAS": "EN:Sub Sistemas",
+          "CATALOGOS": "EN:Catalogos"
         },
         "BUSQUEDA": "EN:Busqueda"
       }

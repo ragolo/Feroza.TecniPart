@@ -115,6 +115,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\Administracion\EfCatalogosRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfFabricantesRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfSubSistemasRepositorio.cs" />
     <Compile Include="Repositorios\Administracion\EfSistemasRepositorio.cs" />

@@ -170,6 +170,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\catalogos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\catalogos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\stateProvider.js" />
     <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\sub-sistemas\components\sub-sistemas-list.component.js" />
@@ -620,6 +630,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Administracion\CatalogosController.cs" />
     <Compile Include="Api\Administracion\FabricantesController.cs" />
     <Compile Include="Api\Administracion\SubSistemasController.cs" />
     <Compile Include="Api\Administracion\SistemasController.cs" />
@@ -635,6 +646,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Administracion\CatalogosController.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
     <Compile Include="Controllers\Administracion\SubSistemasController.cs" />
     <Compile Include="Controllers\Administracion\SistemasController.cs" />
@@ -647,6 +659,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CatalogosViewModel.cs" />
     <Compile Include="Models\SubSistemasViewModel.cs" />
     <Compile Include="Models\VehiculosViewModel.cs" />
     <Compile Include="Models\FabricantesViewModel.cs" />
@@ -955,6 +968,11 @@
     <Content Include="Views\Administracion\SubSistemas\SubSistemasListComponent.cshtml" />
     <Content Include="Views\Administracion\SubSistemas\IndexView.cshtml" />
     <None Include="Properties\PublishProfiles\dev-tecnipart.pubxml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosAddView.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosComponent.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosEditView.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\IndexView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

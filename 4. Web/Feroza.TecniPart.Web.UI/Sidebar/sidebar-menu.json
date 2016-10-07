@@ -52,6 +52,11 @@
         "text": "",
         "sref": "app.administracionSubSistemas",
         "translate": "sidebar.nav.menu.administracion.SUBSISTEMAS"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionCatalogos",
+        "translate": "sidebar.nav.menu.administracion.CATALOGOS"
       }
     ],
     "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"

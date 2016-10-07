@@ -10,12 +10,9 @@
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
-
-    using Extensions;
 
     /// <summary>
     /// The estado maestras servicios.

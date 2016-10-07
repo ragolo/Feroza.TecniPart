@@ -31,9 +31,9 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AplicacionesData> Aplicaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatalogosData> Catalogos { get; set; }
         public virtual FabricantesData Fabricantes { get; set; }
         public virtual MarcasData Marcas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatalogosData> Catalogos { get; set; }
     }
 }

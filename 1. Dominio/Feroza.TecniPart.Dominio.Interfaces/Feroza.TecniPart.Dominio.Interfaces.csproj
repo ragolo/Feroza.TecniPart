@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\ICatalogosRespositorio.cs" />
     <Compile Include="Administracion\IFabricantesRespositorio.cs" />
+    <Compile Include="Administracion\ICatalogosServicio.cs" />
     <Compile Include="Administracion\IMarcasRespositorio.cs" />
     <Compile Include="Administracion\ISubSistemasServicio.cs" />
     <Compile Include="Administracion\ISubSistemasRespositorio.cs" />

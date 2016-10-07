@@ -17,18 +17,18 @@ namespace Feroza.TecniPart.Infraestructura.Data.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SubSistemasData()
         {
-            this.Catalogos = new HashSet<CatalogosData>();
             this.VehiculoSubSistemas = new HashSet<VehiculoSubSistemasData>();
+            this.Catalogos = new HashSet<CatalogosData>();
         }
     
         public int IdSubSistemas { get; set; }
         public string Descripcion { get; set; }
         public int IdSistemas { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatalogosData> Catalogos { get; set; }
         public virtual SistemasData Sistemas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VehiculoSubSistemasData> VehiculoSubSistemas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatalogosData> Catalogos { get; set; }
     }
 }

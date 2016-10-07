@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<form name="catalogosComponentForm">
+
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
+        </div>
+
+        <div class="card-body">
+            <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+                <div flex-gt-sm="70">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Vehiculos</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="catalogosIdVehiculos" ng-model="vm.catalogos.IdVehiculos" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="vehiculo in vm.catalogos.VehiculosList" ng-value="vehiculo.IdVehiculos">
+                                    {{vehiculo.Descripcion}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="catalogosComponentForm.catalogosIdVehiculos.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+                    </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Sistemas</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="catalogosIdSistemas" ng-model="vm.catalogos.IdSistemas" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="sistema in vm.catalogos.SistemasList" ng-value="sistema.IdSistemas">
+                                    {{sistema.Descripcion}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="catalogosComponentForm.catalogosIdSistemas.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Sub Sistemas</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="catalogosIdSubSistemas" ng-model="vm.catalogos.IdSubSistemas" required ng-disabled="vm.catalogos.IdSistemas > 0? false: true ">
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="subSistema in vm.catalogos.SubSistemasList | filter : { IdSistemas: vm.catalogos.IdSistemas }" ng-value="subSistema.IdSubSistemas">
+                                    {{subSistema.Descripcion}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="catalogosComponentForm.catalogosIdSubSistemas.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+                    </div>
+                </div>
+                <div flex-gt-sm="30">
+                    <md-card class="_md">
+                        <img class="md-card-image" ng-src="{{vm.catalogos.ImagenCatalogoBase64}}">
+                        <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
+                            <input type="file" file-select name="files[]" />
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="catalogosComponentForm.$invalid || catalogosComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

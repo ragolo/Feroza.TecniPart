@@ -13,6 +13,9 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
     using System.Collections.Generic;
     using System.Linq;
 
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+
     using Data;
 
     using Dominio.Entidades.Modelos;
@@ -48,7 +51,17 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                 sistemasDataOriginal.Descripcion = sistemas.Descripcion;
                 sistemasDataOriginal.IdSistemas = sistemas.IdSistemas;
                 sistemasDataOriginal.Posicion = sistemas.Posicion;
-                
+
+                foreach (var subSistema in sistemas.SubSistemas)
+                {
+                    sistemasDataOriginal.SubSistemas.Add(new SubSistemasData()
+                    {
+                        Descripcion = subSistema.Descripcion,
+                        IdSubSistemas = subSistema.IdSubSistemas,
+                        IdSistemas = subSistema.IdSistemas
+                    });
+                }
+
                 this.context.Sistemas.Add(sistemasDataOriginal);
                 this.context.SaveChanges();
                 sistemas.IdSistemas = sistemasDataOriginal.IdSistemas;
@@ -76,6 +89,17 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
                     Descripcion = sistemas.Descripcion,
                     Posicion = sistemas.Posicion
                 };
+
+                foreach (var subSistema in sistemas.SubSistemas)
+                {
+                    sistemasDataOriginal.SubSistemas.Add(new SubSistemasData()
+                    {
+                        Descripcion = subSistema.Descripcion,
+                        IdSubSistemas = subSistema.IdSubSistemas,
+                        IdSistemas = subSistema.IdSistemas
+                    });
+                }
+
                 sistemasDataMap.IdSistemas = sistemasDataOriginal.IdSistemas;
                 this.context.Entry(sistemasDataOriginal).CurrentValues.SetValues(sistemasDataMap);
                 this.context.SaveChanges();
@@ -109,12 +133,17 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         /// </returns>
         public IEnumerable<Sistemas> ListarSistemas(int idSistemas)
         {
-            return this.context.Sistemas.Where(r => r.IdSistemas == idSistemas).Select(s => new Sistemas
+            Mapper.Initialize(cfg =>
             {
-                Descripcion = s.Descripcion,
-                IdSistemas = s.IdSistemas,
-                Posicion = s.Posicion
+                cfg.CreateMap<SistemasData, Sistemas>();
+                cfg.CreateMap<SubSistemasData, SubSistemas>();
+                cfg.CreateMap<VehiculoSubSistemasData, VehiculoSubSistemas>();
+                cfg.CreateMap<VehiculoSistemasData, VehiculoSistemas>();
             });
+
+            var sistemas = this.context.Sistemas
+                .Where(r => r.IdSistemas == idSistemas).ToList();
+            return Mapper.Map<List<SistemasData>, List<Sistemas>>(sistemas);
         }
 
         /// <summary>The listar estado maestras.</summary>
@@ -124,12 +153,17 @@ namespace Feroza.TecniPart.Infraestructura.Data.Repositorios.Administracion
         /// .</returns>
         public IEnumerable<Sistemas> ListarSistemases()
         {
-            return this.context.Sistemas.Select(s => new Sistemas
+            Mapper.Initialize(cfg =>
             {
-                Descripcion = s.Descripcion,
-                IdSistemas = s.IdSistemas,
-                Posicion = s.Posicion
+                cfg.CreateMap<SistemasData, Sistemas>();
+                cfg.CreateMap<SubSistemasData, SubSistemas>();
+                cfg.CreateMap<VehiculoSubSistemasData, VehiculoSubSistemas>();
+                cfg.CreateMap<VehiculoSistemasData, VehiculoSistemas>();
             });
+
+            var sistemasData = (from sistema in this.context.Sistemas select sistema).ToArray();
+
+            return Mapper.Map<IEnumerable<SistemasData>, IEnumerable<Sistemas>>(sistemasData);
         }
     }
 }

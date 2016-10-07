@@ -102,7 +102,13 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           templateUrl: helper.basepath("SubSistemas/IndexView"),
           resolve: helper.resolveFor("smart-table")
       })
-    ;
+    .state("app.administracionCatalogos",
+      {
+          url: "/Catalogos/IndexView",
+          title: "Catalogos",
+          templateUrl: helper.basepath("Catalogos/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      });
 
     $stateProvider.state("state-pais-PaisAddView",
    {
@@ -260,6 +266,32 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           }
       }
   });
+
+    $stateProvider.state("state-catalogos-CatalogosAddView",
+{
+    url: "/Catalogos/CatalogosAddView",
+    abstract: false,
+    views: {
+        modalCore: {
+            templateUrl: helper.basepath("Catalogos/CatalogosAddView"),
+            controller: "catalogosAddViewController",
+            controllerAs: "vm"
+        }
+    }
+});
+
+    $stateProvider.state("state-catalogos-CatalogosEditView",
+{
+    url: "/Catalogos/CatalogosEditView",
+    abstract: false,
+    views: {
+        modalCore: {
+            templateUrl: helper.basepath("Catalogos/CatalogosEditView"),
+            controller: "catalogosEditViewController",
+            controllerAs: "vm"
+        }
+    }
+});
 
     // 
     // CUSTOM RESOLVES

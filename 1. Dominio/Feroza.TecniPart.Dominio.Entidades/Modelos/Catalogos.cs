@@ -64,7 +64,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// </value>
         public byte[] ImagenCatalogo { get; set; }
 
-
         /// <summary>
         /// Gets or sets the catalogo detalles.
         /// </summary>
