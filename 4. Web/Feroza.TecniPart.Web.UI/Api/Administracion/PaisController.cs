@@ -17,6 +17,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     using Dominio.Interfaces.Administracion;
 
     /// <summary>The pais controller.</summary>
+    [Authorize]
     public class PaisController : ApiController
     {
         /// <summary>The pais servicios.</summary>

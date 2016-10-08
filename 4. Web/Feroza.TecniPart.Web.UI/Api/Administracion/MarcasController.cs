@@ -19,6 +19,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
+    [Authorize]
     public class MarcasController : ApiController
     {
         /// <summary>

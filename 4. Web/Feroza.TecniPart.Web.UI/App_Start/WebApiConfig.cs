@@ -10,10 +10,13 @@
 namespace Feroza.TecniPart.Web.UI
 {
     using System.Linq;
+    using System.Net.Http.Formatting;
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
 
     using Castle.Windsor;
+
+    using Newtonsoft.Json.Serialization;
 
     using Windsor;
 
