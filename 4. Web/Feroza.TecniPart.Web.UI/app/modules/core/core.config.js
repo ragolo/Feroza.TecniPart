@@ -31,8 +31,8 @@
           maxOpened: 5,
           newestOnTop: true,
           positionClass: 'toast-bottom-right',
-          preventDuplicates: true,
-          preventOpenDuplicates: true,
+          preventDuplicates: false,
+          preventOpenDuplicates: false,
           target: 'body'
       });
       // Improve performance disabling debugging features

@@ -22,54 +22,68 @@
 
         function get(id) {
             logger.info("[sistemasDataServices] informacion", id);
-            return service.sistemasListar.get(id).then(function (data) {
-                logger.info("[sistemasDataServices] informacion recibida desde el servidor ", data);
-
-                service.sistemas = data;
-            }, function (reason) {
-                logger.error("[sistemasDataServices] error obteniendo el modelo de las sistemas", reason);
+            return appService.fetch("api/Sistemas", id, "GET").then(function (response) {
+                logger.info("[sistemasDataServices] informacion recibida desde el servidor ", response);
+                service.sistemas = response;
+            }, function (mensajeError) {
+                logger.error("[sistemasDataServices] error obteniendo el modelo de las sistemas", mensajeError, "", true);
             });
         }
 
         function save(sistemas) {
             logger.info("[sistemasDataServices] Guardando", sistemas);
-            return appService.post("api/Sistemas", sistemas, "POST")
-                .then(function (data) {
-                    service.sistemas = data;
-                    service.sistemasListar.push(data);
-                    logger.success("[sistemasDataServices] Guardo exitosamente", data);
-                        return service.sistemas;
-                    },
-                function (reason) {
-                    logger.error("Error intentanto guardar estadosistemas", reason);
-                    return reason;
+            return appService.post("api/Sistemas", sistemas)
+                .then(function (response) {
+                    service.sistemas = response;
+                    service.sistemasListar.push(response);
+                    logger.success("[sistemasDataServices] Guardo exitosamente", response);
+                    return service.sistemas;
+                },
+                function (mensajeError) {
+                    logger.error("Error intentanto actualizar el sistemas", mensajeError);
                 });
         }
 
         function put(sistemas) {
             logger.info("[sistemasDataServices] Guardando", sistemas);
-            return sistemas.put();
+            return appService.put("api/Sistemas", sistemas)
+                            .then(function (data) {
+                                service.sistemas = data;
+                                service.sistemasListar.push(data);
+                                logger.success("[sistemasDataServices] Guardo exitosamente", data);
+                                return service.sistemas;
+                            },
+                            function (mensajeError) {
+                                logger.error("Error intentanto actualizar el sistemas", mensajeError);
+                            });
         }
 
         function query() {
-            return restAngular.all(entityName).getList()
-                .then(function (data) {
-                    logger.info("[sistemasDataServices] datos obtenidos ", data);
-                    service.sistemasListar = data;
-                    return data;
-                });
+            return appService.fetch("api/Sistemas", null, "GET")
+                .then(function (response) {
+                    logger.info("[sistemasDataServices] datos obtenidos ", response);
+                    service.sistemasListar = response;
+                    return response;
+                },
+                    function (mensajeError) {
+                        logger.error("Error intentanto actualizar el sistemas", mensajeError, "", true);
+                        return mensajeError;
+                    });
         }
 
         function removeSistemas(sistemas) {
             logger.info("[sistemasDataServices] Eliminando -> ", sistemas);
 
-            return appService.fetch("API/Sistemas/" + sistemas.IdSistemas, "", "DELETE")
+            return appService.delete("API/Sistemas/", sistemas)
                 .then(function (response) {
                     logger.info("Modelo sistemas obtenido -> ", response);
-                    //TODO: hay que cambiar la clave primaria de las tablas y la gestion es mas sencillas
-                    query();
-                }, function (reason) {
-                    logger.error("[sistemasDataServices] error obteniendo el modelo sistemas", reason);
+                    logger.success("[sistemasDataServices] Se removio exitosamente", response);
+                    service.sistemasListar = service.sistemasListar.filter(function (sistemasFilter) {
+                        return sistemasFilter.IdSistemas !== sistemas.IdSistemas;
+                    });
+                    return service.sistemasListar;
+                }, function (mensajeError) {
+                    logger.error("[sistemasDataServices] error obteniendo el modelo sistemas", mensajeError);
                 });
 
         }
@@ -79,15 +93,11 @@
             var param = typeof (id) === "undefined" ? null : id;
             return appService.fetch("Sistemas/GetSistemasModel", { id: param })
                 .then(function (response) {
-                    if (response.success) {
-                        logger.info("Modelo sistemas obtenido -> ", response);
-                        service.sistemas = response.result;
-                    } else {
-                        logger.error(response.error);
-                    }
-                    return response.result;
-                }, function (reason) {
-                    logger.error("[sistemasDataServices] error obteniendo el modelo de las sistemas", reason);
+                    logger.info("Modelo sistemas obtenido -> ", response);
+                    service.sistemas = response;
+                    return response;
+                }, function (mensajeError) {
+                    logger.error("[sistemasDataServices] error obteniendo el modelo de las sistemas", mensajeError);
                 });
         }
     }

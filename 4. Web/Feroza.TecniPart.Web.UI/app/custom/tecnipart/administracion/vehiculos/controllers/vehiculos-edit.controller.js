@@ -30,19 +30,23 @@
 
             if (typeof ($scope.file) !== "undefined") {
                 vehiculosDataServices.putWithImage(vm.vehiculos, $scope.file)
-                    .then(function () {
-                        vehiculosDataServices.query();
-                        modalWindowFactory.hide();
-                    },
+                    .then(function (data) {
+                            if (typeof (data) !== "undefined") {
+                                vehiculosDataServices.query();
+                                modalWindowFactory.hide();
+                            }
+                        },
                         function (reason) {
                             logger.error(reason);
                         });
             } else {
-                vehiculosDataServices.put(vm.fabricantes)
-                    .then(function () {
-                        vehiculosDataServices.query();
-                        modalWindowFactory.hide();
-                    },
+                vehiculosDataServices.put(vm.vehiculos)
+                    .then(function (data) {
+                            if (typeof (data) !== "undefined") {
+                                vehiculosDataServices.query();
+                                modalWindowFactory.hide();
+                            }
+                        },
                         function (reason) {
                             logger.error(reason);
                         });

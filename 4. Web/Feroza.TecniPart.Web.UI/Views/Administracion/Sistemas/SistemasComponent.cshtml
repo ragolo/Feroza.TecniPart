@@ -22,7 +22,7 @@
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
 
-                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Posicion" ng-model="vm.sistemas.Posicion" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="0" />
+                    <input aria-invalid="true" aria-required="true" md-maxlength="5" name="Posicion" ng-model="vm.sistemas.Posicion" ng-pattern="/^[0-9]+$/" ng-required="true" tabindex="0" />
                     <label>Posicion</label>
                     <div multiple ng-messages="sistemasComponentForm.Descripcion.$error" role="alert">
                         <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>

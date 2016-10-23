@@ -38,7 +38,20 @@
       <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,7 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModuloRepositorios.cs" />
+    <Compile Include="Installer\ValidadoresInstaller.cs" />
+    <Compile Include="Installer\ModuloRepositorios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,9 +70,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\1. Dominio\Feroza.TecniPart.Dominio.Entidades\Feroza.TecniPart.Dominio.Entidades.csproj">
+      <Project>{0FFD62FE-487E-404A-9CE9-ED8777269D4D}</Project>
+      <Name>Feroza.TecniPart.Dominio.Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\1. Dominio\Feroza.TecniPart.Dominio.Interfaces\Feroza.TecniPart.Dominio.Interfaces.csproj">
       <Project>{7BBE9098-B7A5-4984-A9F6-660B700548C8}</Project>
       <Name>Feroza.TecniPart.Dominio.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\2. Servicios\Feroza.TecniPart.Servicios.Interfaces\Feroza.TecniPart.Servicios.Interfaces.csproj">
+      <Project>{1AB91710-8192-4E73-BA3F-60F7E4413254}</Project>
+      <Name>Feroza.TecniPart.Servicios.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Feroza.TecniPart.Infraestructura.Data\Feroza.TecniPart.Infraestructura.Data.csproj">
       <Project>{0A4D2752-5163-49E0-A93D-189E17AED94F}</Project>

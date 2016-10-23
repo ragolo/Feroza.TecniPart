@@ -43,11 +43,11 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
             Component.For<IPaisServicio>().ImplementedBy<PaisServicios>().LifestylePerWebRequest(),
             Component.For<ISistemasServicio>().ImplementedBy<SistemasServicios>().LifestylePerWebRequest(),
             Component.For<ICatalogosServicio>().ImplementedBy<CatalogosServicios>().LifestylePerWebRequest(),
+            Component.For<IReferenciasServicio>().ImplementedBy<ReferenciasServicios>().LifestylePerWebRequest(),
             Component.For<ISubSistemasServicio>().ImplementedBy<SubSistemasServicios>().LifestylePerWebRequest(),
             Component.For<IManagementImageFacade<Fabricantes>>().ImplementedBy<ManagementImageFacade<Fabricantes>>(),
             Component.For<IManagementImageFacade<Vehiculos>>().ImplementedBy<ManagementImageFacade<Vehiculos>>(),
-            Component.For<IManagementImageFacade<Catalogos>>().ImplementedBy<ManagementImageFacade<Catalogos>>()
-                .LifestylePerWebRequest());
+            Component.For<IManagementImageFacade<Catalogos>>().ImplementedBy<ManagementImageFacade<Catalogos>>().LifestylePerWebRequest());
         }
     }
 }

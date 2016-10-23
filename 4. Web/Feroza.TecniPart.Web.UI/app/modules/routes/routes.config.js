@@ -19,7 +19,7 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
     $locationProvider.html5Mode(false);
 
     // defaults to dashboard
-    $urlRouterProvider.otherwise("/BusquedaView");
+    $urlRouterProvider.otherwise("Pais/IndexView");
 
     // 
     // Application Routes
@@ -47,13 +47,33 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
                           setTimeout(function () {
                               angular.element(".offsidebar").removeClass("hide");
                           },
-                              3000);
+                              2000);
 
                       }
                   ]
               }
           }
       })
+          .state('app.acceso', {
+              url: '/acceso',
+              templateUrl: '/Acceso/Index',
+              resolve: helper.resolveFor('modernizr', 'icons'),
+              controller: ['$rootScope', function ($rootScope) {
+                  $rootScope.app.layout.isBoxed = false;
+              }]
+          })
+          .state("app.login", {
+              title: "Login",
+              views: {
+                  "main": {
+                      url: "/Acceso/Login",
+                      controller: "loginController",
+                      controllerAs: "vm",
+                      templateUrl: helper.basepath("Acceso/Login")
+
+                  }
+              }
+          })
       .state("app.busquedaview",
       {
           url: "/BusquedaView",
@@ -107,6 +127,13 @@ function routesConfig($stateProvider, $locationProvider, $urlRouterProvider, hel
           url: "/Catalogos/IndexView",
           title: "Catalogos",
           templateUrl: helper.basepath("Catalogos/IndexView"),
+          resolve: helper.resolveFor("smart-table")
+      })
+     .state("app.administracionReferencias",
+      {
+          url: "/Referencias/IndexView",
+          title: "Referencias",
+          templateUrl: helper.basepath("Referencias/IndexView"),
           resolve: helper.resolveFor("smart-table")
       });
 

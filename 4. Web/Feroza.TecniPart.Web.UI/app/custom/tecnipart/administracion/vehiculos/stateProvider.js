@@ -2,9 +2,15 @@
 angular.module("tecnipart")
     .service("vehiculosStateProvider", vehiculosStateProvider);
 
-vehiculosStateProvider.$inject = ["$state", "$timeout", "logger", "vehiculosDataServices", "modalWindowFactory", "$timeout"];
+vehiculosStateProvider.$inject = ["$state", "$timeout", "logger", "vehiculosDataServices", "modalWindowFactory", "$timeout", "$mdDialog"];
 
-function vehiculosStateProvider($state, $timeoute, logger, vehiculosDataServices, modalWindowFactory, $timeout) {
+function vehiculosStateProvider($state,
+    $timeoute,
+    logger,
+    vehiculosDataServices,
+    modalWindowFactory,
+    $timeout,
+    $mdDialog) {
     var stateProvider = {};
 
     stateProvider.goToVehiculosComponentAdd = goToVehiculosComponentAdd;
@@ -13,36 +19,32 @@ function vehiculosStateProvider($state, $timeoute, logger, vehiculosDataServices
     return stateProvider;
 
     function goToVehiculosComponentAdd() {
-        return $state.transitionTo("state-vehiculos-VehiculosAddView",
-                                     {},
-                                     {
-                                         reload: true,
-                                         inherit: false,
-                                         notify: false
-                                     })
-                                     .then(function () {
-                                         $timeout(function () {
-                                             modalWindowFactory.show("vehiculosAddController");
-                                         });
-                                     });
+        return getVehiculosModel("vehiculosAddController", null);
     }
 
     function goToVehiculosComponentEdit(id) {
         logger.info("Comienza la consulta del estado vehiculos model -> ", id);
-        return vehiculosDataServices.get(id)
-            .then(function () {
-                return $state.transitionTo("state-vehiculos-VehiculosEditView",
-                        {},
-                        {
-                            reload: true,
-                            inherit: false,
-                            notify: false
-                        })
-                    .then(function () {
-                        $timeout(function () {
-                            modalWindowFactory.show("VehiculosEditView");
-                        });
-                    });
+        return getVehiculosModel("vehiculosEditController", id);
+
+    }
+
+    function getVehiculosModel(controlador, parametro) {
+        return vehiculosDataServices.getVehiculosModel(parametro)
+            .then(function(resultado) {
+                showDialog(null, resultado, controlador);
             });
+    }
+
+    function showDialog($event, vehiculos, controllerName) {
+        var parentEl = angular.element(document.body);
+        $mdDialog.show({
+            parent: parentEl,
+            targetEvent: $event,
+            templateUrl: "Vehiculos/VehiculosComponent",
+            controller: controllerName,
+            controllerAs: "vm",
+            locals: { vehiculos: vehiculos },
+            bindToController: true
+        });
     }
 }

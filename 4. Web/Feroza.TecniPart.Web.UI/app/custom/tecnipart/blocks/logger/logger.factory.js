@@ -5,9 +5,9 @@
         .module('blocks.logger')
         .factory('logger', logger);
 
-    logger.$inject = ["$log", "toastr"];
+    logger.$inject = ["$log", "toastr", "$mdDialog"];
 
-    function logger($log, toastr) {
+    function logger($log, toastr, $mdDialog) {
         var service = {
             showToasts: false,
 
@@ -23,9 +23,23 @@
         return service;
         /////////////////////
 
-        function error(message, data, title) {
-            toastr.error(data.Message, title);
-            $log.error('Error: ' + message, data);
+        function error(message, error, title, mostarAlert) {
+            if (mostarAlert === true) {
+                var alert = $mdDialog.alert({
+                     title: "Error",
+                     textContent: error,
+                     ok: "Aceptar"
+                 });
+
+                 $mdDialog
+                 .show(alert)
+                 .finally(function () {
+                     alert = undefined;
+                 });
+            } else {
+                toastr.error(error, title);
+            }
+            $log.error('Error: ' + message, error);
         }
 
         function info(message, data, title) {

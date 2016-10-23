@@ -15,6 +15,9 @@
         watch();
 
         function init() {
+            vm.catalogos.IdSistemas = "";
+            vm.catalogos.IdSubSistemas = "";
+            vm.catalogos.IdVehiculos = "";
         }
 
         $scope.getFile = function () {
@@ -39,15 +42,19 @@
         function save() {
             if (typeof ($scope.file) !== "undefined") {
                 catalogosDataServices.saveWithImage(vm.catalogos, $scope.file)
-                    .then(function () {
-                        catalogosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            catalogosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     });
             } else {
                 catalogosDataServices.save(vm.catalogos)
-                    .then(function () {
-                        catalogosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            catalogosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     }, function (reason) {
                         return reason;
                     });

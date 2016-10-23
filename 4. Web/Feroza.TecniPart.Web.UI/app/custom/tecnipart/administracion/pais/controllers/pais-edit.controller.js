@@ -14,15 +14,16 @@
         init();
 
         function init() {
+
         }
 
         function save() {
             logger.info("[paisEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            paisDataServices.put(vm.pais).then(function () {
-                paisDataServices.query().then(function (data) {
-                    vm.pais = vm.pais.get();
-                });
-                modalWindowFactory.hide();
+            paisDataServices.put(vm.pais).then(function (data) {
+                if (typeof (data) !== "undefined") {
+                    paisDataServices.query().then(function (data) { });
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

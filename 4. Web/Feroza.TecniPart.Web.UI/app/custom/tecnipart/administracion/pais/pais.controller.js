@@ -13,15 +13,17 @@
         vm.del = del;
 
         function init() {
-            paisDataServices.query().then(function (data) {
-                vm.pais = paisDataServices;
-            });
+            paisDataServices.query()
+                .then(function(data) {
+                    vm.pais = paisDataServices;
+                });
         }
 
         function add() {
-            paisStateProvider.goToPaisComponentAdd().then(function () {
-                //init();
-            });
+            paisStateProvider.goToPaisComponentAdd()
+                .then(function() {
+                    //init();
+                });
         }
 
         function edit(pais) {
@@ -31,19 +33,20 @@
 
         function del(pais) {
             var confirm = $mdDialog.confirm()
-                  .title("Eliminar: " + pais.Descripcion)
-                  .textContent("Esta seguro que desea eliminar este registro?")
-                  .ariaLabel("Esta seguro que desea eliminar este registro?")
-                  .ok("Aceptar")
-                  .cancel("Cancelar");
+                .title("Eliminar: " + pais.Descripcion)
+                .textContent("Esta seguro que desea eliminar este registro?")
+                .ariaLabel("Esta seguro que desea eliminar este registro?")
+                .ok("Aceptar")
+                .cancel("Cancelar");
 
-            $mdDialog.show(confirm).then(function () {
-                logger.info("Eliminara el registro", pais);
-                paisDataServices.removePais(pais)
-                .then(function () {
-                    //init();
+            $mdDialog.show(confirm)
+                .then(function() {
+                    logger.info("Eliminara el registro", pais);
+                    paisDataServices.removePais(pais)
+                        .then(function() {
+                            //init();
+                        });
                 });
-            });
         }
     }
 })();

@@ -41,19 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administracion\ICatalogosRespositorio.cs" />
+    <Compile Include="Administracion\IReferenciasRespositorio.cs" />
     <Compile Include="Administracion\IFabricantesRespositorio.cs" />
     <Compile Include="Administracion\ICatalogosServicio.cs" />
+    <Compile Include="Administracion\IReferenciasServicio.cs" />
     <Compile Include="Administracion\IMarcasRespositorio.cs" />
+    <Compile Include="Administracion\IPaisRespositorio.cs" />
     <Compile Include="Administracion\ISubSistemasServicio.cs" />
     <Compile Include="Administracion\ISubSistemasRespositorio.cs" />
     <Compile Include="Administracion\ISistemasServicio.cs" />
     <Compile Include="Administracion\ISistemasRespositorio.cs" />
     <Compile Include="Administracion\IVehiculosServicio.cs" />
     <Compile Include="Administracion\IVehiculosRespositorio.cs" />
-    <Compile Include="Administracion\IPaisRespositorio.cs" />
     <Compile Include="Administracion\IFabricantesServicio.cs" />
     <Compile Include="Administracion\IMarcasServicio.cs" />
     <Compile Include="Administracion\IPaisServicio.cs" />
+    <Compile Include="IServicio.cs" />
+    <Compile Include="Repositorio\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

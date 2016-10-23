@@ -11,7 +11,6 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
 
@@ -25,7 +24,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
-    [Authorize]
+    //[Authorize]
     public class CatalogosController : ApiController
     {
         /// <summary>
@@ -54,7 +53,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public Catalogos Get(int id)
         {
-            return this.catalogosServicios.ListCatalogos(id).FirstOrDefault();
+            return this.catalogosServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -62,7 +61,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<Catalogos> Get()
         {
-            return this.catalogosServicios.ListCatalogos();
+            return this.catalogosServicios.List();
         }
 
         /// <summary>The post catalogos.</summary>
@@ -72,8 +71,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         public async Task<IHttpActionResult> PostCatalogos()
         {
             var entityWithImageModel = await this.MappingImageToEntity();
-            var catalogosResult = this.catalogosServicios.AddCatalogos(entityWithImageModel.EntityModel);
-            return this.Ok(catalogosResult);
+            this.catalogosServicios.Add(entityWithImageModel.EntityModel);
+            return this.Ok(entityWithImageModel.EntityModel);
         }
 
         /// <summary>The post catalogos.</summary>
@@ -82,8 +81,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPost]
         public async Task<IHttpActionResult> PostCatalogos(Catalogos id)
         {
-            var catalogosResult = this.catalogosServicios.AddCatalogos(id);
-            return this.Ok(catalogosResult);
+            this.catalogosServicios.Add(id);
+            return this.Ok(id);
         }
 
         /// <summary>The put catalogos.</summary>
@@ -95,8 +94,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             try
             {
                 var entityWithImageModel = await this.MappingImageToEntity();
-                var catalogoResult = this.catalogosServicios.EditCatalogos(entityWithImageModel.EntityModel);
-                return this.Ok(catalogoResult);
+                this.catalogosServicios.Edit(entityWithImageModel.EntityModel);
+                return this.Ok(entityWithImageModel.EntityModel);
 
             }
             catch (Exception ex)
@@ -113,25 +112,21 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         {
             try
             {
-                var catalogoResult = this.catalogosServicios.EditCatalogos(catalogos);
-                return this.Ok(catalogoResult);
+                this.catalogosServicios.Edit(catalogos);
+                return this.Ok(catalogos);
             }
             catch (Exception ex)
             {
                 return this.BadRequest(ex.Message);
             }
-        }  
-         
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
+        }
+
+        /// <summary>The delete.</summary>
+        /// <param name="catalogos"></param>
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(Catalogos catalogos)
         {
-            this.catalogosServicios.DeleteCatalogos(id);
+            this.catalogosServicios.Delete(catalogos);
         }
 
         /// <summary>The mapping image to entity.</summary>

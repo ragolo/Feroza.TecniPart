@@ -14,12 +14,15 @@
         init();
 
         function init() {
+            vm.sistemas.Posicion = "";
         }
 
         function save() {
             logger.info("[sistemasAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
             sistemasDataServices.save(vm.sistemas).then(function (data) {
-                modalWindowFactory.hide();
+                if (typeof (data) !== "undefined") {
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

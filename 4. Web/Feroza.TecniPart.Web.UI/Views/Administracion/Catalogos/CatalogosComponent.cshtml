@@ -44,7 +44,7 @@
                         </md-input-container>
                         <md-input-container class="md-block" flex-gt-sm>
                             <label>Sub Sistemas</label>
-                            <md-select aria-required="true" md-no-asterisk="false" name="catalogosIdSubSistemas" ng-model="vm.catalogos.IdSubSistemas" required ng-disabled="vm.catalogos.IdSistemas > 0? false: true ">
+                            <md-select aria-required="true" md-no-asterisk="false" name="catalogosIdSubSistemas" ng-model="vm.catalogos.IdSubSistemas" required ng-disabled="vm.catalogos.IdSistemas > 0? false: true">
                                 <md-option ng-value=""><em>[Seleccionar]</em></md-option>
                                 <md-option ng-repeat="subSistema in vm.catalogos.SubSistemasList | filter : { IdSistemas: vm.catalogos.IdSistemas }" ng-value="subSistema.IdSubSistemas">
                                     {{subSistema.Descripcion}}

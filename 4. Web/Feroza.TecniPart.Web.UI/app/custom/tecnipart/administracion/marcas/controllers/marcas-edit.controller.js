@@ -18,11 +18,11 @@
 
         function save() {
             logger.info("[marcasEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            marcasDataServices.put(vm.marcas).then(function () {
-                marcasDataServices.query().then(function (data) {
-                    vm.marcas = vm.marcas.get();
-                });
-                modalWindowFactory.hide();
+            marcasDataServices.put(vm.marcas).then(function (data) {
+                if (typeof (data) !== "undefined") {
+                    marcasDataServices.query().then(function (data) { });
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

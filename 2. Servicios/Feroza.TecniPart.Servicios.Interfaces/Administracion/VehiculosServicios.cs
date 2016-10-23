@@ -9,73 +9,120 @@
 
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+    using Dominio.Interfaces.Repositorio;
+
+    using FluentValidation;
+
+    using Validadores.Administracion.Vehiculos;
 
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
     public class VehiculosServicios : IVehiculosServicio
     {
-        /// <summary>
-        /// The estado maestras repositorio.
-        /// </summary>
-        private readonly IVehiculosRespositorio vehiculosRespositorio;
+        /// <summary>The pais repositorio.</summary>
+        private readonly IRepository<Vehiculos> paisRepositorio;
+
+        /// <summary>The validator factory.</summary>
+        public readonly IValidatorFactory validatorFactory;
 
         /// <summary>Initializes a new instance of the <see cref="VehiculosServicios"/> class.</summary>
-        /// <param name="vehiculosRepositorio">The vehiculos repositorio.</param>
-        public VehiculosServicios(IVehiculosRespositorio vehiculosRepositorio)
+        /// <param name="paisRepositorio">The pais repositorio.</param>
+        /// <param name="validatorFactory">The validator Factory.</param>
+        public VehiculosServicios(IRepository<Vehiculos> paisRepositorio, IValidatorFactory validatorFactory)
         {
-            this.vehiculosRespositorio = vehiculosRepositorio;
+            this.paisRepositorio = paisRepositorio;
+            this.validatorFactory = validatorFactory;
         }
 
-        /// <summary>The add vehiculos.</summary>
-        /// <param name="vehiculos">The vehiculos.</param>
-        public Vehiculos AddVehiculos(Vehiculos vehiculos)
+        /// <summary>The add pais.</summary>
+        /// <param name="pais">The pais.</param>
+        public void Add(Vehiculos pais)
         {
-            return this.vehiculosRespositorio.Crear(vehiculos);
+            var addVehiculosValidador = new AddVehiculosValidador(this.paisRepositorio);
+            var addVehiculosValidadorResultado = addVehiculosValidador.Validate(pais);
+
+            if (!addVehiculosValidadorResultado.IsValid)
+            {
+                throw new ValidationException(addVehiculosValidadorResultado.Errors);
+            }
+
+            this.paisRepositorio.Insert(pais);
         }
 
-        /// <summary>The edit vehiculos.</summary>
-        /// <param name="vehiculos">The vehiculos.</param>
-        /// <returns>The <see cref="Vehiculos"/>.</returns>
-        public Vehiculos EditVehiculos(Vehiculos vehiculos)
+        /// <summary>The edit pais.</summary>
+        /// <param name="pais">The pais.</param>
+        /// <exception cref="ValidationException"></exception>
+        public void Edit(Vehiculos pais)
         {
-            return this.vehiculosRespositorio.Editar(vehiculos);
+            var editVehiculosValidador = new EditVehiculosValidador(this.paisRepositorio);
+            var editVehiculosValidadorResultado = editVehiculosValidador.Validate(pais);
+
+            if (!editVehiculosValidadorResultado.IsValid)
+            {
+                throw new ValidationException(editVehiculosValidadorResultado.Errors);
+            }
+
+            this.paisRepositorio.Update(pais);
         }
 
-        /// <summary>The delete vehiculos.</summary>
-        /// <param name="idVehiculos">The id vehiculos.</param>
-        public void DeleteVehiculos(int idVehiculos)
+        /// <summary>The delete pais.</summary>
+        /// <param name="pais">The pais.</param>
+        public void Delete(Vehiculos pais)
         {
-            this.vehiculosRespositorio.Eliminar(idVehiculos);
+            //TODO: Crear validacion para que no deje borrar un pais si ya fue asignado en la entidad Frabricas
+            this.paisRepositorio.Delete(pais);
         }
 
-        /// <summary>The list vehiculos.</summary>
-        /// <param name="idVehiculos">The id vehiculos.</param>
+        /// <summary>The list pais.</summary>
+        /// <param name="idVehiculos">The id pais.</param>
         /// <returns>The <see>
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Vehiculos> ListVehiculos(int idVehiculos)
+        public Vehiculos Get(int idVehiculos)
         {
-            var vehiculos = this.vehiculosRespositorio.ListarVehiculos(idVehiculos);
-
-            return vehiculos;
+            return this.paisRepositorio.GetById(idVehiculos);
         }
 
-        /// <summary>The list vehiculos.</summary>
+        /// <summary>The list pais.</summary>
         /// <returns>The <see>
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Vehiculos> ListVehiculos()
+        public IList<Vehiculos> List()
         {
-            var vehiculos = this.vehiculosRespositorio.ListarVehiculoses();
+            try
+            {
+                return this.paisRepositorio.GetFiltered(null, vehiculos => vehiculos.Fabricantes, vehiculos => vehiculos.Marcas).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-            return vehiculos;
+        /// <summary>The list pais filtered.</summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns>The <see cref="IList"/>.</returns>
+        /// <exception cref="Exception"></exception>
+        public IList<Vehiculos> ListFiltered(Expression<Func<Vehiculos, bool>> filter)
+        {
+            try
+            {
+                return this.paisRepositorio.GetFiltered(filter).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

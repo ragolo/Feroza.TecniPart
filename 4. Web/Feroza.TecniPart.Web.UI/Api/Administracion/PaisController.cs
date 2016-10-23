@@ -1,23 +1,22 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="PaisController.cs" company="Feroza">
-//   The Feroza 2016
+// <copyright file="PaisController.cs" company="">
+//   
 // </copyright>
 // <summary>
-//   The estado maestras controller.
+//   The pais controller.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Web.Http;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
     /// <summary>The pais controller.</summary>
-    [Authorize]
+    //[Authorize]
     public class PaisController : ApiController
     {
         /// <summary>The pais servicios.</summary>
@@ -43,7 +42,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public Pais Get(int id)
         {
-            return this.paisServicios.ListPais(id).FirstOrDefault();
+            return this.paisServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -54,7 +53,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<Pais> Get()
         {
-            return this.paisServicios.ListPais();
+            return this.paisServicios.List();
         }
 
         /// <summary>The post pais.</summary>
@@ -63,8 +62,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPost]
         public IHttpActionResult PostPais(Pais pais)
         {
-            var paisResult = this.paisServicios.AddPais(pais);
-            return this.Ok(paisResult);
+            this.paisServicios.Add(pais);
+            return this.Ok(pais);
         }
 
         /// <summary>The put pais.</summary>
@@ -73,20 +72,16 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPut]
         public IHttpActionResult PutPais(Pais pais)
         {
-            var paisResult = this.paisServicios.EditPais(pais);
-            return this.Ok(paisResult);
+            this.paisServicios.Edit(pais);
+            return this.Ok(pais);
         }
 
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
+        /// <summary>The delete.</summary>
+        /// <param name="pais">The pais.</param>
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(Pais pais)
         {
-            this.paisServicios.DeletePais(id);
+            this.paisServicios.Delete(pais);
         }
     }
 }

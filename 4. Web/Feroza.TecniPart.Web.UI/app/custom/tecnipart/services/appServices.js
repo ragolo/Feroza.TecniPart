@@ -32,11 +32,10 @@
                 data: requestData
             })
                 .success(function (response) {
-                    defered.resolve(response);
-                }
-                )
+                    defered.resolve(response.result);
+                })
                 .error(function (err, codeStatus, r) {
-                    defered.reject(err);
+                    defered.reject(err.errors[0]);
                 })
                 .then(function () {
                 });
@@ -54,11 +53,10 @@
                 data: requestData
             })
                 .success(function (response) {
-                    defered.resolve(response);
-                }
-                )
+                    defered.resolve(response.result);
+                })
                 .error(function (err, codeStatus, r) {
-                    defered.reject(err);
+                    defered.reject(err.errors[0]);
                 })
                 .then(function () {
                 });
@@ -77,11 +75,11 @@
                 data: requestData
             })
                 .success(function (response) {
-                    defered.resolve(response);
+                    defered.resolve(response.result);
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.reject(err);
+                    defered.reject(err.errors[0]);
                 })
                 .then(function () {
                 });
@@ -93,17 +91,17 @@
             var defered = $q.defer();
             var promise = defered.promise;
             $http({
-                url: url + requestData,
+                url: url,
                 method: "DELETE",
                 headers: { 'Content-Type': "application/json" },
-                //data: requestData
+                data: requestData
             })
                 .success(function (response) {
-                    defered.resolve(response);
+                    defered.resolve(response.result);
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.reject(err);
+                    defered.reject(err.errors[0]);
                 })
                 .then(function () {
                 });
@@ -121,11 +119,11 @@
                 data: requestData
             })
                 .success(function (response) {
-                    defered.resolve(response);
+                    defered.resolve(response.result);
                 }
                 )
                 .error(function (err, codeStatus, r) {
-                    defered.reject(err);
+                    defered.reject(err.errors[0]);
                 })
                 .then(function () {
                 });
@@ -154,10 +152,10 @@
                 data: { model: viewModel, files: files }
             }).
         success(function (data, status, headers, config) {
-            defered.resolve(data);
+            defered.resolve(data.result);
         }).
         error(function (data, status, headers, config) {
-            defered.reject(data);
+            defered.reject(data.errors[0]);
         });
             return promise;
         }
@@ -187,10 +185,10 @@
                 data: { model: viewModel, files: files }
             }).
         success(function (data, status, headers, config) {
-            defered.resolve(data);
+            defered.resolve(data.result);
         }).
         error(function (data, status, headers, config) {
-            defered.reject(data);
+            defered.reject(data.errors[0]);
         });
             return promise;
         }

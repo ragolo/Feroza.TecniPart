@@ -1,35 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Feroza.TecniPart.Web.UI.CommunicationApi.Providers
+﻿namespace Feroza.TecniPart.Web.UI.CommunicationApi.Providers
 {
     using System.Security.Claims;
     using System.Threading.Tasks;
 
-    using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security.OAuth;
 
+    /// <summary>The simple authorization server provider.</summary>
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
+        /// <summary>The validate client authentication.</summary>
+        /// <param name="context">The context.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
         }
 
+        /// <summary>The grant resource owner credentials.</summary>
+        /// <param name="context">The context.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
+            using (AuthRepository repository = new AuthRepository())
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+                var user = await repository.FindUser(context.UserName, context.Password);
 
                 if (user == null)
                 {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
+                    context.SetError("invalid_grant", "El usuario o contraseña es incorrecto.");
                     return;
                 }
             }
@@ -39,7 +39,6 @@ namespace Feroza.TecniPart.Web.UI.CommunicationApi.Providers
             identity.AddClaim(new Claim("role", "user"));
 
             context.Validated(identity);
-
         }
     }
 }

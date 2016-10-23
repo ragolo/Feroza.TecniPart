@@ -14,6 +14,8 @@
         init();
 
         function init() {
+            vm.vehiculos.IdMarca = "";
+            vm.vehiculos.IdFabricantes = "";
         }
 
         $scope.getFile = function () {
@@ -28,15 +30,19 @@
             logger.info("[vehiculosAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
             if (typeof ($scope.file) !== "undefined") {
                 vehiculosDataServices.saveWithImage(vm.vehiculos, $scope.file)
-                    .then(function () {
-                        vehiculosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            vehiculosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     });
             } else {
                 vehiculosDataServices.save(vm.vehiculos)
-                    .then(function () {
-                        vehiculosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            vehiculosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     }, function (reason) {
                         return reason;
                     });

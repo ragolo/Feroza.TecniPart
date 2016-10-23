@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="es" ng-app="angle">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="{{app.description}}">
+    <meta name="keywords" content="Motores, motos, carros, TecniPart">
+    <title data-ng-bind="pageTitle()">TecniPart</title>
+
+    @Styles.Render("~/bundles/bootstrapStyles")
+    @Styles.Render("~/bundles/materialStyles")
+    @Styles.Render("~/bundles/appStyles")
+    <link href="~/Scripts/Vendor/angularjs-toaster/angular-toastr.min.css" rel="stylesheet" />
+</head>
+
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled, 'aside-collapsed-text': app.layout.isCollapsedText}">
+
+    <!-- App Content -->
+    <div data-ui-view="main" data-autoscroll="false" class="wrapper">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/baseScripts")
+    @Scripts.Render("~/bundles/materialScripts")
+    @Scripts.Render("~/bundles/appScripts")
+
+</body>
+</html>

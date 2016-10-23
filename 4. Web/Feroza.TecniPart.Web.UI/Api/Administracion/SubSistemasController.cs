@@ -10,14 +10,13 @@
 namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Web.Http;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
     /// <summary>The sistemas controller.</summary>
-    [Authorize]
+    //[Authorize]
     public class SubSistemasController : ApiController
     {
         /// <summary>The sistemas servicios.</summary>
@@ -36,7 +35,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public SubSistemas Get(int id)
         {
-            return this.sistemasServicios.ListSubSistemas(id).FirstOrDefault();
+            return this.sistemasServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -44,7 +43,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<SubSistemas> Get()
         {
-            return this.sistemasServicios.ListSubSistemas();
+            return this.sistemasServicios.List();
         }
 
         /// <summary>The post sistemas.</summary>
@@ -53,8 +52,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPost]
         public IHttpActionResult PostSubSistemas(SubSistemas sistemas)
         {
-            var sistemasResult = this.sistemasServicios.AddSubSistemas(sistemas);
-            return this.Ok(sistemasResult);
+            this.sistemasServicios.Add(sistemas);
+            return this.Ok(sistemas);
         }
 
         /// <summary>The put sistemas.</summary>
@@ -63,16 +62,16 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPut]
         public IHttpActionResult PutSubSistemas(SubSistemas sistemas)
         {
-            var sistemasResult = this.sistemasServicios.EditSubSistemas(sistemas);
-            return this.Ok(sistemasResult);
+            this.sistemasServicios.Edit(sistemas);
+            return this.Ok(sistemas);
         }
 
         /// <summary>The delete.</summary>
-        /// <param name="id">The id.</param>
+        /// <param name="subSistemas">The sub Sistemas.</param>
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(SubSistemas subSistemas)
         {
-            this.sistemasServicios.DeleteSubSistemas(id);
+            this.sistemasServicios.Delete(subSistemas);
         }
     }
 }

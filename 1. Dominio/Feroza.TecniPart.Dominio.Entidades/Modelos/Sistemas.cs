@@ -64,5 +64,8 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// The sub sistemas.
         /// </value>
         public virtual ICollection<SubSistemas> SubSistemas { get; set; }
+
+        /// <summary>Gets or sets the referencias.</summary>
+        public virtual ICollection<Referencias> Referencias { get; set; }
     }
 }

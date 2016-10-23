@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+<form name="referenciasComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
+        </div>
+        <div class="card-body">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="50" name="CodigoOem" ng-model="vm.referencias.CodigoOem" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="1" />
+                    <label>Código OEM</label>
+                    <div multiple ng-messages="referenciasComponentForm.CodigoOem.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <md-checkbox aria-label="Checkbox 1" ng-model="vm.referencias.Kit" tabindex="2">
+                       Kit
+                    </md-checkbox>
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Descripcion" ng-model="vm.referencias.Descripcion" ng-pattern="/^[\w -]*$/" ng-required="true" tabindex="3" />
+                    <label>Descripción</label>
+                    <div multiple ng-messages="referenciasComponentForm.Descripcion.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="DescripcionTecnica" ng-model="vm.referencias.DescripcionTecnica" ng-pattern="/^[\w -]*$/" tabindex="4" />
+                    <label>Descripción técnica</label>
+                    <div multiple ng-messages="referenciasComponentForm.DescripcionTecnica.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Marcas</label>
+                    <md-select aria-required="true" md-no-asterisk="false" name="IdMarca" ng-model="vm.referencias.IdMarcas" required>
+                        <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                        <md-option ng-repeat="marca in vm.referencias.MarcasList" ng-value="marca.IdMarcas">
+                            {{marca.Descripcion}}
+                        </md-option>
+                    </md-select>
+                    <div multiple ng-messages="referenciasComponentForm.IdMarca.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Sistemas</label>
+                    <md-select aria-required="true" md-no-asterisk="false" name="IdSistemas" ng-model="vm.referencias.IdSistemas" required>
+                        <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                        <md-option ng-repeat="sistema in vm.referencias.SistemasList" ng-value="sistema.IdSistemas">
+                            {{sistema.Descripcion}}
+                        </md-option>
+                    </md-select>
+                    <div multiple ng-messages="referenciasComponentForm.IdSistemas.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Sub Sistemas</label>
+                    <md-select aria-required="true" md-no-asterisk="false" name="IdSubSistemas" ng-model="vm.referencias.IdSubSistemas" required ng-disabled="vm.referencias.IdSistemas > 0? false: true">
+                        <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                        <md-option ng-repeat="subSistema in vm.referencias.SubSistemasList | filter : { IdSistemas: vm.referencias.IdSistemas }" ng-value="subSistema.IdSubSistemas">
+                            {{subSistema.Descripcion}}
+                        </md-option>
+                    </md-select>
+                    <div multiple ng-messages="referenciasComponentForm.IdSubSistemas.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="referenciasComponentForm.$invalid || referenciasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

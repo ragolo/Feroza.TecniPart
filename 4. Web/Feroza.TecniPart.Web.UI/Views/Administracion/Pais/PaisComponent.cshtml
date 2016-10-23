@@ -15,8 +15,8 @@
                     <input aria-invalid="true" aria-required="true" md-maxlength="9" name="IdPais" ng-model="vm.pais.IdPais" ng-pattern="/^[0-9]+$/" ng-required="true" tabindex="0" />
                     <label>Codigo pais</label>
                     <div multiple ng-messages="paisComponentForm.IdPais.$error" role="alert">
-                        <div ng-message="pattern">Por favo, solo ingrese números</div>
                         <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                        <div ng-message="pattern">Por favor, solo ingrese números</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>

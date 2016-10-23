@@ -14,14 +14,16 @@
         init();
 
         function init() {
+            vm.pais.IdPais = "";
+            vm.pais.IdDane = "";
         }
 
         function save() {
             logger.info("[paisAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
             paisDataServices.save(vm.pais).then(function (data) {
-                modalWindowFactory.hide();
-            }, function (reason) {
-                logger.error(reason);
+                if (typeof (data) !== "undefined") {
+                    modalWindowFactory.hide();
+                }
             });
         }
 

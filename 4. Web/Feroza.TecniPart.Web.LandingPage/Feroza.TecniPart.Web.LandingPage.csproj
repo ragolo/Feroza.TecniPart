@@ -147,6 +147,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,12 +155,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.config.js" />
+    <Content Include="app\app.module.js" />
+    <Content Include="app\modules\routes\routes.config.js" />
+    <Content Include="app\modules\routes\routes.module.js" />
     <Content Include="Content\css\styles-rtl.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\theme-a.css" />
     <Content Include="Content\css\theme-b.css" />
     <Content Include="Content\css\theme-c.css" />
     <Content Include="Content\css\theme-d.css" />
+    <Content Include="Content\img\landingPage\inicio.png" />
+    <Content Include="Content\img\landingPage\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -204,6 +211,9 @@
     <Content Include="img\versions\ror.png" />
     <Content Include="img\versions\sass.png" />
     <Content Include="img\versions\vs.png" />
+    <Content Include="Scripts\Vendor\angular\angular-mocks.js" />
+    <Content Include="Scripts\Vendor\angular\angular.js" />
+    <Content Include="Scripts\Vendor\angular\angular.min.js" />
     <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\Vendor\animate.css\animate.css" />
     <Content Include="Scripts\Vendor\background-video\jquery.backgroundvideo.js" />
@@ -253,6 +263,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\custom\acceso\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -267,6 +278,10 @@
     <Content Include="Scripts\Vendor\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Scripts\Vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="Scripts\Vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\Vendor\angular\angular.min.js.map" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\Acceso\Index.cshtml" />
+    <Content Include="Views\Acceso\Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -286,7 +301,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49898</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Feroza.TecniPart.Web.LandingPage</IISUrl>
+          <IISUrl>http://localhost:91</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

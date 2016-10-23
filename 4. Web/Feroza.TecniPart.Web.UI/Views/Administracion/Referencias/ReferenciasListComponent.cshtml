@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <div class="smart-table-container">
+            <table st-safe-src="vm.referencias.referenciasListar" st-table="referenciasTable" class="smart-table table">
+                <thead>
+                    <tr>
+                        <th>Código OEM</th>
+                        <th>Kit</th>
+                        <th>Ver Kit</th>
+                        <th>Descripción</th>
+                        <th>Descripción Técnica</th>
+                        <th>Marca</th>
+                        <th>Sistema</th>
+                        <th>Sub Sistema</th>
+                        <th>Aplicaciones</th>
+                        <th>Fabricantes</th>
+                        <th style="text-align: center">
+                            <md-button class="md-icon-button" ng-click="vm.add()">
+                                <md-tooltip md-direction="bottom">
+                                    Agregar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                            </md-button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="referencias in referenciasTable">
+                        <td>{{referencias.CodigoOem}}</td>
+                        <td>
+                            <md-checkbox aria-label="Kit" ng-model="referencias.Kit" disabled style="margin-bottom: 0">
+                            </md-checkbox>
+                        </td>
+                        <td>
+                            <a href="#">Ver</a>
+                        </td>
+                        <td>{{referencias.Descripcion}}</td>
+                        <td>{{referencias.DescripcionTecnica}}</td>
+                        <td>{{referencias.Marcas.Descripcion}}</td>
+                        <td>{{referencias.Sistemas.Descripcion}}</td>
+                        <td>{{referencias.SubSistemas.Descripcion}}</td>
+                        <td>
+                            <a href="#">Ver</a>
+                        </td>
+                        <td>
+                            <a href="#">Ver</a>
+                        </td>
+                        <td style="width: 20%; text-align: center">
+
+                            <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(referencias)">
+                                <md-tooltip md-direction="bottom">
+                                    Editar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                            </md-button>
+                            <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(referencias)">
+                                <md-tooltip md-direction="bottom">
+                                    Eliminar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="11" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

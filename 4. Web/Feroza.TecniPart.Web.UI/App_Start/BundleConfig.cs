@@ -23,10 +23,13 @@ namespace Feroza.TecniPart.Web.UI
 
                 // Main module definition
                 .Include("~/app/app.module.js")
+                .Include("~/app/app.config.js")
 
                 // All modules definition
                 .Include("~/app/modules/core/core.module.js")
                 .IncludeDirectory("~/app/modules/core", "*.js", true)
+                   .Include("~/app/modules/acceso/acceso.module.js")
+                .IncludeDirectory("~/app/modules/acceso", "*.js", true)
                 .Include("~/app/modules/colors/colors.module.js")
                 .IncludeDirectory("~/app/modules/colors", "*.js", true)
                 .Include("~/app/modules/material/material.module.js")
@@ -51,6 +54,9 @@ namespace Feroza.TecniPart.Web.UI
                 .IncludeDirectory("~/app/modules/utils", "*.js", true)
 
                 // Custom scripts
+                //.Include("~/app/custom/tecnipart/login.module.js")
+                //.IncludeDirectory("~/app/custom/login", "*.js", true)
+
                 .Include("~/app/custom/tecnipart/tecnipart.module.js")
                 .Include("~/app/custom/tecnipart/tecnipart.run.js")
                 .Include("~/app/custom/tecnipart/utils/utils.module.js")
@@ -97,7 +103,8 @@ namespace Feroza.TecniPart.Web.UI
                 "~/Scripts/Vendor/jquery.browser/dist/jquery.browser.js",
                    "~/Scripts/Vendor/angular-material/angular-aria.js",
                    "~/Scripts/Vendor/angular-messages/angular-messages.min.js",
-                   "~/Scripts/Vendor/md-data-table/md-data-table.min.js"
+                   "~/Scripts/Vendor/md-data-table/md-data-table.min.js",
+                   "~/Scripts/Vendor/angular-local-storage/angular-local-storage.min.js"
                    ));
 
             bundles.Add(

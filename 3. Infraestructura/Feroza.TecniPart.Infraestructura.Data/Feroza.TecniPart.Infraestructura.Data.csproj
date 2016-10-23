@@ -63,19 +63,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\AplicacionesData.cs">
+    <Compile Include="Data\Aplicaciones.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\CatalogoDetallesData.cs">
+    <Compile Include="Data\AspNetRoles.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\CatalogosData.cs">
+    <Compile Include="Data\AspNetUserClaims.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\FabricantesData.cs">
+    <Compile Include="Data\AspNetUserLogins.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\MarcasData.cs">
+    <Compile Include="Data\AspNetUsers.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CatalogoDetalles.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Catalogos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Fabricantes.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Marcas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Model.Context.cs">
@@ -93,41 +105,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Data\PaisData.cs">
+    <Compile Include="Data\Pais.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\ReferenciasData.cs">
+    <Compile Include="Data\Referencias.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SistemasData.cs">
+    <Compile Include="Data\Sistemas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SubSistemasData.cs">
+    <Compile Include="Data\SubSistemas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\VehiculosData.cs">
+    <Compile Include="Data\Vehiculos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\VehiculoSistemasData.cs">
+    <Compile Include="Data\VehiculoSistemas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\VehiculoSubSistemasData.cs">
+    <Compile Include="Data\VehiculoSubSistemas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\Administracion\EfCatalogosRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfFabricantesRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfSubSistemasRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfSistemasRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfVehiculosRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfMarcasRepositorio.cs" />
-    <Compile Include="Repositorios\Administracion\EfPaisRepositorio.cs" />
+    <Compile Include="RepositoriosEf\Extensions\GeneralExtensions.cs" />
+    <Compile Include="RepositoriosEf\GenericRepository.cs" />
+    <Compile Include="RepositoriosEf\IDbContext.cs" />
+    <Compile Include="RepositoriosEf\IocDbContext.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Mapping\" />
-    <Folder Include="Servicios\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="Data\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -47,8 +47,8 @@
       <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -65,6 +65,14 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.WebApi, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.WebApi.6.2.1.0\lib\Net45\FluentValidation.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net">
@@ -150,6 +158,9 @@
     <Reference Include="Ragolo.Core">
       <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\Ragolo.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Ragolo.Core.IoC">
+      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core.IoC\bin\Release\Ragolo.Core.IoC.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
@@ -217,7 +228,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.config.js" />
     <Content Include="app\app.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\referencias.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\referencias.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\stateProvider.js" />
+    <Content Include="app\modules\acceso\acceso.config.js" />
+    <Content Include="app\modules\acceso\access-register.controller.js" />
+    <Content Include="app\modules\acceso\acceso.module.js" />
     <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-add.component.js" />
     <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-edit.component.js" />
     <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-list.component.js" />
@@ -309,6 +334,9 @@
     <Content Include="app\custom\tecnipart\utils\upload\file-reader.factory.js" />
     <Content Include="app\custom\tecnipart\utils\upload\file-select.directive.js" />
     <Content Include="app\custom\tecnipart\utils\utils.module.js" />
+    <Content Include="app\modules\acceso\authService.js" />
+    <Content Include="app\modules\acceso\services\authInterceptorService.js" />
+    <Content Include="app\modules\acceso\signupController.js" />
     <Content Include="app\modules\colors\colors.contant.js" />
     <Content Include="app\modules\colors\colors.module.js" />
     <Content Include="app\modules\colors\colors.service.js" />
@@ -316,6 +344,7 @@
     <Content Include="app\modules\core\core.constants.js" />
     <Content Include="app\modules\core\core.module.js" />
     <Content Include="app\modules\core\core.run.js" />
+    <Content Include="app\modules\decorators\customExceptionHandlerDecorator.js" />
     <Content Include="app\modules\lazyload\lazyload.config.js" />
     <Content Include="app\modules\lazyload\lazyload.constants.js" />
     <Content Include="app\modules\lazyload\lazyload.module.js" />
@@ -358,6 +387,7 @@
     <Content Include="app\modules\utils\trigger-resize.directive.js" />
     <Content Include="app\modules\utils\utils.module.js" />
     <Content Include="app\modules\utils\utils.service.js" />
+    <Content Include="Content\img\logo_tp_small.jpg" />
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_18px.svg" />
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_24px.svg" />
     <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_36px.svg" />
@@ -456,9 +486,13 @@
     <Content Include="Content\img\sidebar\fabricantes.png" />
     <Content Include="Content\img\sidebar\marcas.png" />
     <Content Include="Content\img\sidebar\pais.png" />
+    <Content Include="Content\img\sidebar\referencias.png" />
     <Content Include="Content\img\sidebar\sistemas.png" />
     <Content Include="Content\img\sidebar\subsistemas.png" />
     <Content Include="Content\img\sidebar\vehiculos.png" />
+    <Content Include="Scripts\Vendor\angular-ui-sortable\sortable.js" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.js" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.min.js" />
     <Content Include="Scripts\Vendor\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.css" />
     <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.css" />
@@ -478,16 +512,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\img\bg1.jpg" />
-    <Content Include="Content\img\bg10.jpg" />
-    <Content Include="Content\img\bg2.jpg" />
-    <Content Include="Content\img\bg3.jpg" />
-    <Content Include="Content\img\bg4.jpg" />
-    <Content Include="Content\img\bg5.jpg" />
-    <Content Include="Content\img\bg6.jpg" />
-    <Content Include="Content\img\bg7.jpg" />
-    <Content Include="Content\img\bg8.jpg" />
-    <Content Include="Content\img\bg9.jpg" />
     <Content Include="Content\img\dummy.png" />
     <Content Include="Content\img\icons\copy.svg" />
     <Content Include="Content\img\icons\copy2.svg" />
@@ -501,10 +525,8 @@
     <Content Include="Content\img\icons\share-arrow.svg" />
     <Content Include="Content\img\icons\twitter.svg" />
     <Content Include="Content\img\icons\upload.svg" />
-    <Content Include="Content\img\lock-bg.jpg" />
     <Content Include="Content\img\logo-single.png" />
     <Content Include="Content\img\logo.png" />
-    <Content Include="Content\img\mangues.jpg" />
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_24px.svg" />
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_48px.svg" />
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_box_24px.svg" />
@@ -586,27 +608,9 @@
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_undo_48px.svg" />
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_weekend_24px.svg" />
     <Content Include="Content\img\material-design-icons\content\svg\production\ic_weekend_48px.svg" />
-    <Content Include="Content\img\mb-sample.jpg" />
-    <Content Include="Content\img\mockup.png" />
     <Content Include="Content\img\preloader\preloader.empty.png" />
     <Content Include="Content\img\preloader\preloader.full.png" />
-    <Content Include="Content\img\profile-bg.jpg" />
-    <Content Include="Content\img\user-bg.jpg" />
-    <Content Include="Content\img\user\01.jpg" />
     <Content Include="Content\img\user\02.jpg" />
-    <Content Include="Content\img\user\03.jpg" />
-    <Content Include="Content\img\user\04.jpg" />
-    <Content Include="Content\img\user\05.jpg" />
-    <Content Include="Content\img\user\06.jpg" />
-    <Content Include="Content\img\user\07.jpg" />
-    <Content Include="Content\img\user\08.jpg" />
-    <Content Include="Content\img\user\09.jpg" />
-    <Content Include="Content\img\user\10.jpg" />
-    <Content Include="Content\img\user\11.jpg" />
-    <Content Include="Content\img\user\12.jpg" />
-    <Content Include="Content\img\user\13.jpg" />
-    <Content Include="Content\img\welcome.jpg" />
-    <Content Include="Content\img\welcome.showcase.png" />
     <Content Include="Content\mvc-override.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -689,6 +693,7 @@
   <ItemGroup>
     <Compile Include="Api\Account\AccountController.cs" />
     <Compile Include="Api\Administracion\CatalogosController.cs" />
+    <Compile Include="Api\Administracion\ReferenciasController.cs" />
     <Compile Include="Api\Administracion\FabricantesController.cs" />
     <Compile Include="Api\Administracion\SubSistemasController.cs" />
     <Compile Include="Api\Administracion\SistemasController.cs" />
@@ -700,8 +705,9 @@
     <Compile Include="Api\Facade\IManagementImageFacade.cs" />
     <Compile Include="Api\Facade\Models\EntityWithImageModel.cs" />
     <Compile Include="Api\Facade\Models\FileDescription.cs" />
+    <Compile Include="Api\ResponsePackage.cs" />
+    <Compile Include="Api\ResponseWrappingHandler.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="CommunicationApi\AuthContext.cs" />
@@ -709,20 +715,24 @@
     <Compile Include="CommunicationApi\Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Controllers\Administracion\CatalogosController.cs" />
     <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\ReferenciasController.cs" />
     <Compile Include="Controllers\Administracion\SubSistemasController.cs" />
     <Compile Include="Controllers\Administracion\SistemasController.cs" />
-    <Compile Include="Controllers\Administracion\VehiculosController.cs" />
     <Compile Include="Controllers\Administracion\MarcasController.cs" />
     <Compile Include="Controllers\Administracion\PaisController.cs" />
+    <Compile Include="Controllers\Administracion\VehiculosController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\BusquedaViewController.cs" />
+    <Compile Include="Controllers\Acceso\AccesoController.cs" />
     <Compile Include="Controllers\PartialsController.cs" />
+    <Compile Include="Api\Filters\ValidateModelStateFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CatalogosViewModel.cs" />
     <Compile Include="Models\SubSistemasViewModel.cs" />
     <Compile Include="Models\UsuarioModelo.cs" />
+    <Compile Include="Models\ReferenciasViewModel.cs" />
     <Compile Include="Models\VehiculosViewModel.cs" />
     <Compile Include="Models\FabricantesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -730,15 +740,14 @@
     <Compile Include="Windsor\Installers\ApiControllersInstaller.cs" />
     <Compile Include="Windsor\Installers\RepositoriesInstaller.cs" />
     <Compile Include="Windsor\WindsorCompositionRoot.cs" />
+    <Compile Include="Windsor\WindsorContainerConfigurator.cs" />
     <Compile Include="Windsor\WindsorDependencyResolver.cs" />
     <Compile Include="Windsor\WindsorDependencyScope.cs" />
+    <Compile Include="Windsor\Installers\WindsorValidatorFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
     <Content Include="Views\Partials\Footer.cshtml" />
@@ -1029,6 +1038,10 @@
     <Content Include="Views\Administracion\SubSistemas\SubSistemasEditView.cshtml" />
     <Content Include="Views\Administracion\SubSistemas\SubSistemasListComponent.cshtml" />
     <Content Include="Views\Administracion\SubSistemas\IndexView.cshtml" />
+    <Content Include="app\modules\acceso\access-login.controller.js" />
+    <Content Include="Config\ConnectionString.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\dev-tecnipart.pubxml" />
     <Content Include="Views\Administracion\Catalogos\CatalogosAddView.cshtml" />
     <Content Include="Views\Administracion\Catalogos\CatalogosComponent.cshtml" />
@@ -1036,6 +1049,15 @@
     <Content Include="Views\Administracion\Catalogos\CatalogosListComponent.cshtml" />
     <Content Include="Views\Administracion\Catalogos\IndexView.cshtml" />
     <Content Include="Views\Partials\VisorImagen.cshtml" />
+    <Content Include="Views\Acceso\Login.cshtml" />
+    <Content Include="Views\Acceso\Index.cshtml" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.min.js.map" />
+    <Content Include="Views\Shared\_LayoutAcceso.cshtml" />
+    <Content Include="Views\Administracion\Referencias\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasAddView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasComponent.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasEditView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasListComponent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

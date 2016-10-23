@@ -13,7 +13,7 @@
         // User Settings
         // -----------------------------------
         $rootScope.user = {
-            name: 'John',
+            name: 'Rafael Gomez',
             job: 'ng-developer',
             picture: '/Content/img/user/02.jpg'
         };
@@ -45,7 +45,7 @@
             hiddenFooter: false,
             offsidebarOpen: false,
             asideToggled: false,
-            viewAnimation: 'ng-fadeInUp'
+            viewAnimation: 'ng-fadeInLeft'
         };
 
         // Setup the layout mode

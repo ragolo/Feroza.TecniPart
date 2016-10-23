@@ -16,7 +16,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
+    using Infraestructura.Data.Repositorios;
+    using Infraestructura.Data.RepositoriosEf;
 
     using Models;
 
@@ -37,8 +38,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public FabricantesController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.fabricantesServicios = new FabricantesServicios(new EfFabricantesRepositorio());
-            this.paisServicios = new PaisServicios(new EfPaisRepositorio());
+            this.fabricantesServicios = new FabricantesServicios(new Repository<Fabricantes>(new IocDbContext()), null);
+            this.paisServicios = new PaisServicios(new Repository<Pais>(new IocDbContext()), null);
         }
 
         // GET: Fabricantes
@@ -92,7 +93,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
                 if (id.HasValue && id.Value > 0)
                 {
-                    fabricantes = this.fabricantesServicios.ListFabricantes(id.Value).FirstOrDefault();
+                    fabricantes = this.fabricantesServicios.Get(id.Value);
                 }
 
                 if (fabricantes != null)
@@ -100,13 +101,14 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     response.Descripcion = fabricantes.Descripcion;
                     response.IdFabricantes = fabricantes.IdFabricantes;
                     response.ImagenFabricante = fabricantes.ImagenFabricante;
+                    response.IdPais = fabricantes.IdPais;
                     if (fabricantes.ImagenFabricante != null)
                     {
                         response.ImagenFabricanteBase64 = Convert.ToBase64String(fabricantes.ImagenFabricante);
                     }
                 }
 
-                response.PaisList = this.paisServicios.ListPais();
+                response.PaisList = this.paisServicios.List();
                 success = true;
             }
             catch (Exception ex)

@@ -2,9 +2,9 @@
 angular.module("tecnipart")
     .service("subSistemasStateProvider", subSistemasStateProvider);
 
-subSistemasStateProvider.$inject = ["$state", "$timeout", "logger", "subSistemasDataServices", "modalWindowFactory", "$timeout"];
+subSistemasStateProvider.$inject = ["$state", "$timeout", "logger", "subSistemasDataServices", "modalWindowFactory", "$timeout", "$mdDialog"];
 
-function subSistemasStateProvider($state, $timeoute, logger, subSistemasDataServices, modalWindowFactory, $timeout) {
+function subSistemasStateProvider($state, $timeoute, logger, subSistemasDataServices, modalWindowFactory, $timeout, $mdDialog) {
     var stateProvider = {};
 
     stateProvider.goToSubSistemasComponentAdd = goToSubSistemasComponentAdd;
@@ -13,36 +13,31 @@ function subSistemasStateProvider($state, $timeoute, logger, subSistemasDataServ
     return stateProvider;
 
     function goToSubSistemasComponentAdd() {
-        return $state.transitionTo("state-sub-sistemas-SubSistemasAddView",
-                                     {},
-                                     {
-                                         reload: true,
-                                         inherit: false,
-                                         notify: false
-                                     })
-                                     .then(function () {
-                                         $timeout(function () {
-                                             modalWindowFactory.show("subSistemasAddController");
-                                         });
-                                     });
+        return getSubSistemasModel("subSistemasAddController", null);
     }
 
     function goToSubSistemasComponentEdit(id) {
         logger.info("Comienza la consulta del estado subSistemas model -> ", id);
-        return subSistemasDataServices.get(id)
-            .then(function () {
-                return $state.transitionTo("state-sub-sistemas-SubSistemasEditView",
-                        {},
-                        {
-                            reload: true,
-                            inherit: false,
-                            notify: false
-                        })
-                    .then(function () {
-                        $timeout(function () {
-                            modalWindowFactory.show("SubSistemasEditView");
-                        });
-                    });
+        return getSubSistemasModel("subSistemasEditController", id);
+    }
+
+    function getSubSistemasModel(controlador, parametro) {
+        return subSistemasDataServices.getSubSistemasModel(parametro)
+            .then(function (resultado) {
+                showDialog(null, resultado, controlador);
             });
+    }
+
+    function showDialog($event, subSistemas, controllerName) {
+        var parentEl = angular.element(document.body);
+        $mdDialog.show({
+            parent: parentEl,
+            targetEvent: $event,
+            templateUrl: "SubSistemas/SubSistemasComponent",
+            controller: controllerName,
+            controllerAs: "vm",
+            locals: { subSistemas: subSistemas },
+            bindToController: true
+        });
     }
 }

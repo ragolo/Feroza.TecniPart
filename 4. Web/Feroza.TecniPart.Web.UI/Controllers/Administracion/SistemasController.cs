@@ -16,7 +16,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
+    using Feroza.TecniPart.Infraestructura.Data.Repositorios;
+    using Feroza.TecniPart.Infraestructura.Data.RepositoriosEf;
 
     using Newtonsoft.Json;
 
@@ -31,7 +32,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public SistemasController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.sistemasServicios = new SistemasServicios(new EfSistemasRepositorio());
+            this.sistemasServicios = new SistemasServicios(new Repository<Sistemas>(new IocDbContext()), null);
         }
 
         // GET: Sistemas
@@ -83,7 +84,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
             {
                 if (id.HasValue && id.Value > 0)
                 {
-                    response = this.sistemasServicios.ListSistemas(id.Value).FirstOrDefault();
+                    response = this.sistemasServicios.Get(id.Value);
                 }
 
                 success = true;

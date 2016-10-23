@@ -63,7 +63,7 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// <value>
         /// The identifier fabricante.
         /// </value>
-        public int IdFabricante { get; set; }
+        public Nullable<int> IdFabricante { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier sistemas.
@@ -104,5 +104,14 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// The aplicaciones.
         /// </value>
         public virtual ICollection<Aplicaciones> Aplicaciones { get; set; }
+
+        /// <summary>Gets or sets the marcas.</summary>
+        public virtual Marcas Marcas { get; set; }
+
+        /// <summary>Gets or sets the sistemas.</summary>
+        public virtual Sistemas Sistemas { get; set; }
+
+        /// <summary>Gets or sets the sub sistemas.</summary>
+        public virtual SubSistemas SubSistemas { get; set; }
     }
 }

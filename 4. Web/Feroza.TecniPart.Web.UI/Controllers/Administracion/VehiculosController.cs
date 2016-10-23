@@ -10,13 +10,13 @@
 namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 {
     using System;
-    using System.Linq;
     using System.Web.Mvc;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
+    using Infraestructura.Data.Repositorios;
+    using Infraestructura.Data.RepositoriosEf;
 
     using Models;
 
@@ -40,10 +40,9 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public VehiculosController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.vehiculosServicios = new VehiculosServicios(new EfVehiculosRepositorio());
-            this.fabricantesServicios = new FabricantesServicios(new EfFabricantesRepositorio());
-            this.marcasServicios = new MarcasServicios(new EfMarcasRepositorio());
-
+            this.vehiculosServicios = new VehiculosServicios(new Repository<Vehiculos>(new IocDbContext()), null);
+            this.fabricantesServicios = new FabricantesServicios(new Repository<Fabricantes>(new IocDbContext()), null);
+            this.marcasServicios = new MarcasServicios(new Repository<Marcas>(new IocDbContext()), null);
         }
 
         // GET: Vehiculos
@@ -97,7 +96,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
                 if (id.HasValue && id.Value > 0)
                 {
-                    vehiculos = this.vehiculosServicios.ListVehiculos(id.Value).FirstOrDefault();
+                    vehiculos = this.vehiculosServicios.Get(id.Value);
                 }
 
                 if (vehiculos != null)
@@ -116,8 +115,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     }
                 }
 
-                response.FabricantesList = this.fabricantesServicios.ListFabricantes();
-                response.MarcasList = this.marcasServicios.ListMarcas();
+                response.FabricantesList = this.fabricantesServicios.List();
+                response.MarcasList = this.marcasServicios.List();
 
                 success = true;
             }

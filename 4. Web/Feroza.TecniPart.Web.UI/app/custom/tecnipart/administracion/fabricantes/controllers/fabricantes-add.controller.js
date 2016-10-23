@@ -14,6 +14,7 @@
         init();
 
         function init() {
+            vm.fabricantes.IdPais = "";
         }
 
         $scope.getFile = function () {
@@ -27,15 +28,19 @@
         function save() {
             if (typeof ($scope.file) !== "undefined") {
                 fabricantesDataServices.saveWithImage(vm.fabricantes, $scope.file)
-                    .then(function () {
-                        fabricantesDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            fabricantesDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     });
             } else {
                 fabricantesDataServices.save(vm.fabricantes)
-                    .then(function () {
-                        fabricantesDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            fabricantesDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     }, function (reason) {
                         return reason;
                     });

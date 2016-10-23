@@ -9,49 +9,76 @@
 
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+    using Dominio.Interfaces.Repositorio;
+
+    using FluentValidation;
+
+    using Validadores.Administracion.Fabricantes;
 
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
     public class FabricantesServicios : IFabricantesServicio
     {
-        /// <summary>
-        /// The estado maestras repositorio.
-        /// </summary>
-        private readonly IFabricantesRespositorio fabricantesRepositorio;
+        /// <summary>The fabricantes repositorio.</summary>
+        private readonly IRepository<Fabricantes> fabricantesRepositorio;
+
+        /// <summary>The validator factory.</summary>
+        public readonly IValidatorFactory validatorFactory;
 
         /// <summary>Initializes a new instance of the <see cref="FabricantesServicios"/> class.</summary>
         /// <param name="fabricantesRepositorio">The fabricantes repositorio.</param>
-        public FabricantesServicios(IFabricantesRespositorio fabricantesRepositorio)
+        /// <param name="validatorFactory">The validator Factory.</param>
+        public FabricantesServicios(IRepository<Fabricantes> fabricantesRepositorio, IValidatorFactory validatorFactory)
         {
             this.fabricantesRepositorio = fabricantesRepositorio;
+            this.validatorFactory = validatorFactory;
         }
 
         /// <summary>The add fabricantes.</summary>
         /// <param name="fabricantes">The fabricantes.</param>
-        /// <returns>The <see cref="Fabricantes"/>.</returns>
-        public Fabricantes AddFabricantes(Fabricantes fabricantes)
+        public void Add(Fabricantes fabricantes)
         {
-            return this.fabricantesRepositorio.Crear(fabricantes);
+            var addFabricantesValidador = new AddFabricantesValidador(this.fabricantesRepositorio);
+            var addFabricantesValidadorResultado = addFabricantesValidador.Validate(fabricantes);
+
+            if (!addFabricantesValidadorResultado.IsValid)
+            {
+                throw new ValidationException(addFabricantesValidadorResultado.Errors);
+            }
+
+            this.fabricantesRepositorio.Insert(fabricantes);
         }
 
         /// <summary>The edit fabricantes.</summary>
         /// <param name="fabricantes">The fabricantes.</param>
-        /// <returns>The <see cref="Fabricantes"/>.</returns>
-        public Fabricantes EditFabricantes(Fabricantes fabricantes)
+        /// <exception cref="ValidationException"></exception>
+        public void Edit(Fabricantes fabricantes)
         {
-            return this.fabricantesRepositorio.Editar(fabricantes);
+            var editFabricantesValidador = new EditFabricantesValidador(this.fabricantesRepositorio);
+            var editFabricantesValidadorResultado = editFabricantesValidador.Validate(fabricantes);
+
+            if (!editFabricantesValidadorResultado.IsValid)
+            {
+                throw new ValidationException(editFabricantesValidadorResultado.Errors);
+            }
+
+            this.fabricantesRepositorio.Update(fabricantes);
         }
 
         /// <summary>The delete fabricantes.</summary>
-        /// <param name="idFabricantes">The id fabricantes.</param>
-        public void DeleteFabricantes(int idFabricantes)
+        /// <param name="fabricantes">The fabricantes.</param>
+        public void Delete(Fabricantes fabricantes)
         {
-            this.fabricantesRepositorio.Eliminar(idFabricantes);
+            //TODO: Crear validacion para que no deje borrar un fabricantes si ya fue asignado en la entidad Frabricas
+            this.fabricantesRepositorio.Delete(fabricantes);
         }
 
         /// <summary>The list fabricantes.</summary>
@@ -60,11 +87,9 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Fabricantes> ListFabricantes(int idFabricantes)
+        public Fabricantes Get(int idFabricantes)
         {
-            var fabricantes = this.fabricantesRepositorio.ListarFabricantes(idFabricantes);
-
-            return fabricantes;
+            return this.fabricantesRepositorio.GetById(idFabricantes);
         }
 
         /// <summary>The list fabricantes.</summary>
@@ -72,11 +97,32 @@ namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
         ///         <cref>IEnumerable</cref>
         ///     </see>
         /// .</returns>
-        public IEnumerable<Fabricantes> ListFabricantes()
+        public IList<Fabricantes> List()
         {
-            var fabricantes = this.fabricantesRepositorio.ListarFabricanteses();
+            try
+            {
+                return this.fabricantesRepositorio.GetFiltered(null, fabricantes => fabricantes.Pais).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-            return fabricantes;
+        /// <summary>The list fabricantes filtered.</summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns>The <see cref="IList"/>.</returns>
+        /// <exception cref="Exception"></exception>
+        public IList<Fabricantes> ListFiltered(Expression<Func<Fabricantes, bool>> filter)
+        {
+            try
+            {
+                return this.fabricantesRepositorio.GetFiltered(filter).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

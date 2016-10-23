@@ -63,5 +63,8 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// The vehiculos.
         /// </value>
         public virtual ICollection<Vehiculos> Vehiculos { get; set; }
+
+        /// <summary>Gets or sets the referencias.</summary>
+        public virtual ICollection<Referencias> Referencias { get; set; }
     }
 }

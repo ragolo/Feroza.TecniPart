@@ -29,6 +29,7 @@
             'app.utils',
             'app.material',
             "restangular",
+            "app.acceso",
             "tecnipart"
         ]);
 })();

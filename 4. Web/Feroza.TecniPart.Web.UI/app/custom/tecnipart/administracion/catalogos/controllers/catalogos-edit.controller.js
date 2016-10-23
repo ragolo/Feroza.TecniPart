@@ -42,18 +42,22 @@
             logger.info("[catalogosEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
             if (typeof ($scope.file) !== "undefined") {
                 catalogosDataServices.putWithImage(vm.catalogos, $scope.file)
-                    .then(function () {
-                        catalogosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            catalogosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     },
                         function (reason) {
                             logger.error(reason);
                         });
             } else {
                 catalogosDataServices.put(vm.catalogos)
-                    .then(function () {
-                        catalogosDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            catalogosDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     },
                         function (reason) {
                             logger.error(reason);

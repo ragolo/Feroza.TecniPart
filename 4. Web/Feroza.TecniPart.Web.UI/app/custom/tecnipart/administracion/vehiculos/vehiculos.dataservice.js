@@ -31,26 +31,27 @@
                     logger.info("[vehiculosDataServices] informacion recibida desde el servidor ", data);
                     service.vehiculos = data.result;
                 }, function (reason) {
-                    logger.error("[vehiculosDataServices] error obteniendo el modelo de las vehiculos", reason);
+                    logger.error("[vehiculosDataServices] error obteniendo el modelo de las vehiculos", reason, "", true);
                 });
         }
 
         function save(vehiculos) {
             logger.info("[vehiculosDataServices] Guardando", vehiculos);
-            return appService.post("api/Vehiculos", vehiculos, "POST")
+            return appService.post("api/Vehiculos", vehiculos)
                 .then(function (data) {
                     service.vehiculos = data;
                     service.vehiculosListar.push(data);
                     logger.success("[vehiculosDataServices] Guardo exitosamente", data);
+                    return service.vehiculos;
                 },
                 function (reason) {
-                    logger.error("Error intentanto guardar vehiculos", reason);
+                    logger.error("Error intentanto guardar estadovehiculos", reason);
                 });
         }
 
         function saveWithImage(vehiculos, images) {
-            vehiculos.ImagenVehiculoBase64 = null;
-            vehiculos.ImagenVehiculo = null;
+            vehiculos.ImagenVehiculosBase64 = null;
+            vehiculos.ImagenVehiculos = null;
             logger.info("[vehiculosDataServices] imagen enviada al servidor", images);
             logger.info("[vehiculosDataServices] entidad que se envuelve en el encabezado", vehiculos);
             return appService.postImage("/Api/VehiculosImage", vehiculos, images)
@@ -58,6 +59,7 @@
                     service.vehiculos = data;
                     service.vehiculosListar.push(data);
                     logger.success("[vehiculosDataServices] Guardo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadovehiculos", reason);
@@ -65,12 +67,13 @@
         }
 
         function putWithImage(vehiculos, images) {
-            vehiculos.ImagenVehiculoBase64 = null;
+            vehiculos.ImagenVehiculosBase64 = null;
             return appService.putImage("/Api/VehiculosImage", vehiculos, images)
                 .then(function (data) {
                     service.vehiculos = data;
                     service.vehiculosListar.push(data);
                     logger.success("[vehiculosDataServices] Actualizo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadovehiculos", reason);
@@ -78,38 +81,46 @@
         }
 
         function put(vehiculos) {
+            console.log("sdadasdasdasdasdasdsadadasdas");
+            console.log(vehiculos);
+            vehiculos.ImagenVehiculosBase64 = null;
+
             logger.info("[vehiculosDataServices] Guardando", vehiculos);
             return appService.put("api/Vehiculos", vehiculos)
                .then(function (data) {
                    service.vehiculos = data;
                    service.vehiculosListar.push(data);
                    logger.success("[vehiculosDataServices] Guardo exitosamente", data);
+                   return data;
                },
                function (reason) {
-                   logger.error("Error intentanto guardar vehiculos", reason);
+                   logger.error("Error intentanto guardar estadovehiculos", reason);
                });
         }
 
         function query() {
-            return restAngular.all(entityName).getList()
-                .then(function (data) {
-                    logger.info("[vehiculosDataServices] datos obtenidos ", data);
-                    $(data).each(function (idx, vehiculo) {
-                        vehiculo.ImagenVehiculoBase64 = typeof (vehiculo.ImagenVehiculoBase64) === "string" ? vehiculo.ImagenVehiculoBase64 : "data:image/jpeg;base64," + vehiculo.ImagenVehiculo;
-                    });
-                    service.vehiculosListar = data;
-                    return data;
-                });
+            return appService.fetch("api/Vehiculos", null, "GET")
+                    .then(function (response) {
+                        logger.info("[vehiculosDataServices] datos obtenidos ", response);
+                        service.vehiculosListar = response;
+                        return response;
+                    },
+                        function (mensajeError) {
+                            logger.error("Error intentanto actualizar el vehiculos", mensajeError, "", true);
+                        });
         }
 
         function removeVehiculos(vehiculos) {
             logger.info("[vehiculosDataServices] Eliminando -> ", vehiculos);
 
-            return appService.fetch("API/Vehiculos/" + vehiculos.IdVehiculos, "", "DELETE")
+            return appService.fetch("API/Vehiculos/", vehiculos, "DELETE")
                 .then(function (response) {
                     logger.info("Modelo vehiculos obtenido -> ", response);
-                    //TODO: hay que cambiar la clave primaria de las tablas y la gestion es mas sencillas
-                    query();
+                    logger.success("[vehiculosDataServices] Se removio exitosamente", response);
+                    service.vehiculosListar = service.vehiculosListar.filter(function (vehiculosFilter) {
+                        return vehiculosFilter.IdVehiculos !== vehiculos.IdVehiculos;
+                    });
+                    return service.vehiculosListar;
                 }, function (reason) {
                     logger.error("[vehiculosDataServices] error obteniendo el modelo vehiculos", reason);
                 });
@@ -121,15 +132,11 @@
             var param = typeof (id) === "undefined" ? null : id;
             return appService.fetch("Vehiculos/GetVehiculosModel", { id: param })
                 .then(function (response) {
-                    if (response.success) {
-                        logger.info("Modelo vehiculos obtenido -> ", response);
-                        service.vehiculos = response.result;
-                    } else {
-                        logger.error(response.error);
-                    }
-                    return response.result;
-                }, function (reason) {
-                    logger.error("[vehiculosDataServices] error obteniendo el modelo de las vehiculos", reason);
+                    logger.info("Modelo vehiculos obtenido -> ", response);
+                    service.vehiculos = response;
+                    return response;
+                }, function (mensajeError) {
+                    logger.error("[vehiculosDataServices] error obteniendo el modelo de las vehiculos", mensajeError);
                 });
         }
     }

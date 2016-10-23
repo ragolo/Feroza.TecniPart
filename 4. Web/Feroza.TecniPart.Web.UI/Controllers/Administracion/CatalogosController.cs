@@ -16,7 +16,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
+    using Feroza.TecniPart.Infraestructura.Data.Repositorios;
+    using Feroza.TecniPart.Infraestructura.Data.RepositoriosEf;
 
     using Models;
 
@@ -43,10 +44,10 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public CatalogosController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.catalogosServicios = new CatalogosServicios(new EfCatalogosRepositorio());
-            this.vehiculosServicios = new VehiculosServicios(new EfVehiculosRepositorio());
-            this.sistemasServicios = new SistemasServicios(new EfSistemasRepositorio());
-            this.subSistemasServicios = new SubSistemasServicios(new EfSubSistemasRepositorio());
+            this.catalogosServicios = new CatalogosServicios(new Repository<Catalogos>(new IocDbContext()), null);
+            this.vehiculosServicios = new VehiculosServicios(new Repository<Vehiculos>(new IocDbContext()), null);
+            this.sistemasServicios = new SistemasServicios(new Repository<Sistemas>(new IocDbContext()), null);
+            this.subSistemasServicios = new SubSistemasServicios(new Repository<SubSistemas>(new IocDbContext()), null);
             
         }
 
@@ -101,7 +102,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
                 if (id.HasValue && id.Value > 0)
                 {
-                    catalogos = this.catalogosServicios.ListCatalogos(id.Value).FirstOrDefault();
+                    catalogos = this.catalogosServicios.Get(id.Value);
                 }
 
                 if (catalogos != null)
@@ -117,9 +118,9 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     }
                 }
 
-                response.VehiculosList = this.vehiculosServicios.ListVehiculos();
-                response.SistemasList = this.sistemasServicios.ListSistemas();
-                response.SubSistemasList = this.subSistemasServicios.ListSubSistemas();
+                response.VehiculosList = this.vehiculosServicios.List();
+                response.SistemasList = this.sistemasServicios.List();
+                response.SubSistemasList = this.subSistemasServicios.List();
                 success = true;
             }
             catch (Exception ex)

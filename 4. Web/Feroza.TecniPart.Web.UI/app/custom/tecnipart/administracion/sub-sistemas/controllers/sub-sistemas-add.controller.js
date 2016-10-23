@@ -14,12 +14,16 @@
         init();
 
         function init() {
+            vm.subSistemas.IdSistemas = "";
         }
 
         function save() {
-            logger.info("[subSistemasAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
+            logger.info("[subSistemasAddController] Se esta guardando el sub sistemas, vm -> ", vm);
             subSistemasDataServices.save(vm.subSistemas).then(function (data) {
-                modalWindowFactory.hide();
+                if (typeof (data) !== "undefined") {
+                    subSistemasDataServices.query();
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

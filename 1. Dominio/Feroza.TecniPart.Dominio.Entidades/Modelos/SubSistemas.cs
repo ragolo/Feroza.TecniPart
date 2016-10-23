@@ -72,5 +72,8 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         /// The vehiculo sub sistemas.
         /// </value>
         public virtual ICollection<VehiculoSubSistemas> VehiculoSubSistemas { get; set; }
+
+        /// <summary>Gets or sets the referencias.</summary>
+        public virtual ICollection<Referencias> Referencias { get; set; }
     }
 }

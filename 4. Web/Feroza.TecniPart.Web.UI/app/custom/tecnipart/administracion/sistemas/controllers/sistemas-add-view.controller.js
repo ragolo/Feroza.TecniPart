@@ -10,8 +10,7 @@
         function init() {
             sistemasDataServices.getSistemasModel().then(function (resposeData) {
                 vm.sistemas = resposeData;
-                vm.sistemas.IdSistemas = "";
-                vm.sistemas.IdDane = "";
+                vm.sistemas.Posicion = "";
             });
         }
     }

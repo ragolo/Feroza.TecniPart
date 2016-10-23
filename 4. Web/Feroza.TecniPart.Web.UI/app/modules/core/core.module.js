@@ -18,6 +18,7 @@
             "ngAria",
              "mgcrea.ngStrap",
             "ngMessages",
-            "toastr"
+            "toastr",
+            "LocalStorageModule"
         ]);
 })();

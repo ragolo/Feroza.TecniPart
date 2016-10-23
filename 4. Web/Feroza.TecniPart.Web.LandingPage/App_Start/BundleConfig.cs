@@ -8,6 +8,13 @@ namespace Feroza.TecniPart.Web.LandingPage
         // Para obtener más información sobre Bundles, visite http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/appScripts")
+
+                // Main module definition
+                .Include("~/app/app.module.js").Include("~/app/app.config.js")
+                     .Include("~/app/modules/routes/routes.module.js")
+                .IncludeDirectory("~/app/modules/routes", "*.js", true));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

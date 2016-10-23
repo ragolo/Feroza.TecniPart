@@ -10,17 +10,17 @@
 namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 {
     using System;
-    using System.Linq;
     using System.Web.Mvc;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
-
-    using Newtonsoft.Json;
+    using Infraestructura.Data.Repositorios;
+    using Infraestructura.Data.RepositoriosEf;
 
     using Servicios.Interfaces.Administracion;
+
+    using Newtonsoft.Json;
 
     /// <summary>The estado maestras controller.</summary>
     public class PaisController : Controller
@@ -31,7 +31,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public PaisController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.paisServicios = new PaisServicios(new EfPaisRepositorio());
+            this.paisServicios = new PaisServicios(new Repository<Pais>(new IocDbContext()), null);
         }
 
         // GET: Pais
@@ -81,9 +81,9 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
             var response = new Pais();
             try
             {
-                if (id.HasValue && id.Value > 0)
+                if (id.HasValue)
                 {
-                    response = this.paisServicios.ListPais(id.Value).FirstOrDefault();
+                    response = this.paisServicios.Get(id.Value);
                 }
 
                 success = true;

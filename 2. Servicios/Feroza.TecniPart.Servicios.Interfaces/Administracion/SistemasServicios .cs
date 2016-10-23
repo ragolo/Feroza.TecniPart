@@ -9,62 +9,120 @@
 
 namespace Feroza.TecniPart.Servicios.Interfaces.Administracion
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
+
+    using Feroza.TecniPart.Dominio.Interfaces.Repositorio;
+    using Feroza.TecniPart.Servicios.Interfaces.Validadores.Administracion.Sistemas;
+
+    using FluentValidation;
 
     /// <summary>
     /// The estado maestras servicios.
     /// </summary>
     public class SistemasServicios : ISistemasServicio
     {
-        /// <summary>The sistemas repositorio.</summary>
-        private readonly ISistemasRespositorio sistemasRepositorio;
+        /// <summary>The pais repositorio.</summary>
+        private readonly IRepository<Sistemas> paisRepositorio;
+
+        /// <summary>The validator factory.</summary>
+        public readonly IValidatorFactory validatorFactory;
 
         /// <summary>Initializes a new instance of the <see cref="SistemasServicios"/> class.</summary>
-        /// <param name="sistemasRepositorio">The sistemas repositorio.</param>
-        public SistemasServicios(ISistemasRespositorio sistemasRepositorio)
+        /// <param name="paisRepositorio">The pais repositorio.</param>
+        /// <param name="validatorFactory">The validator Factory.</param>
+        public SistemasServicios(IRepository<Sistemas> paisRepositorio, IValidatorFactory validatorFactory)
         {
-            this.sistemasRepositorio = sistemasRepositorio;
+            this.paisRepositorio = paisRepositorio;
+            this.validatorFactory = validatorFactory;
         }
 
-        /// <summary>The add sistemas.</summary>
-        /// <param name="sistemas">The sistemas.</param>
-        /// <returns>The <see cref="Sistemas"/>.</returns>
-        public Sistemas AddSistemas(Sistemas sistemas)
+        /// <summary>The add pais.</summary>
+        /// <param name="pais">The pais.</param>
+        public void Add(Sistemas pais)
         {
-            return this.sistemasRepositorio.Crear(sistemas);
+            var addSistemasValidador = new AddSistemasValidador(this.paisRepositorio);
+            var addSistemasValidadorResultado = addSistemasValidador.Validate(pais);
+
+            if (!addSistemasValidadorResultado.IsValid)
+            {
+                throw new ValidationException(addSistemasValidadorResultado.Errors);
+            }
+
+            this.paisRepositorio.Insert(pais);
         }
 
-        /// <summary>The edit sistemas.</summary>
-        /// <param name="sistemas">The sistemas.</param>
-        /// <returns>The <see cref="Sistemas"/>.</returns>
-        public Sistemas EditSistemas(Sistemas sistemas)
+        /// <summary>The edit pais.</summary>
+        /// <param name="pais">The pais.</param>
+        /// <exception cref="ValidationException"></exception>
+        public void Edit(Sistemas pais)
         {
-            return this.sistemasRepositorio.Editar(sistemas);
+            var editSistemasValidador = new EditSistemasValidador(this.paisRepositorio);
+            var editSistemasValidadorResultado = editSistemasValidador.Validate(pais);
+
+            if (!editSistemasValidadorResultado.IsValid)
+            {
+                throw new ValidationException(editSistemasValidadorResultado.Errors);
+            }
+
+            this.paisRepositorio.Update(pais);
         }
 
-        /// <summary>The delete sistemas.</summary>
-        /// <param name="idSistemas">The id sistemas.</param>
-        public void DeleteSistemas(int idSistemas)
+        /// <summary>The delete pais.</summary>
+        /// <param name="pais">The pais.</param>
+        public void Delete(Sistemas pais)
         {
-            this.sistemasRepositorio.Eliminar(idSistemas);
+            //TODO: Crear validacion para que no deje borrar un pais si ya fue asignado en la entidad Frabricas
+            this.paisRepositorio.Delete(pais);
         }
 
-        /// <summary>The list sistemas.</summary>
-        /// <param name="idSistemas">The id sistemas.</param>
-        /// <returns>The <see cref="IEnumerable"/>.</returns>
-        public IEnumerable<Sistemas> ListSistemas(int idSistemas)
+        /// <summary>The list pais.</summary>
+        /// <param name="idSistemas">The id pais.</param>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        /// .</returns>
+        public Sistemas Get(int idSistemas)
         {
-            return this.sistemasRepositorio.ListarSistemas(idSistemas);
+            return this.paisRepositorio.GetById(idSistemas);
         }
 
-        /// <summary>The list sistemas.</summary>
-        /// <returns>The <see cref="IEnumerable"/>.</returns>
-        public IEnumerable<Sistemas> ListSistemas()
+        /// <summary>The list pais.</summary>
+        /// <returns>The <see>
+        ///         <cref>IEnumerable</cref>
+        ///     </see>
+        /// .</returns>
+        public IList<Sistemas> List()
         {
-            return this.sistemasRepositorio.ListarSistemases();
+            try
+            {
+                return this.paisRepositorio.GetFiltered(null).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>The list pais filtered.</summary>
+        /// <param name="filter">The filter.</param>
+        /// <returns>The <see cref="IList"/>.</returns>
+        /// <exception cref="Exception"></exception>
+        public IList<Sistemas> ListFiltered(Expression<Func<Sistemas, bool>> filter)
+        {
+            try
+            {
+                return this.paisRepositorio.GetFiltered(filter).ToArray();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

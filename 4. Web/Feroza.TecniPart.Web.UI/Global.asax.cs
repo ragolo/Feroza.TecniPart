@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="Global.asax.cs" company="">
-//   
+// <copyright file="Global.asax.cs" company="Feroza">
+//   Feroza
 // </copyright>
 // <summary>
 //   Defines the WebApiApplication type.
@@ -15,33 +15,23 @@ namespace Feroza.TecniPart.Web.UI
     using System.Web.Optimization;
     using System.Web.Routing;
 
-    using Castle.MicroKernel.Resolvers.SpecializedResolvers;
-    using Castle.Windsor;
     using Castle.Windsor.Installer;
 
-    using Infraestructura.ResolucionDepencias;
+    using Infraestructura.ResolucionDepencias.Installer;
+
     using Windsor;
 
     /// <summary>The web api application.</summary>
     public class Global : HttpApplication
     {
-        /// <summary>
-        /// The container.
-        /// </summary>
-        private static IWindsorContainer container;
-
-        /// <summary>
-        /// The configure windsor.
-        /// </summary>
-        /// <param name="configuration">
-        /// The configuration.
-        /// </param>
+        /// <summary>The configure windsor.</summary>
+        /// <param name="configuration">The configuration.</param>
         public static void ConfigureWindsor(HttpConfiguration configuration)
         {
-            container = new WindsorContainer();
+            var container = Ragolo.Core.IoC.IocHelper.Instance;
+            container.Install(new ValidadoresInstaller());
             container.Install(FromAssembly.This(), new ModuloRepositorios());
-            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel, true));
-            var dependencyResolver = new WindsorDependencyResolver(container);
+            var dependencyResolver = new WindsorDependencyResolver(container.GetContainer());
             configuration.DependencyResolver = dependencyResolver;
         }
 
@@ -52,8 +42,7 @@ namespace Feroza.TecniPart.Web.UI
         {
             AreaRegistration.RegisterAllAreas();
             ConfigureWindsor(GlobalConfiguration.Configuration);
-            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, container));
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            GlobalConfiguration.Configure(c => WebApiConfig.Register(c, Ragolo.Core.IoC.IocHelper.Instance.GetContainer()));
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

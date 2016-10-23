@@ -2,9 +2,9 @@
 angular.module("tecnipart")
     .service("sistemasStateProvider", sistemasStateProvider);
 
-sistemasStateProvider.$inject = ["$state", "$timeout", "logger", "sistemasDataServices", "modalWindowFactory", "$timeout"];
+sistemasStateProvider.$inject = ["$state", "$timeout", "logger", "sistemasDataServices", "modalWindowFactory", "$timeout", "$mdDialog"];
 
-function sistemasStateProvider($state, $timeoute, logger, sistemasDataServices, modalWindowFactory, $timeout) {
+function sistemasStateProvider($state, $timeoute, logger, sistemasDataServices, modalWindowFactory, $timeout, $mdDialog) {
     var stateProvider = {};
 
     stateProvider.goToSistemasComponentAdd = goToSistemasComponentAdd;
@@ -13,36 +13,32 @@ function sistemasStateProvider($state, $timeoute, logger, sistemasDataServices, 
     return stateProvider;
 
     function goToSistemasComponentAdd() {
-        return $state.transitionTo("state-sistemas-SistemasAddView",
-                                     {},
-                                     {
-                                         reload: true,
-                                         inherit: false,
-                                         notify: false
-                                     })
-                                     .then(function () {
-                                         $timeout(function () {
-                                             modalWindowFactory.show("sistemasAddController");
-                                         });
-                                     });
+        return getSistemasModel("sistemasAddController", null);
+
     }
 
     function goToSistemasComponentEdit(id) {
-        logger.info("Comienza la consulta del estado sistemas model -> ", id);
-        return sistemasDataServices.get(id)
-            .then(function () {
-                return $state.transitionTo("state-sistemas-SistemasEditView",
-                        {},
-                        {
-                            reload: true,
-                            inherit: false,
-                            notify: false
-                        })
-                    .then(function () {
-                        $timeout(function () {
-                            modalWindowFactory.show("SistemasEditView");
-                        });
-                    });
+        logger.info("Comienza la consulta del sistemas model -> ", id);
+        return getSistemasModel("sistemasEditController", id);
+    }
+
+    function getSistemasModel(controlador, parametro) {
+        return sistemasDataServices.getSistemasModel(parametro)
+            .then(function (resultado) {
+                showDialog(null, resultado, controlador);
             });
+    }
+
+    function showDialog($event, sistemas, controllerName) {
+        var parentEl = angular.element(document.body);
+        $mdDialog.show({
+            parent: parentEl,
+            targetEvent: $event,
+            templateUrl: "Sistemas/SistemasComponent",
+            controller: controllerName,
+            controllerAs: "vm",
+            locals: { sistemas: sistemas },
+            bindToController: true
+        });
     }
 }

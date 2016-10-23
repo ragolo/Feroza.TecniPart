@@ -46,13 +46,12 @@
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadocatalogos", reason);
-                    return reason;
                 });
         }
 
         function saveWithImage(catalogos, images) {
-            catalogos.ImagenCatalogoBase64 = null;
-            catalogos.ImagenCatalogo = null;
+            catalogos.ImagenFabricanteBase64 = null;
+            catalogos.ImagenFabricante = null;
             logger.info("[catalogosDataServices] imagen enviada al servidor", images);
             logger.info("[catalogosDataServices] entidad que se envuelve en el encabezado", catalogos);
             return appService.postImage("/Api/CatalogosImage", catalogos, images)
@@ -60,6 +59,7 @@
                     service.catalogos = data;
                     service.catalogosListar.push(data);
                     logger.success("[catalogosDataServices] Guardo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadocatalogos", reason);
@@ -67,12 +67,13 @@
         }
 
         function putWithImage(catalogos, images) {
-            catalogos.ImagenCatalogoBase64 = null;
+            catalogos.ImagenFabricanteBase64 = null;
             return appService.putImage("/Api/CatalogosImage", catalogos, images)
                 .then(function (data) {
                     service.catalogos = data;
                     service.catalogosListar.push(data);
                     logger.success("[catalogosDataServices] Actualizo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadocatalogos", reason);
@@ -80,13 +81,14 @@
         }
 
         function put(catalogos) {
-            catalogos.ImagenCatalogoBase64 = null;
+            catalogos.ImagenFabricanteBase64 = null;
             logger.info("[catalogosDataServices] Guardando", catalogos);
             return appService.put("api/Catalogos", catalogos)
                .then(function (data) {
                    service.catalogos = data;
                    service.catalogosListar.push(data);
                    logger.success("[catalogosDataServices] Guardo exitosamente", data);
+                   return data;
                },
                function (reason) {
                    logger.error("Error intentanto guardar estadocatalogos", reason);
@@ -94,25 +96,28 @@
         }
 
         function query() {
-            return restAngular.all(entityName).getList()
-                .then(function (data) {
-                    logger.info("[catalogosDataServices] datos obtenidos ", data);
-                    $(data).each(function (idx, fabricante) {
-                        fabricante.ImagenCatalogoBase64 = typeof (fabricante.ImagenCatalogoBase64) === "string" ? fabricante.ImagenCatalogoBase64 : "data:image/jpeg;base64," + fabricante.ImagenCatalogo;
-                    });
-                    service.catalogosListar = data;
-                    return data;
-                });
+            return appService.fetch("api/Catalogos", null, "GET")
+                    .then(function (response) {
+                        logger.info("[catalogosDataServices] datos obtenidos ", response);
+                        service.catalogosListar = response;
+                        return response;
+                    },
+                        function (mensajeError) {
+                            logger.error("Error intentanto actualizar el catalogos", mensajeError, "", true);
+                        });
         }
 
         function removeCatalogos(catalogos) {
             logger.info("[catalogosDataServices] Eliminando -> ", catalogos);
 
-            return appService.fetch("API/Catalogos/" + catalogos.IdCatalogos, "", "DELETE")
+            return appService.fetch("API/Catalogos/", catalogos, "DELETE")
                 .then(function (response) {
                     logger.info("Modelo catalogos obtenido -> ", response);
-                    //TODO: hay que cambiar la clave primaria de las tablas y la gestion es mas sencillas
-                    query();
+                    logger.success("[catalogosDataServices] Se removio exitosamente", response);
+                    service.catalogosListar = service.catalogosListar.filter(function (catalogosFilter) {
+                        return catalogosFilter.IdCatalogos !== catalogos.IdCatalogos;
+                    });
+                    return service.catalogosListar;
                 }, function (reason) {
                     logger.error("[catalogosDataServices] error obteniendo el modelo catalogos", reason);
                 });
@@ -121,18 +126,14 @@
 
         function getCatalogosModel(id) {
             logger.info("Obteniendo el modelo para -> ", id);
-            var param = typeof (id) === "undefined" ? { id: "" } : { id: id };
-            return appService.fetch("Catalogos/GetCatalogosModel", param)
+            var param = typeof (id) === "undefined" ? null : id;
+            return appService.fetch("Catalogos/GetCatalogosModel", { id: param })
                 .then(function (response) {
-                    if (response.success) {
-                        logger.info("Modelo catalogos obtenido -> ", response);
-                        service.catalogos = response.result;
-                    } else {
-                        logger.error(response.error);
-                    }
-                    return response.result;
-                }, function (reason) {
-                    logger.error("[catalogosDataServices] error obteniendo el modelo de las catalogos", reason);
+                    logger.info("Modelo catalogos obtenido -> ", response);
+                    service.catalogos = response;
+                    return response;
+                }, function (mensajeError) {
+                    logger.error("[catalogosDataServices] error obteniendo el modelo de las catalogos", mensajeError);
                 });
         }
     }

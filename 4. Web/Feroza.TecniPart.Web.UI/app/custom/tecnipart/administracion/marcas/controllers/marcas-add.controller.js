@@ -19,7 +19,10 @@
         function save() {
             logger.info("[marcasAddController] Se esta guardando el estado de la maestra, vm -> ", vm);
             marcasDataServices.save(vm.marcas).then(function (data) {
-                modalWindowFactory.hide();
+                if (typeof (data) !== "undefined") {
+                    //marcasDataServices.query();
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

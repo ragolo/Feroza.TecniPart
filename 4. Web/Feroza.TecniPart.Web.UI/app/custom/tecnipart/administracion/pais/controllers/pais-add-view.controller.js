@@ -8,8 +8,8 @@
         var vm = this;
         init();
         function init() {
-            paisDataServices.getPaisModel().then(function (resposeData) {
-                vm.pais = resposeData;
+            paisDataServices.getPaisModel().then(function (responseData) {
+                vm.pais = responseData;
                 vm.pais.IdPais = "";
                 vm.pais.IdDane = "";
             });

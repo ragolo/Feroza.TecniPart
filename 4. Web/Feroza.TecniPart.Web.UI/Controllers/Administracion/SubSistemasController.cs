@@ -16,9 +16,9 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
+    using Feroza.TecniPart.Infraestructura.Data.Repositorios;
+    using Feroza.TecniPart.Infraestructura.Data.RepositoriosEf;
     using Feroza.TecniPart.Web.UI.Models;
-
-    using Infraestructura.Data.Repositorios.Administracion;
 
     using Newtonsoft.Json;
 
@@ -36,8 +36,8 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         /// <summary>Initializes a new instance of the <see cref="SubSistemasController"/> class.</summary>
         public SubSistemasController()
         {
-            this.subSistemasServicios = new SubSistemasServicios(new EfSubSistemasRepositorio());
-            this.sistemasServicio = new SistemasServicios(new EfSistemasRepositorio());
+            this.subSistemasServicios = new SubSistemasServicios(new Repository<SubSistemas>(new IocDbContext()), null);
+            this.sistemasServicio = new SistemasServicios(new Repository<Sistemas>(new IocDbContext()), null);
         }
 
         // GET: SubSistemas
@@ -91,7 +91,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 
                 if (id.HasValue && id.Value > 0)
                 {
-                    subSistemas = this.subSistemasServicios.ListSubSistemas(id.Value).FirstOrDefault();
+                    subSistemas = this.subSistemasServicios.Get(id.Value);
                 }
 
                 if (subSistemas != null)
@@ -102,7 +102,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
                     response.Sistemas = subSistemas.Sistemas;
                 }
 
-                response.SistemasList = this.sistemasServicio.ListSistemas();
+                response.SistemasList = this.sistemasServicio.List();
                 success = true;
             }
             catch (Exception ex)

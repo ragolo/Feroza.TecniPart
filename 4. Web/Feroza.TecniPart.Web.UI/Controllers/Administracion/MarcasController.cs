@@ -10,13 +10,13 @@
 namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
 {
     using System;
-    using System.Linq;
     using System.Web.Mvc;
 
     using Dominio.Entidades.Modelos;
     using Dominio.Interfaces.Administracion;
 
-    using Infraestructura.Data.Repositorios.Administracion;
+    using Infraestructura.Data.Repositorios;
+    using Infraestructura.Data.RepositoriosEf;
 
     using Newtonsoft.Json;
 
@@ -31,7 +31,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
         public MarcasController()
         {
             //TODO: Se debe enviar por inyeccion de dependencia y resolver con Windsor, adicional no olvidar quitar la referencia de Feroza.TecniPart.Infraestructura sobre este proyecto
-            this.marcasServicios = new MarcasServicios(new EfMarcasRepositorio());
+            this.marcasServicios = new MarcasServicios(new Repository<Marcas>(new IocDbContext()), null);
         }
 
         // GET: Marcas
@@ -83,7 +83,7 @@ namespace Feroza.TecniPart.Web.UI.Controllers.Administracion
             {
                 if (id.HasValue && id.Value > 0)
                 {
-                    response = this.marcasServicios.ListMarcas(id.Value).FirstOrDefault();
+                    response = this.marcasServicios.Get(id.Value);
                 }
 
                 success = true;

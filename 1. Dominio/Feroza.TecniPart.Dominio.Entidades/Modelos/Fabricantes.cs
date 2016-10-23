@@ -60,14 +60,6 @@ namespace Feroza.TecniPart.Dominio.Entidades.Modelos
         public string ImagenFabricanteBase64 { get; set; }
 
         /// <summary>
-        /// Gets or sets the identifier estado maestras.
-        /// </summary>
-        /// <value>
-        /// The identifier estado maestras.
-        /// </value>
-        public int IdEstadoMaestras { get; set; }
-
-        /// <summary>
         /// Gets or sets the pais.
         /// </summary>
         /// <value>

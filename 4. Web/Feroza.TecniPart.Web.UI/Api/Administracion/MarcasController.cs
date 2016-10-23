@@ -10,7 +10,6 @@
 namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System.Collections.Generic;
-    using System.Linq;
     using System.Web.Http;
 
     using Dominio.Entidades.Modelos;
@@ -19,7 +18,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
-    [Authorize]
+    //[Authorize]
     public class MarcasController : ApiController
     {
         /// <summary>
@@ -47,7 +46,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public Marcas Get(int id)
         {
-            return this.marcasServicios.ListMarcas(id).FirstOrDefault();
+            return this.marcasServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -58,7 +57,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<Marcas> Get()
         {
-            return this.marcasServicios.ListMarcas();
+            return this.marcasServicios.List();
         }
 
         /// <summary>The post marcas.</summary>
@@ -67,30 +66,26 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpPost]
         public IHttpActionResult PostMarcas(Marcas marcas)
         {
-            var marcasResult = this.marcasServicios.AddMarcas(marcas);
-            return this.Ok(marcasResult);
-        }
-
-        /// <summary>The put marcas.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
-        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
-        [HttpPut]
-        public IHttpActionResult PutMarcas(Marcas estadoMaestra)
-        {
-            var marcas = this.marcasServicios.EditMarcas(estadoMaestra);
+            this.marcasServicios.Add(marcas);
             return this.Ok(marcas);
         }
 
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
-        [HttpDelete]
-        public void Delete(int id)
+        /// <summary>The put marcas.</summary>
+        /// <param name="marcas">The marcas.</param>
+        /// <returns>The <see cref="IHttpActionResult"/>.</returns>
+        [HttpPut]
+        public IHttpActionResult PutMarcas(Marcas marcas)
         {
-            this.marcasServicios.DeleteMarcas(id);
+            this.marcasServicios.Edit(marcas);
+            return this.Ok(marcas);
+        }
+
+        /// <summary>The delete.</summary>
+        /// <param name="marcas">The marcas.</param>
+        [HttpDelete]
+        public void Delete(Marcas marcas)
+        {
+            this.marcasServicios.Delete(marcas);
         }
     }
 }

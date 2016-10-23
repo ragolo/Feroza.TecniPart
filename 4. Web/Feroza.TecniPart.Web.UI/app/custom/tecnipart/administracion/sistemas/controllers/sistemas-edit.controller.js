@@ -18,11 +18,11 @@
 
         function save() {
             logger.info("[sistemasEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
-            sistemasDataServices.put(vm.sistemas).then(function () {
-                sistemasDataServices.query().then(function (data) {
-                    vm.sistemas = vm.sistemas.get();
-                });
-                modalWindowFactory.hide();
+            sistemasDataServices.put(vm.sistemas).then(function (data) {
+                if (typeof (data) !== "undefined") {
+                    sistemasDataServices.query();
+                    modalWindowFactory.hide();
+                }
             }, function (reason) {
                 logger.error(reason);
             });

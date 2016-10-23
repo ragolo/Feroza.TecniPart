@@ -9,16 +9,18 @@
 
 namespace Feroza.TecniPart.Web.UI
 {
-    using System.Linq;
-    using System.Net.Http.Formatting;
     using System.Web.Http;
     using System.Web.Http.Dispatcher;
 
+    using Api;
+    using Api.Filters;
+
     using Castle.Windsor;
 
-    using Newtonsoft.Json.Serialization;
+    using FluentValidation.WebApi;
 
     using Windsor;
+    using Windsor.Installers;
 
     /// <summary>
     /// The web api config.
@@ -38,6 +40,7 @@ namespace Feroza.TecniPart.Web.UI
         {
             MapRoutes(config);
             RegisterControllerActivator(container);
+            FluentValidationModelValidatorProvider.Configure(config, provider => provider.ValidatorFactory = new WindsorValidatorFactory(container));
         }
 
         /// <summary>
@@ -48,6 +51,9 @@ namespace Feroza.TecniPart.Web.UI
         /// </param>
         private static void MapRoutes(HttpConfiguration config)
         {
+            config.Filters.Add(new ValidateModelStateFilter());
+            config.MessageHandlers.Add(new ResponseWrappingHandler());
+
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
 
@@ -58,6 +64,7 @@ namespace Feroza.TecniPart.Web.UI
             config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
             config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+           
         }
 
         /// <summary>

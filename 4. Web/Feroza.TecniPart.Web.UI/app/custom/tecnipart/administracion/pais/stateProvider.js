@@ -2,9 +2,9 @@
 angular.module("tecnipart")
     .service("paisStateProvider", paisStateProvider);
 
-paisStateProvider.$inject = ["$state", "$timeout", "logger", "paisDataServices", "modalWindowFactory", "$timeout"];
+paisStateProvider.$inject = ["$state", "$timeout", "logger", "paisDataServices", "modalWindowFactory", "$timeout", "$mdDialog"];
 
-function paisStateProvider($state, $timeoute, logger, paisDataServices, modalWindowFactory, $timeout) {
+function paisStateProvider($state, $timeoute, logger, paisDataServices, modalWindowFactory, $timeout, $mdDialog) {
     var stateProvider = {};
 
     stateProvider.goToPaisComponentAdd = goToPaisComponentAdd;
@@ -13,36 +13,31 @@ function paisStateProvider($state, $timeoute, logger, paisDataServices, modalWin
     return stateProvider;
 
     function goToPaisComponentAdd() {
-        return $state.transitionTo("state-pais-PaisAddView",
-                                     {},
-                                     {
-                                         reload: true,
-                                         inherit: false,
-                                         notify: false
-                                     })
-                                     .then(function () {
-                                         $timeout(function () {
-                                             modalWindowFactory.show("paisAddController");
-                                         });
-                                     });
+        logger.info("Comienza la consulta del pais model -> ", null);
+        return paisDataServices.getPaisModel(null)
+            .then(function (resultado) {
+                showDialog(null, resultado, "paisAddController");
+            });
     }
 
     function goToPaisComponentEdit(id) {
         logger.info("Comienza la consulta del estado pais model -> ", id);
-        return paisDataServices.get(id)
-            .then(function () {
-                return $state.transitionTo("state-pais-PaisEditView",
-                        {},
-                        {
-                            reload: true,
-                            inherit: false,
-                            notify: false
-                        })
-                    .then(function () {
-                        $timeout(function () {
-                            modalWindowFactory.show("PaisEditView");
-                        });
-                    });
+        return paisDataServices.getPaisModel(id)
+            .then(function (resultado) {
+                showDialog(null, resultado, "paisEditController");
             });
+    }
+
+    function showDialog($event, pais, controllerName) {
+        var parentEl = angular.element(document.body);
+        $mdDialog.show({
+            parent: parentEl,
+            targetEvent: $event,
+            templateUrl: "/Pais/PaisComponent",
+            controller: controllerName,
+            controllerAs: "vm",
+            locals: { pais: pais },
+            bindToController: true
+        });
     }
 }

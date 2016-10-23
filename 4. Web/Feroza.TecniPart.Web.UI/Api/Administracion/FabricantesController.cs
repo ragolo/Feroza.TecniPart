@@ -11,7 +11,6 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
 
@@ -25,7 +24,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
-    [Authorize]
+    //[Authorize]
     public class FabricantesController : ApiController
     {
         /// <summary>
@@ -54,7 +53,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public Fabricantes Get(int id)
         {
-            return this.fabricantesServicios.ListFabricantes(id).FirstOrDefault();
+            return this.fabricantesServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -62,7 +61,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<Fabricantes> Get()
         {
-            return this.fabricantesServicios.ListFabricantes();
+            return this.fabricantesServicios.List();
         }
 
         /// <summary>The post fabricantes.</summary>
@@ -72,15 +71,18 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         public async Task<IHttpActionResult> PostFabricantes()
         {
             var entityWithImageModel = await this.MappingImageToEntity();
-            var fabricantesResult = this.fabricantesServicios.AddFabricantes(entityWithImageModel.EntityModel);
-            return this.Ok(fabricantesResult);
+            this.fabricantesServicios.Add(entityWithImageModel.EntityModel);
+            return this.Ok(entityWithImageModel.EntityModel);
         }
 
+        /// <summary>The post fabricantes.</summary>
+        /// <param name="id">The id.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         [HttpPost]
         public async Task<IHttpActionResult> PostFabricantes(Fabricantes id)
         {
-            var fabricantesResult = this.fabricantesServicios.AddFabricantes(id);
-            return this.Ok(fabricantesResult);
+            this.fabricantesServicios.Add(id);
+            return this.Ok(id);
         }
 
         /// <summary>The put fabricantes.</summary>
@@ -92,8 +94,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             try
             {
                 var entityWithImageModel = await this.MappingImageToEntity();
-                var fabricanteResult = this.fabricantesServicios.EditFabricantes(entityWithImageModel.EntityModel);
-                return this.Ok(fabricanteResult);
+                this.fabricantesServicios.Edit(entityWithImageModel.EntityModel);
+                return this.Ok(entityWithImageModel.EntityModel);
 
             }
             catch (Exception ex)
@@ -110,24 +112,21 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         {
             try
             {
-                var fabricanteResult = this.fabricantesServicios.EditFabricantes(fabricantes);
-                return this.Ok(fabricanteResult);
+                this.fabricantesServicios.Edit(fabricantes);
+                return this.Ok(fabricantes);
             }
             catch (Exception ex)
             {
                 return this.BadRequest(ex.Message);
             }
         }
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
+
+        /// <summary>The delete.</summary>
+        /// <param name="fabricantes">The fabricantes.</param>
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(Fabricantes fabricantes)
         {
-            this.fabricantesServicios.DeleteFabricantes(id);
+            this.fabricantesServicios.Delete(fabricantes);
         }
 
         /// <summary>The mapping image to entity.</summary>

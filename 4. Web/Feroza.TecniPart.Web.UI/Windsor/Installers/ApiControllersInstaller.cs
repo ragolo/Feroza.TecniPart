@@ -13,6 +13,8 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
 
     using Castle.MicroKernel.Registration;
 
+    using FluentValidation;
+
     /// <summary>
     /// The api controllers installer.
     /// </summary>
@@ -25,7 +27,14 @@ namespace Feroza.TecniPart.Web.UI.Windsor.Installers
         {
             container.Register(Classes.FromThisAssembly()
              .BasedOn<ApiController>()
+              .WithServiceSelf()
              .LifestylePerWebRequest());
+
+            container.Register(
+              Classes.FromThisAssembly()
+              .BasedOn(typeof(AbstractValidator<>))
+              .WithServiceFirstInterface()
+              .LifestyleTransient());
         }
     }
 }

@@ -46,7 +46,6 @@
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadofabricantes", reason);
-                    return reason;
                 });
         }
 
@@ -60,6 +59,7 @@
                     service.fabricantes = data;
                     service.fabricantesListar.push(data);
                     logger.success("[fabricantesDataServices] Guardo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadofabricantes", reason);
@@ -73,6 +73,7 @@
                     service.fabricantes = data;
                     service.fabricantesListar.push(data);
                     logger.success("[fabricantesDataServices] Actualizo exitosamente", data);
+                    return data;
                 },
                 function (reason) {
                     logger.error("Error intentanto guardar estadofabricantes", reason);
@@ -87,6 +88,7 @@
                    service.fabricantes = data;
                    service.fabricantesListar.push(data);
                    logger.success("[fabricantesDataServices] Guardo exitosamente", data);
+                   return data;
                },
                function (reason) {
                    logger.error("Error intentanto guardar estadofabricantes", reason);
@@ -94,25 +96,28 @@
         }
 
         function query() {
-            return restAngular.all(entityName).getList()
-                .then(function (data) {
-                    logger.info("[fabricantesDataServices] datos obtenidos ", data);
-                    $(data).each(function (idx, fabricante) {
-                        fabricante.ImagenFabricanteBase64 = typeof (fabricante.ImagenFabricanteBase64) === "string" ? fabricante.ImagenFabricanteBase64 : "data:image/jpeg;base64," + fabricante.ImagenFabricante;
-                    });
-                    service.fabricantesListar = data;
-                    return data;
-                });
+            return appService.fetch("api/Fabricantes", null, "GET")
+                    .then(function (response) {
+                        logger.info("[fabricantesDataServices] datos obtenidos ", response);
+                        service.fabricantesListar = response;
+                        return response;
+                    },
+                        function (mensajeError) {
+                            logger.error("Error intentanto actualizar el fabricantes", mensajeError, "", true);
+                        });
         }
 
         function removeFabricantes(fabricantes) {
             logger.info("[fabricantesDataServices] Eliminando -> ", fabricantes);
 
-            return appService.fetch("API/Fabricantes/" + fabricantes.IdFabricantes, "", "DELETE")
+            return appService.fetch("API/Fabricantes/", fabricantes, "DELETE")
                 .then(function (response) {
                     logger.info("Modelo fabricantes obtenido -> ", response);
-                    //TODO: hay que cambiar la clave primaria de las tablas y la gestion es mas sencillas
-                    query();
+                    logger.success("[fabricantesDataServices] Se removio exitosamente", response);
+                    service.fabricantesListar = service.fabricantesListar.filter(function (fabricantesFilter) {
+                        return fabricantesFilter.IdPais !== fabricantes.IdPais;
+                    });
+                    return service.fabricantesListar;
                 }, function (reason) {
                     logger.error("[fabricantesDataServices] error obteniendo el modelo fabricantes", reason);
                 });
@@ -121,18 +126,14 @@
 
         function getFabricantesModel(id) {
             logger.info("Obteniendo el modelo para -> ", id);
-            var param = typeof (id) === "undefined" ? { id: "" } : { id: id };
-            return appService.fetch("Fabricantes/GetFabricantesModel", param)
+            var param = typeof (id) === "undefined" ? null : id;
+            return appService.fetch("Fabricantes/GetFabricantesModel", { id: param })
                 .then(function (response) {
-                    if (response.success) {
-                        logger.info("Modelo fabricantes obtenido -> ", response);
-                        service.fabricantes = response.result;
-                    } else {
-                        logger.error(response.error);
-                    }
-                    return response.result;
-                }, function (reason) {
-                    logger.error("[fabricantesDataServices] error obteniendo el modelo de las fabricantes", reason);
+                    logger.info("Modelo fabricantes obtenido -> ", response);
+                    service.fabricantes = response;
+                    return response;
+                }, function (mensajeError) {
+                    logger.error("[fabricantesDataServices] error obteniendo el modelo de las fabricantes", mensajeError);
                 });
         }
     }

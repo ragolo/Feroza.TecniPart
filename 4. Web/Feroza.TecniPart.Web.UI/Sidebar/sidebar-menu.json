@@ -55,9 +55,9 @@
       },
       {
         "text": "",
-        "sref": "app.administracionSubSistemas",
-        "translate": "sidebar.nav.menu.administracion.SUBSISTEMAS",
-        "iconUrl": "Content/img/sidebar/subsistemas.png"
+        "sref": "app.administracionReferencias",
+        "translate": "sidebar.nav.menu.administracion.REFERENCIAS",
+        "iconUrl": "Content/img/sidebar/referencias.png"
       },
       {
         "text": "",

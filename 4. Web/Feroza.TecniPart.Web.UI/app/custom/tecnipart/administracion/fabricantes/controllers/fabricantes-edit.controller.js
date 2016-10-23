@@ -30,18 +30,23 @@
             logger.info("[fabricantesEditController] Se esta guardando el estado de la maestra, vm -> ", vm);
             if (typeof ($scope.file) !== "undefined") {
                 fabricantesDataServices.putWithImage(vm.fabricantes, $scope.file)
-                    .then(function () {
-                        fabricantesDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            fabricantesDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     },
                         function (reason) {
                             logger.error(reason);
                         });
-            } else {
+            }
+            else {
                 fabricantesDataServices.put(vm.fabricantes)
-                    .then(function () {
-                        fabricantesDataServices.query();
-                        modalWindowFactory.hide();
+                    .then(function (data) {
+                        if (typeof (data) !== "undefined") {
+                            fabricantesDataServices.query();
+                            modalWindowFactory.hide();
+                        }
                     },
                         function (reason) {
                             logger.error(reason);

@@ -11,7 +11,6 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Web.Http;
 
@@ -25,7 +24,6 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
     /// <summary>
     /// The estado maestras controller.
     /// </summary>
-    [Authorize]
     public class VehiculosController : ApiController
     {
         /// <summary>
@@ -60,7 +58,7 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public Vehiculos Get(int id)
         {
-            return this.vehiculosServicios.ListVehiculos(id).FirstOrDefault();
+            return this.vehiculosServicios.Get(id);
         }
 
         /// <summary>The get.</summary>
@@ -71,17 +69,17 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         [HttpGet]
         public IEnumerable<Vehiculos> Get()
         {
-            return this.vehiculosServicios.ListVehiculos();
+            return this.vehiculosServicios.List();
         }
 
         /// <summary>The post estado maestras.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <param name="vehiculos">The vehiculos.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPost]
         public IHttpActionResult PostVehiculos(Vehiculos vehiculos)
         {
-            var vehiculosResult = this.vehiculosServicios.AddVehiculos(vehiculos);
-            return this.Ok(vehiculosResult);
+            this.vehiculosServicios.Add(vehiculos);
+            return this.Ok(vehiculos);
         }
 
         /// <summary>The post vehiculos.</summary>
@@ -91,8 +89,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         public async Task<IHttpActionResult> PostVehiculos()
         {
             var entityWithImageModel = await this.MappingImageToEntity();
-            var vehiculosResult = this.vehiculosServicios.AddVehiculos(entityWithImageModel.EntityModel);
-            return this.Ok(vehiculosResult);
+            this.vehiculosServicios.Add(entityWithImageModel.EntityModel);
+            return this.Ok(entityWithImageModel.EntityModel);
         }
 
         [HttpPut]
@@ -102,8 +100,8 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
             try
             {
                 var entityWithImageModel = await this.MappingImageToEntity();
-                var vehiculoResult = this.vehiculosServicios.EditVehiculos(entityWithImageModel.EntityModel);
-                return this.Ok(vehiculoResult);
+                this.vehiculosServicios.Edit(entityWithImageModel.EntityModel);
+                return this.Ok(entityWithImageModel.EntityModel);
 
             }
             catch (Exception ex)
@@ -113,25 +111,21 @@ namespace Feroza.TecniPart.Web.UI.Api.Administracion
         }
 
         /// <summary>The put vehiculos.</summary>
-        /// <param name="estadoMaestra">The estado maestra.</param>
+        /// <param name="vehiculos">The vehiculos.</param>
         /// <returns>The <see cref="IHttpActionResult"/>.</returns>
         [HttpPut]
-        public IHttpActionResult PutVehiculos(Vehiculos estadoMaestra)
+        public IHttpActionResult PutVehiculos(Vehiculos vehiculos)
         {
-            var vehiculos = this.vehiculosServicios.EditVehiculos(estadoMaestra);
+            this.vehiculosServicios.Edit(vehiculos);
             return this.Ok(vehiculos);
         }
 
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="id">
-        /// The id.
-        /// </param>
+        /// <summary>The delete.</summary>
+        /// <param name="vehiculos"></param>
         [HttpDelete]
-        public void Delete(int id)
+        public void Delete(Vehiculos vehiculos)
         {
-            this.vehiculosServicios.DeleteVehiculos(id);
+            this.vehiculosServicios.Delete(vehiculos);
         }
 
         /// <summary>The mapping image to entity.</summary>
