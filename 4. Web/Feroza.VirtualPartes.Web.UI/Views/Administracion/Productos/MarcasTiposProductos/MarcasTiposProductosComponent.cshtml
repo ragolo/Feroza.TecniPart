@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+<form name="marcasTiposProductosComponentForm">
+
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
+        </div>
+
+        <div class="card-body">
+            <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+                <div flex-gt-sm>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Tipos productos</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="IdTiposProductos" ng-model="vm.marcasTiposProductos.IdTiposProductos" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="tipoProducto in vm.marcasTiposProductos.TiposProductosList" ng-value="tipoProducto.IdTiposProductos">
+                                    {{tipoProducto.Nombre}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="marcasTiposProductosComponentForm.IdTiposProductos.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Marcas</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="IdMarca" ng-model="vm.marcasTiposProductos.IdMarca" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="marca in vm.marcasTiposProductos.MarcasList" ng-value="marca.IdMarcas">
+                                    {{marca.Nombre}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="marcasTiposProductosComponentForm.IdMarca.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="marcasTiposProductosComponentForm.$invalid || marcasTiposProductosComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

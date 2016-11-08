@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+<form name="paisesComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
+        </div>
+        <div class="card-body">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <input aria-invalid="true" aria-required="true" capitalize md-maxlength="100" name="Nombre" ng-model="vm.paises.Nombre" ng-pattern="/([a-zA-Z ])/g" ng-required="true" tabindex="0" />
+                    <label>País</label>
+                    <div multiple ng-messages="paisesComponentForm.Nombre.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use letras.</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+
+                    <input aria-invalid="true" aria-required="true" capitalize md-minlength="2"  md-maxlength="2" name="Codigo" ng-model="vm.paises.Codigo" ng-pattern="/\b[a-zA-Z]{2}\b/g" ng-required="true" tabindex="0" />
+                    <label>Código ISO</label>
+                    <div multiple ng-messages="paisesComponentForm.Codigo.$error" role="alert">
+                        <div ng-message="pattern">Por favor ingrese solo letras, mínimo y máximo de 2 caracteres.</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Código Dian</label>
+                    <input aria-invalid="true" md-maxlength="3" name="CodigoDian" ng-model="vm.paises.CodigoDian" ng-pattern="/^[\d]*$/" tabindex="0" />
+                    <div multiple ng-messages="paisesComponentForm.CodigoDian.$error" role="alert">
+                        <div ng-message="pattern">Por favor, ingrese solo números mayores o iguales que 0.</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <md-checkbox aria-label="Checkbox 1" ng-model="vm.paises.Activo" tabindex="2">
+                        Activo
+                    </md-checkbox>
+                </md-input-container>
+            </div>
+
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="paisesComponentForm.$invalid || paisesComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

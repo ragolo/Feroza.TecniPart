@@ -1,0 +1,40 @@
+{
+  "dashboard": {
+    "WELCOME": "EN:Bienvenido a {{appName}}"
+  },
+  "sidebar": {
+    "heading": {
+      "HEADER": "EN:Navegacion principal"
+    },
+    "nav": {
+      "menu": {
+        "administracion": {
+          "ADMINISTRACION": "EN:Administracion",
+          "PAIS": "EN:Pais",
+          "FABRICANTES": "EN:Fabricantes",
+          "MARCAS": "EN:Marcas",
+          "vehiculos": {
+            "VEHICULOS": "EN:Vehiculos",
+            "VEHICULOSADM": "EN:Vehiculos",
+            "GETVEHICULOS": "EN:Adquirir vehiculos"
+          },
+          "productos": {
+            "PRODUCTOS": "EN:Productos", 
+            "LINEASPRODUCTOS": "EN:Linea de productos",
+            "TIPOSPRODUCTOS": "EN:Tipos de productos",
+            "MARCASTIPOSPRODUCTOS": "EN:Marcas Tipos",
+            "SISTEMAS": "EN:Sistemas"
+          },
+          "REFERENCIAS": "EN:Referencias"
+        },
+        "BUSQUEDA": "EN:Busqueda"
+      }
+    },
+    "WELCOME": "EN:Bienvenido"
+  },
+  "topbar": {
+    "search": {
+      "PLACEHOLDER": "EN:Tipea y pulsa enter.."
+    }
+  }
+}

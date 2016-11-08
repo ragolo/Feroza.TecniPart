@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+<form name="marcasComponentForm">
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Crear</div>
+        </div>
+        <div class="card-body">
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Marca</label>
+                    <input md-maxlength="100" name="Nombre" ng-model="vm.marcas.Nombre" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                    <div multiple ng-messages="marcasComponentForm.Nombre.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Sigla</label>
+                    <input md-maxlength="10" name="Sigla" ng-model="vm.marcas.Sigla" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                    <div multiple ng-messages="marcasComponentForm.Sigla.$error" role="alert">
+                        <div ng-message="pattern">Por favor solo use números o letras</div>
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Fabricante</label>
+                    <md-select aria-required="true" md-no-asterisk="false" name="IdFabricantes" ng-model="vm.marcas.IdFabricantes" required>
+                        <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                        <md-option ng-repeat="fabricante in vm.marcas.FabricantesList" ng-value="fabricante.IdFabricantes">
+                            {{fabricante.Nombre}}
+                        </md-option>
+                    </md-select>
+                    <div multiple ng-messages="marcasComponentForm.IdFabricantes.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Descripción</label>
+
+                    <textarea ng-model="vm.marcas.Descripcion" name="Descripcion" md-maxlength="200" rows="5"></textarea>
+                    <div multiple ng-messages="marcasComponentForm.Descripcion.$error" role="alert">
+                        <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                    </div>
+                </md-input-container>
+            </div>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="marcasComponentForm.$invalid || marcasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

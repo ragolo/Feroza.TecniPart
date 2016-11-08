@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{844A04B3-73FC-406D-A56F-4AC63D16AE6D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Feroza.VirtualPartes.Web.UI</RootNamespace>
+    <AssemblyName>Feroza.VirtualPartes.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation.WebApi, Version=6.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.WebApi.6.2.1.0\lib\Net45\FluentValidation.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ragolo.Core">
+      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\Ragolo.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ragolo.Core.IoC">
+      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core.IoC\bin\Release\Ragolo.Core.IoC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.config.js" />
+    <Content Include="app\app.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\components\marcasTiposProductos-filtroCascada.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\controllers\marcasTiposProductos-filtroCascada.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\controllers\marcasTiposProductos-filtroCascada-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\marcasTiposProductosFiltroCascada.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\marcasTiposProductosFiltroCascada.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductosFiltroCascada\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\components\marcasTiposProductos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\components\marcasTiposProductos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\components\marcasTiposProductos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\controllers\marcasTiposProductos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\controllers\marcasTiposProductos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\controllers\marcasTiposProductos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\controllers\marcasTiposProductos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\marcasTiposProductos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\marcasTiposProductos\marcasTiposProductos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\components\sistemas-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\components\sistemas-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\components\sistemas-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\controllers\sistemas-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\controllers\sistemas-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\controllers\sistemas-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\controllers\sistemas-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\sistemas.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\sistemas.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\sistemas\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\components\productos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\components\productos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\components\productos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\controllers\productos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\controllers\productos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\controllers\productos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\controllers\productos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\productos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\productos\productos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\components\tiposProductos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\components\tiposProductos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\components\tiposProductos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\controllers\tiposProductos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\controllers\tiposProductos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\controllers\tiposProductos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\controllers\tiposProductos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\tiposProductos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\tiposProductos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\tiposProductos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\components\lineasProductos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\components\lineasProductos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\components\lineasProductos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\controllers\lineasProductos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\controllers\lineasProductos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\controllers\lineasProductos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\controllers\lineasProductos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\lineasProductos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\lineasProductos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\productos\lineasProductos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\components\referencias-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\controllers\referencias-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\referencias.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\referencias.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\referencias\stateProvider.js" />
+    <Content Include="app\modules\acceso\acceso.config.js" />
+    <Content Include="app\modules\acceso\access-register.controller.js" />
+    <Content Include="app\modules\acceso\acceso.module.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\components\catalogos-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\controllers\catalogos-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\catalogos.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\catalogos.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\catalogos\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\components\marcas-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\controllers\marcas-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\marcas.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\marcas.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\marcas\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\components\fabricantes-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\controllers\fabricantes-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\fabricantes.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\fabricantes.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\fabricantes\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\components\paises-add.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\components\paises-edit.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\components\paises-list.component.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\controllers\paises-add-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\controllers\paises-add.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\controllers\paises-edit-view.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\controllers\paises-edit.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\paises.controller.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\paises.dataservice.js" />
+    <Content Include="app\custom\tecnipart\administracion\pais\stateProvider.js" />
+    <Content Include="app\custom\tecnipart\blocks\logger\logger.factory.js" />
+    <Content Include="app\custom\tecnipart\blocks\logger\logger.module.js" />
+    <Content Include="app\custom\tecnipart\blocks\modal\modal-window.factory.js" />
+    <Content Include="app\custom\tecnipart\crud.form\control.editor\control.editor.controller.js" />
+    <Content Include="app\custom\tecnipart\crud.form\control.editor\control.editor.directive.js" />
+    <Content Include="app\custom\tecnipart\crud.form\control.editor\control.editor.view.html" />
+    <Content Include="app\custom\tecnipart\crud.form\crud.form.controller.js" />
+    <Content Include="app\custom\tecnipart\crud.form\crud.form.directive.js" />
+    <Content Include="app\custom\tecnipart\crud.form\crud.form.factory.js" />
+    <Content Include="app\custom\tecnipart\crud.form\crud.form.view.html" />
+    <Content Include="app\custom\tecnipart\partials\edit-button.html" />
+    <Content Include="app\custom\tecnipart\partials\messages.html" />
+    <Content Include="app\custom\tecnipart\services\appServices.js" />
+    <Content Include="app\custom\tecnipart\tecnipart.module.js" />
+    <Content Include="app\custom\tecnipart\tecnipart.run.js" />
+    <Content Include="app\custom\tecnipart\utils\componentes\modal\visorImagen.directive.js" />
+    <Content Include="app\custom\tecnipart\utils\componentes\modal\visorImagenController.js" />
+    <Content Include="app\custom\tecnipart\utils\text-transform\capitalize.directive.js" />
+    <Content Include="app\custom\tecnipart\utils\upload\file-reader.factory.js" />
+    <Content Include="app\custom\tecnipart\utils\upload\file-select.directive.js" />
+    <Content Include="app\custom\tecnipart\utils\utils.module.js" />
+    <Content Include="app\modules\acceso\authService.js" />
+    <Content Include="app\modules\acceso\services\authInterceptorService.js" />
+    <Content Include="app\modules\acceso\signupController.js" />
+    <Content Include="app\modules\colors\colors.contant.js" />
+    <Content Include="app\modules\colors\colors.module.js" />
+    <Content Include="app\modules\colors\colors.service.js" />
+    <Content Include="app\modules\core\core.config.js" />
+    <Content Include="app\modules\core\core.constants.js" />
+    <Content Include="app\modules\core\core.module.js" />
+    <Content Include="app\modules\core\core.run.js" />
+    <Content Include="app\modules\decorators\customExceptionHandlerDecorator.js" />
+    <Content Include="app\modules\lazyload\lazyload.config.js" />
+    <Content Include="app\modules\lazyload\lazyload.constants.js" />
+    <Content Include="app\modules\lazyload\lazyload.module.js" />
+    <Content Include="app\modules\loadingbar\loadingbar.config.js" />
+    <Content Include="app\modules\loadingbar\loadingbar.module.js" />
+    <Content Include="app\modules\loadingbar\loadingbar.run.js" />
+    <Content Include="app\modules\maps\maps-google-modal.controller.js" />
+    <Content Include="app\modules\maps\maps-google.controller.js" />
+    <Content Include="app\modules\maps\maps.module.js" />
+    <Content Include="app\modules\material\material.config.js" />
+    <Content Include="app\modules\material\material.controller.js" />
+    <Content Include="app\modules\material\material.module.js" />
+    <Content Include="app\modules\material\material.run.js" />
+    <Content Include="app\modules\material\material.widgets.controller.js" />
+    <Content Include="app\modules\navsearch\navsearch.directive.js" />
+    <Content Include="app\modules\navsearch\navsearch.module.js" />
+    <Content Include="app\modules\navsearch\navsearch.service.js" />
+    <Content Include="app\modules\preloader\preloader.directive.js" />
+    <Content Include="app\modules\preloader\preloader.module.js" />
+    <Content Include="app\modules\routes\route-helpers.provider.js" />
+    <Content Include="app\modules\routes\routes.config.js" />
+    <Content Include="app\modules\routes\routes.module.js" />
+    <Content Include="app\modules\settings\settings.module.js" />
+    <Content Include="app\modules\settings\settings.run.js" />
+    <Content Include="app\modules\sidebar\sidebar.controller.js" />
+    <Content Include="app\modules\sidebar\sidebar.directive.js" />
+    <Content Include="app\modules\sidebar\sidebar.module.js" />
+    <Content Include="app\modules\sidebar\sidebar.service.js" />
+    <Content Include="app\modules\sidebar\sidebar.userblock.controller.js" />
+    <Content Include="app\modules\translate\translate.config.js" />
+    <Content Include="app\modules\translate\translate.module.js" />
+    <Content Include="app\modules\translate\translate.run.js" />
+    <Content Include="app\modules\utils\animate-enabled.directive.js" />
+    <Content Include="app\modules\utils\browser.service.js" />
+    <Content Include="app\modules\utils\clear-storage.directive.js" />
+    <Content Include="app\modules\utils\fullscreen.directive.js" />
+    <Content Include="app\modules\utils\load-css.directive.js" />
+    <Content Include="app\modules\utils\now.directive.js" />
+    <Content Include="app\modules\utils\table-checkall.directive.js" />
+    <Content Include="app\modules\utils\trigger-resize.directive.js" />
+    <Content Include="app\modules\utils\utils.module.js" />
+    <Content Include="app\modules\utils\utils.service.js" />
+    <Content Include="Content\img\logo_tp_small.jpg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_apps_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_back_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_back_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_back_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_back_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_downward_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_downward_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_circle_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_down_circle_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_up_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_up_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_up_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_drop_up_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_forward_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_forward_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_forward_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_forward_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_upward_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_arrow_upward_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_cancel_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_cancel_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_cancel_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_cancel_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_check_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_check_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_check_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_check_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_left_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_left_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_left_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_left_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_right_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_right_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_right_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_chevron_right_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_close_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_close_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_close_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_close_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_less_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_less_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_less_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_less_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_more_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_more_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_more_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_expand_more_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_first_page_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_first_page_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_exit_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_exit_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_exit_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_fullscreen_exit_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_last_page_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_last_page_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_menu_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_menu_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_menu_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_menu_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_horiz_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_horiz_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_horiz_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_horiz_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_vert_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_vert_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_vert_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_more_vert_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_refresh_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_refresh_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_refresh_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_refresh_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_subdirectory_arrow_left_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_subdirectory_arrow_left_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_subdirectory_arrow_right_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_subdirectory_arrow_right_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_less_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_less_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_less_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_less_48px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_18px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_24px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_36px.svg" />
+    <Content Include="Content\img\material-design-icons\navigation\svg\production\ic_unfold_more_48px.svg" />
+    <Content Include="Content\img\sidebar\catalogos.png" />
+    <Content Include="Content\img\sidebar\fabricantes.png" />
+    <Content Include="Content\img\sidebar\marcas.png" />
+    <Content Include="Content\img\sidebar\pais.png" />
+    <Content Include="Content\img\sidebar\referencias.png" />
+    <Content Include="Content\img\sidebar\sistemas.png" />
+    <Content Include="Content\img\sidebar\subsistemas.png" />
+    <Content Include="Content\img\sidebar\vehiculos.png" />
+    <Content Include="Scripts\Vendor\angular-ui-sortable\sortable.js" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.js" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.min.js" />
+    <Content Include="Scripts\Vendor\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\dist\angular-ui-tree.css" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\dist\angular-ui-tree.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\dist\angular-ui-tree.min.css" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\dist\angular-ui-tree.min.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\css\app.css" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\index.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\app.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\basic-example.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\cloning.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\connected-trees.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\drop-confirmation.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\expand-on-hover.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\filter-nodes.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\js\table-example.js" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\basic-example.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\cloning.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\connected-trees.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\drop-confirmation.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\expand-on-hover.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\filter-nodes.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\nodrop.html" />
+    <Content Include="Scripts\Vendor\angular-ui-tree\examples\views\table-example.html" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.css" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.css" />
+    <Content Include="Content\app\app-rtl.css" />
+    <Content Include="Content\app\app.css" />
+    <Content Include="Content\app\bootstrap-rtl.css" />
+    <Content Include="Content\app\bootstrap.css" />
+    <Content Include="Content\app\theme-a.css" />
+    <Content Include="Content\app\theme-b.css" />
+    <Content Include="Content\app\theme-c.css" />
+    <Content Include="Content\app\theme-d.css" />
+    <Content Include="Content\app\theme-e.css" />
+    <Content Include="Content\app\theme-f.css" />
+    <Content Include="Content\app\theme-g.css" />
+    <Content Include="Content\app\theme-h.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\dummy.png" />
+    <Content Include="Content\img\icons\copy.svg" />
+    <Content Include="Content\img\icons\copy2.svg" />
+    <Content Include="Content\img\icons\facebook.svg" />
+    <Content Include="Content\img\icons\hangout.svg" />
+    <Content Include="Content\img\icons\ic_close_24px.svg" />
+    <Content Include="Content\img\icons\ic_refresh_24px.svg" />
+    <Content Include="Content\img\icons\mail.svg" />
+    <Content Include="Content\img\icons\message.svg" />
+    <Content Include="Content\img\icons\print.svg" />
+    <Content Include="Content\img\icons\share-arrow.svg" />
+    <Content Include="Content\img\icons\twitter.svg" />
+    <Content Include="Content\img\icons\upload.svg" />
+    <Content Include="Content\img\logo-single.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_box_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_box_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_circle_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_circle_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_circle_outline_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_add_circle_outline_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_archive_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_archive_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_backspace_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_backspace_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_block_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_block_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_clear_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_clear_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_copy_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_copy_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_cut_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_cut_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_paste_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_content_paste_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_create_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_create_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_delete_sweep_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_delete_sweep_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_drafts_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_drafts_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_filter_list_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_filter_list_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_flag_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_flag_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_font_download_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_forward_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_forward_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_gesture_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_gesture_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_inbox_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_inbox_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_link_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_link_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_low_priority_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_low_priority_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_mail_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_mail_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_markunread_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_markunread_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_move_to_inbox_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_move_to_inbox_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_next_week_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_next_week_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_redo_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_redo_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_circle_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_circle_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_circle_outline_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_remove_circle_outline_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_reply_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_reply_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_reply_all_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_reply_all_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_report_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_report_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_save_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_save_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_select_all_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_select_all_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_send_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_send_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_sort_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_sort_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_text_format_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_text_format_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_unarchive_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_unarchive_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_undo_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_undo_48px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_weekend_24px.svg" />
+    <Content Include="Content\img\material-design-icons\content\svg\production\ic_weekend_48px.svg" />
+    <Content Include="Content\img\preloader\preloader.empty.png" />
+    <Content Include="Content\img\preloader\preloader.full.png" />
+    <Content Include="Content\img\user\02.jpg" />
+    <Content Include="Content\mvc-override.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.min.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.tpls.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\angular-toastr.tpls.min.js" />
+    <Content Include="Scripts\Vendor\angular-messages\angular-messages.js" />
+    <Content Include="Scripts\Vendor\angular-messages\angular-messages.min.js" />
+    <Content Include="Scripts\Vendor\md-data-table\md-data-table.css" />
+    <Content Include="Scripts\Vendor\md-data-table\md-data-table.js" />
+    <Content Include="Scripts\Vendor\md-data-table\md-data-table.min.css" />
+    <Content Include="Scripts\Vendor\md-data-table\md-data-table.min.js" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.css" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.debug.js" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.js" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.min.css" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.min.js" />
+    <Content Include="Scripts\Vendor\restangular\lodash.js" />
+    <Content Include="Scripts\Vendor\restangular\lodash.min.js" />
+    <Content Include="Scripts\Vendor\restangular\restangular.js" />
+    <Content Include="Scripts\Vendor\restangular\restangular.min.js" />
+    <Content Include="Scripts\Vendor\smart-table\smart-table.js" />
+    <Content Include="Scripts\Vendor\smart-table\smart-table.min.js" />
+    <Content Include="Scripts\Vendor\angular-animate\angular-animate.js" />
+    <Content Include="Scripts\Vendor\angular-bootstrap\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\Vendor\angular-bootstrap\ui-bootstrap.min.js" />
+    <Content Include="Scripts\Vendor\angular-cookies\angular-cookies.js" />
+    <Content Include="Scripts\Vendor\angular-loading-bar\build\loading-bar.js" />
+    <Content Include="Scripts\Vendor\angular-material\angular-aria.js" />
+    <Content Include="Scripts\Vendor\angular-material\angular-material.css" />
+    <Content Include="Scripts\Vendor\angular-material\angular-material.js" />
+    <Content Include="Scripts\Vendor\angular-resource\angular-resource.js" />
+    <Content Include="Scripts\Vendor\angular-route\angular-route.js" />
+    <Content Include="Scripts\Vendor\angular-sanitize\angular-sanitize.js" />
+    <Content Include="Scripts\Vendor\angular-smart-table\smart-table.js" />
+    <Content Include="Scripts\Vendor\angular-smart-table\smart-table.min.js" />
+    <Content Include="Scripts\Vendor\angular-smart-table\stConfig.js" />
+    <Content Include="Scripts\Vendor\angular-smart-table\stPagination.js" />
+    <Content Include="Scripts\Vendor\angular-strap\angular-strap.js" />
+    <Content Include="Scripts\Vendor\angular-strap\angular-strap.min.js" />
+    <Content Include="Scripts\Vendor\angular-strap\angular-strap.tpl.js" />
+    <Content Include="Scripts\Vendor\angular-strap\angular-strap.tpl.min.js" />
+    <Content Include="Scripts\Vendor\angular-touch\angular-touch.js" />
+    <Content Include="Scripts\Vendor\angular-translate-loader-static-files\angular-translate-loader-static-files.js" />
+    <Content Include="Scripts\Vendor\angular-translate-loader-url\angular-translate-loader-url.js" />
+    <Content Include="Scripts\Vendor\angular-translate-storage-cookie\angular-translate-storage-cookie.js" />
+    <Content Include="Scripts\Vendor\angular-translate-storage-local\angular-translate-storage-local.js" />
+    <Content Include="Scripts\Vendor\angular-translate\angular-translate.js" />
+    <Content Include="Scripts\Vendor\angular-ui-event\dist\event.js" />
+    <Content Include="Scripts\Vendor\angular-ui-indeterminate\dist\indeterminate.js" />
+    <Content Include="Scripts\Vendor\angular-ui-map\ui-map.js" />
+    <Content Include="Scripts\Vendor\angular-ui-mask\dist\mask.js" />
+    <Content Include="Scripts\Vendor\angular-ui-scrollpoint\dist\scrollpoint.js" />
+    <Content Include="Scripts\Vendor\angular-ui-scroll\dist\ui-scroll.js" />
+    <Content Include="Scripts\Vendor\angular-ui-uploader\dist\uploader.js" />
+    <Content Include="Scripts\Vendor\angular-ui-utils\index.js" />
+    <Content Include="Scripts\Vendor\angular-ui-validate\dist\validate.js" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\toaster.css" />
+    <Content Include="Scripts\Vendor\angularjs-toaster\toaster.js" />
+    <Content Include="Scripts\Vendor\angular\angular.js" />
+    <Content Include="Scripts\Vendor\angular\angularOld.js" />
+    <Content Include="Scripts\Vendor\animate.css\animate.min.css" />
+    <Content Include="Scripts\Vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\Vendor\jquery.browser\dist\jquery.browser.js" />
+    <Content Include="Scripts\Vendor\jquery\dist\jquery.js" />
+    <Content Include="Scripts\Vendor\load-google-maps\load-google-maps.js" />
+    <Content Include="Scripts\Vendor\modernizr\modernizr.custom.js" />
+    <Content Include="Scripts\Vendor\ngDialog\css\ngDialog-theme-default.min.css" />
+    <Content Include="Scripts\Vendor\ngDialog\css\ngDialog.min.css" />
+    <Content Include="Scripts\Vendor\ngDialog\js\ngDialog.min.js" />
+    <Content Include="Scripts\Vendor\ngstorage\ngStorage.js" />
+    <Content Include="Scripts\Vendor\oclazyload\dist\ocLazyLoad.js" />
+    <Content Include="Scripts\Vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Scripts\Vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Scripts\Vendor\weather-icons\css\weather-icons-wind.min.css" />
+    <Content Include="Scripts\Vendor\weather-icons\css\weather-icons.min.css" />
+    <Content Include="Scripts\Vendor\weather-icons\font\weathericons-regular-webfont.svg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Account\AccountController.cs" />
+    <Compile Include="Api\Administracion\FabricantesController.cs" />
+    <Compile Include="Api\Administracion\MarcasController.cs" />
+    <Compile Include="Api\Administracion\PaisesController.cs" />
+    <Compile Include="Api\Administracion\Productos\ProductosController.cs" />
+    <Compile Include="Api\Administracion\Productos\MarcasTiposProductosController.cs" />
+    <Compile Include="Api\Administracion\Productos\SistemasController.cs" />
+    <Compile Include="Api\Administracion\Productos\TiposProductosController.cs" />
+    <Compile Include="Api\Administracion\Productos\LineasProductosController.cs" />
+    <Compile Include="Api\Administracion\Referencias\ReferenciasController.cs" />
+    <Compile Include="Api\Facade\CustomMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Api\Facade\ManagementImageFacade.cs" />
+    <Compile Include="Api\Facade\IManagementImageFacade.cs" />
+    <Compile Include="Api\Facade\Models\EntityWithImageModel.cs" />
+    <Compile Include="Api\Facade\Models\FileDescription.cs" />
+    <Compile Include="Api\ResponsePackage.cs" />
+    <Compile Include="Api\ResponseWrappingHandler.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CommunicationApi\AuthContext.cs" />
+    <Compile Include="CommunicationApi\AuthRepository.cs" />
+    <Compile Include="CommunicationApi\Providers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Controllers\Administracion\FabricantesController.cs" />
+    <Compile Include="Controllers\Administracion\MarcasController.cs" />
+    <Compile Include="Controllers\Administracion\PaisesController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\MarcasTiposProductosFiltroCascadaController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\MarcasTiposProductosController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\ProductosController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\SistemasController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\TiposProductosController.cs" />
+    <Compile Include="Controllers\Administracion\Productos\LineasProductosController.cs" />
+    <Compile Include="Controllers\Administracion\Referencias\ReferenciasController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\BusquedaViewController.cs" />
+    <Compile Include="Controllers\Acceso\AccesoController.cs" />
+    <Compile Include="Controllers\PartialsController.cs" />
+    <Compile Include="Api\Filters\ValidateModelStateFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Administracion\Referencias\ListaMarcasRelacionMarcasTiposProductosViewModel.cs" />
+    <Compile Include="Models\Administracion\Referencias\ReferenciasViewModel.cs" />
+    <Compile Include="Models\SistemasViewModel.cs" />
+    <Compile Include="Models\MacasTiposProductosViewModel.cs" />
+    <Compile Include="Models\ProductosViewModel.cs" />
+    <Compile Include="Models\TiposProductosViewModel.cs" />
+    <Compile Include="Models\MarcasViewModel.cs" />
+    <Compile Include="Models\UsuarioModelo.cs" />
+    <Compile Include="Models\FabricantesViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Windsor\Installers\ApiControllersInstaller.cs" />
+    <Compile Include="Windsor\Installers\RepositoriesInstaller.cs" />
+    <Compile Include="Windsor\WindsorCompositionRoot.cs" />
+    <Compile Include="Windsor\WindsorContainerConfigurator.cs" />
+    <Compile Include="Windsor\WindsorDependencyResolver.cs" />
+    <Compile Include="Windsor\WindsorDependencyScope.cs" />
+    <Compile Include="Windsor\Installers\WindsorValidatorFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\Partials\Footer.cshtml" />
+    <Content Include="Views\Partials\ModalService.cshtml" />
+    <Content Include="Views\Partials\Offsidebar.cshtml" />
+    <Content Include="Views\Partials\OffsidebarTab1.cshtml" />
+    <Content Include="Views\Partials\OffsidebarTab2.cshtml" />
+    <Content Include="Views\Partials\Sidebar.cshtml" />
+    <Content Include="Views\Partials\TopNavbar.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\Vendor\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\Vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Scripts\Vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Scripts\Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Scripts\Vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Scripts\Vendor\weather-icons\font\weathericons-regular-webfont.eot" />
+    <Content Include="Scripts\Vendor\weather-icons\font\weathericons-regular-webfont.ttf" />
+    <Content Include="Scripts\Vendor\weather-icons\font\weathericons-regular-webfont.woff" />
+    <Content Include="Scripts\Vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
+    <Content Include="Content\less\app.less" />
+    <Content Include="Content\less\app\animate.less" />
+    <Content Include="Content\less\app\bootstrap-reset.less" />
+    <Content Include="Content\less\app\breadcrumbs.less" />
+    <Content Include="Content\less\app\button-extra.less" />
+    <Content Include="Content\less\app\circles.less" />
+    <Content Include="Content\less\app\datepicker.less" />
+    <Content Include="Content\less\app\dropdown-extra.less" />
+    <Content Include="Content\less\app\gmap.less" />
+    <Content Include="Content\less\app\layout-animation.less" />
+    <Content Include="Content\less\app\layout-extra.less" />
+    <Content Include="Content\less\app\layout.less" />
+    <Content Include="Content\less\app\loading-bar.less" />
+    <Content Include="Content\less\app\material\cards.less" />
+    <Content Include="Content\less\app\material\colors.less" />
+    <Content Include="Content\less\app\material\md-forms.less" />
+    <Content Include="Content\less\app\material\md-inputs.less" />
+    <Content Include="Content\less\app\material\md-list.less" />
+    <Content Include="Content\less\app\material\ngmaterial.less" />
+    <Content Include="Content\less\app\material\welcome.less" />
+    <Content Include="Content\less\app\media-queries.less" />
+    <Content Include="Content\less\app\offsidebar.less" />
+    <Content Include="Content\less\app\panels.less" />
+    <Content Include="Content\less\app\preloader.less" />
+    <Content Include="Content\less\app\print.less" />
+    <Content Include="Content\less\app\row-extra.less" />
+    <Content Include="Content\less\app\sidebar.less" />
+    <Content Include="Content\less\app\top-navbar.less" />
+    <Content Include="Content\less\app\typo.less" />
+    <Content Include="Content\less\app\user-block.less" />
+    <Content Include="Content\less\app\utils.less" />
+    <Content Include="Content\less\bootstrap.less" />
+    <Content Include="Content\less\bootstrap\alerts.less" />
+    <Content Include="Content\less\bootstrap\badges.less" />
+    <Content Include="Content\less\bootstrap\bootstrap.less" />
+    <Content Include="Content\less\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\less\bootstrap\button-groups.less" />
+    <Content Include="Content\less\bootstrap\buttons.less" />
+    <Content Include="Content\less\bootstrap\carousel.less" />
+    <Content Include="Content\less\bootstrap\close.less" />
+    <Content Include="Content\less\bootstrap\code.less" />
+    <Content Include="Content\less\bootstrap\component-animations.less" />
+    <Content Include="Content\less\bootstrap\dropdowns.less" />
+    <Content Include="Content\less\bootstrap\forms.less" />
+    <Content Include="Content\less\bootstrap\glyphicons.less" />
+    <Content Include="Content\less\bootstrap\grid.less" />
+    <Content Include="Content\less\bootstrap\input-groups.less" />
+    <Content Include="Content\less\bootstrap\jumbotron.less" />
+    <Content Include="Content\less\bootstrap\labels.less" />
+    <Content Include="Content\less\bootstrap\list-group.less" />
+    <Content Include="Content\less\bootstrap\media.less" />
+    <Content Include="Content\less\bootstrap\mixins.less" />
+    <Content Include="Content\less\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\less\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\less\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\less\bootstrap\mixins\forms.less" />
+    <Content Include="Content\less\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\less\bootstrap\mixins\grid.less" />
+    <Content Include="Content\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\less\bootstrap\mixins\image.less" />
+    <Content Include="Content\less\bootstrap\mixins\labels.less" />
+    <Content Include="Content\less\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\less\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\less\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\less\bootstrap\mixins\panels.less" />
+    <Content Include="Content\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\less\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\less\bootstrap\mixins\resize.less" />
+    <Content Include="Content\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\less\bootstrap\mixins\size.less" />
+    <Content Include="Content\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\less\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\less\bootstrap\modals.less" />
+    <Content Include="Content\less\bootstrap\navbar.less" />
+    <Content Include="Content\less\bootstrap\navs.less" />
+    <Content Include="Content\less\bootstrap\normalize.less" />
+    <Content Include="Content\less\bootstrap\pager.less" />
+    <Content Include="Content\less\bootstrap\pagination.less" />
+    <Content Include="Content\less\bootstrap\panels.less" />
+    <Content Include="Content\less\bootstrap\popovers.less" />
+    <Content Include="Content\less\bootstrap\print.less" />
+    <Content Include="Content\less\bootstrap\progress-bars.less" />
+    <Content Include="Content\less\bootstrap\responsive-embed.less" />
+    <Content Include="Content\less\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\less\bootstrap\scaffolding.less" />
+    <Content Include="Content\less\bootstrap\tables.less" />
+    <Content Include="Content\less\bootstrap\theme.less" />
+    <Content Include="Content\less\bootstrap\thumbnails.less" />
+    <Content Include="Content\less\bootstrap\tooltip.less" />
+    <Content Include="Content\less\bootstrap\type.less" />
+    <Content Include="Content\less\bootstrap\utilities.less" />
+    <Content Include="Content\less\bootstrap\variables.less" />
+    <Content Include="Content\less\bootstrap\wells.less" />
+    <Content Include="Content\less\themes\theme-a.less" />
+    <Content Include="Content\less\themes\theme-b.less" />
+    <Content Include="Content\less\themes\theme-c.less" />
+    <Content Include="Content\less\themes\theme-d.less" />
+    <Content Include="Content\less\themes\theme-e.less" />
+    <Content Include="Content\less\themes\theme-f.less" />
+    <Content Include="Content\less\themes\theme-g.less" />
+    <Content Include="Content\less\themes\theme-h.less" />
+    <Content Include="Content\sass\app.scss" />
+    <Content Include="Content\sass\app\animate.scss" />
+    <Content Include="Content\sass\app\bootstrap-reset.scss" />
+    <Content Include="Content\sass\app\breadcrumbs.scss" />
+    <Content Include="Content\sass\app\button-extra.scss" />
+    <Content Include="Content\sass\app\circles.scss" />
+    <Content Include="Content\sass\app\datepicker.scss" />
+    <Content Include="Content\sass\app\dropdown-extra.scss" />
+    <Content Include="Content\sass\app\gmap.scss" />
+    <Content Include="Content\sass\app\layout-animation.scss" />
+    <Content Include="Content\sass\app\layout-extra.scss" />
+    <Content Include="Content\sass\app\layout.scss" />
+    <Content Include="Content\sass\app\loading-bar.scss" />
+    <Content Include="Content\sass\app\material\cards.scss" />
+    <Content Include="Content\sass\app\material\colors.scss" />
+    <Content Include="Content\sass\app\material\md-forms.scss" />
+    <Content Include="Content\sass\app\material\md-inputs.scss" />
+    <Content Include="Content\sass\app\material\md-list.scss" />
+    <Content Include="Content\sass\app\material\ngmaterial.scss" />
+    <Content Include="Content\sass\app\material\welcome.scss" />
+    <Content Include="Content\sass\app\media-queries.scss" />
+    <Content Include="Content\sass\app\offsidebar.scss" />
+    <Content Include="Content\sass\app\panels.scss" />
+    <Content Include="Content\sass\app\preloader.scss" />
+    <Content Include="Content\sass\app\print.scss" />
+    <Content Include="Content\sass\app\row-extra.scss" />
+    <Content Include="Content\sass\app\sidebar.scss" />
+    <Content Include="Content\sass\app\top-navbar.scss" />
+    <Content Include="Content\sass\app\typo.scss" />
+    <Content Include="Content\sass\app\user-block.scss" />
+    <Content Include="Content\sass\app\utils-definitions.scss" />
+    <Content Include="Content\sass\app\utils.scss" />
+    <Content Include="Content\sass\app\variables.scss" />
+    <Content Include="Content\sass\bootstrap.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_alerts.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_center-block.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_labels.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_opacity.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_panels.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_alerts.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_badges.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_breadcrumbs.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_button-groups.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_buttons.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_carousel.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_close.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_code.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_component-animations.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_dropdowns.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_forms.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_glyphicons.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_grid.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_input-groups.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_labels.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_list-group.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_media.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_mixins.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_modals.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_navbar.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_navs.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_normalize.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_pager.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_pagination.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_panels.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_popovers.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_print.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_progress-bars.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_responsive-embed.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_responsive-utilities.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_scaffolding.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_tables.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_theme.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_thumbnails.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_tooltip.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_type.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_utilities.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_variables.scss" />
+    <Content Include="Content\sass\bootstrap\bootstrap\_wells.scss" />
+    <Content Include="Content\sass\bootstrap\_bootstrap-compass.scss" />
+    <Content Include="Content\sass\bootstrap\_bootstrap-mincer.scss" />
+    <Content Include="Content\sass\bootstrap\_bootstrap-sprockets.scss" />
+    <Content Include="Content\sass\bootstrap\_bootstrap.scss" />
+    <Content Include="Content\sass\themes\theme-a.scss" />
+    <Content Include="Content\sass\themes\theme-b.scss" />
+    <Content Include="Content\sass\themes\theme-c.scss" />
+    <Content Include="Content\sass\themes\theme-d.scss" />
+    <Content Include="Content\sass\themes\theme-e.scss" />
+    <Content Include="Content\sass\themes\theme-f.scss" />
+    <Content Include="Content\sass\themes\theme-g.scss" />
+    <Content Include="Content\sass\themes\theme-h.scss" />
+    <Content Include="Scripts\Vendor\angular-smart-table\smart-table.min.js.map" />
+    <Content Include="Scripts\Vendor\angular-strap\angular-strap.min.js.map" />
+    <Content Include="Content\less\vendor\angular-strap\angular-strap.less" />
+    <Content Include="app\i18n\en.json" />
+    <Content Include="app\i18n\es.json" />
+    <Content Include="Views\BusquedaView\Index.cshtml" />
+    <Content Include="Views\BusquedaView\MenuView.cshtml" />
+    <Content Include="Sidebar\sidebar-menu.json" />
+    <Content Include="Scripts\Vendor\smart-table\smart-table.min.js.map" />
+    <Content Include="Views\Administracion\Paises\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Paises\PaisesAddView.cshtml" />
+    <Content Include="Views\Administracion\Paises\PaisesComponent.cshtml" />
+    <Content Include="Views\Administracion\Paises\PaisesEditView.cshtml" />
+    <Content Include="Views\Administracion\Paises\PaisesListComponent.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesAddView.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesComponent.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesEditView.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\FabricantesListComponent.cshtml" />
+    <Content Include="Views\Administracion\Fabricantes\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasAddView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasComponent.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasEditView.cshtml" />
+    <Content Include="Views\Administracion\Marcas\MarcasListComponent.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosAddView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosComponent.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosEditView.cshtml" />
+    <Content Include="Views\Administracion\Vehiculos\VehiculosListComponent.cshtml" />
+    <Content Include="Scripts\Vendor\angular-messages\angular-messages.min.js.map" />
+    <Content Include="Views\Administracion\Sistemas\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasAddView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasComponent.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasEditView.cshtml" />
+    <Content Include="Views\Administracion\Sistemas\SistemasListComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasAddView.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasEditView.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\SubSistemasListComponent.cshtml" />
+    <Content Include="Views\Administracion\SubSistemas\IndexView.cshtml" />
+    <Content Include="app\modules\acceso\access-login.controller.js" />
+    <Content Include="Config\ConnectionString.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\dev-tecnipart.pubxml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosAddView.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosComponent.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosEditView.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\CatalogosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Catalogos\IndexView.cshtml" />
+    <Content Include="Views\Partials\VisorImagen.cshtml" />
+    <Content Include="Views\Acceso\Login.cshtml" />
+    <Content Include="Views\Acceso\Index.cshtml" />
+    <Content Include="Scripts\Vendor\angular-local-storage\angular-local-storage.min.js.map" />
+    <Content Include="Views\Shared\_LayoutAcceso.cshtml" />
+    <Content Include="Views\Administracion\Referencias\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasAddView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasComponent.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasEditView.cshtml" />
+    <Content Include="Views\Administracion\Referencias\ReferenciasListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\LineasProductos\LineasProductosAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\LineasProductos\LineasProductosComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\LineasProductos\LineasProductosEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\LineasProductos\LineasProductosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\LineasProductos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\TiposProductos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\TiposProductos\TiposProductosAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\TiposProductos\TiposProductosComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\TiposProductos\TiposProductosEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\TiposProductos\TiposProductosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\Productos\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Productos\ProductosAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Productos\ProductosComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\Productos\ProductosEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Productos\ProductosListComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\Sistemas\IndexView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Sistemas\SistemasAddView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Sistemas\SistemasComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\Sistemas\SistemasEditView.cshtml" />
+    <Content Include="Views\Administracion\Productos\Sistemas\SistemasListComponent.cshtml" />
+    <Content Include="Scripts\Vendor\ng-tree-dnd\ng-tree-dnd.min.js.map" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosFiltroCascadaComponent.cshtml" />
+    <Content Include="Views\Administracion\Productos\MarcasTiposProductos\MarcasTiposProductosFiltroCascadaView.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Temp\FileUploads\" />
+    <Folder Include="Scripts\Vendor\angular-loading-bar\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-event\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-event\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-event\test\" />
+    <Folder Include="Scripts\Vendor\angular-ui-indeterminate\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-indeterminate\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-indeterminate\test\" />
+    <Folder Include="Scripts\Vendor\angular-ui-mask\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-mask\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-mask\test\" />
+    <Folder Include="Scripts\Vendor\angular-ui-router\api\" />
+    <Folder Include="Scripts\Vendor\angular-ui-router\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-scrollpoint\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-scrollpoint\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-scrollpoint\test\" />
+    <Folder Include="Scripts\Vendor\angular-ui-scroll\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-uploader\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-uploader\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-uploader\test\" />
+    <Folder Include="Scripts\Vendor\angular-ui-validate\demo\" />
+    <Folder Include="Scripts\Vendor\angular-ui-validate\src\" />
+    <Folder Include="Scripts\Vendor\angular-ui-validate\test\" />
+    <Folder Include="Scripts\Vendor\jquery.browser\test\src\require\" />
+    <Folder Include="Scripts\Vendor\jquery\src\ajax\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\attributes\" />
+    <Folder Include="Scripts\Vendor\jquery\src\core\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\css\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\data\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\effects\" />
+    <Folder Include="Scripts\Vendor\jquery\src\event\" />
+    <Folder Include="Scripts\Vendor\jquery\src\exports\" />
+    <Folder Include="Scripts\Vendor\jquery\src\manipulation\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\queue\" />
+    <Folder Include="Scripts\Vendor\jquery\src\sizzle\dist\" />
+    <Folder Include="Scripts\Vendor\jquery\src\traversing\var\" />
+    <Folder Include="Scripts\Vendor\jquery\src\var\" />
+    <Folder Include="Scripts\Vendor\oclazyload\dist\modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\1. Dominio\Feroza.VirtualPartes.Dominio.Entidades\Feroza.VirtualPartes.Dominio.Entidades.csproj">
+      <Project>{0FFD62FE-487E-404A-9CE9-ED8777269D4D}</Project>
+      <Name>Feroza.VirtualPartes.Dominio.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\1. Dominio\Feroza.VirtualPartes.Dominio.Interfaces\Feroza.VirtualPartes.Dominio.Interfaces.csproj">
+      <Project>{7BBE9098-B7A5-4984-A9F6-660B700548C8}</Project>
+      <Name>Feroza.VirtualPartes.Dominio.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\1. Dominio\Feroza.VirtualPartes.Dominio.RepositorioContratos\Feroza.VirtualPartes.Dominio.RepositorioContratos.csproj">
+      <Project>{671717A4-635D-42C7-A1F5-A5B35BBE7318}</Project>
+      <Name>Feroza.VirtualPartes.Dominio.RepositorioContratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\2. Servicios\Feroza.VirtualPartes.Servicios.Interfaces\Feroza.VirtualPartes.Servicios.Interfaces.csproj">
+      <Project>{1AB91710-8192-4E73-BA3F-60F7E4413254}</Project>
+      <Name>Feroza.VirtualPartes.Servicios.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.Data\Feroza.VirtualPartes.Infraestructura.Data.csproj">
+      <Project>{0A4D2752-5163-49E0-A93D-189E17AED94F}</Project>
+      <Name>Feroza.VirtualPartes.Infraestructura.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.ResolucionDepencias\Feroza.VirtualPartes.Infraestructura.ResolucionDepencias.csproj">
+      <Project>{E4E1C22B-55A3-445B-801C-D3991797519E}</Project>
+      <Name>Feroza.VirtualPartes.Infraestructura.ResolucionDepencias</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo.csproj">
+      <Project>{44178C4A-AACE-422A-A87D-C27FA48F0255}</Project>
+      <Name>Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
+      <Project>{0c03027c-979d-4de0-a632-887df0815028}</Project>
+      <Name>Feroza.VirtualPartes.Infraestructura.BaseData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63776</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:89/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

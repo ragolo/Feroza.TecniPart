@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <div class="smart-table-container">
+            <table st-safe-src="vm.productos.productosListar" st-table="productosTable" class="smart-table table">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Marcas Tipos Productos</th>
+                    <th>Version</th>
+                    <th>Año</th>
+                    <th>Imagen</th>
+                    <th>Comentario</th>
+                    <th style="text-align: center">
+                        <md-button class="md-icon-button" ng-click="vm.add()">
+                            <md-tooltip md-direction="bottom">
+                                Agregar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                        </md-button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="productos in productosTable">
+                    <td>{{productos.Nombre}}</td>
+                    <td>{{productos.IdMarcasTiposProductos}}</td>
+                    <td>{{productos.Version}}</td>
+                    <td>{{productos.Anio}}</td>
+                    <td>{{productos.Imagen}}</td>
+                    <td>{{productos.Descripcion}}</td>
+
+                    <td style="width: 20%; text-align: center">
+
+                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(productos)">
+                            <md-tooltip md-direction="bottom">
+                                Editar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                        </md-button>
+                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(productos)">
+                            <md-tooltip md-direction="bottom">
+                                Eliminar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                        </md-button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="7" class="text-center">
+                        <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

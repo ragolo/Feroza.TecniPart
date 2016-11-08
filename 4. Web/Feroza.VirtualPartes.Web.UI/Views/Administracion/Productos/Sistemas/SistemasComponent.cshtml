@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+<form name="sistemasComponentForm">
+
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
+        </div>
+
+        <div class="card-body">
+            <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+                <div flex-gt-sm>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Sistema</label>
+                            <input md-maxlength="100" name="sistemasNombre" ng-model="vm.sistemas.Nombre" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="sistemasComponentForm.sistemasNombre.$error" role="alert">
+                                
+                                    <div ng-message="pattern">Por favor solo use números o letras</div>
+                                    <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                                
+                            </div>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Líneas sistemas</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="IdLineasSistemas" ng-model="vm.sistemas.IdLineasSistemas" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="lineaProducto in vm.sistemas.LineasSistemasList" ng-value="lineaProducto.IdLineasSistemas">
+                                    {{lineaProducto.Nombre}}
+                                </md-option>
+                            </md-select>
+                            <div multiple ng-messages="referenciasComponentForm.IdLineasSistemas.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-sm="row">
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Comentario</label>
+
+                            <textarea ng-model="vm.sistemas.Descripcion" name="descripcion" md-maxlength="2000" rows="5" md-select-on-focus></textarea>
+                            <div multiple ng-messages="sistemasComponentForm.descripcion.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="sistemasComponentForm.$invalid || sistemasComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

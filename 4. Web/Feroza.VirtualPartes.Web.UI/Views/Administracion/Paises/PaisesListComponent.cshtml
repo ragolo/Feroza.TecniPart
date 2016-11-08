@@ -1,0 +1,64 @@
+﻿@{
+  Layout = null;
+} 
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <div class="smart-table-container">
+            <table st-safe-src="vm.paises.paisesListar" st-table="paisTable" class="smart-table table">
+                <thead>
+                <tr>
+                    <th>País</th>
+                    <th>Código ISO</th>
+                    <th>Código Dian</th>
+                    <th>Activo</th>
+                    <th style="text-align: center">
+                        <md-button class="md-icon-button" ng-click="vm.add()">
+                            <md-tooltip md-direction="bottom">
+                                Agregar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                        </md-button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="pais in paisTable">
+                    
+                    <td>{{pais.Nombre}}</td>
+                    <td>{{pais.Codigo}}</td>
+                    <td>{{pais.CodigoDian}}</td>
+                    <td>
+                        <md-checkbox aria-label="Kit" ng-model="pais.Activo" disabled style="margin-bottom: 0">
+                        </md-checkbox>
+                    </td>
+                    <td style="width: 20%; text-align: center">
+                        
+                        <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(pais)">
+                            <md-tooltip md-direction="bottom">
+                                Editar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                        </md-button>
+                        <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(pais)">
+                            <md-tooltip md-direction="bottom">
+                                Eliminar
+                            </md-tooltip>
+                            <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                        </md-button>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

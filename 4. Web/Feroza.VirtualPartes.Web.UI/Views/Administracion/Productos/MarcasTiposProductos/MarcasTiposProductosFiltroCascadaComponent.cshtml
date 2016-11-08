@@ -1,0 +1,42 @@
+﻿@{
+    Layout = null;
+}
+<form name="marcasTiposProductosFiltroCascadaComponent">
+
+    <div class="card">
+
+        <div class="card-body">
+            <div layout="row" layout-xs="column" layout-sm="column" layout-align="space-between center">
+                <div flex-gt-sm>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Lineas productos</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="IdTiposProductos" ng-model="vm.marcasTiposProductos.IdTiposProductos" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="tipoProducto in vm.marcasTiposProductos.TiposProductosList" ng-value="tipoProducto.IdTiposProductos">
+                                    {{tipoProducto.Nombre}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Tipos productos</label>
+                            <md-select aria-required="true" md-no-asterisk="false" name="IdTiposProductos" ng-model="vm.marcasTiposProductos.IdTiposProductos" required>
+                                <md-option ng-value=""><em>[Seleccionar]</em></md-option>
+                                <md-option ng-repeat="tipoProducto in vm.marcasTiposProductos.TiposProductosList" ng-value="tipoProducto.IdTiposProductos">
+                                    {{tipoProducto.Nombre}}
+                                </md-option>
+                            </md-select>
+                            
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Guardar" ng-click="vm.buscar()" ng-disabled="marcasTiposProductosFiltroCascadaComponent.$invalid || marcasTiposProductosFiltroCascadaComponent.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>

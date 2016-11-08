@@ -1,0 +1,198 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+        <div class="smart-table-container">
+            <table st-safe-src="vm.sistemas.sistemasListar" st-table="sistemasTable" class="smart-table table">
+                <thead>
+                    <tr>
+                        <th>Tipos Sistemas</th>
+                        <th>Linea Sistemas</th>
+                        <th>Comentario</th>
+                        <th style="text-align: center">
+                            <md-button class="md-icon-button" ng-click="vm.add()">
+                                <md-tooltip md-direction="bottom">
+                                    Agregar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                            </md-button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <div ng-repeat="sistemas in sistemasTable">
+                        <tr>
+                            <td>{{sistemas.Nombre}}</td>
+                            <td>{{sistemas.LineasSistemas.Nombre}}</td>
+                            <td>{{sistemas.Descripcion}}</td>
+                            <td style="width: 20%; text-align: center">
+
+                                <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(sistemas)">
+                                    <md-tooltip md-direction="bottom">
+                                        Editar
+                                    </md-tooltip>
+                                    <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                                </md-button>
+                                <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(sistemas)">
+                                    <md-tooltip md-direction="bottom">
+                                        Eliminar
+                                    </md-tooltip>
+                                    <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                                </md-button>
+                            </td>
+                        </tr>
+                    </div>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+    </div>
+    <div class="panel-body">
+
+        <div flex-gt-sm flex>
+            <md-toolbar layout="row" class="md-hue-1">
+                <div class="md-toolbar-tools">
+                    <span>Sistemas</span>
+                </div>
+            </md-toolbar>
+            <md-content>
+                <md-list flex>
+                    <md-list-item class="md-3-line" ng-repeat="sistema in vm.sistemas.sistemasListar" layout="row">
+
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ sistema.Nombre }}</h3>
+                            <p>{{ sistema.Descripcion }}</p>
+                        </div>
+
+                        <md-list-item class="md-3-line" ng-repeat="sistemaHijo in sistema.SistemasHijos" ng-click="null" layout="row">
+
+                            <div class="md-list-item-text" layout="column">
+                                <h3>{{ sistemaHijo.Nombre }}</h3>
+                                <p>{{ sistemaHijo.Descripcion }}</p>
+                            </div>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+        <hr />
+
+        <script type="text/ng-template" id="sistemashijos.html">
+            <tr ui-tree-handle class="tree-node tree-node-content">
+                <td>
+                    <a class="btn btn-success btn-xs" ng-if="sistema.SistemasHijos && sistema.SistemasHijos.length > 0" data-nodrag ng-click="toggle(this)">
+                        <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed,'glyphicon-chevron-down': !collapsed}"></span>
+                    </a>
+                    {{sistema.Nombre}}
+                </td>
+                <td>{{sistema.LineasSistemas.Nombre}}</td>
+                <td>{{sistema.Descripcion}}</td>
+                <td style="width: 20%; text-align: center">
+                    <md-button class="md-icon-button" ng-click="vm.add()">
+                        <md-tooltip md-direction="bottom">
+                            Agregar
+                        </md-tooltip>
+                        <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Editar" class="md-icon-button" ng-click="vm.edit(sistema)">
+                        <md-tooltip md-direction="bottom">
+                            Editar
+                        </md-tooltip>
+                        <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_create_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Eliminar" class="md-icon-button" ng-click="vm.del(sistema)">
+                        <md-tooltip md-direction="bottom">
+                            Eliminar
+                        </md-tooltip>
+                        <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_delete_sweep_24px.svg"></md-icon>
+                    </md-button>
+                </td>
+            </tr>
+            <div ui-tree-nodes="" ng-model="sistema.SistemasHijos" ng-class="{hidden: collapsed}">
+                <tr ng-repeat="sistema in sistema.SistemasHijos" ui-tree-node ng-include="'nodes_renderer.html'"></tr>
+            </div>
+        </script>
+
+
+        <div class="smart-table-container">
+            <table st-safe-src="vm.sistemas.sistemasListar" st-table="sistemasTable" class="smart-table table">
+                <thead>
+                    <tr>
+                        <th>Tipos Sistemas</th>
+                        <th>Linea Sistemas</th>
+                        <th>Comentario</th>
+                        <th style="text-align: center">
+                            <md-button class="md-icon-button" ng-click="vm.add()">
+                                <md-tooltip md-direction="bottom">
+                                    Agregar
+                                </md-tooltip>
+                                <md-icon md-svg-icon="Content/img/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+                            </md-button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ui-tree id="tree-root1">
+
+                    <div ui-tree-nodes ng-repeat="sistema in sistemasTable" ui-tree-node ng-include="'sistemashijos.html'">
+
+                    </div>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <hr />
+
+        <h1>ejemplo</h1>
+        <!-- Nested node template -->
+        <script type="text/ng-template" id="nodes_renderer.html">
+            <div ui-tree-handle class="tree-node tree-node-content">
+                <a class="btn btn-success btn-xs" ng-if="sistema.SistemasHijos && sistema.SistemasHijos.length > 0" data-nodrag ng-click="toggle(this)">
+                    <span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed,'glyphicon-chevron-down': !collapsed}"></span>
+                </a>
+                {{sistema.Nombre}}
+                <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+                <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <ol ui-tree-nodes="" ng-model="sistema.SistemasHijos" ng-class="{hidden: collapsed}">
+                <li ng-repeat="sistema in sistema.SistemasHijos" ui-tree-node ng-include="'nodes_renderer.html'">
+                </li>
+            </ol>
+        </script>
+        <div class="col-sm-12">
+            <div ui-tree id="tree-root">
+                <ol ui-tree-nodes ng-model="vm.sistemas.sistemasListar">
+                    <li ng-repeat="sistema in vm.sistemas.sistemasListar" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>

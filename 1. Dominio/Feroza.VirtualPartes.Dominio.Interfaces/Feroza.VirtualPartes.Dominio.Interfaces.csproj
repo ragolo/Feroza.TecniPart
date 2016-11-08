@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BBE9098-B7A5-4984-A9F6-660B700548C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Feroza.VirtualPartes.Dominio.Interfaces</RootNamespace>
+    <AssemblyName>Feroza.VirtualPartes.Dominio.Interfaces</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administracion\IFabricantesRespositorio.cs" />
+    <Compile Include="Administracion\IMarcasRespositorio.cs" />
+    <Compile Include="Administracion\IPaisesRespositorio.cs" />
+    <Compile Include="Administracion\IFabricantesServicio.cs" />
+    <Compile Include="Administracion\IMarcasServicio.cs" />
+    <Compile Include="Administracion\IPaisesServicio.cs" />
+    <Compile Include="Administracion\IUnidadDeTrabajoAdministracion.cs" />
+    <Compile Include="Administracion\Productos\ISistemasServicio.cs" />
+    <Compile Include="Administracion\Productos\IProductosServicio.cs" />
+    <Compile Include="Administracion\Productos\IMarcasTiposProductosServicio.cs" />
+    <Compile Include="Administracion\Productos\ITiposProductosServicio.cs" />
+    <Compile Include="Administracion\Productos\ILineasProductosServicio.cs" />
+    <Compile Include="Administracion\Productos\IUnidadDeTrabajoProductos.cs" />
+    <Compile Include="Administracion\Referencias\IReferenciasServicio.cs" />
+    <Compile Include="Administracion\Referencias\IUnidadDeTrabajoReferencias.cs" />
+    <Compile Include="IServicio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Feroza.VirtualPartes.Dominio.Entidades\Feroza.VirtualPartes.Dominio.Entidades.csproj">
+      <Project>{0ffd62fe-487e-404a-9ce9-ed8777269d4d}</Project>
+      <Name>Feroza.VirtualPartes.Dominio.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Feroza.VirtualPartes.Dominio.RepositorioContratos\Feroza.VirtualPartes.Dominio.RepositorioContratos.csproj">
+      <Project>{671717a4-635d-42c7-a1f5-a5b35bbe7318}</Project>
+      <Name>Feroza.VirtualPartes.Dominio.RepositorioContratos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

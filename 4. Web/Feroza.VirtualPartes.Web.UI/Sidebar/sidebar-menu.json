@@ -1,0 +1,83 @@
+[
+  {
+    "text": "Menu Heading",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Busqueda",
+    "sref": "app.singleview",
+    "icon": "fa fa-file-o",
+    "translate": "sidebar.nav.menu.BUSQUEDA"
+  },
+  {
+    "text": "Administracion",
+    "sref": "#",
+    "icon": "icon-settings",
+    "submenu": [
+
+      {
+        "iconUrl": "Content/img/sidebar/pais.png",
+        "sref": "app.administracionPaises",
+        "text": "",
+        "translate": "sidebar.nav.menu.administracion.PAIS"
+      },
+      {
+        "iconUrl": "Content/img/sidebar/fabricantes.png",
+        "sref": "app.administracionFabricantes",
+        "text": "",
+        "translate": "sidebar.nav.menu.administracion.FABRICANTES"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionMarcas",
+        "translate": "sidebar.nav.menu.administracion.MARCAS",
+        "iconUrl": "Content/img/sidebar/marcas.png"
+      },
+      {
+        "sref": "#",
+        "icon": "icon-arrow-right",
+        "submenu": [
+          {
+            "iconUrl": "Content/img/sidebar/vehiculos.png",
+            "text": "",
+            "sref": "app.administracionLineasProductos",
+            "translate": "sidebar.nav.menu.administracion.productos.LINEASPRODUCTOS"
+          },
+          {
+            "iconUrl": "Content/img/sidebar/vehiculos.png",
+            "text": "",
+            "sref": "app.administracionTiposProductos",
+            "translate": "sidebar.nav.menu.administracion.productos.TIPOSPRODUCTOS"
+          },
+          {
+            "iconUrl": "Content/img/sidebar/sistemas.png",
+            "text": "",
+            "sref": "app.administracionSistemas",
+            "translate": "sidebar.nav.menu.administracion.productos.SISTEMAS"
+          },
+            {
+            "iconUrl": "Content/img/sidebar/vehiculos.png",
+            "text": "",
+            "sref": "app.administracionMarcasTiposProductos",
+            "translate": "sidebar.nav.menu.administracion.productos.MARCASTIPOSPRODUCTOS"
+          },
+            {
+            "iconUrl": "Content/img/sidebar/vehiculos.png",
+            "text": "",
+            "sref": "app.administracionProductos",
+            "translate": "sidebar.nav.menu.administracion.productos.PRODUCTOS"
+          }
+        ],
+        "translate": "sidebar.nav.menu.administracion.productos.PRODUCTOS"
+      },
+      {
+        "text": "",
+        "sref": "app.administracionReferencias",
+        "translate": "sidebar.nav.menu.administracion.REFERENCIAS",
+        "iconUrl": "Content/img/sidebar/referencias.png"
+      }
+    ],
+    "translate": "sidebar.nav.menu.administracion.ADMINISTRACION"
+  }
+]

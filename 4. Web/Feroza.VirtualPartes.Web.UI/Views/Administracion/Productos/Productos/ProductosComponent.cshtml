@@ -1,0 +1,84 @@
+﻿@{
+    Layout = null;
+}
+<form name="productosComponentForm">
+
+    <div class="card">
+        <div class="card-heading bg-primary">
+            <div class="pull-right">
+                <em class="icon-layers fa-2x"></em>
+            </div>
+            <div class="card-title">Guardar</div>
+        </div>
+
+        <div class="card-body">
+            <div layout="row" layout-md="column" layout-align="space-between center">
+                <div flex-gt-md="70">
+                    <div layout-gt-md="row">
+                        <md-input-container class="md-block" flex-gt-md>
+                            <label>Producto</label>
+                            <input md-maxlength="100" name="productosNombre" ng-model="vm.productos.Nombre" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="productosComponentForm.productosNombre.$error" role="alert">
+                                <div ng-message="pattern">Por favor solo use números o letras</div>
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block" flex-gt-md>
+                            <label>Marcas Tipos Productos</label>
+                            <input md-maxlength="100" name="IdMarcasTiposProductos" ng-model="vm.productos.IdMarcasTiposProductos" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="referenciasComponentForm.IdMarcasTiposProductos.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-md="row">
+                        <md-input-container class="md-block" flex-gt-md>
+                            <label>Version</label>
+                            <input md-maxlength="50" name="Version" ng-model="vm.productos.Version" capitalize tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="productosComponentForm.Version.$error" role="alert">
+                                <div ng-message="pattern">Por favor solo use números o letras</div>
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+
+
+                        <md-input-container class="md-block" flex-gt-md>
+                            <label>Año</label>
+                            <input md-maxlength="4" name="Anio" ng-model="vm.productos.Anio" capitalize required tabindex="0" ng-pattern="/^[\w -]*$/" />
+                            <div multiple ng-messages="productosComponentForm.Anio.$error" role="alert">
+                                <div ng-message="pattern">Por favor solo use números o letras</div>
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout-gt-md="row">
+
+                        <md-input-container class="md-block" flex-gt-md>
+                            <label>Comentario</label>
+
+                            <textarea ng-model="vm.productos.Descripcion" name="descripcion" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                            <div multiple ng-messages="productosComponentForm.descripcion.$error" role="alert">
+                                <div ng-messages-include="~/app/custom/tecnipart/partials/messages.html"></div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div flex-gt-sm="30">
+                    <md-card class="_md">
+                        <img class="md-card-image" ng-src="{{vm.productos.ImagenBase64}}">
+                        <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
+                            <input type="file" file-select name="files[]" />
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button aria-label="Cancelar" ng-click="vm.cancel()"> Cancelar </md-button>
+            <md-button aria-label="Guardar" ng-click="vm.save()" ng-disabled="productosComponentForm.$invalid || productosComponentForm.$pristine"> Guardar </md-button>
+        </md-card-actions>
+    </div>
+</form>
