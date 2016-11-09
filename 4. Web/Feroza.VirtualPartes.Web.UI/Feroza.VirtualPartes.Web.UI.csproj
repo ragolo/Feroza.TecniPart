@@ -155,11 +155,13 @@
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ragolo.Core">
-      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\Ragolo.Core.dll</HintPath>
+    <Reference Include="Ragolo.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ragolo.Core.1.0.0-rc2\lib\Ragolo.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Ragolo.Core.IoC">
-      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core.IoC\bin\Release\Ragolo.Core.IoC.dll</HintPath>
+    <Reference Include="Ragolo.Core.IoC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ragolo.Core.IoC.1.0.0-rc1\lib\Ragolo.Core.IoC.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -1209,6 +1211,10 @@
       <Project>{1AB91710-8192-4E73-BA3F-60F7E4413254}</Project>
       <Name>Feroza.VirtualPartes.Servicios.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
+      <Project>{0C03027C-979D-4DE0-A632-887DF0815028}</Project>
+      <Name>Feroza.VirtualPartes.Infraestructura.BaseData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.Data\Feroza.VirtualPartes.Infraestructura.Data.csproj">
       <Project>{0A4D2752-5163-49E0-A93D-189E17AED94F}</Project>
       <Name>Feroza.VirtualPartes.Infraestructura.Data</Name>
@@ -1220,10 +1226,6 @@
     <ProjectReference Include="..\..\3. Infraestructura\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo.csproj">
       <Project>{44178C4A-AACE-422A-A87D-C27FA48F0255}</Project>
       <Name>Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
-      <Project>{0c03027c-979d-4de0-a632-887df0815028}</Project>
-      <Name>Feroza.VirtualPartes.Infraestructura.BaseData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

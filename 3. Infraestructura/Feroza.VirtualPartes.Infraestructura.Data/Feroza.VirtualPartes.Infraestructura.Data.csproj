@@ -47,9 +47,6 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ragolo.Core">
-      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core\bin\Release\Ragolo.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,12 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriosEf\Extensions\GeneralExtensions.cs" />
     <Compile Include="RepositoriosEf\RepositorioGenerico.cs" />
-    <Compile Include="TEM\LineasProductos.cs" />
-    <Compile Include="TEM\Marcas.cs" />
-    <Compile Include="TEM\MarcasTiposProductos.cs" />
-    <Compile Include="TEM\Model1.cs" />
-    <Compile Include="TEM\Productos.cs" />
-    <Compile Include="TEM\TiposProductos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -92,10 +83,6 @@
     <ProjectReference Include="..\..\1. Dominio\Feroza.VirtualPartes.Dominio.RepositorioContratos\Feroza.VirtualPartes.Dominio.RepositorioContratos.csproj">
       <Project>{671717A4-635D-42C7-A1F5-A5B35BBE7318}</Project>
       <Name>Feroza.VirtualPartes.Dominio.RepositorioContratos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
-      <Project>{0C03027C-979D-4DE0-A632-887DF0815028}</Project>
-      <Name>Feroza.VirtualPartes.Infraestructura.BaseData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

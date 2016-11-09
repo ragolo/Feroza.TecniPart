@@ -1,4 +1,13 @@
-﻿namespace Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo.EntityFramework
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="UnidadDeTrabajoAdministracion.cs" company="">
+//   
+// </copyright>
+// <summary>
+//   The unidad de trabajo administracion.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo.EntityFramework
 {
     using System;
     using System.Data.Entity;

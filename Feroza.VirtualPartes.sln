@@ -31,11 +31,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Web.UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Web.LandingPage", "4. Web\Feroza.VirtualPartes.Web.LandingPage\Feroza.VirtualPartes.Web.LandingPage.csproj", "{A061D2E0-B6E6-4CEA-AE93-750A98381399}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Infraestructura.BaseData", "Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj", "{0C03027C-979D-4DE0-A632-887DF0815028}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo", "3. Infraestructura\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo\Feroza.VirtualPartes.Infraestructura.UnidadesDeTrabajo.csproj", "{44178C4A-AACE-422A-A87D-C27FA48F0255}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Dominio.RepositorioContratos", "1. Dominio\Feroza.VirtualPartes.Dominio.RepositorioContratos\Feroza.VirtualPartes.Dominio.RepositorioContratos.csproj", "{671717A4-635D-42C7-A1F5-A5B35BBE7318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Infraestructura.BaseData", "3. Infraestructura\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj", "{0C03027C-979D-4DE0-A632-887DF0815028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feroza.VirtualPartes.Dominio.ReglasDeNegocio", "1. Dominio\Feroza.VirtualPartes.Dominio.ReglasDeNegocio\Feroza.VirtualPartes.Dominio.ReglasDeNegocio.csproj", "{B9F37D30-FCD0-4F29-B8D7-FA6907128944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,10 +77,6 @@ Global
 		{A061D2E0-B6E6-4CEA-AE93-750A98381399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A061D2E0-B6E6-4CEA-AE93-750A98381399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A061D2E0-B6E6-4CEA-AE93-750A98381399}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C03027C-979D-4DE0-A632-887DF0815028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C03027C-979D-4DE0-A632-887DF0815028}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C03027C-979D-4DE0-A632-887DF0815028}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C03027C-979D-4DE0-A632-887DF0815028}.Release|Any CPU.Build.0 = Release|Any CPU
 		{44178C4A-AACE-422A-A87D-C27FA48F0255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44178C4A-AACE-422A-A87D-C27FA48F0255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44178C4A-AACE-422A-A87D-C27FA48F0255}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,6 +85,14 @@ Global
 		{671717A4-635D-42C7-A1F5-A5B35BBE7318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{671717A4-635D-42C7-A1F5-A5B35BBE7318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{671717A4-635D-42C7-A1F5-A5B35BBE7318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C03027C-979D-4DE0-A632-887DF0815028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C03027C-979D-4DE0-A632-887DF0815028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C03027C-979D-4DE0-A632-887DF0815028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C03027C-979D-4DE0-A632-887DF0815028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F37D30-FCD0-4F29-B8D7-FA6907128944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F37D30-FCD0-4F29-B8D7-FA6907128944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F37D30-FCD0-4F29-B8D7-FA6907128944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F37D30-FCD0-4F29-B8D7-FA6907128944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,8 +108,9 @@ Global
 		{0B5917F1-5600-4E67-A0BC-F32798ADE76E} = {4D35A76D-A93E-41E1-B4E6-106955E19490}
 		{844A04B3-73FC-406D-A56F-4AC63D16AE6D} = {2C41EDB1-FA38-431E-8F7C-4DF3A862C56B}
 		{A061D2E0-B6E6-4CEA-AE93-750A98381399} = {2C41EDB1-FA38-431E-8F7C-4DF3A862C56B}
-		{0C03027C-979D-4DE0-A632-887DF0815028} = {A916AE03-4542-4B0E-8358-A8D11D23E446}
 		{44178C4A-AACE-422A-A87D-C27FA48F0255} = {A916AE03-4542-4B0E-8358-A8D11D23E446}
 		{671717A4-635D-42C7-A1F5-A5B35BBE7318} = {5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A}
+		{0C03027C-979D-4DE0-A632-887DF0815028} = {A916AE03-4542-4B0E-8358-A8D11D23E446}
+		{B9F37D30-FCD0-4F29-B8D7-FA6907128944} = {5BCBC2D0-0570-4C1A-A620-5C1FD50CB22A}
 	EndGlobalSection
 EndGlobal

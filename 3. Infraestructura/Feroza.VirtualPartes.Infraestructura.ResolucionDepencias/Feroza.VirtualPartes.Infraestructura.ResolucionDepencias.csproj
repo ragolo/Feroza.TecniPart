@@ -86,7 +86,7 @@
       <Project>{1ab91710-8192-4e73-ba3f-60f7e4413254}</Project>
       <Name>Feroza.VirtualPartes.Servicios.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
+    <ProjectReference Include="..\Feroza.VirtualPartes.Infraestructura.BaseData\Feroza.VirtualPartes.Infraestructura.BaseData.csproj">
       <Project>{0C03027C-979D-4DE0-A632-887DF0815028}</Project>
       <Name>Feroza.VirtualPartes.Infraestructura.BaseData</Name>
     </ProjectReference>

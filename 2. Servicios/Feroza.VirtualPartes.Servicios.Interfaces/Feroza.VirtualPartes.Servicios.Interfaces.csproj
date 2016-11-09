@@ -42,8 +42,9 @@
       <HintPath>..\..\packages\FluentValidation.6.2.1.0\lib\Net45\FluentValidation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ragolo.Core.IoC">
-      <HintPath>..\..\..\..\MyNuget\Ragolo\Ragolo.Core.IoC\bin\Release\Ragolo.Core.IoC.dll</HintPath>
+    <Reference Include="Ragolo.Core.IoC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ragolo.Core.IoC.1.0.0-rc1\lib\Ragolo.Core.IoC.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
